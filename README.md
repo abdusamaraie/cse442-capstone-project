@@ -1,29 +1,16 @@
-# README #
+Name Not Yet Created: 
 
-This README would normally document whatever steps are necessary to get your application up and running.
+The following project will utilize swift to create an iOS app that allows users to drop messages at their current GPS location. 
 
-### What is this repository for? ###
+Specifically: If a user goes to a restaurant, they an drop a message in the restaurant saying what they ordered and what they liked about it.
+If another user with the app walks within proximity of where the message was dropped, they get the added insight from the other user that dropped the message. 
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
 
-### How do I get set up? ###
+We are hosting Atlassian Confluence & Jira on 2 separate GCP compute engines. TA's can sign in and view our project with the username and password: 
+http://35.231.1.144:8080
+email: ta@buffalo.edu
+Full name: ta
+username: ta
+password: password
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+NOTE TO TA: Upon signing in, you will be able to select JIRA at the top left hamburger menu
