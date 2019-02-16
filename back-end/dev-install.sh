@@ -14,3 +14,5 @@ sudo yum install -y python36u-devel
 
 python3.6 -m venv venv
 . venv/bin/activate
+sudo yum install -y sqlite3
+
