@@ -1,4 +1,3 @@
-import sqlite3 as sql
 from objects.user import User
 
 def add_user(user):
