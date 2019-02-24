@@ -17,6 +17,10 @@
 		EB414CEF2214F29A007C3FE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB414CED2214F29A007C3FE4 /* LaunchScreen.storyboard */; };
 		EB414CFA2214F29A007C3FE4 /* MapChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB414CF92214F29A007C3FE4 /* MapChatTests.swift */; };
 		EB414D052214F29A007C3FE4 /* MapChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB414D042214F29A007C3FE4 /* MapChatUITests.swift */; };
+		EBAA2FED222322B8003A7FD5 /* SPageOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAA2FEC222322B8003A7FD5 /* SPageOne.swift */; };
+		EBAA2FEF222322C3003A7FD5 /* SPageTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAA2FEE222322C3003A7FD5 /* SPageTwo.swift */; };
+		EBAA2FF1222322CD003A7FD5 /* SPageThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAA2FF0222322CD003A7FD5 /* SPageThree.swift */; };
+		EBAA2FF32223236E003A7FD5 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAA2FF22223236E003A7FD5 /* PageViewController.swift */; };
 		ECB1CE56496921CD49C35A6B /* Pods_MapChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 503386CE2733449CC61C1E2A /* Pods_MapChatUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +65,10 @@
 		EB414D002214F29A007C3FE4 /* MapChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB414D042214F29A007C3FE4 /* MapChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapChatUITests.swift; sourceTree = "<group>"; };
 		EB414D062214F29A007C3FE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBAA2FEC222322B8003A7FD5 /* SPageOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPageOne.swift; sourceTree = "<group>"; };
+		EBAA2FEE222322C3003A7FD5 /* SPageTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPageTwo.swift; sourceTree = "<group>"; };
+		EBAA2FF0222322CD003A7FD5 /* SPageThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPageThree.swift; sourceTree = "<group>"; };
+		EBAA2FF22223236E003A7FD5 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,9 +147,9 @@
 		EB414CE02214F298007C3FE4 /* MapChat */ = {
 			isa = PBXGroup;
 			children = (
+				EBAA2FE722232135003A7FD5 /* Storyboards */,
 				EB414CE12214F298007C3FE4 /* AppDelegate.swift */,
 				EB414CE32214F298007C3FE4 /* ViewController.swift */,
-				EB414CE52214F298007C3FE4 /* Main.storyboard */,
 				EB414CEB2214F29A007C3FE4 /* Assets.xcassets */,
 				EB414CED2214F29A007C3FE4 /* LaunchScreen.storyboard */,
 				EB414CF02214F29A007C3FE4 /* Info.plist */,
@@ -166,6 +174,34 @@
 				EB414D062214F29A007C3FE4 /* Info.plist */,
 			);
 			path = MapChatUITests;
+			sourceTree = "<group>";
+		};
+		EBAA2FE722232135003A7FD5 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				EBAA2FE822232142003A7FD5 /* Splash */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		EBAA2FE822232142003A7FD5 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				EBAA2FEB2223229C003A7FD5 /* Views */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		EBAA2FEB2223229C003A7FD5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EB414CE52214F298007C3FE4 /* Main.storyboard */,
+				EBAA2FEC222322B8003A7FD5 /* SPageOne.swift */,
+				EBAA2FEE222322C3003A7FD5 /* SPageTwo.swift */,
+				EBAA2FF0222322CD003A7FD5 /* SPageThree.swift */,
+				EBAA2FF22223236E003A7FD5 /* PageViewController.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,8 +396,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB414CE42214F298007C3FE4 /* ViewController.swift in Sources */,
+				EBAA2FF32223236E003A7FD5 /* PageViewController.swift in Sources */,
 				EB414CE22214F298007C3FE4 /* AppDelegate.swift in Sources */,
 				EB414CEA2214F298007C3FE4 /* MapChat.xcdatamodeld in Sources */,
+				EBAA2FF1222322CD003A7FD5 /* SPageThree.swift in Sources */,
+				EBAA2FEF222322C3003A7FD5 /* SPageTwo.swift in Sources */,
+				EBAA2FED222322B8003A7FD5 /* SPageOne.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
