@@ -10,6 +10,7 @@
 		056A378A2223301A005A49CB /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 056A37892223301A005A49CB /* Auth.storyboard */; };
 		056A378C2223308C005A49CB /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056A378B2223308C005A49CB /* SignInView.swift */; };
 		056A378E222330A7005A49CB /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056A378D222330A7005A49CB /* SignUpView.swift */; };
+		056A379422233FC1005A49CB /* Auth2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 056A379322233FC1005A49CB /* Auth2.storyboard */; };
 		40D5A00C4EDA5CB66FAE5139 /* Pods_MapChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEEF9F98D541554EEAD87DA7 /* Pods_MapChatTests.framework */; };
 		43100785EC0B2D92AC929817 /* Pods_MapChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F40FC9B6A3AF41E2EA0585 /* Pods_MapChat.framework */; };
 		EB414CE22214F298007C3FE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB414CE12214F298007C3FE4 /* AppDelegate.swift */; };
@@ -48,6 +49,7 @@
 		056A37892223301A005A49CB /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		056A378B2223308C005A49CB /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		056A378D222330A7005A49CB /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		056A379322233FC1005A49CB /* Auth2.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth2.storyboard; sourceTree = "<group>"; };
 		1DE61570E901C6844CC5F675 /* Pods-MapChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapChatTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapChatTests/Pods-MapChatTests.release.xcconfig"; sourceTree = "<group>"; };
 		4527A64964C100488AE037C9 /* Pods-MapChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapChat/Pods-MapChat.release.xcconfig"; sourceTree = "<group>"; };
 		503386CE2733449CC61C1E2A /* Pods_MapChatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapChatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +113,7 @@
 				056A37892223301A005A49CB /* Auth.storyboard */,
 				056A378B2223308C005A49CB /* SignInView.swift */,
 				056A378D222330A7005A49CB /* SignUpView.swift */,
+				056A379322233FC1005A49CB /* Auth2.storyboard */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				056A379422233FC1005A49CB /* Auth2.storyboard in Resources */,
 				056A378A2223301A005A49CB /* Auth.storyboard in Resources */,
 				EB414CEF2214F29A007C3FE4 /* LaunchScreen.storyboard in Resources */,
 				EB414CEC2214F29A007C3FE4 /* Assets.xcassets in Resources */,

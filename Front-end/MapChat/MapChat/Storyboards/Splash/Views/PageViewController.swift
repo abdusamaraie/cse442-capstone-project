@@ -70,7 +70,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
     @objc func sign_in() {
         //self.performSegue(withIdentifier: "to_sign_in", sender: self)
         print("sign in")
-        self.performSegue(withIdentifier: "to_auth", sender: self)
+        self.performSegue(withIdentifier: "to_auth2", sender: self)
     }
     
     @objc func sign_up() {

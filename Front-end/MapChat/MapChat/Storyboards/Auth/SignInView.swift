@@ -7,3 +7,11 @@
 //
 
 import Foundation
+import UIKit
+
+class SignInView: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        print("HERE")
+    }
+}
