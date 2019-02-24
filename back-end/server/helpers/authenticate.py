@@ -1,9 +1,30 @@
+import hashlib
+import base64
+import uuid
+import sqlite3 as sql
+
 def generate_hash(password):
-    return ''
+    salt = base64.urlsafe_b64encode(uuid.uuid4().bytes)
+
+    t_sha = hashlib.sha512()
+    t_sha.update(password + salt)
+    hashed_password = base64.urlsafe_b64encode(t_sha.digest())
+    return hashed_password
 
 
 def verify_user(username, password_hash):
 
-    # select * from users where user.username='' and user.password=''
+    con = sql.connect("database/database.db")
+    cur = con.cursor()
 
-    return ''
+    try:
+        login = cur.execute('SELECT * from Users WHERE email = ? AND password = ?', (username, password_hash))
+        if (len(login.fetchall()) > 0):
+            return True
+        else:
+            return False
+    except Exception as e:
+        return str(e)
+    finally:
+        cur.close()
+        con.close()
