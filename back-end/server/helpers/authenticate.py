@@ -14,11 +14,11 @@ def generate_hash(password):
 
 def verify_user(username, password_hash):
 
-    con = sql.connect("database/database.db")
+    con = sql.connect("database/users.db")
     cur = con.cursor()
 
     try:
-        login = cur.execute('SELECT * from Users WHERE email = ? AND password = ?', (username, password_hash))
+        login = cur.execute('SELECT * from Users WHERE email = ? AND hashed_password = ?', (username, password_hash))
         if (len(login.fetchall()) > 0):
             return True
         else:
