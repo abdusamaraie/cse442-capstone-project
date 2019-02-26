@@ -43,7 +43,7 @@ def authenticate():
         return sqlite.add_user(user)
 
 
-@app.route('message', methods=['GET', 'POST'])
+@app.route('/message', methods=['GET', 'POST'])
 def message():
 
     # THESE FIELDS ARE REQUIRED BY DEFAULT
@@ -55,12 +55,12 @@ def message():
 
         return ''
 
-    # USED TO POST MESSAGE
+    # USED TO POST MESSAGES
     else:
+        msg = request.json['message']
+        time = request.json['time']
 
-        message = request.json['message']
-
-        return sqlite.post_message(username, location, message)
+        return sqlite.post_message(username, location, msg, time)
 
 
 
