@@ -52,8 +52,9 @@ def message():
 
     # USED FOR RETRIEVING MESSAGES
     if request.method == 'GET':
+        distance = request.json['distance']
 
-        return ''
+        return sqlite.get_messages(location, distance)
 
     # USED TO POST MESSAGE
     else:
