@@ -13,8 +13,19 @@ def add_user(user):
 
     # return None if error
 
-def post_message(user, location, message):
+def post_message(user, location, message, time):
+    # connect to DB
+    con = get_db()
+    cur = con.cursor()
 
-    print('Add message to message table')
+    try:
+        cur.execute("INSERT INTO Post (Content, Time, Location) VALUES (?,?)", (message, time, location))
+        con.commit()
+        return True
+    except Exception as e:
+        return None  # return None if error
+    finally:
+        cur.close()
+        con.close()
 
-    # return None if error
+    # print('Add message to message table')
