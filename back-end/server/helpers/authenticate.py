@@ -4,11 +4,17 @@ import uuid
 import sqlite3 as sql
 
 def generate_hash(password):
+    tf_out = open('database/user_hash_passwords.txt','wb')
+
     salt = base64.urlsafe_b64encode(uuid.uuid4().bytes)
 
     t_sha = hashlib.sha512()
-    t_sha.update(password + salt)
+    t_sha.update(password.encode('utf-8') + salt)
+
     hashed_password = base64.urlsafe_b64encode(t_sha.digest())
+    tf_out.write(hashed_password)
+    tf_out.close()
+
     return hashed_password
 
 
