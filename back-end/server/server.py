@@ -43,7 +43,7 @@ def authenticate():
         return sqlite.add_user(user)
 
 
-@app.route('message', methods=['GET', 'POST'])
+@app.route('/message', methods=['GET', 'POST'])
 def message():
 
     # THESE FIELDS ARE REQUIRED BY DEFAULT
