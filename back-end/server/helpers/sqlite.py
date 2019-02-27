@@ -32,14 +32,23 @@ def get_messages(location, distance):
     S_lat = bounds.lat_S
     E_long = bounds.long_E
     W_long = bounds.long_W
+    print("N {}, S {}, E {}, W {}".format(N_lat, S_lat, E_long, W_long))
 
     try:
+        # query = cur.execute("SELECT * FROM Post")
+        qs = "SELECT * FROM Post WHERE latitude < {} AND latitude > {} AND longitude < {} AND longitude > {}".format(N_lat, S_lat, E_long, W_long)
+        print(qs)
         query = cur.execute("SELECT * FROM Post WHERE latitude < {} AND latitude > {} AND longitude < {} AND longitude > {}".format(N_lat, S_lat, E_long, W_long))  # square radius
         # return messages in json
         results = query.fetchall()
-        results_json = json.dumps([dict(ix) for ix in results])
-        return results_json
+        if results is not None:
+            results_json = json.dumps([dict(ix) for ix in results])
+            return results_json
+        else:
+            print("returning empty")
+            return {}
     except Exception as e:
+        print(e)
         return None  # return None on error
     finally:
         cur.close()
