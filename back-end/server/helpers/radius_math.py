@@ -5,8 +5,8 @@ import math
 
 
 def get_user_radius_bounds(location, distance):
-    lat = location['longitude']
-    long = location['latitude']
+    lat = location['latitude']
+    long = location['longitude']
 
     # the distance between longitude lines changes as they approach the poles, this is accounted for
     latitude_decimal = distance/DEGREE_CONVERSION
