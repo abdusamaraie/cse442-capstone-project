@@ -24,6 +24,8 @@
 		EBFAC67022261B05004B5074 /* MainView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBFAC66F22261B05004B5074 /* MainView.storyboard */; };
 		EBFAC67622261C08004B5074 /* FeedViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFAC67522261C08004B5074 /* FeedViewCell.swift */; };
 		EBFAC67822261F89004B5074 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFAC67722261F89004B5074 /* FeedView.swift */; };
+		EBFAC67B2226244E004B5074 /* WebServicesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFAC67A2226244E004B5074 /* WebServicesManager.swift */; };
+		EBFAC67D2226278A004B5074 /* LocationServicesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFAC67C2226278A004B5074 /* LocationServicesManager.swift */; };
 		ECB1CE56496921CD49C35A6B /* Pods_MapChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 503386CE2733449CC61C1E2A /* Pods_MapChatUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +77,8 @@
 		EBFAC66F22261B05004B5074 /* MainView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainView.storyboard; sourceTree = "<group>"; };
 		EBFAC67522261C08004B5074 /* FeedViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewCell.swift; sourceTree = "<group>"; };
 		EBFAC67722261F89004B5074 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
+		EBFAC67A2226244E004B5074 /* WebServicesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServicesManager.swift; sourceTree = "<group>"; };
+		EBFAC67C2226278A004B5074 /* LocationServicesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationServicesManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +218,7 @@
 		EBFAC66D22261AE1004B5074 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				EBFAC6792226243A004B5074 /* Helpers */,
 				EBFAC66E22261AF2004B5074 /* Views */,
 			);
 			path = Main;
@@ -229,6 +234,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		EBFAC6792226243A004B5074 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				EBFAC67A2226244E004B5074 /* WebServicesManager.swift */,
+				EBFAC67C2226278A004B5074 /* LocationServicesManager.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -240,6 +254,7 @@
 				EB414CDA2214F298007C3FE4 /* Sources */,
 				EB414CDB2214F298007C3FE4 /* Frameworks */,
 				EB414CDC2214F298007C3FE4 /* Resources */,
+				25773C6D4FE5AB315622CB16 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -360,6 +375,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		25773C6D4FE5AB315622CB16 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MapChat/Pods-MapChat-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MapChat/Pods-MapChat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		56F18BC12C39FD55D0577321 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -423,7 +456,9 @@
 			files = (
 				EBFAC67622261C08004B5074 /* FeedViewCell.swift in Sources */,
 				EBFAC67822261F89004B5074 /* FeedView.swift in Sources */,
+				EBFAC67B2226244E004B5074 /* WebServicesManager.swift in Sources */,
 				EB414CE42214F298007C3FE4 /* ViewController.swift in Sources */,
+				EBFAC67D2226278A004B5074 /* LocationServicesManager.swift in Sources */,
 				EBAA2FF32223236E003A7FD5 /* PageViewController.swift in Sources */,
 				EB414CE22214F298007C3FE4 /* AppDelegate.swift in Sources */,
 				EB414CEA2214F298007C3FE4 /* MapChat.xcdatamodeld in Sources */,
