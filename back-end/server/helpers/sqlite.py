@@ -23,14 +23,15 @@ def post_message(user, location, message):
 
 def get_messages(location, distance):
     con = get_db()
+    con.row_factory = sqlite3.Row
     cur = con.cursor()
 
     try:
         query = cur.execute("SELECT * FROM Post")  # currently grabbing all messages
         # return messages in json
-        rv = query.fetchall()
-        ret_json = json.dumps(rv)
-        return ret_json
+        results = query.fetchall()
+        results_json = json.dumps([dict(ix) for ix in results])
+        return results_json
     except Exception as e:
         return None  # return None on error
     finally:
