@@ -1,5 +1,5 @@
 class UserRadius:
-    def __init__(self, user_lat, user_long, long_dec, lat_dec):
+    def __init__(self, user_lat, user_long, lat_dec, long_dec):
 
         # the four points around the user we will check within for messages
         self.lat_N = user_lat + lat_dec
