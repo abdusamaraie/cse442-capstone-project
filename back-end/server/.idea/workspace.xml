@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16a27478-ce6a-4c1f-8db0-1d2b1c30c401" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tests/get_post_test.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/constants/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/constants/constants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helpers/radius_math.py" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/radius_math.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/get_post_test.db" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/helpers/sqlite.py" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/sqlite.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/testRadiusMath.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/testRadiusMath.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/testSqliteGetMessages.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/testSqliteGetMessages.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,8 +13,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/server$Unittests_in_testSqliteGetMessages_py.coverage" NAME="Unittests in testSqliteGetMessages.py Coverage Results" MODIFIED="1551299733342" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
-    <SUITE FILE_PATH="coverage/server$Unittests_for_testSqliteGetMessages_TestGetMessages_test_get_messages.coverage" NAME="Unittests for testSqliteGetMessages.TestGetMessages.test_get_messages Coverage Results" MODIFIED="1551302312179" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/server$Unittests_in_testSqliteGetMessages_py.coverage" NAME="Unittests in testSqliteGetMessages.py Coverage Results" MODIFIED="1551305705600" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/server$Unittests_for_testSqliteGetMessages_TestGetMessages_test_get_messages.coverage" NAME="Unittests for testSqliteGetMessages.TestGetMessages.test_get_messages Coverage Results" MODIFIED="1551305969330" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/server$server.coverage" NAME="server Coverage Results" MODIFIED="1551296317444" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/server$Unittests_for_testRadiusMath_TestRadiusMath_test_radius_math.coverage" NAME="Unittests for testRadiusMath.TestRadiusMath.test_radius_math Coverage Results" MODIFIED="1551305021191" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
   </component>
@@ -38,11 +34,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="918">
-              <caret line="64" selection-start-line="64" selection-end-line="64" />
+            <state relative-caret-position="-485">
+              <caret column="13" lean-forward="true" selection-start-column="13" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -50,8 +46,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/constants/constants.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+            <state relative-caret-position="34">
+              <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -59,8 +55,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/helpers/sqlite.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="40" column="37" lean-forward="true" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="37" />
+            <state relative-caret-position="711">
+              <caret line="47" column="12" lean-forward="true" selection-start-line="47" selection-start-column="12" selection-end-line="47" selection-end-column="12" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -69,31 +65,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/tests.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="26" lean-forward="true" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/testSqliteGetMessages.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="54" lean-forward="true" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/tests/testRadiusMath.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="41" lean-forward="true" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
+            <state relative-caret-position="340">
+              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -123,16 +98,17 @@
         <option value="$PROJECT_DIR$/tests/testGettingMessages.py" />
         <option value="$PROJECT_DIR$/tests/tests.py" />
         <option value="$PROJECT_DIR$/helpers/radius_math.py" />
-        <option value="$PROJECT_DIR$/constants/constants.py" />
-        <option value="$PROJECT_DIR$/tests/testSqliteGetMessages.py" />
-        <option value="$PROJECT_DIR$/helpers/sqlite.py" />
         <option value="$PROJECT_DIR$/tests/testRadiusMath.py" />
+        <option value="$PROJECT_DIR$/constants/constants.py" />
+        <option value="$PROJECT_DIR$/helpers/sqlite.py" />
+        <option value="$PROJECT_DIR$/tests/testSqliteGetMessages.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-7" />
-    <option name="width" value="1091" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="278" />
+    <option name="y" value="6" />
+    <option name="width" value="943" />
     <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -157,11 +133,6 @@
               <item name="server" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="constants" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="server" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="database" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="server" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -221,7 +192,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests for testRadiusMath.TestRadiusMath.test_radius_math">
+  <component name="RunManager" selected="Python tests.Unittests for testSqliteGetMessages.TestGetMessages.test_get_messages">
     <configuration name="server" type="Python.FlaskServer" factoryName="Flask server">
       <module name="server" />
       <option name="target" value="$PROJECT_DIR$/server.py" />
@@ -284,9 +255,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Unittests for testRadiusMath.TestRadiusMath.test_radius_math" />
         <item itemvalue="Python tests.Unittests for testSqliteGetMessages.TestGetMessages.test_get_messages" />
         <item itemvalue="Python tests.Unittests in testSqliteGetMessages.py" />
+        <item itemvalue="Python tests.Unittests for testRadiusMath.TestRadiusMath.test_radius_math" />
       </list>
     </recent_temporary>
   </component>
@@ -302,44 +273,44 @@
       <updated>1551039740266</updated>
       <workItem from="1551039745297" duration="6720000" />
       <workItem from="1551197974807" duration="8373000" />
-      <workItem from="1551229504485" duration="22805000" />
+      <workItem from="1551229504485" duration="24606000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_for_testSqliteGetMessages_TestGetMessages_test_get_messages - 2019.02.27 at 15h 54m 20s.xml">
-      <configuration name="Unittests for testSqliteGetMessages.TestGetMessages.test_get_messages" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_testSqliteGetMessages_TestGetMessages_test_get_messages - 2019.02.27 at 15h 57m 11s.xml">
-      <configuration name="Unittests for testSqliteGetMessages.TestGetMessages.test_get_messages" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_testSqliteGetMessages_TestGetMessages_test_get_messages - 2019.02.27 at 16h 09m 46s.xml">
-      <configuration name="Unittests for testSqliteGetMessages.TestGetMessages.test_get_messages" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_testSqliteGetMessages_TestGetMessages_test_get_messages - 2019.02.27 at 16h 11m 00s.xml">
-      <configuration name="Unittests for testSqliteGetMessages.TestGetMessages.test_get_messages" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_testSqliteGetMessages_TestGetMessages_test_get_messages - 2019.02.27 at 16h 13m 22s.xml">
-      <configuration name="Unittests for testSqliteGetMessages.TestGetMessages.test_get_messages" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_testSqliteGetMessages_TestGetMessages_test_get_messages - 2019.02.27 at 16h 13m 33s.xml">
-      <configuration name="Unittests for testSqliteGetMessages.TestGetMessages.test_get_messages" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_testSqliteGetMessages_TestGetMessages_test_get_messages - 2019.02.27 at 16h 16m 04s.xml">
-      <configuration name="Unittests for testSqliteGetMessages.TestGetMessages.test_get_messages" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_testSqliteGetMessages_TestGetMessages_test_get_messages - 2019.02.27 at 16h 18m 32s.xml">
-      <configuration name="Unittests for testSqliteGetMessages.TestGetMessages.test_get_messages" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittests_for_testRadiusMath_TestRadiusMath_test_radius_math - 2019.02.27 at 17h 01m 37s.xml">
       <configuration name="Unittests for testRadiusMath.TestRadiusMath.test_radius_math" configurationId="tests" />
     </history-entry>
     <history-entry file="Unittests_for_testRadiusMath_TestRadiusMath_test_radius_math - 2019.02.27 at 17h 01m 53s.xml">
       <configuration name="Unittests for testRadiusMath.TestRadiusMath.test_radius_math" configurationId="tests" />
     </history-entry>
+    <history-entry file="Unittests_for_testRadiusMath_TestRadiusMath_test_radius_math - 2019.02.27 at 17h 03m 41s.xml">
+      <configuration name="Unittests for testRadiusMath.TestRadiusMath.test_radius_math" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_testSqliteGetMessages_TestGetMessages_test_get_messages - 2019.02.27 at 17h 08m 42s.xml">
+      <configuration name="Unittests for testSqliteGetMessages.TestGetMessages.test_get_messages" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_testSqliteGetMessages_TestGetMessages_test_get_messages - 2019.02.27 at 17h 12m 17s.xml">
+      <configuration name="Unittests for testSqliteGetMessages.TestGetMessages.test_get_messages" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_testSqliteGetMessages_py - 2019.02.27 at 17h 15m 05s.xml">
+      <configuration name="Unittests in testSqliteGetMessages.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_testSqliteGetMessages_TestGetMessages_test_get_messages - 2019.02.27 at 17h 15m 16s.xml">
+      <configuration name="Unittests for testSqliteGetMessages.TestGetMessages.test_get_messages" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_testSqliteGetMessages_TestGetMessages_test_get_messages - 2019.02.27 at 17h 15m 53s.xml">
+      <configuration name="Unittests for testSqliteGetMessages.TestGetMessages.test_get_messages" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_testSqliteGetMessages_TestGetMessages_test_get_messages - 2019.02.27 at 17h 17m 04s.xml">
+      <configuration name="Unittests for testSqliteGetMessages.TestGetMessages.test_get_messages" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_testSqliteGetMessages_TestGetMessages_test_get_messages - 2019.02.27 at 17h 19m 29s.xml">
+      <configuration name="Unittests for testSqliteGetMessages.TestGetMessages.test_get_messages" configurationId="tests" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37898000" />
+    <option name="totallyTimeSpent" value="39699000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -351,15 +322,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1091" height="1047" extended-state="0" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22405432" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12313433" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32932165" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.42122537" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32827735" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.4171181" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -368,7 +338,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32936078" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.35536295" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.35536295" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32936078" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -478,16 +448,6 @@
     <entry file="file://$PROJECT_DIR$/.idea/sqldialects.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/helpers/radius_math.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="57" selection-start-line="11" selection-start-column="57" selection-end-line="11" selection-end-column="57" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/objects/user_bounds.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -495,17 +455,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/constants/constants.py">
+    <entry file="file://$PROJECT_DIR$/helpers/radius_math.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="221">
+          <caret line="13" column="51" selection-start-line="13" selection-start-column="51" selection-end-line="13" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server.py">
+    <entry file="file://$PROJECT_DIR$/tests/testRadiusMath.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="64" selection-start-line="64" selection-end-line="64" />
+        <state relative-caret-position="323">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -516,33 +482,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tests/testSqliteGetMessages.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/constants/constants.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/helpers/sqlite.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="40" column="37" lean-forward="true" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="37" />
+        <state relative-caret-position="711">
+          <caret line="47" column="12" lean-forward="true" selection-start-line="47" selection-start-column="12" selection-end-line="47" selection-end-column="12" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/testSqliteGetMessages.py">
+    <entry file="file://$PROJECT_DIR$/server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="54" lean-forward="true" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/testRadiusMath.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="41" lean-forward="true" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-485">
+          <caret column="13" lean-forward="true" selection-start-column="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>
