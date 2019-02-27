@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="U3U-fj-E6b">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Y2o-Lu-c2U">
+            <objects>
+                <tabBarController id="U3U-fj-E6b" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gyz-7t-IHj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="jWe-tb-kLv" kind="relationship" relationship="viewControllers" id="BKV-d7-x4T"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wnf-Kv-4bI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="610" y="233"/>
+        </scene>
+        <!--Feed-->
+        <scene sceneID="kSe-dk-at1">
+            <objects>
+                <navigationController id="jWe-tb-kLv" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Feed" id="rux-4j-kRu"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OCG-Tk-5ZO">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Cng-Yb-si6" kind="relationship" relationship="rootViewController" id="Rq7-0Y-Vib"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xh3-hn-iDQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1284" y="233"/>
+        </scene>
+        <!--Feed View-->
+        <scene sceneID="NoO-ua-M6o">
+            <objects>
+                <viewController id="Cng-Yb-si6" customClass="FeedView" customModule="MapChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WAK-vt-Kxn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4RZ-f9-IeT">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedCell" rowHeight="69" id="yM2-AF-S9m">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="69"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yM2-AF-S9m" id="cML-85-v89" customClass="FeedViewCell" customModule="MapChat" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="68.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4RZ-f9-IeT" firstAttribute="leading" secondItem="ePZ-PG-WeR" secondAttribute="leading" id="2Vg-eO-IQo"/>
+                            <constraint firstItem="4RZ-f9-IeT" firstAttribute="top" secondItem="ePZ-PG-WeR" secondAttribute="top" id="DHS-Ba-pJt"/>
+                            <constraint firstItem="ePZ-PG-WeR" firstAttribute="bottom" secondItem="4RZ-f9-IeT" secondAttribute="bottom" id="lvN-q1-Ama"/>
+                            <constraint firstItem="ePZ-PG-WeR" firstAttribute="trailing" secondItem="4RZ-f9-IeT" secondAttribute="trailing" id="z16-UB-n2r"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ePZ-PG-WeR"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="cX0-gO-SDy"/>
+                    <connections>
+                        <outlet property="feedView" destination="4RZ-f9-IeT" id="cDT-nE-Yhp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aWM-JE-GCG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1976.8" y="232.53373313343329"/>
+        </scene>
+    </scenes>
+</document>
