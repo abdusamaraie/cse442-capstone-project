@@ -1,5 +1,6 @@
 from objects.user import User
 from constants.constants import DATABASE_PATH
+from helpers.radius_math import get_user_radius_bounds
 import sqlite3
 import json
 
@@ -26,8 +27,14 @@ def get_messages(location, distance):
     con.row_factory = sqlite3.Row
     cur = con.cursor()
 
+    bounds = get_user_radius_bounds(location, distance)
+    N_lat = bounds.lat_N
+    S_lat = bounds.lat_S
+    E_long = bounds.long_E
+    W_long = bounds.long_W
+
     try:
-        query = cur.execute("SELECT * FROM Post")  # currently grabbing all messages
+        query = cur.execute("SELECT * FROM Post WHERE latitude < {} AND latitude > {} AND longitude < {} AND longitude > {}".format(N_lat, S_lat, E_long, W_long))  # square radius
         # return messages in json
         results = query.fetchall()
         results_json = json.dumps([dict(ix) for ix in results])
