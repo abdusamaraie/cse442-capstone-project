@@ -17,33 +17,55 @@ class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         super.viewDidLoad()
         
         self.navigationController?.title = "Feed"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(updateRefresh), for: .valueChanged)
         feedView.refreshControl = refreshControl
     }
     
-    @objc func updateRefresh(refreshControl: UIRefreshControl) {
+    override func viewDidAppear(_ animated: Bool) {
         
         loadFeed()
+    }
+    
+    @objc func updateRefresh(refreshControl: UIRefreshControl) {
+        
+        // load feed, calling API, refreshing table view and spinning loader
+        loadFeed()
         refreshControl.endRefreshing()
+        
+        // todo: add functionality with flask instance
+        WebServicesManager.testAlamofire()
     }
     
     func loadFeed() {
         print("loading feed")
         
+        // start loading spinner
         let sv = UIViewController.displaySpinner(onView: self.view)
+        
+        // refresh table view
+        self.feedView.reloadData()
+        
+        // remove spinner
         UIViewController.removeSpinner(spinner: sv)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+        // todo: get number of messages based on API call
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath) as! FeedViewCell
+        
+        // these fields would be returned from the WebServicesManager class
+        cell.time.text = "_"
+        cell.title.text = "_"
+        cell.location.text = "_"
 
         cell.clipsToBounds = true
 
