@@ -56,12 +56,12 @@ def message():
 
         return sqlite.get_messages(location, distance)
 
-    # USED TO POST MESSAGE
+    # USED TO POST MESSAGES
     else:
+        msg = request.json['message']
+        time = request.json['time']
 
-        message = request.json['message']
-
-        return sqlite.post_message(username, location, message)
+        return sqlite.post_message(username, location, msg, time)
 
 
 
