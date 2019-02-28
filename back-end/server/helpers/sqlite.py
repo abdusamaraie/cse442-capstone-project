@@ -27,6 +27,7 @@ def get_messages(location, distance):
     con.row_factory = sqlite3.Row
     cur = con.cursor()
 
+    # get bounds for message query
     bounds = get_user_radius_bounds(location, distance)
     n_lat = bounds.lat_N
     s_lat = bounds.lat_S
@@ -35,8 +36,8 @@ def get_messages(location, distance):
     # print("N {}, S {}, E {}, W {}".format(n_lat, s_lat, e_long, w_long))
 
     try:
-        sql_query = "SELECT * FROM Post WHERE (latitude BETWEEN {} AND {}) AND (longitude BETWEEN {} AND {})".format(s_lat, n_lat, w_long, e_long)
-        query = cur.execute(sql_query)  # square radius
+        # execute query
+        query = cur.execute("SELECT * FROM Post WHERE (latitude BETWEEN {} AND {}) AND (longitude BETWEEN {} AND {})".format(s_lat, n_lat, w_long, e_long))  # square radius
         results = query.fetchall()
 
         # return messages in json
@@ -48,5 +49,3 @@ def get_messages(location, distance):
     finally:
         cur.close()
         con.close()
-
-    # print('Get messages within users defined distance')
