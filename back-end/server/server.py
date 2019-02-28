@@ -43,7 +43,7 @@ def authenticate():
         return sqlite.add_user(user)
 
 
-@app.route('message', methods=['GET', 'POST'])
+@app.route('/message', methods=['GET', 'POST'])
 def message():
 
     # THESE FIELDS ARE REQUIRED BY DEFAULT
@@ -52,8 +52,9 @@ def message():
 
     # USED FOR RETRIEVING MESSAGES
     if request.method == 'GET':
+        distance = request.json['distance']
 
-        return ''
+        return sqlite.get_messages(location, distance)
 
     # USED TO POST MESSAGE
     else:
