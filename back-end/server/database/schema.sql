@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS Users;
 Create table IF NOT EXISTS Users (
     user_id integer primary key autoincrement,
-    name text,
-    email text not null,
+    fullname text,
+    username text not null unique,
     hashed_password text not null
 );
