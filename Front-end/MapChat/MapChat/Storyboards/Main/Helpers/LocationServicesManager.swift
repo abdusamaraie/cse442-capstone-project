@@ -11,7 +11,7 @@ import CoreLocation
 
 class LocationServicesManager {
     
-    static func getCurrentLocation() {
+    static func getCurrentLocation() -> (Double, Double) {
         
         let locManager = CLLocationManager()
         locManager.requestWhenInUseAuthorization()
@@ -26,6 +26,8 @@ class LocationServicesManager {
         
         print("\(currentLocation.coordinate.longitude)")
         print("\(currentLocation.coordinate.latitude)")
+        
+        return (currentLocation.coordinate.latitude, currentLocation.coordinate.longitude)
     }
     
 }

@@ -42,6 +42,13 @@ class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func loadFeed() {
         print("loading feed")
         
+        // todo: send request to load feed from AppState manager
+        
+        let latLong: (Double, Double) = LocationServicesManager.getCurrentLocation()
+        var _: [[String : Any]] = AppState.getMessageFeed(latLong: latLong)
+        
+        // feed is list of json objects [{...}, {...}, {...}]
+        
         // start loading spinner
         let sv = UIViewController.displaySpinner(onView: self.view)
         
