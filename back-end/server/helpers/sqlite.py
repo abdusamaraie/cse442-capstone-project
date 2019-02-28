@@ -37,8 +37,10 @@ def get_user(username):
 
     # do database query
     try:
-        curs = cur.execute("SELECT * from Users WHERE username = ? ", (username,))
+        #curs = cur.execute("SELECT * from Users WHERE username = ? ", (username,))
+        curs = cur.execute("SELECT * from Users WHERE username = \"{}\"".format(username))
         user_info = curs.fetchall()
+        print(user_info)
         if (len(user_info) > 0):
             user.setUser(user_info[0][1],user_info[0][2],user_info[0][3])
             #return user object
@@ -47,7 +49,7 @@ def get_user(username):
             return False
 
     except Exception as e:
-        return False  # return None if error
+        return None  # return None if error
     finally:
         cur.close()
         con.close() #close connection

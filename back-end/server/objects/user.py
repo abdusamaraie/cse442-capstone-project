@@ -7,12 +7,13 @@ class User:
 
         self.username = username
         self.password_hash = password_hash
-        self.fullname = ''
-        self.email = ''
+        self.firstname = ''
+        self.lastname = ''
 
-    def setUser(self,fullname, email, username,password=None):
-        self.fullname = fullname
-        self.email = email
+
+    def setUser(self,firstname, lastname, username,password=None):
+        self.firstname = firstname
+        self.lastname = lastname
         self.username = username
         self.password_hash = authenticate.generate_hash(password)
 
