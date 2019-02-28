@@ -11,8 +11,13 @@ class TestSqliteMethods(unittest.TestCase):
         #create a User object
         user = User(tempUserName,tempPassword)
 
-        #code here
+        #if user does exist the raise error
         self.assertTrue(sqlite.add_user(user))
+    def test_get_user(self):
+
+        tempUserName = "admin"
+
+        self.assertTrue(sqlite.get_user(tempUserName))
 
 
 if __name__ == '__main__':
