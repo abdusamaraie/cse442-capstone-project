@@ -17,6 +17,18 @@
 		EB414CEF2214F29A007C3FE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB414CED2214F29A007C3FE4 /* LaunchScreen.storyboard */; };
 		EB414CFA2214F29A007C3FE4 /* MapChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB414CF92214F29A007C3FE4 /* MapChatTests.swift */; };
 		EB414D052214F29A007C3FE4 /* MapChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB414D042214F29A007C3FE4 /* MapChatUITests.swift */; };
+		EBAA2FED222322B8003A7FD5 /* SPageOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAA2FEC222322B8003A7FD5 /* SPageOne.swift */; };
+		EBAA2FEF222322C3003A7FD5 /* SPageTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAA2FEE222322C3003A7FD5 /* SPageTwo.swift */; };
+		EBAA2FF1222322CD003A7FD5 /* SPageThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAA2FF0222322CD003A7FD5 /* SPageThree.swift */; };
+		EBAA2FF32223236E003A7FD5 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAA2FF22223236E003A7FD5 /* PageViewController.swift */; };
+		EBFAC67022261B05004B5074 /* MainView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBFAC66F22261B05004B5074 /* MainView.storyboard */; };
+		EBFAC67622261C08004B5074 /* FeedViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFAC67522261C08004B5074 /* FeedViewCell.swift */; };
+		EBFAC67822261F89004B5074 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFAC67722261F89004B5074 /* FeedView.swift */; };
+		EBFAC67B2226244E004B5074 /* WebServicesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFAC67A2226244E004B5074 /* WebServicesManager.swift */; };
+		EBFAC67D2226278A004B5074 /* LocationServicesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFAC67C2226278A004B5074 /* LocationServicesManager.swift */; };
+		EBFAC67F22272862004B5074 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFAC67E22272862004B5074 /* ProfileView.swift */; };
+		EBFAC68122272906004B5074 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFAC68022272906004B5074 /* AppState.swift */; };
+		EBFAC68322275DA0004B5074 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFAC68222275DA0004B5074 /* PopUpView.swift */; };
 		ECB1CE56496921CD49C35A6B /* Pods_MapChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 503386CE2733449CC61C1E2A /* Pods_MapChatUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +73,18 @@
 		EB414D002214F29A007C3FE4 /* MapChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB414D042214F29A007C3FE4 /* MapChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapChatUITests.swift; sourceTree = "<group>"; };
 		EB414D062214F29A007C3FE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBAA2FEC222322B8003A7FD5 /* SPageOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPageOne.swift; sourceTree = "<group>"; };
+		EBAA2FEE222322C3003A7FD5 /* SPageTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPageTwo.swift; sourceTree = "<group>"; };
+		EBAA2FF0222322CD003A7FD5 /* SPageThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPageThree.swift; sourceTree = "<group>"; };
+		EBAA2FF22223236E003A7FD5 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		EBFAC66F22261B05004B5074 /* MainView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainView.storyboard; sourceTree = "<group>"; };
+		EBFAC67522261C08004B5074 /* FeedViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewCell.swift; sourceTree = "<group>"; };
+		EBFAC67722261F89004B5074 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
+		EBFAC67A2226244E004B5074 /* WebServicesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServicesManager.swift; sourceTree = "<group>"; };
+		EBFAC67C2226278A004B5074 /* LocationServicesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationServicesManager.swift; sourceTree = "<group>"; };
+		EBFAC67E22272862004B5074 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		EBFAC68022272906004B5074 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		EBFAC68222275DA0004B5074 /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,9 +163,9 @@
 		EB414CE02214F298007C3FE4 /* MapChat */ = {
 			isa = PBXGroup;
 			children = (
+				EBAA2FE722232135003A7FD5 /* Storyboards */,
 				EB414CE12214F298007C3FE4 /* AppDelegate.swift */,
 				EB414CE32214F298007C3FE4 /* ViewController.swift */,
-				EB414CE52214F298007C3FE4 /* Main.storyboard */,
 				EB414CEB2214F29A007C3FE4 /* Assets.xcassets */,
 				EB414CED2214F29A007C3FE4 /* LaunchScreen.storyboard */,
 				EB414CF02214F29A007C3FE4 /* Info.plist */,
@@ -168,6 +192,66 @@
 			path = MapChatUITests;
 			sourceTree = "<group>";
 		};
+		EBAA2FE722232135003A7FD5 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				EBFAC66D22261AE1004B5074 /* Main */,
+				EBAA2FE822232142003A7FD5 /* Splash */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		EBAA2FE822232142003A7FD5 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				EBAA2FEB2223229C003A7FD5 /* Views */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		EBAA2FEB2223229C003A7FD5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EB414CE52214F298007C3FE4 /* Main.storyboard */,
+				EBAA2FEC222322B8003A7FD5 /* SPageOne.swift */,
+				EBAA2FEE222322C3003A7FD5 /* SPageTwo.swift */,
+				EBAA2FF0222322CD003A7FD5 /* SPageThree.swift */,
+				EBAA2FF22223236E003A7FD5 /* PageViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EBFAC66D22261AE1004B5074 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				EBFAC6792226243A004B5074 /* Helpers */,
+				EBFAC66E22261AF2004B5074 /* Views */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		EBFAC66E22261AF2004B5074 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EBFAC66F22261B05004B5074 /* MainView.storyboard */,
+				EBFAC67522261C08004B5074 /* FeedViewCell.swift */,
+				EBFAC67722261F89004B5074 /* FeedView.swift */,
+				EBFAC67E22272862004B5074 /* ProfileView.swift */,
+				EBFAC68222275DA0004B5074 /* PopUpView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EBFAC6792226243A004B5074 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				EBFAC67A2226244E004B5074 /* WebServicesManager.swift */,
+				EBFAC67C2226278A004B5074 /* LocationServicesManager.swift */,
+				EBFAC68022272906004B5074 /* AppState.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -179,6 +263,7 @@
 				EB414CDA2214F298007C3FE4 /* Sources */,
 				EB414CDB2214F298007C3FE4 /* Frameworks */,
 				EB414CDC2214F298007C3FE4 /* Resources */,
+				25773C6D4FE5AB315622CB16 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -277,6 +362,7 @@
 			files = (
 				EB414CEF2214F29A007C3FE4 /* LaunchScreen.storyboard in Resources */,
 				EB414CEC2214F29A007C3FE4 /* Assets.xcassets in Resources */,
+				EBFAC67022261B05004B5074 /* MainView.storyboard in Resources */,
 				EB414CE72214F298007C3FE4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,6 +384,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		25773C6D4FE5AB315622CB16 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MapChat/Pods-MapChat-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MapChat/Pods-MapChat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		56F18BC12C39FD55D0577321 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -359,9 +463,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBFAC68122272906004B5074 /* AppState.swift in Sources */,
+				EBFAC67622261C08004B5074 /* FeedViewCell.swift in Sources */,
+				EBFAC67822261F89004B5074 /* FeedView.swift in Sources */,
+				EBFAC67B2226244E004B5074 /* WebServicesManager.swift in Sources */,
 				EB414CE42214F298007C3FE4 /* ViewController.swift in Sources */,
+				EBFAC67F22272862004B5074 /* ProfileView.swift in Sources */,
+				EBFAC67D2226278A004B5074 /* LocationServicesManager.swift in Sources */,
+				EBFAC68322275DA0004B5074 /* PopUpView.swift in Sources */,
+				EBAA2FF32223236E003A7FD5 /* PageViewController.swift in Sources */,
 				EB414CE22214F298007C3FE4 /* AppDelegate.swift in Sources */,
 				EB414CEA2214F298007C3FE4 /* MapChat.xcdatamodeld in Sources */,
+				EBAA2FF1222322CD003A7FD5 /* SPageThree.swift in Sources */,
+				EBAA2FEF222322C3003A7FD5 /* SPageTwo.swift in Sources */,
+				EBAA2FED222322B8003A7FD5 /* SPageOne.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
