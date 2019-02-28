@@ -1,2 +1,4 @@
 test = 'test'
-DATABASE_PATH = 'post_test.db'
+DATABASE_PATH = 'get_post_test.db'
+DEGREE_CONVERSION = 111111
+
