@@ -26,6 +26,9 @@
 		EBFAC67822261F89004B5074 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFAC67722261F89004B5074 /* FeedView.swift */; };
 		EBFAC67B2226244E004B5074 /* WebServicesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFAC67A2226244E004B5074 /* WebServicesManager.swift */; };
 		EBFAC67D2226278A004B5074 /* LocationServicesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFAC67C2226278A004B5074 /* LocationServicesManager.swift */; };
+		EBFAC67F22272862004B5074 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFAC67E22272862004B5074 /* ProfileView.swift */; };
+		EBFAC68122272906004B5074 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFAC68022272906004B5074 /* AppState.swift */; };
+		EBFAC68322275DA0004B5074 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFAC68222275DA0004B5074 /* PopUpView.swift */; };
 		ECB1CE56496921CD49C35A6B /* Pods_MapChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 503386CE2733449CC61C1E2A /* Pods_MapChatUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +82,9 @@
 		EBFAC67722261F89004B5074 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		EBFAC67A2226244E004B5074 /* WebServicesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServicesManager.swift; sourceTree = "<group>"; };
 		EBFAC67C2226278A004B5074 /* LocationServicesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationServicesManager.swift; sourceTree = "<group>"; };
+		EBFAC67E22272862004B5074 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		EBFAC68022272906004B5074 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		EBFAC68222275DA0004B5074 /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +236,8 @@
 				EBFAC66F22261B05004B5074 /* MainView.storyboard */,
 				EBFAC67522261C08004B5074 /* FeedViewCell.swift */,
 				EBFAC67722261F89004B5074 /* FeedView.swift */,
+				EBFAC67E22272862004B5074 /* ProfileView.swift */,
+				EBFAC68222275DA0004B5074 /* PopUpView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -239,6 +247,7 @@
 			children = (
 				EBFAC67A2226244E004B5074 /* WebServicesManager.swift */,
 				EBFAC67C2226278A004B5074 /* LocationServicesManager.swift */,
+				EBFAC68022272906004B5074 /* AppState.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -454,11 +463,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBFAC68122272906004B5074 /* AppState.swift in Sources */,
 				EBFAC67622261C08004B5074 /* FeedViewCell.swift in Sources */,
 				EBFAC67822261F89004B5074 /* FeedView.swift in Sources */,
 				EBFAC67B2226244E004B5074 /* WebServicesManager.swift in Sources */,
 				EB414CE42214F298007C3FE4 /* ViewController.swift in Sources */,
+				EBFAC67F22272862004B5074 /* ProfileView.swift in Sources */,
 				EBFAC67D2226278A004B5074 /* LocationServicesManager.swift in Sources */,
+				EBFAC68322275DA0004B5074 /* PopUpView.swift in Sources */,
 				EBAA2FF32223236E003A7FD5 /* PageViewController.swift in Sources */,
 				EB414CE22214F298007C3FE4 /* AppDelegate.swift in Sources */,
 				EB414CEA2214F298007C3FE4 /* MapChat.xcdatamodeld in Sources */,
