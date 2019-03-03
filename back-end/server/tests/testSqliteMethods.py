@@ -15,7 +15,7 @@ class TestSqliteMethods(unittest.TestCase):
         self.assertTrue(sqlite.add_user(user))
     def test_get_user(self):
 
-        tempUserName = "admin"
+        tempUserName = "abd"
 
         self.assertTrue(sqlite.get_user(tempUserName))
 
