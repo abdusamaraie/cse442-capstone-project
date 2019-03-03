@@ -1,10 +1,10 @@
 DROP TABLE IF EXISTS Users;
-Create table IF NOT EXISTS Users (
-    user_id integer primary key autoincrement,
-    fname text,
-    lname text,
-    username text not null unique,
-    hashed_password text not null
+CREATE TABLE IF NOT EXISTS Users (
+    user_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fname TEXT,
+    lname TEXT,
+    username TEXT NOT NULL UNIQUE,
+    hashed_password TEXT NOT NULL
 );
 
 DROP TABLE IF EXISTS post;

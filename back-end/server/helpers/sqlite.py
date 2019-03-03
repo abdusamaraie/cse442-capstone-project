@@ -37,7 +37,6 @@ def get_user(username):
 
     # do database query
     try:
-        #curs = cur.execute("SELECT * from Users WHERE username = ? ", (username,))
         curs = cur.execute("SELECT * from Users WHERE username = \"{}\"".format(username))
         user_info = curs.fetchall()
         print(user_info)
@@ -69,7 +68,6 @@ def post_message(username, location, message, time):
         # add post to post table
         cur.execute("INSERT INTO post (uname, content, time, latitude, longitude) VALUES ('{}', '{}', '{}', {}, {})".format(username, message, time, lat, long))
         con.commit()
-        print('committed')
         return True
     except Exception as e:
         print(e)
@@ -87,8 +85,7 @@ def get_messages(location, distance):
     s_lat = bounds.lat_S
     e_long = bounds.long_E
     w_long = bounds.long_W
-    # print("N {}, S {}, E {}, W {}".format(n_lat, s_lat, e_long, w_long))
-
+    
     try:
         # execute query
         query = cur.execute("SELECT * FROM Post WHERE (latitude BETWEEN {} AND {}) AND (longitude BETWEEN {} AND {})".format(s_lat, n_lat, w_long, e_long))  # square radius
