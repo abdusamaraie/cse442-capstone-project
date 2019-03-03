@@ -100,3 +100,13 @@ def get_messages(location, distance):
     finally:
         cur.close()
         con.close()
+
+
+def rate_message(post_id, rating):
+    # connect to database
+    con = get_db()
+    cur = con.cursor()
+
+    try:
+        # increment post's like or dislike field
+        query = cur.execute("UPDATE Posts SET '{}' = '{}' + 1 WHERE postId = {}")
