@@ -102,19 +102,10 @@ def get_messages(location, distance):
         con.close()
 
 
-def rate_message(post_id, rating):
+def rate_message(post_id, table):
     # connect to database
     con = get_db()
     cur = con.cursor()
-
-    # decide to increment likes or dislikes
-    if rating == "like":
-        table = "likes"
-    elif rating == "dislike":
-        table = "dislikes"
-    else:
-        # shouldn't ever happen
-        return None
 
     try:
         # increment post's like or dislike field
