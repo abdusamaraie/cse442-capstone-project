@@ -18,7 +18,7 @@ def add_user(user):
     cur = con.cursor()
     #do database query
     try:
-        cur.execute("INSERT INTO Users (username,hashed_password) VALUES (?,?)", (user.username, user.password_hash))
+        cur.execute("INSERT INTO Users (username,hashed_password) VALUES ('{}','{}')".format(user.username, user.password_hash))
         con.commit()
         return True
 
@@ -37,7 +37,7 @@ def get_user(username):
 
     # do database query
     try:
-        curs = cur.execute("SELECT * from Users WHERE username = \"{}\"".format(username))
+        curs = cur.execute("SELECT * from Users WHERE username = '{}'".format(username))
         user_info = curs.fetchall()
         print(user_info)
         if (len(user_info) > 0):
@@ -66,7 +66,7 @@ def post_message(username, location, message, time):
 
     try:
         # add post to post table
-        cur.execute("INSERT INTO post (uname, content, time, latitude, longitude) VALUES ('{}', '{}', '{}', {}, {})".format(username, message, time, lat, long))
+        cur.execute("INSERT INTO Posts(uname, content, time, latitude, longitude) VALUES ('{}', '{}', '{}', {}, {})".format(username, message, time, lat, long))
         con.commit()
         return True
     except Exception as e:
@@ -88,7 +88,7 @@ def get_messages(location, distance):
     
     try:
         # execute query
-        query = cur.execute("SELECT * FROM Post WHERE (latitude BETWEEN {} AND {}) AND (longitude BETWEEN {} AND {})".format(s_lat, n_lat, w_long, e_long))  # square radius
+        query = cur.execute("SELECT * FROM Posts WHERE (latitude BETWEEN {} AND {}) AND (longitude BETWEEN {} AND {})".format(s_lat, n_lat, w_long, e_long))  # square radius
         results = query.fetchall()
 
         # return messages in json

@@ -7,8 +7,8 @@ CREATE TABLE IF NOT EXISTS Users (
     hashed_password TEXT NOT NULL
 );
 
-DROP TABLE IF EXISTS post;
-CREATE TABLE post (
+DROP TABLE IF EXISTS Posts;
+CREATE TABLE Posts (
     postId    INTEGER      PRIMARY KEY AUTOINCREMENT,
     latitude  DOUBLE,
     longitude DOUBLE,
@@ -16,5 +16,5 @@ CREATE TABLE post (
     time      DATETIME,
     likes     INTEGER      DEFAULT (0),
     dislikes  INTEGER      DEFAULT (0),
-    uname     VARCHAR (30) REFERENCES user (username) ON DELETE CASCADE
+    uname     VARCHAR (30) REFERENCES Users (username) ON DELETE CASCADE
 );
