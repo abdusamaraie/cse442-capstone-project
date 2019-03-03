@@ -64,20 +64,22 @@ def message():
         return sqlite.post_message(username, location, msg, time)
 
 
-@app.route('/like', methods=['POST'], table="likes")
+@app.route('/rate', methods=['POST'])
 def message():
+    # GET RATING
+    rating = request.json['rating']
+
+    # PARSE RATING (true is a like, false is a dislike)
+    if rating:
+        table = "likes"
+    else:
+        table = "dislikes"
+
     # GET POST ID
     post_id = request.json['postid']
 
-    return sqlite.rate_message(post_id, request.table)
+    return sqlite.rate_message(post_id, table)
 
-
-@app.route('/dislike', methods=['POST'], table="dislikes")
-def message():
-    # GET POST ID
-    post_id = request.json['postid']
-
-    return sqlite.rate_message(post_id, request.table)
 
 
 def start_server():
