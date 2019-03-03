@@ -1,7 +1,6 @@
 from objects.user_bounds import UserBounds
 from constants.constants import DEGREE_CONVERSION
 import math
-import json
 # converts the user's defined radius from meters to decimal degrees
 
 

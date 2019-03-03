@@ -4,8 +4,9 @@ import uuid
 import sqlite3 as sql
 from constants.constants import HASH_PASSWORD_PATH,DATABASE_PATH
 
+
 def generate_hash(password):
-    tf_out = open(HASH_PASSWORD_PATH,'wb')
+    tf_out = open(HASH_PASSWORD_PATH, 'wb')
 
     salt = base64.urlsafe_b64encode(uuid.uuid4().bytes)
 
@@ -25,8 +26,8 @@ def verify_user(username, password_hash):
     cur = con.cursor()
 
     try:
-        login = cur.execute('SELECT * from Users WHERE username = ? AND hashed_password = ?', (username, password_hash))
-        if (len(login.fetchall()) > 0):
+        login = cur.execute("SELECT * from Users WHERE username = '{}' AND hashed_password = '{}'".format(username, password_hash))
+        if len(login.fetchall()) > 0:
             return True
         else:
             return False
