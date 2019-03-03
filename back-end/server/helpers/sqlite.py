@@ -107,6 +107,23 @@ def rate_message(post_id, rating):
     con = get_db()
     cur = con.cursor()
 
+    # decide to increment likes or dislikes
+    if rating == "like":
+        table = "likes"
+    elif rating == "dislike":
+        table = "dislikes"
+    else:
+        # shouldn't ever happen
+        return None
+
     try:
         # increment post's like or dislike field
-        query = cur.execute("UPDATE Posts SET '{}' = '{}' + 1 WHERE postId = {}")
+        cur.execute("UPDATE Posts SET '{}' = '{}' + 1 WHERE postId = {}".format(table, table, post_id))
+        con.commit()
+        return True
+    except Exception as e:
+        print(e)
+        return None
+    finally:
+        cur.close()
+        con.close()

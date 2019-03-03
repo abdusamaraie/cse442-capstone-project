@@ -63,13 +63,14 @@ def message():
 
         return sqlite.post_message(username, location, msg, time)
 
+
 @app.route('/like', methods=['POST'])
 def message():
 
     # GET POST ID
     post_id = request.json['postid']
 
-    return sqlite.rate_message(post_id, 'likes')
+    return sqlite.rate_message(post_id, "like")
 
 
 def start_server():
