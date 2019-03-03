@@ -110,7 +110,7 @@ def rate_message(post_id, table):
 
     try:
         # increment post's likes or dislikes field
-        cur.execute("UPDATE Posts SET '{}' = '{}' + 1 WHERE postId = {}".format(table, table, post_id))
+        cur.execute("UPDATE Posts SET {} = {} + 1 WHERE postId = {}".format(table, table, post_id))
         con.commit()
         return True
     except Exception as e:
