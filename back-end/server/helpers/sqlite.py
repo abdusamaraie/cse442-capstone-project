@@ -18,11 +18,12 @@ def add_user(user):
     cur = con.cursor()
     #do database query
     try:
-        cur.execute("INSERT INTO Users (username,hashed_password) VALUES ('{}','{}')".format(user.username, user.password_hash))
+        cur.execute("INSERT INTO Users (username,hashed_password) VALUES (?, ?)", (user.username, user.password_hash))
         con.commit()
         return True
 
     except Exception as e:
+        print(e)
         return None  # return None if error
     finally:
         cur.close()
@@ -108,7 +109,7 @@ def rate_message(post_id, table):
     cur = con.cursor()
 
     try:
-        # increment post's like or dislike field
+        # increment post's likes or dislikes field
         cur.execute("UPDATE Posts SET '{}' = '{}' + 1 WHERE postId = {}".format(table, table, post_id))
         con.commit()
         return True
