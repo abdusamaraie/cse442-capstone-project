@@ -1,7 +1,7 @@
 import unittest
 from helpers import sqlite
 from objects.user import User
-
+import json
 
 class TestSqliteMethods(unittest.TestCase):
     def test_add_user(self):
@@ -22,12 +22,17 @@ class TestSqliteMethods(unittest.TestCase):
         self.assertEqual(tempUser.username,user.username)
 
     def test_add_photo(self):
-        url = 'database/upload/image.jpg'
+        url = "database/uploads/image.jpg"
         username = "admin"
         self.assertTrue(sqlite.add_photo(username,url))
 
-    #def test_get_photo(self):
-     #   self.assertTrue()
+    def test_get_photo(self):
+        username = "admin"
+        tempfilepath = "database/uploads/image.jpg"
+        jsonObj = sqlite.get_photo(username)
+        filepath = json.loads(jsonObj)
+
+        self.assertEqual(filepath['filename'],tempfilepath)
 
 if __name__ == '__main__':
         unittest.main()
