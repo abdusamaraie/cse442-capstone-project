@@ -37,23 +37,27 @@ def get_user(username):
 
     # do database query
     try:
-        curs = cur.execute("SELECT * from Users WHERE username = \"{}\"".format(username))
+        curs = cur.execute("SELECT * from Users WHERE username = '{}' ".format(username))
         user_info = curs.fetchall()
-        print(user_info)
         if (len(user_info) > 0):
-            user.setUser(user_info[0][1],user_info[0][2],user_info[0][3])
+            user.setUser(user_info[0][1],user_info[0][2],user_info[0][3],user_info[0][4],user_info[0][5])
             #return user object
             return user
         else:
             return False
 
     except Exception as e:
+        print(e)
         return None  # return None if error
     finally:
         cur.close()
         con.close() #close connection
 
 
+def get_photo(username):
+    return None
+def add_photo(photoURL):
+    return None
 
 def post_message(username, location, message, time):
     # connect to DB

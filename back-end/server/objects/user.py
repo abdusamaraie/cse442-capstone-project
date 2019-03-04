@@ -9,11 +9,12 @@ class User:
         self.password_hash = password_hash
         self.firstname = ''
         self.lastname = ''
+        self.photo = ''
 
-
-    def setUser(self,firstname, lastname, username,password=None):
+    def setUser(self,firstname, lastname,photourl, username,password=None):
         self.firstname = firstname
         self.lastname = lastname
+        self.photo = photourl
         self.username = username
         self.password_hash = authenticate.generate_hash(password)
 

@@ -16,11 +16,16 @@ class TestSqliteMethods(unittest.TestCase):
     def test_get_user(self):
 
         tempUserName = "admin"
-        tempUser = User(tempUserName)
         user = sqlite.get_user(tempUserName)
+        tempUser = User(tempUserName)
 
-        self.assertTrue(tempUser.username,user.username)
+        self.assertEqual(tempUser.username,user.username)
 
+    def test_add_photo(self):
+        self.assertTrue()
+        
+    def test_get_photo(self):
+        self.assertTrue()
 
 if __name__ == '__main__':
         unittest.main()
