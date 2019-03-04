@@ -56,8 +56,23 @@ def get_user(username):
 
 def get_photo(username):
     return None
-def add_photo(photoURL):
-    return None
+def add_photo(username,photoURL):
+    # setup database connection
+    con = get_db()
+    cur = con.cursor()
+    user = User(username)
+
+    # do database query
+    try:
+        curs = cur.execute("UPDATE Users SET photo_url = '{}' WHERE username = '{}' ".format(photoURL,username))
+        con.commit()
+        return True
+    except Exception as e:
+        print(e)
+        return None  # return None if error
+    finally:
+        cur.close()
+        con.close()  # close connection
 
 def post_message(username, location, message, time):
     # connect to DB

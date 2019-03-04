@@ -22,10 +22,12 @@ class TestSqliteMethods(unittest.TestCase):
         self.assertEqual(tempUser.username,user.username)
 
     def test_add_photo(self):
-        self.assertTrue()
-        
-    def test_get_photo(self):
-        self.assertTrue()
+        url = 'database/upload/image.jpg'
+        username = "admin"
+        self.assertTrue(sqlite.add_photo(username,url))
+
+    #def test_get_photo(self):
+     #   self.assertTrue()
 
 if __name__ == '__main__':
         unittest.main()
