@@ -54,8 +54,8 @@ def get_user(username):
         con.close() #close connection
 
 
-def get_photo(username):
-    return None
+
+
 def add_photo(username,photoURL):
     # setup database connection
     con = get_db()
@@ -73,6 +73,29 @@ def add_photo(username,photoURL):
     finally:
         cur.close()
         con.close()  # close connection
+
+def get_photo(username):
+    con = get_db()
+    cur = con.cursor()
+
+    # do database query
+    try:
+        curs = cur.execute("SELECT photo_url FROM Users WHERE username = '{}' ".format(username))
+        photo = curs.fetchall()
+        if (len(photo) > 0):
+            # return json format
+            {'filename': photo[0][0]}
+            return json.dumps({'filename': photo[0][0]})
+        else:
+            return False
+
+    except Exception as e:
+        print(e)
+        return None  # return None if error
+    finally:
+        cur.close()
+        con.close()  # close connection
+
 
 def post_message(username, location, message, time):
     # connect to DB
