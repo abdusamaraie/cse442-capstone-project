@@ -1,22 +1,35 @@
 # Local Helpers
-from constants import constants
+from constants.constants import UPLOAD_PATH
 from helpers import authenticate, sqlite
 from objects.user import User
-
+from objects.filestream import Filestream
 # Flask
-from flask import Flask, request
+from flask import Flask, request,json
 
 # Core Libaries
 import multiprocessing
 import signal
-import sys
+import sys,os,uuid
 
 app = Flask(__name__)
  
+app.config['UPLOAD_FOLDER'] = UPLOAD_PATH
+app.wsgi_app = Filestream(app.wsgi_app)
+
 
 @app.route('/', methods=['GET'])
 def hello_world():
     return 'Hello, World!'
+
+
+@app.route('/uploadPhoto', methods=['GET', 'POST'])
+def uploadPhoto():
+    if request.method == 'POST':
+        file = request.files['file']
+        extension = os.path.splitext(file.filename)[1]
+        f_name = str(uuid.uuid4()) + extension
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], f_name))
+        return json.dumps({'filename':f_name})
 
 
 @app.route('/authenticate', methods=['GET', 'POST'])
