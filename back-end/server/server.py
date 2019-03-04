@@ -24,12 +24,22 @@ def hello_world():
 
 @app.route('/uploadPhoto', methods=['GET', 'POST'])
 def uploadPhoto():
+
+    username = request.json['username']
+
     if request.method == 'POST':
-        file = request.files['file']
+        #file = request.json['file'] /*if request in json format from frontend clint */
+        file = request.files['file'] # open file browser to choose an image from user system
         extension = os.path.splitext(file.filename)[1]
         f_name = str(uuid.uuid4()) + extension
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], f_name))
+        sqlite.add_photo(username, file)  # add photo path to database
         return json.dumps({'filename':f_name})
+
+    else:
+
+        username = request.json['filepath']
+        return sqlite.get_photo(username)
 
 
 @app.route('/authenticate', methods=['GET', 'POST'])
