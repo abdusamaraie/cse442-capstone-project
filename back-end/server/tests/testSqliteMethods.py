@@ -6,8 +6,8 @@ from objects.user import User
 class TestSqliteMethods(unittest.TestCase):
     def test_add_user(self):
         # get username and password fro User class object
-        tempUserName = "abd"
-        tempPassword = "123"
+        tempUserName = "admin"
+        tempPassword = "admin"
         #create a User object
         user = User(tempUserName,tempPassword)
 
@@ -15,9 +15,11 @@ class TestSqliteMethods(unittest.TestCase):
         self.assertTrue(sqlite.add_user(user))
     def test_get_user(self):
 
-        tempUserName = "abd"
+        tempUserName = "admin"
+        tempUser = User(tempUserName)
+        user = sqlite.get_user(tempUserName)
 
-        self.assertTrue(sqlite.get_user(tempUserName))
+        self.assertTrue(tempUser.username,user.username)
 
 
 if __name__ == '__main__':
