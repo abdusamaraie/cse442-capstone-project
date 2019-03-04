@@ -20,7 +20,7 @@ def hello_world():
 
 
 @app.route('/authenticate', methods=['GET', 'POST'])
-def authenticate():
+def auth():
 
     username = request.json['username']
     password = request.json['password']
@@ -40,7 +40,7 @@ def authenticate():
 
         user = User(username, password_hash=password_hash)
 
-        return sqlite.add_user(user)
+        return str(sqlite.add_user(user))
 
 
 @app.route('/message', methods=['GET', 'POST'])
@@ -61,13 +61,30 @@ def message():
         msg = request.json['message']
         time = request.json['time']
 
-        return sqlite.post_message(username, location, msg, time)
+        return str(sqlite.post_message(username, location, msg, time))
+
+
+@app.route('/rate', methods=['POST'])
+def rate():
+    # GET RATING
+    rating = request.json['rating']
+
+    # PARSE RATING (true is a like, false is a dislike)
+    if rating:
+        table = "likes"
+    else:
+        table = "dislikes"
+
+    # GET POST ID
+    post_id = request.json['postId']
+
+    return str(sqlite.rate_message(post_id, table))
 
 
 
 def start_server():
-    app.run(host='0.0.0.0', port=5000, debug=True)
-    #app.run(host='127.0.0.1', port=5000, debug=True)
+    #app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='127.0.0.1', port=5000, debug=True)
 
 
 def signal_handler(sig, frame):

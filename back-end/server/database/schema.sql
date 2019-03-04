@@ -14,5 +14,7 @@ CREATE TABLE Posts (
     longitude DOUBLE,
     content   TEXT,
     time      DATETIME,
+    likes     INTEGER      DEFAULT (0),
+    dislikes  INTEGER      DEFAULT (0),
     uname     VARCHAR (30) REFERENCES Users (username) ON DELETE CASCADE
 );

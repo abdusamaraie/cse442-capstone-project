@@ -18,11 +18,12 @@ def add_user(user):
     cur = con.cursor()
     #do database query
     try:
-        cur.execute("INSERT INTO Users (username,hashed_password) VALUES ('{}','{}')".format(user.username, user.password_hash))
+        cur.execute("INSERT INTO Users (username,hashed_password) VALUES (?, ?)", (user.username, user.password_hash))
         con.commit()
         return True
 
     except Exception as e:
+        print(e)
         return None  # return None if error
     finally:
         cur.close()
@@ -97,6 +98,24 @@ def get_messages(location, distance):
     except Exception as e:
         print(e)
         return None  # return None on error
+    finally:
+        cur.close()
+        con.close()
+
+
+def rate_message(post_id, table):
+    # connect to database
+    con = get_db()
+    cur = con.cursor()
+
+    try:
+        # increment post's likes or dislikes field
+        cur.execute("UPDATE Posts SET {} = {} + 1 WHERE postId = {}".format(table, table, post_id))
+        con.commit()
+        return True
+    except Exception as e:
+        print(e)
+        return None
     finally:
         cur.close()
         con.close()
