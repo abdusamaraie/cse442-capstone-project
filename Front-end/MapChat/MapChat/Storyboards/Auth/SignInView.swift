@@ -13,5 +13,12 @@ class SignInView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("HERE")
+        
+    }
+     override func viewDidAppear(_ animated: Bool) {
+        let back_button = UIButton(frame: CGRect(x: 0, y: (self.view.frame.maxY - self.view.frame.maxY/5), width: (self.view.frame.maxX - self.view.frame.maxX/4), height: 50))
+        
+        
+        back_button.setTitle("Back", for: .normal)
     }
 }
