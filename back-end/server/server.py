@@ -81,6 +81,22 @@ def rate():
     return str(sqlite.rate_message(post_id, table))
 
 
+@app.route('/replies', methods=['GET', 'POST'])
+def replies():
+
+    # REQUIRED BY DEFAULT
+    post_id = request.json['postId']
+
+    # USED FOR REPLYING TO A POST
+    if request.method == 'POST':
+        username = request.json['username']
+        reply_text = request.json['text']
+        return str(sqlite.reply_to_post(reply_text, post_id, username))
+
+    # USED FOR RETRIEVING A POST'S REPLIES
+    else:
+        return sqlite.get_post_replies(post_id)
+
 
 def start_server():
     #app.run(host='0.0.0.0', port=5000, debug=True)
