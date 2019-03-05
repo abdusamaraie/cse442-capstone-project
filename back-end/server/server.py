@@ -91,11 +91,11 @@ def replies():
     # USED FOR REPLYING TO A MESSAGE
     if request.method == 'POST':
         reply_text = request.json['text']
-        return str(sqlite.reply_to_message(reply_text, post_id))
+        return str(sqlite.reply_to_post(reply_text, post_id))
 
     # USED FOR RETRIEVING A POST'S REPLIES
     else:
-        return sqlite.get_message_replies(post_id)
+        return sqlite.get_post_replies(post_id)
 
 
 def start_server():

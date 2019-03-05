@@ -119,3 +119,21 @@ def rate_message(post_id, table):
     finally:
         cur.close()
         con.close()
+
+
+def reply_to_post(post_id, table):
+    # connect to database
+    con = get_db()
+    cur = con.cursor()
+
+    try:
+        # increment post's likes or dislikes field
+        cur.execute("INSERT INTO Posts(uname, content, time, latitude, longitude) VALUES ('{}', '{}', '{}', {}, {})".format(username, message, time, lat, long))
+        con.commit()
+        return True
+    except Exception as e:
+        print(e)
+        return None
+    finally:
+        cur.close()
+        con.close()

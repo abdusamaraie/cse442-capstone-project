@@ -18,3 +18,12 @@ CREATE TABLE Posts (
     dislikes  INTEGER      DEFAULT (0),
     uname     VARCHAR (30) REFERENCES Users (username) ON DELETE CASCADE
 );
+
+DROP TABLE IF EXISTS Replies;
+CREATE TABLE Replies (
+    reply_id   INTEGER      PRIMARY KEY AUTOINCREMENT,
+    content   TEXT,
+    post_time      DATETIME,
+    uname     VARCHAR (30) REFERENCES Users (username) ON DELETE CASCADE,
+    postId    INTEGER REFERENCES Posts (postId) ON DELETE CASCADE
+);
