@@ -13,11 +13,11 @@ class TestGettingReplies(unittest.TestCase):
         distance = 30  # radius in meters
 
         # add a post to the database in case there isn't one
-        sqlite.post_message('daru1', location, "unit test post", time=(datetime.now() + timedelta(days=7)))
+        sqlite.post_message('daru1', location, "unit test post", exp_time=(datetime.now() + timedelta(days=7)))
 
         # get post id of the first returned post
         messages_json = json.loads(sqlite.get_messages(location, distance))
-        post_id = messages_json[0]['postId']
+        post_id = messages_json[0]['post_id']
 
         # get number of replies before posting one
         replies_json = sqlite.get_post_replies(post_id)

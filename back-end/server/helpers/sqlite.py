@@ -70,7 +70,7 @@ def post_message(username, location, message, exp_time):
 
     try:
         # add post to post table
-        cur.execute("INSERT INTO Posts(uname, content, post_time, latitude, longitude, expire_time) VALUES ('{}', '{}', '{}', {}, {})".format(username, message, time, lat, long, exp_time))
+        cur.execute("INSERT INTO Posts(uname, content, post_time, expire_time, latitude, longitude) VALUES ('{}', '{}', '{}', '{}', {}, {})".format(username, message, time, exp_time, lat, long))
         con.commit()
         return True
     except Exception as e:
@@ -95,7 +95,7 @@ def get_messages(location, distance):
     
     try:
         # execute query
-        query = cur.execute("SELECT * FROM Posts WHERE {} < expire_time AND (latitude BETWEEN {} AND {}) AND (longitude BETWEEN {} AND {})".format(time, s_lat, n_lat, w_long, e_long))  # square radius
+        query = cur.execute("SELECT * FROM Posts WHERE '{}' < expire_time AND (latitude BETWEEN {} AND {}) AND (longitude BETWEEN {} AND {})".format(time, s_lat, n_lat, w_long, e_long))  # square radius
         results = query.fetchall()
 
         # return messages in json
