@@ -147,13 +147,17 @@ def reply_to_post(reply_text, post_id, username):
 def get_post_replies(post_id):
     # connect to database
     con = get_db()
+    con.row_factory = sql.Row
     cur = con.cursor()
 
     try:
         # get all replies to the post
-        cur.execute("SELECT * FROM Replies WHERE post_id = {}".format(post_id))
-        con.commit()
-        return True
+        query = cur.execute("SELECT * FROM Replies WHERE post_id = {}".format(post_id))
+        results = query.fetchall()
+
+        # return replies in json
+        results_json = json.dumps([dict(ix) for ix in results])
+        return results_json
     except Exception as e:
         print(e)
         return None
