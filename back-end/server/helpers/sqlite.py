@@ -37,7 +37,7 @@ def get_user(username):
 
     # do database query
     try:
-        curs = cur.execute("SELECT * from Users WHERE username = '{}' ".format(username))
+        curs = cur.execute("SELECT * from Users WHERE username = '{}'".format(username))
         user_info = curs.fetchall()
         if (len(user_info) > 0):
             user.setUser(user_info[0][1],user_info[0][2],user_info[0][3],user_info[0][4],user_info[0][5])

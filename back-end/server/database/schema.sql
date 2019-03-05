@@ -8,6 +8,7 @@ CREATE TABLE Users (
     hashed_password TEXT NOT NULL
 );
 
+DROP TABLE IF EXISTS Posts;
 CREATE TABLE Posts (
     postId    INTEGER      PRIMARY KEY AUTOINCREMENT,
     latitude  DOUBLE,
@@ -15,5 +16,4 @@ CREATE TABLE Posts (
     content   TEXT,
     time      DATETIME,
     uname     VARCHAR (30) REFERENCES Users (username) ON DELETE CASCADE
-
 );
