@@ -25,5 +25,5 @@ CREATE TABLE Replies (
     content   TEXT,
     post_time      DATETIME,
     uname     VARCHAR (30) REFERENCES Users (username) ON DELETE CASCADE,
-    postId    INTEGER REFERENCES Posts (postId) ON DELETE CASCADE
+    post_id    INTEGER REFERENCES Posts (postId) ON DELETE CASCADE
 );

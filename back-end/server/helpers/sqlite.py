@@ -1,9 +1,11 @@
 from objects.user import User
 from helpers.radius_math import get_user_radius_bounds
-
+from datetime import datetime
+from datetime import timedelta
 from constants.constants import DATABASE_PATH
 import sqlite3 as sql
 import json
+
 
 
 # connect to database
@@ -121,14 +123,35 @@ def rate_message(post_id, table):
         con.close()
 
 
-def reply_to_post(post_id, table):
+def reply_to_post(reply_text, post_id, username):
+    # connect to database
+    con = get_db()
+    cur = con.cursor()
+
+    # get current time for time of reply
+    time = datetime.now()
+
+    try:
+        # insert reply in database
+        cur.execute("INSERT INTO Replies(content, post_time, uname, post_id) VALUES ('{}', '{}', '{}', {})".format(reply_text, time, username, post_id))
+        con.commit()
+        return True
+    except Exception as e:
+        print(e)
+        return None
+    finally:
+        cur.close()
+        con.close()
+
+
+def get_post_replies(post_id):
     # connect to database
     con = get_db()
     cur = con.cursor()
 
     try:
-        # increment post's likes or dislikes field
-        cur.execute("INSERT INTO Posts(uname, content, time, latitude, longitude) VALUES ('{}', '{}', '{}', {}, {})".format(username, message, time, lat, long))
+        # get all replies to the post
+        cur.execute("SELECT * FROM Replies WHERE post_id = {}".format(post_id))
         con.commit()
         return True
     except Exception as e:

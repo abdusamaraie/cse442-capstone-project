@@ -84,14 +84,14 @@ def rate():
 @app.route('/replies', methods=['GET', 'POST'])
 def replies():
 
-    # THESE ARE REQUIRED BY DEFAULT
-    username = request.json['username']
+    # REQUIRED BY DEFAULT
     post_id = request.json['postId']
 
-    # USED FOR REPLYING TO A MESSAGE
+    # USED FOR REPLYING TO A POST
     if request.method == 'POST':
+        username = request.json['username']
         reply_text = request.json['text']
-        return str(sqlite.reply_to_post(reply_text, post_id))
+        return str(sqlite.reply_to_post(reply_text, post_id, username))
 
     # USED FOR RETRIEVING A POST'S REPLIES
     else:
