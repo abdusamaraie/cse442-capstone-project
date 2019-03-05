@@ -89,10 +89,13 @@ def get_messages(location, distance):
     s_lat = bounds.lat_S
     e_long = bounds.long_E
     w_long = bounds.long_W
+
+    # get current time to exclude posts that are passed their expiration dates
+    time = datetime.now()
     
     try:
         # execute query
-        query = cur.execute("SELECT * FROM Posts WHERE (latitude BETWEEN {} AND {}) AND (longitude BETWEEN {} AND {})".format(s_lat, n_lat, w_long, e_long))  # square radius
+        query = cur.execute("SELECT * FROM Posts WHERE {} < expire_time AND (latitude BETWEEN {} AND {}) AND (longitude BETWEEN {} AND {})".format(time, s_lat, n_lat, w_long, e_long))  # square radius
         results = query.fetchall()
 
         # return messages in json
