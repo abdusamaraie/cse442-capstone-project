@@ -9,11 +9,12 @@ CREATE TABLE IF NOT EXISTS Users (
 
 DROP TABLE IF EXISTS Posts;
 CREATE TABLE Posts (
-    postId    INTEGER      PRIMARY KEY AUTOINCREMENT,
+    post_id    INTEGER      PRIMARY KEY AUTOINCREMENT,
     latitude  DOUBLE,
     longitude DOUBLE,
     content   TEXT,
-    time      DATETIME,
+    post_time      DATETIME,
+    expire_time DATETIME,
     likes     INTEGER      DEFAULT (0),
     dislikes  INTEGER      DEFAULT (0),
     uname     VARCHAR (30) REFERENCES Users (username) ON DELETE CASCADE
@@ -25,5 +26,5 @@ CREATE TABLE Replies (
     content   TEXT,
     post_time      DATETIME,
     uname     VARCHAR (30) REFERENCES Users (username) ON DELETE CASCADE,
-    post_id    INTEGER REFERENCES Posts (postId) ON DELETE CASCADE
+    post_id    INTEGER REFERENCES Posts (post_id) ON DELETE CASCADE
 );

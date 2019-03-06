@@ -59,9 +59,9 @@ def message():
     # USED TO POST MESSAGES
     else:
         msg = request.json['message']
-        time = request.json['time']
+        expire_time = request.json['expireTime']
 
-        return str(sqlite.post_message(username, location, msg, time))
+        return str(sqlite.post_message(username, location, msg, expire_time))
 
 
 @app.route('/rate', methods=['POST'])
@@ -90,7 +90,7 @@ def replies():
     # USED FOR REPLYING TO A POST
     if request.method == 'POST':
         username = request.json['username']
-        reply_text = request.json['text']
+        reply_text = request.json['replyText']
         return str(sqlite.reply_to_post(reply_text, post_id, username))
 
     # USED FOR RETRIEVING A POST'S REPLIES

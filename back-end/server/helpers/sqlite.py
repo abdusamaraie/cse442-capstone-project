@@ -1,7 +1,6 @@
 from objects.user import User
 from helpers.radius_math import get_user_radius_bounds
 from datetime import datetime
-from datetime import timedelta
 from constants.constants import DATABASE_PATH
 import sqlite3 as sql
 import json
@@ -57,8 +56,7 @@ def get_user(username):
         con.close() #close connection
 
 
-
-def post_message(username, location, message, time):
+def post_message(username, location, message, exp_time):
     # connect to DB
     con = get_db()
     cur = con.cursor()
@@ -67,9 +65,12 @@ def post_message(username, location, message, time):
     lat = location['latitude']
     long = location['longitude']
 
+    # get current time for time of post
+    time = datetime.now()
+
     try:
         # add post to post table
-        cur.execute("INSERT INTO Posts(uname, content, time, latitude, longitude) VALUES ('{}', '{}', '{}', {}, {})".format(username, message, time, lat, long))
+        cur.execute("INSERT INTO Posts(uname, content, post_time, expire_time, latitude, longitude) VALUES ('{}', '{}', '{}', '{}', {}, {})".format(username, message, time, exp_time, lat, long))
         con.commit()
         return True
     except Exception as e:
@@ -88,10 +89,13 @@ def get_messages(location, distance):
     s_lat = bounds.lat_S
     e_long = bounds.long_E
     w_long = bounds.long_W
+
+    # get current time to exclude posts that are passed their expiration dates
+    time = datetime.now()
     
     try:
         # execute query
-        query = cur.execute("SELECT * FROM Posts WHERE (latitude BETWEEN {} AND {}) AND (longitude BETWEEN {} AND {})".format(s_lat, n_lat, w_long, e_long))  # square radius
+        query = cur.execute("SELECT * FROM Posts WHERE '{}' < expire_time AND (latitude BETWEEN {} AND {}) AND (longitude BETWEEN {} AND {})".format(time, s_lat, n_lat, w_long, e_long))  # square radius
         results = query.fetchall()
 
         # return messages in json
@@ -112,7 +116,7 @@ def rate_message(post_id, table):
 
     try:
         # increment post's likes or dislikes field
-        cur.execute("UPDATE Posts SET {} = {} + 1 WHERE postId = {}".format(table, table, post_id))
+        cur.execute("UPDATE Posts SET {} = {} + 1 WHERE post_id = {}".format(table, table, post_id))
         con.commit()
         return True
     except Exception as e:
