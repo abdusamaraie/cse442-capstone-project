@@ -65,7 +65,7 @@ def add_photo(username,photoURL):
 
     # do database query
     try:
-        curs = cur.execute("UPDATE Users SET photo_url = '{}' WHERE username = '{}' ".format(photoURL,username))
+        cur.execute("UPDATE Users SET photo_url = '{}' WHERE username = '{}' ".format(photoURL,username))
         con.commit()
         return True
     except Exception as e:
@@ -85,7 +85,6 @@ def get_photo(username):
         photo = curs.fetchall()
         if (len(photo) > 0):
             # return json format
-            {'filename': photo[0][0]}
             return json.dumps({'filename': photo[0][0]})
         else:
             return False

@@ -26,7 +26,7 @@ def verify_user(username, password_hash):
     cur = con.cursor()
 
     try:
-        login = cur.execute("SELECT * from Users WHERE username = '{}' AND hashed_password = '{}'".format(username, password_hash))
+        login = cur.execute("SELECT * from Users WHERE username = ? AND hashed_password = ? ", (username, password_hash))
         if len(login.fetchall()) > 0:
             return True
         else:
