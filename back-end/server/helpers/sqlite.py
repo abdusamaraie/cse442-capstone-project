@@ -100,6 +100,7 @@ def get_photo(username):
 def post_message(username, location, message, exp_time):
     # connect to DB
     con = get_db()
+    con.row_factory = sql.Row
     cur = con.cursor()
 
     # get lat and long
@@ -113,7 +114,14 @@ def post_message(username, location, message, exp_time):
         # add post to post table
         cur.execute("INSERT INTO Posts(uname, content, post_time, expire_time, latitude, longitude) VALUES ('{}', '{}', '{}', '{}', {}, {})".format(username, message, time, exp_time, lat, long))
         con.commit()
-        return True
+
+        # retrieve the item we just inserted
+        inserted_row_id = cur.lastrowid
+        inserted_post = cur.execute("SELECT * FROM Posts WHERE ROWID = {}".format(inserted_row_id)).fetchone()
+
+        # get and return post_id of inserted item
+        post_id = dict(inserted_post)['post_id']
+        return post_id
     except Exception as e:
         print(e)
         return None  # return None if error
@@ -209,3 +217,6 @@ def get_post_replies(post_id):
     finally:
         cur.close()
         con.close()
+
+
+
