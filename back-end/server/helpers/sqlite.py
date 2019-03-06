@@ -41,19 +41,60 @@ def get_user(username):
     try:
         curs = cur.execute("SELECT * from Users WHERE username = '{}'".format(username))
         user_info = curs.fetchall()
-        print(user_info)
         if (len(user_info) > 0):
-            user.setUser(user_info[0][1],user_info[0][2],user_info[0][3])
+            user.setUser(user_info[0][1],user_info[0][2],user_info[0][3],user_info[0][4],user_info[0][5])
             #return user object
             return user
         else:
             return False
 
     except Exception as e:
+        print(e)
         return None  # return None if error
     finally:
         cur.close()
         con.close() #close connection
+
+
+
+def add_photo(username,photoURL):
+    # setup database connection
+    con = get_db()
+    cur = con.cursor()
+    user = User(username)
+
+    # do database query
+    try:
+        cur.execute("UPDATE Users SET photo_url = '{}' WHERE username = '{}' ".format(photoURL,username))
+        con.commit()
+        return True
+    except Exception as e:
+        print(e)
+        return None  # return None if error
+    finally:
+        cur.close()
+        con.close()  # close connection
+
+def get_photo(username):
+    con = get_db()
+    cur = con.cursor()
+
+    # do database query
+    try:
+        curs = cur.execute("SELECT photo_url FROM Users WHERE username = '{}' ".format(username))
+        photo = curs.fetchall()
+        if (len(photo) > 0):
+            # return json format
+            return json.dumps({'filename': photo[0][0]})
+        else:
+            return False
+
+    except Exception as e:
+        print(e)
+        return None  # return None if error
+    finally:
+        cur.close()
+        con.close()  # close connection
 
 
 def post_message(username, location, message, exp_time):

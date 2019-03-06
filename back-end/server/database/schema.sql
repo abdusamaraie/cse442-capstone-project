@@ -1,8 +1,9 @@
 DROP TABLE IF EXISTS Users;
-CREATE TABLE IF NOT EXISTS Users (
+CREATE TABLE Users (
     user_id INTEGER PRIMARY KEY AUTOINCREMENT,
     fname TEXT,
     lname TEXT,
+    photo_url TEXT,
     username TEXT NOT NULL UNIQUE,
     hashed_password TEXT NOT NULL
 );
