@@ -13,7 +13,11 @@
         <!--Page View Controller-->
         <scene sceneID="FQ7-rX-IgX">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="pBb-ZE-IHT" customClass="PageViewController" customModule="MapChat" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="pBb-ZE-IHT" customClass="PageViewController" customModule="MapChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="JQA-H9-9p9" kind="show" identifier="to_mainview" id="J7e-9B-jqC"/>
+                    </connections>
+                </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kp2-Fd-1Am" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="412" y="-70"/>
@@ -65,6 +69,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RBR-em-QA6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1102" y="623"/>
+        </scene>
+        <!--MainView-->
+        <scene sceneID="3mZ-mV-iAh">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MainView" id="JQA-H9-9p9" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2oM-9X-yWG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1788" y="-96"/>
         </scene>
         <!--sThree-->
         <scene sceneID="37w-Ea-Zp0">

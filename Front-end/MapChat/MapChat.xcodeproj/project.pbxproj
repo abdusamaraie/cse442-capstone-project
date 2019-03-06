@@ -21,6 +21,9 @@
 		EBAA2FEF222322C3003A7FD5 /* SPageTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAA2FEE222322C3003A7FD5 /* SPageTwo.swift */; };
 		EBAA2FF1222322CD003A7FD5 /* SPageThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAA2FF0222322CD003A7FD5 /* SPageThree.swift */; };
 		EBAA2FF32223236E003A7FD5 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAA2FF22223236E003A7FD5 /* PageViewController.swift */; };
+		EBEA938A222DFACD0097251A /* AirbnbCereal-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EBEA9389222DFACD0097251A /* AirbnbCereal-Light.ttf */; };
+		EBEB9302222F4BFA003DAD1E /* DropMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB9301222F4BFA003DAD1E /* DropMessageView.swift */; };
+		EBEB9304223092BA003DAD1E /* message-success.json in Resources */ = {isa = PBXBuildFile; fileRef = EBEB9303223092BA003DAD1E /* message-success.json */; };
 		EBFAC67022261B05004B5074 /* MainView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBFAC66F22261B05004B5074 /* MainView.storyboard */; };
 		EBFAC67622261C08004B5074 /* FeedViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFAC67522261C08004B5074 /* FeedViewCell.swift */; };
 		EBFAC67822261F89004B5074 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFAC67722261F89004B5074 /* FeedView.swift */; };
@@ -77,6 +80,11 @@
 		EBAA2FEE222322C3003A7FD5 /* SPageTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPageTwo.swift; sourceTree = "<group>"; };
 		EBAA2FF0222322CD003A7FD5 /* SPageThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPageThree.swift; sourceTree = "<group>"; };
 		EBAA2FF22223236E003A7FD5 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		EBEA9389222DFACD0097251A /* AirbnbCereal-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AirbnbCereal-Light.ttf"; sourceTree = "<group>"; };
+		EBEA938B222DFB090097251A /* AirbnbCereal-Book.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AirbnbCereal-Book.ttf"; sourceTree = "<group>"; };
+		EBEA938C222DFE960097251A /* AirbnbCereal-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AirbnbCereal-Medium.ttf"; sourceTree = "<group>"; };
+		EBEB9301222F4BFA003DAD1E /* DropMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropMessageView.swift; sourceTree = "<group>"; };
+		EBEB9303223092BA003DAD1E /* message-success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "message-success.json"; sourceTree = "<group>"; };
 		EBFAC66F22261B05004B5074 /* MainView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainView.storyboard; sourceTree = "<group>"; };
 		EBFAC67522261C08004B5074 /* FeedViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewCell.swift; sourceTree = "<group>"; };
 		EBFAC67722261F89004B5074 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
@@ -163,6 +171,7 @@
 		EB414CE02214F298007C3FE4 /* MapChat */ = {
 			isa = PBXGroup;
 			children = (
+				EBEA9388222DFAC30097251A /* fonts */,
 				EBAA2FE722232135003A7FD5 /* Storyboards */,
 				EB414CE12214F298007C3FE4 /* AppDelegate.swift */,
 				EB414CE32214F298007C3FE4 /* ViewController.swift */,
@@ -221,6 +230,16 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		EBEA9388222DFAC30097251A /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				EBEA9389222DFACD0097251A /* AirbnbCereal-Light.ttf */,
+				EBEA938B222DFB090097251A /* AirbnbCereal-Book.ttf */,
+				EBEA938C222DFE960097251A /* AirbnbCereal-Medium.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 		EBFAC66D22261AE1004B5074 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,6 +257,7 @@
 				EBFAC67722261F89004B5074 /* FeedView.swift */,
 				EBFAC67E22272862004B5074 /* ProfileView.swift */,
 				EBFAC68222275DA0004B5074 /* PopUpView.swift */,
+				EBEB9301222F4BFA003DAD1E /* DropMessageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -245,6 +265,7 @@
 		EBFAC6792226243A004B5074 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				EBEB9303223092BA003DAD1E /* message-success.json */,
 				EBFAC67A2226244E004B5074 /* WebServicesManager.swift */,
 				EBFAC67C2226278A004B5074 /* LocationServicesManager.swift */,
 				EBFAC68022272906004B5074 /* AppState.swift */,
@@ -362,8 +383,10 @@
 			files = (
 				EB414CEF2214F29A007C3FE4 /* LaunchScreen.storyboard in Resources */,
 				EB414CEC2214F29A007C3FE4 /* Assets.xcassets in Resources */,
+				EBEB9304223092BA003DAD1E /* message-success.json in Resources */,
 				EBFAC67022261B05004B5074 /* MainView.storyboard in Resources */,
 				EB414CE72214F298007C3FE4 /* Main.storyboard in Resources */,
+				EBEA938A222DFACD0097251A /* AirbnbCereal-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,10 +415,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MapChat/Pods-MapChat-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -475,6 +500,7 @@
 				EB414CE22214F298007C3FE4 /* AppDelegate.swift in Sources */,
 				EB414CEA2214F298007C3FE4 /* MapChat.xcdatamodeld in Sources */,
 				EBAA2FF1222322CD003A7FD5 /* SPageThree.swift in Sources */,
+				EBEB9302222F4BFA003DAD1E /* DropMessageView.swift in Sources */,
 				EBAA2FEF222322C3003A7FD5 /* SPageTwo.swift in Sources */,
 				EBAA2FED222322B8003A7FD5 /* SPageOne.swift in Sources */,
 			);

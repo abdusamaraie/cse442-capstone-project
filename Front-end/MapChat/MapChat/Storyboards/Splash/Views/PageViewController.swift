@@ -43,6 +43,8 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         // center within view
         sign_in_button.center.x = self.view.frame.midX
         
+        sign_in_button.addTarget(self, action: #selector(sign_in), for: .touchUpInside)
+        
         // add button to view
         self.view.addSubview(sign_in_button)
         
@@ -54,6 +56,8 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
 
         // center within view
         sign_up_button.center.x = self.view.frame.midX
+        
+        sign_up_button.addTarget(self, action: #selector(sign_up), for: .touchUpInside)
 
         // add button to view
         self.view.addSubview(sign_up_button)
@@ -62,11 +66,13 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
     @objc func sign_in() {
         //self.performSegue(withIdentifier: "to_sign_in", sender: self)
         print("sign in")
+        self.performSegue(withIdentifier: "to_mainview", sender: self)
     }
     
     @objc func sign_up() {
         //self.performSegue(withIdentifier: "to_sign_up", sender: self)
         print("sign up")
+        self.performSegue(withIdentifier: "to_mainview", sender: self)
     }
     
     func configurePageControl() {

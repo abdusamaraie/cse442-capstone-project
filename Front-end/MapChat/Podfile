@@ -18,5 +18,5 @@ target 'MapChat' do
   end
 
   pod 'Alamofire'
-
+  pod 'lottie-ios'
 end

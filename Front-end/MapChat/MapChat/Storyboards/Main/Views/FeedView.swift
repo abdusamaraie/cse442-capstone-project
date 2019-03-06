@@ -8,8 +8,10 @@
 
 import Foundation
 import UIKit
+import CoreLocation
+import MapKit
 
-class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
     
     @IBOutlet weak var feedView: UITableView!
     
@@ -24,14 +26,15 @@ class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         feedView.refreshControl = refreshControl
     }
     
+    
     override func viewDidAppear(_ animated: Bool) {
-        
         loadFeed()
     }
     
     @objc func updateRefresh(refreshControl: UIRefreshControl) {
         
         // load feed, calling API, refreshing table view and spinning loader
+        
         loadFeed()
         refreshControl.endRefreshing()
         
@@ -42,12 +45,7 @@ class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func loadFeed() {
         print("loading feed")
         
-        // todo: send request to load feed from AppState manager
-        
-        let latLong: (Double, Double) = LocationServicesManager.getCurrentLocation()
-        var _: [[String : Any]] = AppState.getMessageFeed(latLong: latLong)
-        
-        // feed is list of json objects [{...}, {...}, {...}]
+        //LocationServicesManager.sharedInstance.determineMyCurrentLocation()
         
         // start loading spinner
         let sv = UIViewController.displaySpinner(onView: self.view)
