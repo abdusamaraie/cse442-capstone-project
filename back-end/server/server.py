@@ -1,22 +1,47 @@
 # Local Helpers
-from constants import constants
+from constants.constants import UPLOAD_PATH
 from helpers import authenticate, sqlite
 from objects.user import User
-
+from objects.filestream import Filestream
 # Flask
-from flask import Flask, request
+from flask import Flask, request,json
 
 # Core Libaries
 import multiprocessing
 import signal
-import sys
+import sys,os,uuid
 
 app = Flask(__name__)
  
+#app.config['UPLOAD_FOLDER'] = UPLOAD_PATH
+#app.wsgi_app = Filestream(app.wsgi_app)
+
 
 @app.route('/', methods=['GET'])
 def hello_world():
     return 'Hello, World!'
+
+
+@app.route('/uploadPhoto', methods=['GET', 'POST'])
+def uploadPhoto():
+
+    username = request.json['username']
+
+    if request.method == 'POST':
+        file = request.json['file'] #if request in json format from frontend clint
+        ''' 
+        #will implement from front end side where swift will ask user to upload a photo 
+        from file explorer and return a file path
+        file = request.files['file'] # open file browser to choose an image from user system
+        extension = os.path.splitext(file.filename)[1]
+        f_name = str(uuid.uuid4()) + extension
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], f_name))'''
+          # add photo path to database
+        return str(sqlite.add_photo(username, file))
+
+    else:
+
+        return str(sqlite.get_photo(username))
 
 
 @app.route('/authenticate', methods=['GET', 'POST'])
@@ -59,9 +84,9 @@ def message():
     # USED TO POST MESSAGES
     else:
         msg = request.json['message']
-        time = request.json['time']
+        expire_time = request.json['expireTime']
 
-        return str(sqlite.post_message(username, location, msg, time))
+        return str(sqlite.post_message(username, location, msg, expire_time))
 
 
 @app.route('/rate', methods=['POST'])
@@ -90,7 +115,7 @@ def replies():
     # USED FOR REPLYING TO A POST
     if request.method == 'POST':
         username = request.json['username']
-        reply_text = request.json['text']
+        reply_text = request.json['replyText']
         return str(sqlite.reply_to_post(reply_text, post_id, username))
 
     # USED FOR RETRIEVING A POST'S REPLIES
@@ -99,8 +124,7 @@ def replies():
 
 
 def start_server():
-    #app.run(host='0.0.0.0', port=5000, debug=True)
-    app.run(host='127.0.0.1', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
 
 
 def signal_handler(sig, frame):
