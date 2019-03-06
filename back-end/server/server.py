@@ -20,7 +20,7 @@ def hello_world():
 
 
 @app.route('/authenticate', methods=['GET', 'POST'])
-def authenticate():
+def auth():
 
     username = request.json['username']
     password = request.json['password']
@@ -40,10 +40,10 @@ def authenticate():
 
         user = User(username, password_hash=password_hash)
 
-        return sqlite.add_user(user)
+        return str(sqlite.add_user(user))
 
 
-@app.route('message', methods=['GET', 'POST'])
+@app.route('/message', methods=['GET', 'POST'])
 def message():
 
     # THESE FIELDS ARE REQUIRED BY DEFAULT
@@ -52,20 +52,55 @@ def message():
 
     # USED FOR RETRIEVING MESSAGES
     if request.method == 'GET':
+        distance = request.json['distance']
 
-        return ''
+        return sqlite.get_messages(location, distance)
 
-    # USED TO POST MESSAGE
+    # USED TO POST MESSAGES
     else:
+        msg = request.json['message']
+        time = request.json['time']
 
-        message = request.json['message']
+        return str(sqlite.post_message(username, location, msg, time))
 
-        return sqlite.post_message(username, location, message)
 
+@app.route('/rate', methods=['POST'])
+def rate():
+    # GET RATING
+    rating = request.json['rating']
+
+    # PARSE RATING (true is a like, false is a dislike)
+    if rating:
+        table = "likes"
+    else:
+        table = "dislikes"
+
+    # GET POST ID
+    post_id = request.json['postId']
+
+    return str(sqlite.rate_message(post_id, table))
+
+
+@app.route('/replies', methods=['GET', 'POST'])
+def replies():
+
+    # REQUIRED BY DEFAULT
+    post_id = request.json['postId']
+
+    # USED FOR REPLYING TO A POST
+    if request.method == 'POST':
+        username = request.json['username']
+        reply_text = request.json['text']
+        return str(sqlite.reply_to_post(reply_text, post_id, username))
+
+    # USED FOR RETRIEVING A POST'S REPLIES
+    else:
+        return sqlite.get_post_replies(post_id)
 
 
 def start_server():
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    #app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='127.0.0.1', port=5000, debug=True)
 
 
 def signal_handler(sig, frame):
