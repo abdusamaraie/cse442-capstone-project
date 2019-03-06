@@ -219,4 +219,22 @@ def get_post_replies(post_id):
         con.close()
 
 
+def delete_message(post_id):
+    # connect to database
+    con = get_db()
+    cur = con.cursor()
+
+    try:
+        # get all replies to the post
+        cur.execute("DELETE FROM Posts WHERE post_id = {}".format(post_id))
+        con.commit()
+
+        # return replies in json
+        return True
+    except Exception as e:
+        print(e)
+        return None
+    finally:
+        cur.close()
+        con.close()
 
