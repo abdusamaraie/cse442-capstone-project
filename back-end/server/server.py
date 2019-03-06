@@ -123,6 +123,18 @@ def replies():
         return sqlite.get_post_replies(post_id)
 
 
+@app.route('/deletemessage', methods=['POST'])
+def replies():
+
+    # REQUIRED BY DEFAULT
+    post_id = request.json['postId']
+
+    # USED FOR REPLYING TO A POST
+    if request.method == 'POST':
+        return sqlite.delete_message(post_id)
+
+
+
 def start_server():
     app.run(host='0.0.0.0', port=5000, debug=True)
 
