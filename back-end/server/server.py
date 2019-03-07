@@ -73,19 +73,25 @@ def message():
 
     # THESE FIELDS ARE REQUIRED BY DEFAULT
     username = request.json['username']
-    location = request.json['location']
 
     # USED FOR RETRIEVING MESSAGES
     if request.method == 'GET':
-        distance = request.json['distance']
+        # if location isn't given, get all messages from given username
+        if not ('location' in request.json or 'distance' in request.json):
+            # get all messages for the given user (10 at a time)
+            return sqlite.get_user_message_history(username)
 
-        return sqlite.get_messages(location, distance)
+        else:
+            # if location and
+            location = request.json['location']
+            distance = request.json['distance']
+            return sqlite.get_messages(location, distance)
 
     # USED TO POST MESSAGES
     else:
+        location = request.json['location']
         msg = request.json['message']
         expire_time = request.json['expireTime']
-
         return str(sqlite.post_message(username, location, msg, expire_time))
 
 
