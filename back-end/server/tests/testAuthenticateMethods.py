@@ -26,19 +26,19 @@ class TestAuthenticateMethods(unittest.TestCase):
     #    Verify that user is able to login with valid username and password
     def test_verify_user(self):
         #get username and password from database
-        tempUserName = "abd"
-        tempPassword = "123"
+        tempUserName = "admin"
+        tempPassword = "admin"
         #code here
         self.assertTrue(authenticate.verify_user(tempUserName,tempPassword))
     #Verify that the password is in encrypted form when entered
     def test_generate_hash(self):
-        tempUserPassword = "123"
+        tempUserPassword = "admin"
         self.assertTrue(authenticate.generate_hash(tempUserPassword))
     #    Verify the timeout of the login session
     def test_user_session(self):
-        self.assertEquals(1,1)
+        self.assertEqual(1,1)
     #Verify if SQL Injection attacks works on login page
     def test_sql_injection(self):
-        self.assertEquals(1, 1)
+        self.assertEqual(1, 1)
 if __name__ == '__main__':
         unittest.main()
