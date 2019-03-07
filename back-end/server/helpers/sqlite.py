@@ -55,7 +55,28 @@ def get_user(username):
         cur.close()
         con.close() #close connection
 
+#USED TO DELETE USER FORM DATABASE IF USER DECIDED TO UNREGISTER
+def delete_user(username,password):
+    # setup database connection
+    con = get_db()
+    cur = con.cursor()
 
+    # do database query
+    try:
+        curs = cur.execute("DELETE FROM Users WHERE username = '{}' AND hashed_password = '{}' ".format(username,password))
+        con.commit()
+        record = curs.fetchall()
+        if (len(record) == 0):
+            return True
+        else:
+            return False
+
+    except Exception as e:
+        print(e)
+        return None  # return None if error
+    finally:
+        cur.close()
+        con.close()  # close connection
 
 def add_photo(username,photoURL):
     # setup database connection
