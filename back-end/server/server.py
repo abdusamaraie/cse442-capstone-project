@@ -76,10 +76,10 @@ def message():
 
     # USED FOR RETRIEVING MESSAGES
     if request.method == 'GET':
-        # if location isnt given, get all messages from given username
-        if not request.json['location']:
-            # get all messages for the given user
-            return get_user_message_history(username)
+        # if location isn't given, get all messages from given username
+        if not ('location' in request.json or 'distance' in request.json):
+            # get all messages for the given user (10 at a time)
+            return sqlite.get_user_message_history(username)
 
         else:
             # if location and

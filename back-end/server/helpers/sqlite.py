@@ -238,3 +238,24 @@ def delete_message(post_id):
         cur.close()
         con.close()
 
+
+def get_user_message_history(username):
+    # connect to database
+    con = get_db()
+    con.row_factory = sql.Row
+    cur = con.cursor()
+
+    try:
+        # get all replies to the post
+        query = cur.execute("SELECT * FROM Posts WHERE uname = '{}'".format(username))
+        results = query.fetchmany(10)
+
+        # return replies in json
+        results_json = json.dumps([dict(ix) for ix in results])
+        return results_json
+    except Exception as e:
+        print(e)
+        return None
+    finally:
+        cur.close()
+        con.close()
