@@ -18,5 +18,8 @@ target 'MapChat' do
   end
 
   pod 'Alamofire'
+  pod 'FacebookCore'
+  pod 'FacebookLogin'
+  pod 'FacebookShare'
 
 end
