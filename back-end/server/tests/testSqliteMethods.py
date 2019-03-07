@@ -10,9 +10,12 @@ class TestSqliteMethods(unittest.TestCase):
         tempPassword = "admin"
         #create a User object
         user = User(tempUserName,tempPassword)
+        # if user does not exist then raise error
+        if self.assertIsNotNone(sqlite.add_user(user)):
+            print("No user found")
+        else:
+            print("User has been added")
 
-        #if user does exist the raise error
-        self.assertTrue(sqlite.add_user(user))
     def test_get_user(self):
 
         tempUserName = "admin"
@@ -29,10 +32,13 @@ class TestSqliteMethods(unittest.TestCase):
     def test_get_photo(self):
         username = "admin"
         tempfilepath = "database/uploads/image.jpg"
-        jsonObj = sqlite.get_photo(username)
-        filepath = json.loads(jsonObj)
 
-        self.assertEqual(filepath['filename'],tempfilepath)
+        photoPath = sqlite.get_photo(username)
+        self.assertTrue(photoPath)
+        jsonObj = sqlite.get_photo(username)
+        filePath = json.loads(jsonObj)
+
+        self.assertEqual(filePath['filename'],tempfilepath)
 
 if __name__ == '__main__':
         unittest.main()
