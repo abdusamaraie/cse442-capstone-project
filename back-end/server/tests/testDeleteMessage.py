@@ -13,7 +13,7 @@ class TestDeleteMessage(unittest.TestCase):
         distance = 30  # radius in meters
 
         # add a post to the database
-        remove_id = sqlite.post_message('daru1', location, "unit test post to be removed", exp_time=(datetime.now() + timedelta(days=7)))
+        remove_id = sqlite.post_message('daru', location, "unit test post to be removed", exp_time=(datetime.now() + timedelta(days=7)))
 
         # get total number of posts
         messages_json = sqlite.get_messages(location, distance)
