@@ -1,0 +1,22 @@
+// This optional file is used to store the standard alphabet and numeral set for a language
+//	The file must be in UTF-8
+//	Empty lines are skipped
+//	All lines starting with "//" are skipped
+//  Otherwise, what you put here is what the user will see, perhaps with line breaks removed
+//
+// It's main use is to let a language have a custom display string when the default display
+//	string for the script is inappropriate: e.g., if the script is Latin and you don't want
+//	the English alphabet used as your display string
+// This string is used in the "sample" view.
+//
+// Localizers: This should be something similar to what the sample view has displayed
+//	in the past, but specific to *your* language.  If you don't need anything
+//	special, omit this file altogether.  
+//
+ABCDEFGHIJKLM
+NOPQRSTUVWXYZ
+abcdefghijklm
+nopqrstuvwxyz
+àâéèêîôûùœæç
+ÀÂÉÈÊÎÔÛÙŒÆÇ
+1234567890

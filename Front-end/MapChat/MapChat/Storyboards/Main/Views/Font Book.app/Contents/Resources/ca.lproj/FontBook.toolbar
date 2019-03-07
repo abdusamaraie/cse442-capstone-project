@@ -1,0 +1,75 @@
+/*
+ * Localizers: You should not need to change this file at all, unless you
+ * want to change the default toolbar layout. Do not alter the "toolbar array";
+ * simply rearrange the "default set" as appropriate for your locale. 
+ * All toolbar labels and tooltips are localized via
+ * the Toolbar.strings file of Font Book.app
+ */
+
+{
+    "default set" = (
+		"FBPreviewType",
+        "NSToolbarFlexibleSpaceItem", 
+        "FBSearch"
+    ); 
+    "toolbar array" = (
+        (
+             {
+                identifier = "FBAction"; 
+                title = "FBACTION_TOOLBAR_TITLE";
+                tag = 100; 
+            }, 
+            {
+                identifier = "FBSearch"; 
+                title = "FBSEARCH_TOOLBAR_TITLE";
+                tag = 101; 
+            },
+           {
+                identifier = "FBShowHidePreview"; 
+                title = "FBSHOWHIDEPREVIEW_TOOLBAR_TITLE";
+                tag = 107; 
+            }, 
+            {
+                identifier = "FBPreviewType"; 
+                title = "FBPREVIEWTYPE_TOOLBAR_TITLE";
+                tag = 108; 
+            }, 
+            {
+                identifier = "FBValidate"; 
+                title = "FBVALIDATE_TOOLBAR_TITLE";
+                tag = 106; 
+            }, 
+            {
+                identifier = "FBPrintToolbar"; 
+                title = "FBPRINT_TOOLBAR_TITLE";
+                tag = 109; 
+            }, 
+            {
+                identifier = "FBEnableDisable"; 
+                title = "FBENABLEDISABLE_TOOLBAR_TITLE";
+                tag = 104; 
+            }, 
+            {
+                identifier = "FBQuicklooks"; 
+                title = "FBQUICKLOOKS_TOOLBAR_TITLE";
+                tag = 110; 
+            }, 
+            {
+                identifier = "FBAddFonts"; 
+                title = "FBADDFONTS_TOOLBAR_TITLE";
+                tag = 105; 
+            }, 
+            {
+                identifier = "FBNewCollection"; 
+                title = "FBNEWCOLLECTION_TOOLBAR_TITLE";
+                tag = 111; 
+            }, 
+            {
+                identifier = "FBNewLibrary"; 
+                title = "FBNEWLIBRARY_TOOLBAR_TITLE";
+                tag = 112; 
+            }
+        )
+    ); 
+    "toolbar name" = FontBook; 
+}

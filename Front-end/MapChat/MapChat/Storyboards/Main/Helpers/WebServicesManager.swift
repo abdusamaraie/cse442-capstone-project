@@ -84,4 +84,14 @@ class WebServicesManager{
         
     }
     
+    static func postMessage(latLong: (Double, Double), title:String, message:String, completionHandler: @escaping (NSDictionary?, Error?) -> ()) {
+        
+        let parameters: Parameters = ["latlong": latLong, "title": title, "message": message]
+        
+        Alamofire.request(serverIpAddress, method: .post, parameters: parameters).validate().responseJSON { response in
+            
+            
+        }
+    }
+    
 }

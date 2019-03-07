@@ -1,0 +1,55 @@
+/*
+ * Localizers: You should not need to change this file at all, unless you
+ * want to change the default toolbar layout, or the layout of the toolbar
+ * configuration sheet. All toolbar labels and tooltips are localized via
+ * the Toolbar.strings file of Font Book.app
+ */
+
+{
+    "default set" = (
+		"FBPreviewType",
+		"FBEnableDisable",
+        "NSToolbarFlexibleSpaceItem", 
+        "FBSearch"
+    ); 
+    "toolbar array" = (
+        (
+            {
+                identifier = "FBSearch"; 
+                title = "FBSEARCH_TOOLBAR_TITLE";
+                tag = 101; 
+            },
+            {
+                identifier = "FBEnableDisable"; 
+                title = "FBENABLEDISABLE_TOOLBAR_TITLE";
+                tag = 104; 
+            }, 
+            {
+                identifier = "FBShowHidePreview"; 
+                title = "FBSHOWHIDEPREVIEW_TOOLBAR_TITLE";
+                tag = 107; 
+            }, 
+            {
+                identifier = "FBPreviewType"; 
+                title = "FBPREVIEWTYPE_TOOLBAR_TITLE";
+                tag = 108; 
+            }, 
+            {
+                identifier = "FBValidate"; 
+                title = "FBVALIDATE_TOOLBAR_TITLE";
+                tag = 106; 
+            }, 
+            {
+                identifier = "FBPrintToolbar"; 
+                title = "FBPRINT_TOOLBAR_TITLE";
+                tag = 109; 
+            }, 
+            {
+                identifier = "FBQuicklooks"; 
+                title = "FBQUICKLOOKS_TOOLBAR_TITLE";
+                tag = 110; 
+            }, 
+        )
+    ); 
+    "toolbar name" = FontBook; 
+}
