@@ -9,8 +9,11 @@ class TestDeleteUser(unittest.TestCase):
         username = "admin"
         password = "admin"
         result = sqlite.delete_user(username, password)
-        print("THIS: {}".format(result))
-        self.assertTrue(result)
+        if result == False:
+            print("user not found")
+        else:
+            print("THIS: {}".format(result))
+            self.assertTrue(result)
 
 
 if __name__ == '__main__':

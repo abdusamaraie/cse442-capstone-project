@@ -35,8 +35,7 @@ class TestSqliteMethods(unittest.TestCase):
 
         photoPath = sqlite.get_photo(username)
         self.assertTrue(photoPath)
-        jsonObj = sqlite.get_photo(username)
-        filePath = json.loads(jsonObj)
+        filePath = json.loads(photoPath)
 
         self.assertEqual(filePath['filename'],tempfilepath)
 
