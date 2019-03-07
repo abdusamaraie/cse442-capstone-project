@@ -10,6 +10,7 @@ import json
 # connect to database
 def get_db():
     con = sql.connect(DATABASE_PATH)
+    con.execute("PRAGMA foreign_keys=ON")
     return con
 
 

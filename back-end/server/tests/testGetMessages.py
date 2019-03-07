@@ -17,11 +17,14 @@ class TestGetMessages(unittest.TestCase):
         before_num = len(json.loads(messages_json))
 
         # add a post to the database
-        sqlite.post_message('daru1', location, "unit test post", exp_time=(datetime.now() + timedelta(days=7)))
+        post_id = sqlite.post_message('daru', location, "unit test post", exp_time=(datetime.now() + timedelta(days=7)))
 
         # get number of posts returned after adding one
         messages_json = sqlite.get_messages(location, distance)
         after_num = len(json.loads(messages_json))
+
+        # delete test post
+        sqlite.delete_message(post_id)
 
         self.assertGreater(after_num, before_num)
 
