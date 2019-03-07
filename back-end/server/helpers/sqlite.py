@@ -63,10 +63,11 @@ def delete_user(username,password):
 
     # do database query
     try:
-        curs = cur.execute("DELETE FROM Users WHERE username = '{}' AND hashed_password = '{}' ".format(username,password))
-        con.commit()
+        curs = cur.execute("SELECT * FROM Users WHERE username = '{}' AND hashed_password = '{}' ".format(username,password))
         record = curs.fetchall()
-        if (len(record) == 0):
+        if len(record) > 0:
+            cur.execute("DELETE FROM Users WHERE username = '{}' AND hashed_password = '{}' ".format(username,password))
+            con.commit()
             return True
         else:
             return False

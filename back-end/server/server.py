@@ -28,7 +28,7 @@ def uploadPhoto():
     username = request.args.get('username')
 
     if request.method == 'POST':
-        file = request.args.get('file') #if request in json format from frontend clint
+        file = request.json['file'] #if request in json format from frontend clint
         ''' 
         #will implement from front end side where swift will ask user to upload a photo 
         from file explorer and return a file path
@@ -89,8 +89,8 @@ def message():
 
     # USED TO POST MESSAGES
     else:
-        msg = request.args.get('message')
-        expire_time = request.args.get('expireTime')
+        msg = request.json['message']
+        expire_time = request.json['expireTime']
 
         return str(sqlite.post_message(username, location, msg, expire_time))
 
@@ -120,17 +120,22 @@ def replies():
 
     # USED FOR REPLYING TO A POST
     if request.method == 'POST':
-        username = request.args.get('username')
-        reply_text = request.args.get('replyText')
+        username = request.json['username']
+        reply_text = request.json['replyText']
         return str(sqlite.reply_to_post(reply_text, post_id, username))
 
     # USED FOR RETRIEVING A POST'S REPLIES
     else:
         return sqlite.get_post_replies(post_id)
 
-@app.route('/deactivate', methods=['GET', 'POST'])
+@app.route('/deactivate', methods=['POST'])
 def deactivate():
-    return None
+    #retrive user info
+    username = request.args.get('username')
+    password = request.args.get('password')
+
+    if request.method == 'POST':
+        return str(sqlite.delete_user(username,password))
 
 def start_server():
     app.run(host='0.0.0.0', port=5000, debug=True)
