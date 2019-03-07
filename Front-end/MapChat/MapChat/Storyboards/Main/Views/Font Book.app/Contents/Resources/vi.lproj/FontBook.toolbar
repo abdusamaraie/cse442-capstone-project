@@ -1,0 +1,67 @@
+{
+    "default set" =     (
+        FBPreviewType,
+        NSToolbarFlexibleSpaceItem,
+        FBSearch
+    );
+    "toolbar array" =     (
+                (
+                        {
+                identifier = FBAction;
+                tag = 100;
+                title = "FBACTION_TOOLBAR_TITLE";
+            },
+                        {
+                identifier = FBSearch;
+                tag = 101;
+                title = "FBSEARCH_TOOLBAR_TITLE";
+            },
+                        {
+                identifier = FBShowHidePreview;
+                tag = 107;
+                title = "FBSHOWHIDEPREVIEW_TOOLBAR_TITLE";
+            },
+                        {
+                identifier = FBPreviewType;
+                tag = 108;
+                title = "FBPREVIEWTYPE_TOOLBAR_TITLE";
+            },
+                        {
+                identifier = FBValidate;
+                tag = 106;
+                title = "FBVALIDATE_TOOLBAR_TITLE";
+            },
+                        {
+                identifier = FBPrintToolbar;
+                tag = 109;
+                title = "FBPRINT_TOOLBAR_TITLE";
+            },
+                        {
+                identifier = FBEnableDisable;
+                tag = 104;
+                title = "FBENABLEDISABLE_TOOLBAR_TITLE";
+            },
+                        {
+                identifier = FBQuicklooks;
+                tag = 110;
+                title = "FBQUICKLOOKS_TOOLBAR_TITLE";
+            },
+                        {
+                identifier = FBAddFonts;
+                tag = 105;
+                title = "FBADDFONTS_TOOLBAR_TITLE";
+            },
+                        {
+                identifier = FBNewCollection;
+                tag = 111;
+                title = "FBNEWCOLLECTION_TOOLBAR_TITLE";
+            },
+                        {
+                identifier = FBNewLibrary;
+                tag = 112;
+                title = "FBNEWLIBRARY_TOOLBAR_TITLE";
+            }
+        )
+    );
+    "toolbar name" = FontBook;
+}

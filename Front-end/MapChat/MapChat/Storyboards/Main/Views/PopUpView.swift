@@ -13,16 +13,24 @@ class PopUpView: UIViewController {
     
     @IBOutlet weak var message: UILabel!
     
+    @IBOutlet weak var upVoteButton: UIButton!
+    @IBOutlet weak var downVoteButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     @IBAction func upVote(_ sender: Any) {
+        print("upvote")
+        upVoteButton.isSelected = !upVoteButton.isSelected
     }
     
     @IBAction func downVote(_ sender: Any) {
+        print("downvote")
+        downVoteButton.isSelected = !downVoteButton.isSelected
     }
     
     @IBAction func close(_ sender: Any) {
+        _ = navigationController?.popViewController(animated: true)
     }
 }
