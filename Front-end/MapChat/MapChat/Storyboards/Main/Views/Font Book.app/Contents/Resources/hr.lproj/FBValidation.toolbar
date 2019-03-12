@@ -1,0 +1,30 @@
+/*
+ * Localizers: You should not need to change this file at all, unless you
+ * want to change the default toolbar layout. Do not alter the "toolbar array";
+ * simply rearrange the "default set" as appropriate for your locale. 
+ * All toolbar labels and tooltips are localized via
+ * the Toolbar.strings file of Font Book.app
+ */
+
+{
+    "default set" = (
+        "FBDetail", 
+        "NSToolbarFlexibleSpaceItem", 
+        "FBRuleFilter"
+    ); 
+    "toolbar array" = (
+        (
+            {
+                identifier = "FBDetail"; 
+                title = "FBRULEDETAIL_TOOLBAR_TITLE";
+                tag = 100; 
+            }, 
+            {
+                identifier = "FBRuleFilter"; 
+                title = "FBRULEFILTER_TOOLBAR_TITLE";
+                tag = 101; 
+            }
+        )
+    ); 
+    "toolbar name" = FBValidation; 
+}
