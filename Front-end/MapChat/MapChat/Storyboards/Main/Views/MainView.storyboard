@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="U3U-fj-E6b">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -22,6 +22,7 @@
                     <connections>
                         <segue destination="jWe-tb-kLv" kind="relationship" relationship="viewControllers" id="BKV-d7-x4T"/>
                         <segue destination="iOr-bs-yWx" kind="relationship" relationship="viewControllers" id="oqM-IO-ROh"/>
+                        <segue destination="dLE-La-Ixl" kind="relationship" relationship="viewControllers" id="s7L-ER-40n"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wnf-Kv-4bI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -32,9 +33,9 @@
         <scene sceneID="kSe-dk-at1">
             <objects>
                 <navigationController id="jWe-tb-kLv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Feed" id="rux-4j-kRu"/>
+                    <tabBarItem key="tabBarItem" title="Feed" image="feed" id="rux-4j-kRu"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OCG-Tk-5ZO">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -45,13 +46,13 @@
             </objects>
             <point key="canvasLocation" x="1284" y="233"/>
         </scene>
-        <!--Profile-->
+        <!--Add-->
         <scene sceneID="Iha-fa-rW0">
             <objects>
                 <navigationController id="iOr-bs-yWx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="wl4-ZS-aLG"/>
+                    <tabBarItem key="tabBarItem" title="Add" image="add" id="wl4-ZS-aLG"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YeY-Na-BIF">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -62,16 +63,59 @@
             </objects>
             <point key="canvasLocation" x="2025" y="233"/>
         </scene>
+        <!--Profile-->
+        <scene sceneID="w0M-al-1ki">
+            <objects>
+                <navigationController id="dLE-La-Ixl" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" image="profile" id="Fww-TJ-Mev"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9Up-oO-58y">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vNL-4U-srH" kind="relationship" relationship="rootViewController" id="H9Y-gV-20a"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VSf-G0-AUf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-175" y="233"/>
+        </scene>
+        <!--Profile View-->
+        <scene sceneID="x93-E7-dHL">
+            <objects>
+                <viewController id="vNL-4U-srH" customClass="ProfileView" customModule="MapChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oed-tM-cyt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5re-7N-Ax0">
+                                <rect key="frame" x="160" y="393.66666666666669" width="55" height="30"/>
+                                <state key="normal" title="Log Out"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5re-7N-Ax0" firstAttribute="centerX" secondItem="dmP-zX-d9z" secondAttribute="centerX" id="LfE-bL-mwI"/>
+                            <constraint firstItem="5re-7N-Ax0" firstAttribute="centerY" secondItem="dmP-zX-d9z" secondAttribute="centerY" id="ifc-Hf-NcF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dmP-zX-d9z"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Cco-1g-dqr"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eYf-Al-bGP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-935.20000000000005" y="232.75862068965517"/>
+        </scene>
         <!--Pop Up View-->
         <scene sceneID="r4b-M2-0jG">
             <objects>
                 <viewController id="5I9-tQ-agW" customClass="PopUpView" customModule="MapChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="n0e-PO-Rm0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IJi-MS-eU7">
-                                <rect key="frame" x="40" y="246" width="295" height="175"/>
+                                <rect key="frame" x="40" y="270" width="295" height="272"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bH2-ov-wud">
                                         <rect key="frame" x="8" y="8" width="30" height="30"/>
@@ -79,18 +123,17 @@
                                         <state key="normal" image="close"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Efx-UY-WnZ">
-                                        <rect key="frame" x="8" y="46" width="279" height="70"/>
+                                        <rect key="frame" x="8" y="46" width="279" height="180"/>
                                         <color key="backgroundColor" white="0.69008795816044255" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="70" id="9B4-df-pe9"/>
                                             <constraint firstAttribute="width" constant="279" id="tBD-bH-oEj"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Y0-UL-8z4">
-                                        <rect key="frame" x="58" y="137" width="30" height="30"/>
+                                        <rect key="frame" x="58" y="234" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="0Y0-UL-8z4" secondAttribute="height" multiplier="1:1" id="BmK-z2-Le7"/>
                                         </constraints>
@@ -100,7 +143,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EI4-1o-Kp0">
-                                        <rect key="frame" x="206" y="137" width="30" height="30"/>
+                                        <rect key="frame" x="206" y="234" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="EI4-1o-Kp0" secondAttribute="height" multiplier="1:1" id="opr-qs-nGw"/>
                                         </constraints>
@@ -115,6 +158,7 @@
                                     <constraint firstItem="0Y0-UL-8z4" firstAttribute="bottom" secondItem="EI4-1o-Kp0" secondAttribute="bottom" id="ARh-I6-TmU"/>
                                     <constraint firstItem="0Y0-UL-8z4" firstAttribute="bottom" secondItem="IJi-MS-eU7" secondAttribute="bottomMargin" id="BZh-UT-KB3"/>
                                     <constraint firstItem="Efx-UY-WnZ" firstAttribute="leading" secondItem="IJi-MS-eU7" secondAttribute="leading" constant="8" id="IDd-Jc-MUr"/>
+                                    <constraint firstItem="EI4-1o-Kp0" firstAttribute="top" secondItem="Efx-UY-WnZ" secondAttribute="bottom" constant="8" id="J14-v0-0xc"/>
                                     <constraint firstItem="EI4-1o-Kp0" firstAttribute="leading" secondItem="0Y0-UL-8z4" secondAttribute="trailing" constant="118" id="Yf3-5y-caI"/>
                                     <constraint firstItem="Efx-UY-WnZ" firstAttribute="top" secondItem="IJi-MS-eU7" secondAttribute="top" constant="46" id="ZML-pE-84k"/>
                                     <constraint firstAttribute="trailing" secondItem="EI4-1o-Kp0" secondAttribute="trailing" constant="59" id="dZQ-zm-fl8"/>
@@ -133,30 +177,32 @@
                         <viewLayoutGuide key="safeArea" id="DlK-KB-sYF"/>
                     </view>
                     <connections>
+                        <outlet property="downVoteButton" destination="EI4-1o-Kp0" id="9wl-YC-SHn"/>
                         <outlet property="message" destination="Efx-UY-WnZ" id="xkb-wm-rhP"/>
+                        <outlet property="upVoteButton" destination="0Y0-UL-8z4" id="sLU-Rz-xIt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qYb-Eo-IFk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="576.79999999999995" y="948.57571214392806"/>
+            <point key="canvasLocation" x="1284" y="1549.5073891625616"/>
         </scene>
         <!--Feed View-->
         <scene sceneID="NoO-ua-M6o">
             <objects>
                 <viewController id="Cng-Yb-si6" customClass="FeedView" customModule="MapChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WAK-vt-Kxn">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4RZ-f9-IeT">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedCell" rowHeight="100" id="yM2-AF-S9m" customClass="FeedViewCell" customModule="MapChat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yM2-AF-S9m" id="cML-85-v89" customClass="FeedViewCell" customModule="MapChat" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyU-os-bgD">
@@ -224,28 +270,54 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aWM-JE-GCG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1284" y="949"/>
+            <point key="canvasLocation" x="1284" y="893"/>
         </scene>
-        <!--Profile View-->
+        <!--Drop Message View-->
         <scene sceneID="JaA-zh-6wF">
             <objects>
-                <viewController id="TLI-jR-wA3" customClass="ProfileView" customModule="MapChat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="TLI-jR-wA3" customClass="DropMessageView" customModule="MapChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HI6-uO-1Fw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter message here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OHQ-B3-Zro">
+                                <rect key="frame" x="16" y="187" width="343" height="24"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="OHQ-B3-Zro" firstAttribute="leading" secondItem="oh5-fg-URa" secondAttribute="leading" constant="16" id="6Kg-zl-wid"/>
+                            <constraint firstItem="OHQ-B3-Zro" firstAttribute="top" secondItem="oh5-fg-URa" secondAttribute="top" constant="99" id="CfQ-Vg-PEt"/>
+                            <constraint firstItem="oh5-fg-URa" firstAttribute="trailing" secondItem="OHQ-B3-Zro" secondAttribute="trailing" constant="16" id="G3J-9f-Wuh"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="oh5-fg-URa"/>
                     </view>
-                    <navigationItem key="navigationItem" id="EMZ-SX-0dM"/>
+                    <navigationItem key="navigationItem" id="EMZ-SX-0dM">
+                        <barButtonItem key="rightBarButtonItem" title="Post" id="9FI-yg-hRW">
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="dropMessage:" destination="TLI-jR-wA3" id="vgs-nP-0F6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="message" destination="OHQ-B3-Zro" id="54s-ca-hCW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bJT-gf-eP3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2025" y="949"/>
+            <point key="canvasLocation" x="2025" y="893"/>
         </scene>
     </scenes>
     <resources>
-        <image name="close" width="48" height="48"/>
-        <image name="thumbDown" width="48" height="48"/>
-        <image name="thumbUp" width="48" height="48"/>
+        <image name="add" width="72" height="72"/>
+        <image name="close" width="72" height="72"/>
+        <image name="feed" width="72" height="72"/>
+        <image name="profile" width="72" height="72"/>
+        <image name="thumbDown" width="72" height="72"/>
+        <image name="thumbUp" width="72" height="72"/>
     </resources>
 </document>

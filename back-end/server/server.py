@@ -1,29 +1,53 @@
 # Local Helpers
-from constants import constants
+from constants.constants import UPLOAD_PATH
 from helpers import authenticate, sqlite
 from objects.user import User
-
+from objects.filestream import Filestream
 # Flask
-from flask import Flask, request
+from flask import Flask, request, json
 
 # Core Libaries
 import multiprocessing
 import signal
-import sys
+import sys, os, uuid
 
 app = Flask(__name__)
- 
+
+
+# app.config['UPLOAD_FOLDER'] = UPLOAD_PATH
+# app.wsgi_app = Filestream(app.wsgi_app)
+
 
 @app.route('/', methods=['GET'])
 def hello_world():
     return 'Hello, World!'
 
 
-@app.route('/authenticate', methods=['GET', 'POST'])
-def auth():
+@app.route('/uploadPhoto', methods=['GET', 'POST'])
+def uploadPhoto():
+    username = request.args.get('username')
 
-    username = request.json['username']
-    password = request.json['password']
+    if request.method == 'POST':
+        file = request.json['file']  # if request in json format from frontend clint
+        ''' 
+        #will implement from front end side where swift will ask user to upload a photo 
+        from file explorer and return a file path
+        file = request.files['file'] # open file browser to choose an image from user system
+        extension = os.path.splitext(file.filename)[1]
+        f_name = str(uuid.uuid4()) + extension
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], f_name))'''
+        # add photo path to database
+        return str(sqlite.add_photo(username, file))
+
+    else:
+
+        return str(sqlite.get_photo(username))
+
+
+@app.route('/auth', methods=['GET', 'POST'])
+def auth():
+    username = request.args.get('username')
+    password = request.args.get('password')
 
     # USED FOR SIGN IN
     if request.method == 'GET':
@@ -45,29 +69,33 @@ def auth():
 
 @app.route('/message', methods=['GET', 'POST'])
 def message():
-
     # THESE FIELDS ARE REQUIRED BY DEFAULT
-    username = request.json['username']
-    location = request.json['location']
+    username = request.args.get('username')
+    location = request.args.get('location')
+
+    # (lat, long)
+    # {"latitude": __, "longitude": __}
 
     # USED FOR RETRIEVING MESSAGES
     if request.method == 'GET':
-        distance = request.json['distance']
+        distance = request.args.get('distance')
+        (lat, long) = location
+        location_ = {"latitude": lat, "longitude": long}
 
-        return sqlite.get_messages(location, distance)
+        return sqlite.get_messages(location_, distance)
 
     # USED TO POST MESSAGES
     else:
+        location = request.json['location']
         msg = request.json['message']
-        time = request.json['time']
-
-        return str(sqlite.post_message(username, location, msg, time))
+        expire_time = request.json['expireTime']
+        return str(sqlite.post_message(username, location, msg, expire_time))
 
 
 @app.route('/rate', methods=['POST'])
 def rate():
     # GET RATING
-    rating = request.json['rating']
+    rating = request.args.get('rating')
 
     # PARSE RATING (true is a like, false is a dislike)
     if rating:
@@ -76,21 +104,20 @@ def rate():
         table = "dislikes"
 
     # GET POST ID
-    post_id = request.json['postId']
+    post_id = request.args.get('postId')
 
     return str(sqlite.rate_message(post_id, table))
 
 
 @app.route('/replies', methods=['GET', 'POST'])
 def replies():
-
     # REQUIRED BY DEFAULT
-    post_id = request.json['postId']
+    post_id = request.args.get('postId')
 
     # USED FOR REPLYING TO A POST
     if request.method == 'POST':
         username = request.json['username']
-        reply_text = request.json['text']
+        reply_text = request.json['replyText']
         return str(sqlite.reply_to_post(reply_text, post_id, username))
 
     # USED FOR RETRIEVING A POST'S REPLIES
@@ -98,9 +125,28 @@ def replies():
         return sqlite.get_post_replies(post_id)
 
 
+@app.route('/deactivate', methods=['POST'])
+def deactivate():
+    # retrive user info
+    username = request.args.get('username')
+    password = request.args.get('password')
+
+    if request.method == 'POST':
+        return str(sqlite.delete_user(username, password))
+
+
+@app.route('/deletemessage', methods=['POST'])
+def replies():
+    # REQUIRED BY DEFAULT
+    post_id = request.json['postId']
+
+    # USED FOR REPLYING TO A POST
+    if request.method == 'POST':
+        return sqlite.delete_message(post_id)
+
+
 def start_server():
-    #app.run(host='0.0.0.0', port=5000, debug=True)
-    app.run(host='127.0.0.1', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
 
 
 def signal_handler(sig, frame):

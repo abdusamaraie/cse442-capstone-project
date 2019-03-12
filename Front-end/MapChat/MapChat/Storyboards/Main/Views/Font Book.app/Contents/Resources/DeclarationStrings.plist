@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>af</key>
+	<string>a á â b c d e é è ê ë f g h i î ï j k l m n o ô ö p q r s t u û v w x y z</string>
+	<key>agq</key>
+	<string>a à â ǎ ā b c d e è ê ě ē ɛ ɛ̀ ɛ̂ ɛ̌ ɛ̄ f g h i ì î ǐ ī ɨ ɨ̀ ɨ̂ ɨ̌ ɨ̄ k l m n ŋ o ò ô ǒ ō ɔ ɔ̀ ɔ̂ ɔ̌ ɔ̄ p s t u ù û ǔ ū ʉ ʉ̀ ʉ̂ ʉ̌ ʉ̄ v w y z ʔ</string>
+	<key>ak</key>
+	<string>a b d e ɛ f g h i k l m n o ɔ p r s t u w y</string>
+	<key>am</key>
+	<string>እያንዳንዱ፡ሰው፡የዘር፡የቀለም፡የጾታ፡የቋንቋ፡የሃይማኖት፡የፖለቲካ፡ወይም፡የሌላ፡ዓይነት፡አስተሳሰብ፡የብሔራዊ፡ወይም፡የኀብረተሰብ፡ታሪክ፡የሀብት፡የትውልድ፡ወይም፡የሌላ፡ደረጃ፡ልዩነት፡ሳይኖሩ፡በዚሁ፡ውሳኔ፡የተዘረዘሩት፡መብቶችንና፡ነጻነቶች፡ሁሉ፡እንዲከበሩለት፡ይገባል።ከዚህም፡በተቀረ፡አንድ፡ሰው፡ከሚኖርበት፡አገር፡ወይም፡ግዛት፡የፖለቲካ፡የአገዛዝ፡ወይም፡የኢንተርናሽናል፡አቋም፡የተነሳ፡አገሩ፡ነጻም፡ሆነ፡በሞግዚትነት፡አስተዳደር፡ወይም፡እራሱን፡ችሎ፡የማይተዳደር፡አገር፡ተወላጅ፡ቢሆንም፡በማንኛውም፡ዓይነት፡ገደብ፡ያለው፡አገዛዝ፡ሥር፡ቢሆንም፡ልዩነት፡አይፈጸምበትም።</string>
+	<key>ar</key>
+	<string>لكل إنسان حق التمتع بكافة الحقوق والحريات الواردة في هذا الإعلان، دون أي تمييز، كالتمييز بسبب العنصر أو اللون أو الجنس أو اللغة أو الدين أو الرأي السياسي أو أي رأي آخر، أو الأصل الوطني أو الاجتماعي أو الثروة أو الميلاد أو أي وضع آخر، دون أية تفرقة بين الرجال والنساء. وفضلا عما تقدم فلن يكون هناك أي تمييز أساسه الوضع السياسي أو القانوني أو الدولي لبلد أو البقعة التي ينتمي إليها الفرد سواء كان هذا البلد أو تلك البقعة مستقلا أو تحت الوصاية أو غير متمتع بالحكم الذاتي أو كانت سيادته خاضعة لأي قيد من القيود.</string>
+	<key>asa</key>
+	<string>a b c d e f g h i j k l m n o p r s t u v w y z</string>
+	<key>az</key>
+	<string>a b c ç d e ə f g ğ h x ı i i̇ j k q l m n o ö p r s ş t u ü v y z</string>
+	<key>az_Cyrl</key>
+	<string>Һәр бир шәхс иргиндән, дәрисинин рәнҝиндән, ҹинсиндән, дилиндән, дининдән, сијаси вә диҝәр әгидәсиндән, милли вә ја сосиал мәншәјиндән, әмлак, сосиал мөвге вә диҝәр вәзијјәтиндән асылы олмајараг бу Бәјаннамәдә елан олунмуш бүтүн һүгуг вә азадлыглара малик олмалыдыр. Бундан әлавә, һәмин шәхсин мәнсуб олдуғу өлкәнин вә ја әразинин, һәмин әразинин мүстәгил, гәјјумлуг алтында олан, өзүидарәолунмајан вә ја суверенлији һәр һансы шәкилдә мәһдудлашмыш олмасындан асылы олмајараг, сијасы, һүгуги вә бејнәлхалг статусундан асылы олараг һеч бир ајры-сечкилик гојулмамалыдыр.</string>
+	<key>bas</key>
+	<string>a á à â ǎ ā a᷆a᷇ b ɓ c d e é è ê ě ē e᷆e᷇ ɛ ɛ́ ɛ̀ ɛ̂ ɛ̌ ɛ̄ ɛ᷆ɛ᷇ f g h i í ì î ǐ ī i᷆i᷇ j k l m n ń ǹ ŋ o ó ò ô ǒ ō o᷆o᷇ ɔ ɔ́ ɔ̀ ɔ̂ ɔ̌ ɔ̄ ɔ᷆ɔ᷇ p r s t u ú ù û ǔ ū u᷆u᷇ v w y z</string>
+	<key>be</key>
+	<string>Кожны чалавек павінен валодаць усімі правамі і ўсімі свабодамі, што абвешчаны гэтай Дэкларацыяй, без якога б там ні было адрознення, як напрыклад у адносінах расы, колеру скуры, полу, мовы, рэлігіі, палітычных або іншых перакананняў, нацыянальнага або сацыяльнага паходжання, маёмаснага, саслоўнага або іншага становішча. Апрача таго, не павінна рабіцца ніякага адрознення на аснове палітычнага, прававога або міжнароднага статуса краіны або тэрыторыі, да якой чалавек належыць, незалежна ад таго, ці зʼяўляецца гэта тэрыторыя незалежнай, падапечнай, несамакіравальнай, або як‐небудзь інакш абмежаванай у сваім суверэнітэце.</string>
+	<key>bem</key>
+	<string>a b c e f g i j k l m n o p s sh t u w y</string>
+	<key>bez</key>
+	<string>a b c d e f g h i j k l m n o p q r s t u v w y z</string>
+	<key>bg</key>
+	<string>а б в г д е ж з и й к л м н о п р с т у ф х ц ч ш щ ъ ь ю я</string>
+	<key>bin</key>
+	<string>Dowande –omwan ore o mween etin ne o khekee kevbe a yaan-egbe omwan ovbehe. Iyen emwen na, vbe ne alughaen ke-alughaen i na rro, ne o dekaen ovbi evbo ne omwan khin, omwan fuofua ra okhui-khui okpia ra okhuo, ra ovbi evbo na ze, ugamwen, otu aze, ra otu eghaevbo, uhunmwun evbo ra oto evbo ne omwan ke rre, ukhu ne omwan mween, ubiemwe, ra emwin ovbehe hia. Levba-sevba, alughaen-ke alughaen ni khian gha rro vbekpa otu aze ne omwan ye, ototo evbo ne omwan ke rre, ra arrioba evbo ne o yaan egbe ere, arrioba edayi ra arrioba ne i mween ekhae ne egbe ere, ra evbo ne o rre ototo arrioba ovbehe</string>
+	<key>bm</key>
+	<string>a b c d e ɛ f g h i j k l m n ɲ ŋ o ɔ p r s t u w y z</string>
+	<key>bn</key>
+	<string>এ ঘোষণায় উন্নেণিত স্বাধীনতা এবং অধিকারসমূহে গোত্র, ধর্ম, বর্ণ, শিক্ষা, ভাষা, রাজনৈতিক বা অন্যবিধ মতামত, জাতীয় বা সামাজিক উত্পত্তি, জন্ম, সম্পত্তি বা অন্য কোন মর্যাদা নিবিশেষে প্রত্যেকের‌ই সমান অধিকার থাকবে। কোন দেশ বা ভূখণ্ডের রাজনৈতিক, সীমানাগত বা আন্তর্জ্জাতিক মর্যাদার ভিত্তিতে তার কোন অধিবাসীর প্রতি কোনরূপ বৈষম্য করা হবেনা; সে দেশ বা ভূখণ্ড স্বাধীন‌ই হোক, হোক অছিভূক্ত, অস্বায়ত্বশাসিত কিংবা সার্বভৌসত্বের অন্য কোন সীমাবদ্ধতায় বিরাজমান।</string>
+	<key>bo</key>
+	<string>སྐྱེ་བོ་རེ་རེར་གསལ་བསྒྲགས་འདི་ནང་བཀོད་པའི་ཐོབ་ཐང་དང་རང་དབང་སྟེ། མི་རིགས་དང། ཤ་མདོག། ཕོ་མོ། སྐད་ཡིག། ཆོས་ལུགས། སྲིད་དོན་བཅས་སམ། འདོད་ཚུལ་གཞནདག་དང༌། རྒྱལ་ཁབ་དང་སྤྱི་ཚོགས་ཀྱི་འབྱུང་ཁུངས་། མཁར་དབང༌། རིགས་རྒྱུད། དེ་མིན་གནས་ཚུལ་འདི་རིགས་གང་ཡང་རུང་བར་དབྱེ་འབྱེད་མེད པའི་ཐོབ་དབང་ཡོད༎
+
+ད་དུང་རྒྱལ་ཁབ་བམ། ས་གནས་གང་ཞིག་རང་བཙན་ཡིན་པ་དང༌། ལྟ་རྟོགས་འོག་ཏུ་གནས་པ། རང་གཞུང་རང་སྐྱོང་མ་ཡིན་པ། གཞན་དག་བདག་དབང་ཚད་འཛིན་ཡོད་པ་བཅས་ཇི་ལྟར་ཡང་དེ་དག་གི་སྐྱེ་བོ་གང་ཞིག་སྐིད་དོན་དང། ཁྲིམས་དབང། རྒྱལ་སྤྱིའི་གནས་སྟངས་བཅས་ཀྱི་ཐོག་ཏུ་ཁྱད་པརམི་དབྱེ་བ་ཡིན༎</string>
+	<key>br</key>
+	<string>Da bep hini eo an holl wirioù ha frankizioù embannet en disklêriadur-mañ, hep ket a ziforc’h, a ouenn, a liv, a reizh, a yezh, a veno politikel pe a veno all, a orin broadel pe gevredigezhel, a leve, a c’hanedigezh pe a natur all.
+
+Ouzhpenn-se ne vo graet diforc’h ebet hervez statud politikel, lezennel pe etrevroadel, arvro pe an dachenn-vro emañ an den dindan he lezenn, pe dizalc’h pe dindan verezeh e ve, diemren pe bevennet hec’h aotrouniezh en ur stumm bennak.</string>
+	<key>brx</key>
+	<string>़ ँ ं अ आ इ ई उ ऊ ऍ ए ऐ ऑ ओ औ क ख ग घ च छ ज झ ञ ट ठ ड ड़ ढ ण त थ द ध न प फ ब भ म य र ल ळ व श ष स ह ा ि ी ु ू ृ ॅ े ै ॉ ो ौ ्</string>
+	<key>bs</key>
+	<string>a b c č ć d dž đ e f g h i j k l lj m n nj o p r s š t u v z ž</string>
+	<key>byn</key>
+	<string>፟ ሀ-ሆ ለ-ሟ ረ-ቆ ቈ ቊ-ቍ ቐ-ቖ ቘ ቚ-ቝ በ-ኆ ኈ ኊ-ኍ ነ-ኮ ኰ ኲ-ኵ ኸ-ኾ ዀ ዂ-ዅ ወ-ዎ ዐ-ዖ ዘ-ዮ ደ-ዷ ጀ-ጎ ጐ ጒ-ጕ ጘ-ጟ ⶓ-ⶖ ጠ-ጯ ጸ-ጿ ፈ-ፗ</string>
+	<key>ca</key>
+	<string>Tothom té tots els drets i llibertats proclamats en aquesta Declaració, sense cap distinció de raça, color, sexe, llengua, religió, opinió política o de qualsevol altra mena, origen nacional o social, fortuna, naixement o altra condició. A més, no es farà cap distinció basada en l&apos;estatut polític, jurídic o internacional del país o del territori al qual pertanyi una persona, tant si és independent com si està sota administració fiduciària, si no és autònom, o està sota qualsevol altra limitació de sobirania.</string>
+	<key>cgg</key>
+	<string>a b c d e f g h i j k l m n o p q r s t u v w x y z</string>
+	<key>chr</key>
+	<string>Ꭰ Ꭱ Ꭲ Ꭳ Ꭴ Ꭵ Ꭶ Ꭷ Ꭸ Ꭹ Ꭺ Ꭻ Ꭼ Ꭽ Ꭾ Ꭿ Ꮀ Ꮁ Ꮂ Ꮃ Ꮄ Ꮅ Ꮆ Ꮇ Ꮈ Ꮉ Ꮊ Ꮋ Ꮌ Ꮍ Ꮎ Ꮏ Ꮐ Ꮑ Ꮒ Ꮓ Ꮔ Ꮕ Ꮖ Ꮗ Ꮘ Ꮙ Ꮚ Ꮛ Ꮜ Ꮝ Ꮞ Ꮟ Ꮠ Ꮡ Ꮢ Ꮣ Ꮤ Ꮥ Ꮦ Ꮧ Ꮨ Ꮩ Ꮪ Ꮫ Ꮬ Ꮭ Ꮮ Ꮯ Ꮰ Ꮱ Ꮲ Ꮳ Ꮴ Ꮵ Ꮶ Ꮷ Ꮸ Ꮹ Ꮺ Ꮻ Ꮼ Ꮽ Ꮾ Ꮿ Ᏸ Ᏹ Ᏺ Ᏻ Ᏼ</string>
+	<key>cr</key>
+	<string>ᒥᓯᐌ ᐊᐌᓇ ᑎᐸᑫᓂᑕᑯᓯᐤ ᒥᓯᐌ ᐊᓂᐃ ᒥᓂᑯᐎᓯᐎᓇ ᓀᐢᑕ ᑎᐯᓂᒥᑎᓱᐎᓇ ᐃᑕ ᑲ ᒪᓯᓇᐃᑲᑌᑭ ᑭᒋ ᐃᑗᐎᓂᐠ ᐁᑲ ᐸᑲᐣ ᑭᒋ ᐃᔑ ᑲᓇᐗᐸᒥᑯᐎᓯᐟ ᑕᐱᐢᑯᐨ ᑲ ᐅᑕᐢᑲᓀᓯᐟ ᐁᑕᔕᑫᐟ ᓀᐢᑕ ᑲ ᐃᐢᑴᐎᐟ ᓀᐢᑕ ᐱᑯ ᑲ ᓇᐯᐎᐟ ᐅᐟ ᐃᔑᑫᔗᐎᐣ ᐅᐟ ᐊᔭᒥᐊᐎᐣ ᐅᑭᒪᐎᐎᓂᐤ ᐁᔑ ᑎᐯᐣᑕᑯᓯᐟ ᓀᐢᑕ ᐱᑯ ᑯᑕᐠ ᑫᑾᓂᐤ ᑲ ᐃᑌᓂᒪᐎᑌ ᓀᐢᑕ ᑲ ᐅᒋᑴ ᐅᑎᐱᓇᐌᐎᓯᐎᓇ ᓀᐢᑕ ᑲ ᑭ ᐃᔑ ᓂᑕᐎᑭᐟ ᓀᐢᑕ ᐱᑯ ᑯᑕᑭᔾ ᑫᑾᐣ᙮ ᒥᓇ ᒪᑲ ᐁᑲ ᐱᑐᐡ ᑭᒋ ᐃᔑ ᑲᓇᐗᐸᒥᐟ ᐅᑭᒪᐎᐎᓂᓂᐤ ᑎᐯᐣᒋᑫᐎᓂᓂᐤ ᓀᐢᑕ ᐱᑯ ᐁᔑᓇᑾᓂᓂᑴ ᐊᐢᑭᓂᐤ ᑲ ᐅᒋ ᑎᐯᐣᑕᑯᓯᐟ ᓀᐢᑕ ᐱᑯ ᐊᐢᑭᓂᐤ ᑲ ᐅᒋᐟ ᑭᔕᐢᐱᐣ ᑎᐯᓂᒥᑎᓯᒪᑲᓂᓂᑴ ᓀᐢᑕ ᐁᑲ ᑲ ᑎᐯᓂᒥᑎᓯᒪᑲᓂᓂᑴ ᓀᐢᑕ ᐱᑯ ᑯᑕᐠ ᑫᑾᐣ ᐁᔑ ᓄᑌᐸᓂᑴ ᐅᑭᒪᐎᐎᓂᐠ᙮</string>
+	<key>cs</key>
+	<string>Každý má všechna práva a všechny svobody, stanovené touto deklarací, bez jakéhokoli rozlišování, zejména podle rasy, barvy, pohlaví, jazyka, nábozenství, politického nebo jiného smýšlení, národnostního nebo sociálního původu, majetku, rodu nebo jiného postavení. Žádný rozdíl nebude dále činěn z důvodu politického, právního nebo mezinárodního postavení země nebo území, k nimž určitá osoba přísluší, ať jde o zemi nebo území nezávislé nebo pod poručenstvím, nesamosprávné nebo podrobené jakémukoli jinému omezení suverenity.</string>
+	<key>cy</key>
+	<string>Y mae gan bawb hawl i&apos;r holl hawliau a&apos;r rhyddfreintiau a nodir yn y Datganiad hwn, heb unrhyw wahaniaeth o gwbl, yn arbennig unrhyw wahaniaeth hil, lliw, rhyw, iaith, crefydd, barn boliticaidd neu unrhyw farn arall, tarddiad cenedlaethol neu gymdeithasol, eiddo, geni neu safle arall. Ymhellach, ni ddylid gwahaniaethu ar sail safle politicaidd, gyfreithiol na chydwladol unrhyw wlad neu diriogaeth y mae pawb yn perthyn iddi, p’un ai yw honno’n annibynnol, dan nawdd, heb hunanlywodraeth, neu dan unrhyw gyfyngiad arall ar ei sofraniaeth.</string>
+	<key>da</key>
+	<string>Enhver har krav på alle de rettigheder og friheder, som nævnes i denne erklæring, uden forskelsbehandling af nogen art, f. eks. på grund af race, farve, køn, sprog, religion, politisk eller anden anskuelse, national eller social oprindelse, formueforhold, fødsel eller anden samfundsmæssig stilling. Der skal heller ikke gøres nogen forskel på grund af det lands eller områdes jurisdiktionsforhold eller politiske eller internationale stilling, til hvilket en person hører, hvadenten dette område er uafhængigt, under formynderskab eller er et ikke selvstyrende område, eller dets suverænitet på anden måde er begrænset.</string>
+	<key>dav</key>
+	<string>a b c d e f g h i j k l m n o p r s t u v w y z</string>
+	<key>de</key>
+	<string>Jeder hat Anspruch auf alle in dieser Erklärung verkündeten Rechte und Freiheiten, ohne irgendeinen Unterschied, etwa nach Rasse, Hautfarbe, Geschlecht, Sprache, Religion, politischer oder sonstiger Anschauung, nationaler oder sozialer Herkunft, Vermögen, Geburt oder sonstigem Stand. Des weiteren darf kein Unterschied gemacht werden auf Grund der politischen, rechtlichen oder internationalen Stellung des Landes oder Gebietes, dem eine Person angehört, gleichgültig ob dieses unabhängig ist, unter Treuhandschaft steht, keine Selbstregierung besitzt oder sonst in seiner Souveränität eingeschränkt ist.</string>
+	<key>dje</key>
+	<string>a ã b c d e ẽ f g h i j k l m n ɲ ŋ o õ p q r s š t u w x y z ž</string>
+	<key>dua</key>
+	<string>a á b ɓ c d ɗ e é ɛ ɛ́ f g i í j k l m n ny ŋ o ó ɔ ɔ́ p r s t u ú ū w y</string>
+	<key>dv</key>
+	<string>ހަމަ ކޮންމެ މީހަކަށްމެ، މިޤަރާރުގައި ބަޔާންކޮށްފައިވާ ހުރިހާ ޙައްޤުތަކަކާއި މިނިވަންކަމުގެ މިންގަނޑުތަކެއް ހޯދުމާއި، ލިބިގަތުމުގެ ޙައްޤު ލިބިގެންވެއެވެ. އެޙައްޤުތަކާއި އެމިންގަނޑުތައް ލިބިދެނީ، ނަސްލާއި، ކުލައާއި، ޖިންސާއި، ބަހާއި، ދީނާއި، ސިޔާސީގޮތުން ނުވަތަ އެހެންވެސް ކަމަކާ ގުޅޭގޮތުން ވިސްނުން ގެންގުޅޭ ގޮތާއި، ވަކި ޤައުމަކަށް ނުވަތަ މުޖުތަމަޢަކަށް ނިސްބަތްވުމާއި، މުދާ ލިބިހުރުމާއި، އުފަންވީ ޢާއިލާއެއްގެ ސަބަބުން ޤަދަރުވެރިވުމާއި، އެހެންވެސް ސަބަބަކާ ހުރެ ޤަދަރުވެރިވުންފަދަ، އެއްވެސް ބާވަތެއްގެ މިންގަނޑަކުން ތަފާތު ކުރުމެއް ނެތިއެވެ. އަދި މީހަކު ނިސްބަތްވާ ޤައުމަކީ، ނުވަތަ ސަރަޙައްދަކީ ސިޔާސީ ގޮތުން، ނުވަތަ އެޤައުމުގެ ބާރު ހިނގާ ސަރަޙައްދުގެ މިންވަރުގެ ގޮތުން، ނުވަތަ އެޤައުމުގެ ބައިނަލްއަޤްވާމީ ހައިސިއްޔަތުގެ ގޮތުން ނަމަވެސް، އެއްވެސް ތަފާތުކުރުމެއް ގެންގުޅެގެން ނުވާނޭ ގޮތުންނެވެ. އެޤައުމަކީ، ނުވަތަ މީހަކު ނިސްބަތްވާ އެސަރަޙައްދަކީ، މިނިވަން ޤައުމަކަށް ވިޔަސް، ނުވަތަ އެކުވެރި ދައުލަތްތަކުގެ ބެލުމުގެ ދަށުން އެހެން ޤައުމަކުންބަލަހައްޓަމުންދާ ޤައުމެއް ކަމުގައިވިޔަސް، ނުވަތަ އަމިއްލަ ވެރިކަމެއް ނެތް ޤައުމެއް ކަމުގައި ވިޔަސް، ނުވަތަ އެހެންވެސް ގޮތަކުން ސިޔާދަތީ ބާރު މަޙްދޫދު ކުރެވިގެންވާ ޤައުމަކަށް ވީނަމަވެހެވެ.</string>
+	<key>dyo</key>
+	<string>a á b c d e é f g h i í j k l m n ñ ŋ o ó p q r s t u ú v w x y</string>
+	<key>dz</key>
+	<string>ཀ ྐ ཁ ྑ ག ྒ ང ྔ ཅ ཆ ཇ ྗ ཉ ྙ ཏ ྟ ཐ ད ྡ ན ྣ པ ྤ ཕ བ ྦ མ ྨ ཙ ྩ ཚ ཛ ྫ ཝ ྭ ཞ ཟ འ ཡ ྱ ར ྲ ལ ླ ཤ ྵ ས ཧ ྷ ཨ ི ུ ེ ོ</string>
+	<key>ebu</key>
+	<string>a b c d e f g h i ĩ j k l m n o p q r s t u ũ v w x y z</string>
+	<key>ee</key>
+	<string>a á à ã b d ɖ e é è ẽ ɛ ɛ́ ɛ̀ ɛ̃ f ƒ g ɣ h i í ì ĩ k l m n ŋ o ó ò õ ɔ ɔ́ ɔ̀ ɔ̃ p r s t u ú ù ũ v ʋ w x y z</string>
+	<key>el</key>
+	<string>Κάθε άνθρωπος δικαιούται να επικαλείται όλα τα δικαιώματα και όλες τις ελευθερίες που προκηρύσσει η παρούσα Διακήρυξη, χωρίς καμία απολύτως διάκριση, ειδικότερα ως προς τη φυλή, το χρώμα, το φύλο, τη γλώσσα, τις θρησκείες, τις πολιτικές ή οποιεσδήποτε άλλες πεποιθήσεις, την εθνική ή κοινωνική καταγωγή, την περιουσία, τη γέννηση ή οποιαδήποτε άλλη κατάσταση. Δεν θα μπορεί ακόμα να γίνεται καμία διάκριση εξαιτίας του πολιτικού, νομικού ή διεθνούς καθεστώτος της χώρας από την οποία προέρχεται κανείς, είτε πρόκειται για χώρα ή εδαφική περιοχή ανεξάρτητη, υπό κηδεμονία ή υπεξουσία, ή που βρίσκεται υπό οποιονδήποτε άλλον περιορισμό κυριαρχίας.</string>
+	<key>el-poly</key>
+	<string>Κάθε ἄνθρωπος δικαιοῦται νὰ ἐπικαλεῖται ὅλα τὰ δικαιώματα καὶ ὅλες τὶς ἐλευθερίες ποὺ προκηρύσσει ἡ παρούσα Διακήρυξη, χωρὶς καμία ἀπολύτως διάκριση, εἰδικότερα ὡς πρὸς τὴν φυλή, τὸ χρῶμα, τὸ φῦλο, τὴν γλώσσα, τὶς θρησκεῖες, τὶς πολιτικὲς ἢ ὁποιεσδήποτε ἄλλες πεποιθήσεις, τὴν ἐθνικὴ ἢ κοινωνικὴ καταγωγή, τὴν περιουσία, τὴν γέννηση ἢ ὁποιαδήποτε ἄλλη κατάσταση.
+
+Δὲν θὰ μπορεῖ ἀκόμα νὰ γίνεται καμία διάκριση ἐξαιτίας τοῦ πολιτικοῦ, νομικοῦ ἢ διεθνοῦς καθεστῶτος τῆς χώρας ἀπὸ τὴν ὁποία προέρχεται κανείς, εἴτε πρόκειται γιὰ χώρα ἢ ἐδαφικὴ περιοχὴ ἀνεξάρτητη, ὑπὸ κηδεμονία ἢ ὑπεξουσία, ἢ ποὺ βρίσκεται ὑπὸ ὁποιονδήποτε ἄλλον περιορισμὸ κυριαρχίας.</string>
+	<key>en</key>
+	<string>Everyone is entitled to all the rights and freedoms set forth in this Declaration, without distinction of any kind, such as race, colour, sex, language, religion, political or other opinion, national or social origin, property, birth or other status. Furthermore, no distinction shall be made on the basis of the political, jurisdictional or international status of the country or territory to which a person belongs, whether it be independent, trust, non-self-governing or under any other limitation of sovereignty.</string>
+	<key>en_Dsrt</key>
+	<string>𐐇𐑂𐑉𐐨𐐶𐐲𐑌 𐐮𐑆 𐐯𐑌𐐻𐐴𐐻𐐲𐑊𐐼 𐐻𐐭 𐐫𐑊 𐑄 𐑉𐐴𐐻𐑅 𐐰𐑌𐐼 𐑁𐑉𐐨𐐼𐐲𐑋𐑆 𐑅𐐯𐐻 𐑁𐐫𐑉𐑃 𐐮𐑌 𐑄𐐮𐑅 𐐔𐐯𐐿𐑊𐐲𐑉𐐩𐑇𐐲𐑌, 𐐶𐐮𐑃𐐵𐐻 𐐼𐐮𐑅𐐻𐐮𐑍𐐿𐑇𐐲𐑌 𐐲𐑂 𐐯𐑌𐐨 𐐿𐐴𐑌𐐼, 𐑅𐐲𐐽 𐐰𐑆 𐑉𐐩𐑅, 𐐿𐐲𐑊𐐲𐑉, 𐑅𐐯𐐿𐑅, 𐑊𐐰𐑍𐑀𐐶𐐲𐐾, 𐑉𐐨𐑊𐐮𐐾𐐲𐑌, 𐐹𐐲𐑊𐐮𐐻𐐲𐐿𐐲𐑊 𐐫𐑉 𐐲𐑄𐐲𐑉 𐐲𐐹𐐮𐑌𐐷𐐲𐑌, 𐑌𐐰𐑇𐐲𐑌𐐲𐑊 𐐫𐑉 𐑅𐐬𐑇𐐲𐑊 𐐫𐑉𐐲𐐾𐐲𐑌, 𐐹𐑉𐐪𐐹𐐲𐑉𐐻𐐨, 𐐺𐐲𐑉𐑃 𐐫𐑉 𐐲𐑄𐐲𐑉 𐑅𐐻𐐩𐐻𐐲𐑅.
+𐐙𐐲𐑉𐑄𐐲𐑉𐑋𐐫𐑉, 𐑌𐐬 𐐼𐐮𐑅𐐻𐐮𐑍𐐿𐑇𐐲𐑌 𐑇𐐰𐑊 𐐺 𐑋𐐩𐐼 𐐫𐑌 𐑄 𐐺𐐩𐑅𐐮𐑅 𐐲𐑂 𐑄 𐐹𐐲𐑊𐐮𐐻𐐲𐐿𐐲𐑊, 𐐾𐐳𐑉𐐲𐑅𐐼𐐮𐐿𐑇𐐲𐑌𐐲𐑊 𐐫𐑉 𐐮𐑌𐐻𐐲𐑉𐑌𐐰𐑇𐐲𐑌𐐲𐑊 𐑅𐐻𐐩𐐻𐐲𐑅 𐐲𐑂 𐑄 𐐿𐐲𐑌𐐻𐑉𐐨 𐐫𐑉 𐐻𐐯𐑉𐐮𐐻𐐫𐑉𐐨 𐐻𐐭 𐐸𐐶𐐮𐐽 𐐪 𐐹𐐲𐑉𐑅𐐲𐑌 𐐺𐐮𐑊𐐫𐑍𐑆, 𐐸𐐶𐐯𐑄𐐲𐑉 𐐮𐐻 𐐺 𐐮𐑌𐐼𐐮𐐹𐐯𐑌𐐼𐐲𐑌𐐻, 𐐻𐑉𐐲𐑅𐐻, 𐑌𐐪𐑌-𐑅𐐯𐑊𐑁-𐑀𐐲𐑂𐐲𐑉𐑌𐐮𐑍 𐐫𐑉 𐐲𐑌𐐼𐐲𐑉 𐐯𐑌𐐨 𐐲𐑄𐐲𐑉 𐑊𐐮𐑋𐐮𐐻𐐩𐑇𐐲𐑌 𐐲𐑂 𐑅𐐪𐑂𐑉𐐲𐑌𐐻𐐨.</string>
+	<key>en_Shaw</key>
+	<string>𐑐 𐑑 𐑒 𐑓 𐑔 𐑕 𐑖 𐑗 𐑘 𐑙 𐑚 𐑛 𐑜 𐑝 𐑞 𐑟 𐑠 𐑡 𐑢 𐑣 𐑤 𐑥 𐑦 𐑧 𐑨 𐑩 𐑪 𐑫 𐑬 𐑭 𐑮 𐑯 𐑰 𐑱 𐑲 𐑳 𐑴 𐑵 𐑶 𐑷 𐑸 𐑹 𐑺 𐑻 𐑼 𐑽 𐑾 𐑿</string>
+	<key>eo</key>
+	<string>Ĉiuj rajtoj kaj liberecoj difinitaj en tiu ĉi Deklaracio validas same por ĉiuj homoj, sen kia ajn diferencigo, ĉu laŭ raso, haŭtkoloro, sekso, lingvo, religio, politika aŭ alia opinio, nacia aŭ socia deveno, posedaĵoj, naskiĝo aŭ alia stato. Plie, nenia diferencigo estu farata surbaze de la politika, jurisdikcia aŭ internacia pozicio de la lando aŭ teritorio, al kiu apartenas la koncerna persono, senkonsidere ĉu ĝi estas sendependa, sub kuratoreco, ne-sinreganta aŭ sub kia ajn alia limigo de la suvereneco.</string>
+	<key>es</key>
+	<string>Toda persona tiene los derechos y libertades proclamados en esta Declaración, sin distinción alguna de raza, color, sexo, idioma, religión, opinión política o de cualquier otra índole, origen nacional o social, posición económica, nacimiento o cualquier otra condición. Además, no se hará distinción alguna fundada en la condición política, jurídica o internacional del país o territorio de cuya jurisdicción dependa una persona, tanto si se trata de un país independiente, como de un territorio bajo administración fiduciaria, no autónomo o sometido a cualquier otra limitación de soberanía.</string>
+	<key>et</key>
+	<string>Igal inimesel peavad olema kõik käesoleva deklaratsiooniga välja kuulutatud õigused ja vabadused, olenemata rassist, nahavärvusest, soost, usulisest, poliitilisest või muudest veendumustest, rahvuslikust või sotsiaalsest päritolust, varanduslikust, seisuslikust või muust seisundist.
+
+Lisaks sellele ei tohi inimeste vahel vahet teha riigi või territooriumi poliitilise, õigusliku või rahvusvahelise seisundi põhjal, olenemata sellest, kas territoorium, mille kodanik ollakse, on sõltumatu, hooldusalune või mõnel muul viisil oma suveräänsuses piiratud.</string>
+	<key>eu</key>
+	<string>Gizaki orori dagozkio Aldarrikapen honetan adierazitako eskubide eta askatasunak, eta ez da inor bereziko arraza, larru-kolorea, sexua, hizkuntza, erlijioa, politikako edo bestelako iritzia, sorterria edo gizarteko jatorria, ekonomi maila, jaiotza edo beste inolako gorabeheragatik. Ez zaio begiratuko gainera, pertsona zein herrialde edo lurraldetakoa den; ezta hango politikari, legeei edo nazioarteko egoerari, nahiz eta herri hori burujabea izan, besteren zainpeko lurraldea, autonomiarik gabea edo nola-halako burujabetasun-mugak dituena.</string>
+	<key>ewo</key>
+	<string>a á à â ǎ b d dz e é è ê ě ǝ ǝ́ ǝ̀ ǝ̂ ǝ̌ ɛ ɛ́ ɛ̀ ɛ̂ ɛ̌ f g h i í ì î ǐ k kp l m n ń ǹ ng nk ŋ o ó ò ô ǒ ɔ ɔ́ ɔ̀ ɔ̂ ɔ̌ p r s t ts u ú ù û ǔ v w y z</string>
+	<key>fa</key>
+	<string>هر کس میتواند بدون هیچگونه تمایز مخصوصا از حیث نژاد، رنگ، جنس، زبان، مذهب، عقیدهٔ سیاسی یا هر عقیده دیگر و همچنین ملیت، وضع اجتماعی، ثروت، ولادت یا هر موقعیت دیگر، از تمام حقوق و کلیهٔ آزادی‌هائیکه در اعلامیه ذکر حاضر شده است، بهره‌مند گردد. بعلاوه هیچ تبعیضی بعمل نخواهد آمد که مبتنی بر وضع سیاسی، اداری و قضائی یا بین‌المللی کشور یا سرزمینی باشد که شخص بآن تعلق دارد، خواه این کشور مستقل، تحت قیومیت یا غیر خودمختار بوده یا حاکمیت آن بشکلی محدود شده باشد.</string>
+	<key>ff</key>
+	<string>a b ɓ c d ɗ e f g h i j k l m n ñ ŋ o p r s t u w y ƴ</string>
+	<key>fi</key>
+	<string>Jokainen on oikeutettu kaikkiin tässä julistuksessa esitettyihin oikeuksiin ja vapauksiin ilman minkäänlaista rotuun, väriin, sukupuoleen, kieleen, uskontoon, poliittiseen tai muuhun mielipiteeseen, kansalliseen tai yhteiskunnalliseen alkuperään, omaisuuteen, syntyperään tai muuhun tekijään perustuvaa erotusta. Mitään erotusta ei myöskään pidä tehdä sen maan tai alueen valtiollisen, hallinnollisen tai kansainvälisen aseman perusteella, johon henkilö kuuluu, olipa tämä alue itsenäinen, huoltohallinnossa, itsehallintoa vailla tai täysivaltaisuudeltaan minkä tahansa muun rajoituksen alainen.</string>
+	<key>fil</key>
+	<string>a b c d e f g h i j k l m n ñ ng o p q r s t u v w x y z</string>
+	<key>fo</key>
+	<string>a á b d ð e f g h i í j k l m n o ó p r s t u ú v x y ý æ ø</string>
+	<key>fr</key>
+	<string>Chacun peut se prévaloir de tous les droits et de toutes les libertés proclamés dans la présente Déclaration, sans distinction aucune, notamment de race, de couleur, de sexe, de langue, de religion, d&apos;opinion politique ou de toute autre opinion, d&apos;origine nationale ou sociale, de fortune, de naissance ou de toute autre situation. De plus, il ne sera fait aucune distinction fondée sur le statut politique, juridique ou international du pays ou du territoire dont une personne est ressortissante, que ce pays ou territoire soit indépendant, sous tutelle, non autonome ou soumis à une limitation quelconque de souveraineté.</string>
+	<key>fur</key>
+	<string>A ogni individui i spietin ducj i derits e dutis lis libertâts proclamâts in cheste Declarazion, cence nissune distinzion par vie di gjernazie, colôr, mascjo o femine, lenghe, religjon, di impinion politiche o alcaltri, di zoc nazionâl o sociâl, di ricjece, di nassite o altre condizion.
+
+E no sarà fate nissune distinzion nancje par vie dal Statût politic, juridic o internazionâl dal paîs o de tiare che une persone i parten, tant se chê tiare e je indipendent che s’e je sot ministrazion fiduciarie o no autonime o sot cualchi altri limit di sovranitât.</string>
+	<key>ga</key>
+	<string>Tá teideal ag gach uile dhuine chun na gceart agus na saoirsí go léir atá leagtha amach sa Dearthú seo, gan idirdhealú dáon tsaghas, go háirithe maidir le cine, dath, gnéas, teanga, creideamh, tuairim pholitíochta nó tuarim eile, bunadh náisiúnta nó sóisilach, maoin, breith nó céimíocht eile,
+
+Fairis sin, ní déanfar aon idirdhealú ar fhoras no céimíochta poiliticiúla, dlínsiúla nó eadarnáisiúnta atá ag an tír nó an chríoch len mbaineann duine, pé acu críoch neamhspleách, críoch iontaobhais, nó críoch gan rialtas dúchais í, nó críoch a bhfuil aon teoranta eile ar a ceannasacht.</string>
+	<key>gd</key>
+	<string>Tha gach neach fa leth airidh air gach còir is saorsa a tha sgrìobhte anns A&apos; Ghairm seo a dh&apos; aindeoin gnè sam bith, mar tha cinneadh, dath craicinn, gnè-cinneil, cànan, creideamh, beachdan poiliticeach, tùsachd nàiseanta neo sòisealta, sealbhachd, gin neo inbhe air bith eile.
+
+A thuilleadh, chan fhaod deifir a bhith air a dhèanamh air bonn inbhe phoiliticeach, uachdaranail neo eadar-nàiseanta a tha ceangailte ri dùthaich dom buin neach co-dhiù tha an dùthaich sin neo-eiseimeileach, fo urras, fon rìaghladh neo fo bhacadh dùthcha eile.</string>
+	<key>gl</key>
+	<string>Toda persoa ten os dereitos e liberdades proclamados nesta Declaración, sen distinción ningunha de raza, cor, sexo, idioma, relixión, opinión política ou de calquera outra índole, orixe nacional ou social, posición económica, nacemento ou calquera outra condición.
+
+Ademais, non se fará ningunha distinción baseado na condición política, xurídica ou internacional do país ou territoiro da xurisdicción do cal dependa unha persoa, tanto se se trata dun país independente coma dun territorio baixo administración fiduciaria, non autónomo ou sometido a calquera outra limitación de soberanía.</string>
+	<key>gsw</key>
+	<string>a ä b c d e f g h i j k l m n o ö p q r s t u ü v w x y z</string>
+	<key>gu</key>
+	<string>દરેક વ્યક્તિને જાતિ, રંગ, લિંગ, ભાષા, ધર્મે, રાજકીય અથવા બીજા અભિપ્રાય, રાષ્ટ્રીય અથવા સામાજિક ઉદ્ભવસ્થાન, મિલકત, જન્મ અથવા મોભા જેવા કોઇપણ જાતના ભેદભાવ વગર આ ધોષણામાં રજૂ કરવામાં આવેલા સધળા અધિકારો અને સ્વતંત્રતા ભોગવવાનો હક્ક છે.
+
+વધુમાં કોઇપણ વ્યક્તિ તે સ્વતંત્ર, ટ્રસ્ટ હેઠળના સ્વશાસન હેઠળ ન હોય તેવા અથવા સાર્વભામત્વની બીજી કોઇપણ મર્યાદા હેઠળ આવેલા દેશ અથવા પ્રદેશની હોય તો પણ રાજકીય, હફમવવિષયક અથવા આંતરરાષ્ટ્રીય મોભાના ધોરણે તેની સાથે કોઇપણ ભેદભાવ રાખવામાં આવશે નહિ.</string>
+	<key>guz</key>
+	<string>a b c d e f g h i j k l m n o p r s t u v w y z</string>
+	<key>gv</key>
+	<string>a b c ç d e f g h i j k l m n o p q r s t u v w x y z</string>
+	<key>ha</key>
+	<string>a b ɓ c d ɗ e f g h i j k ƙ l m n o r s sh t ts u w y ʼy z ʼ</string>
+	<key>haw</key>
+	<string>Ua noa i nā kānaka apau loa nā pono kīvila i helu ‘ia ma kēia Hō’ike, me ka ho’okae ‘ole i ka lāhui, i ka wai ho’olu’u o ka ‘ili, i ke kāne a i ‘ole ka wahine ka ‘ōlelo, ka ho’omana, ka mana’o politika a me nā mana’o ‘ē a’e, ka ‘āina a pilina paha i hānau ‘ia ai, ka waiwai, ke kūlana hanauna a me nā kūlana ‘ē a’e.
+
+Eia ho’i, ‘a’ole e ho’okae ‘ia ke kanaka ma muli o ke kūlana politika a me ke kuleana kūloko a kūwaho ho’i o kona aupuni nona mai ‘o ia, inā paha he aupuni kū’oko’a he ‘āina noho kahu ‘ia, a i ‘ole ho’i he ‘āina i kaupalena ‘ia kona kū’oko’a ‘ana.</string>
+	<key>he</key>
+	<string>כל אדם זכאי לזכויות ולחרויות שנקבעו בהכרזש זו ללא הפליה כלשהיא מטעמי גזע, צבע, מין, לשון, דח, דעה פוליטית או דעה בבעיות אחרות, בגלל מוצא לאומי או חברתי, קנין, לידה או מעמד אחר. גדולה מזו, לא יופלה אדם על פי מעמדה המדיני, על פי סמכותה או על פי מעמדה הבינלאומי של המדינה או הארץ שאליה הוא שייך, דין שהארץ היא עצמאית, ובין שהיא נתונה לנאמנות, בין שהיא נטולת שלטון עצמי ובין שריבונותה מוגבלת כל הגבלה אחרת.</string>
+	<key>hi</key>
+	<string>सभी को इस घोषणा में सन्निहित सभी अधिकारों और आज़ादियों को प्राप्त करने का हक़ है और इस मामले में जाति, वर्ण, लिंग, भाषा, धर्म, राजनीति या अन्य विचार-प्रणाली, किसी देश या समाज विशेष में जन्म, सम्पत्ति या किसी प्रकार की अन्य मर्यादा आदि के कारण भेदभाव का विचार न किया जाएगा ।
+
+इसके अतिरिक्त, चाहे कोई देश या प्रदेश स्वतन्त्र हो, संरक्षित हो, या स्त्रशासन रहित हो या परिमित प्रभुसत्ता वाला हो, उस देश या प्रदेश की राजनैतिक, क्षेत्रीय या अन्तर्राष्ट्रीय स्थिति के आधार पर वहां के निवासियों के प्रति कोई फ़रक़ न रखा जाएगा ।</string>
+	<key>hr</key>
+	<string>Svakome su dostupna sva prava i slobode navedene u ovoj Deklaraciji bez razlike bilo koje vrste, kao što su rasa, boja, spol, jezik,vjera,politićko ili drugo mišljenje, nacionalno ili društveno porijeklo, imovina, roćenje ili drugi pravni poloćaj. Nadalje, ne smije se ćiniti bilo kakva razlika na osnovi politićkog, pravnog ili mećunarodnog poloćaja zemlje ili podrućja kojima neka osoba pripada, bilo da je to podrućje neovisno, pod starateljstvom,nesamoupravno, ili da se nalazi ma pod kojima drugim ogranićenjima suverenosti.</string>
+	<key>ht</key>
+	<string>Chak grenn moun sou tè a fèt pou kapab benefisye libète ak dwa ki pwoklame nan Deklarasyon sila a, san okenn diferans, tankou diferans ki baze sou ras, sou koulè po, sou si se fanm oswa si se gason. Pa fèt pou gen okenn diferans ki baze ni sou lang, ni sou relijyon, ni sou opinyon politik oswa lòt fason sèten moun panse; ni pa dwe gen diferans ki baze sou nasyonalite moun, klas sosyal yo, richès yo, nan ki kondisyon paran yo te fè yo; ni sou okenn lòt rezonman nan jan sa a.
+
+Pa fèt pou gen okenn diferans non plis, ki gen rapò ni ak sitiasyon politik, ni ak kalite rapò relasyon diplomatik ki egziste ant peyi kote moun nan ye a ak peyi kote moun nan sòti a, kit se yon peyi oswa yon tèritwa endepandan, kit li anba drapo yon lòt peyi, ki li gran moun lakay li, oswa t a gen kèk règleman ki limite pouvwa peyi sila a pou li pran desizyon poukont li.</string>
+	<key>hu</key>
+	<string>Mindenki, bármely megkülönböztetésre, nevezetesen fajra, színre, nemre, nyelvre, vallásra, politikai vagy bármely más véleményre, nemzeti vagy társadalmi eredetre, vagyonra, születésre, vagy bármely más körülményre való tekintet nélkül hivatkozhat a jelen Nyilatkozatban kinyilvánított összes jogokra és szabadságokra. Ezenfelül nem lehet semmiféle megkülönböztetést tenni annak az országnak, vagy területnek politikai, jogi vagy nemzetközi helyzete alapján sem, amelynek a személy állampolgára, aszerint, hogy az illető ország vagy terület független, gyámság alatt áll, nem autonóm vagy szuverenitása bármely vonatkozásban korlátozott.</string>
+	<key>hy</key>
+	<string>Ամեն ոք ունի այս Հռչակագրում բերված բոլոր իրավունքներն ու ազատությունները առանց որևէ խտրության՝ հիմնված ցեղային, մաշկի գույնի, սեռի, լեզվի, կրոնի, քաղաքական կամ այլ համոզմունքների, ազգային կամ սոցիալական ծագման, ունեցվածքի, դասային պատկանելության կամ որևէ այլ կարգավիճակի վրա։
+
+Ավելին, ոչ մի խտրականություն չպետք է լինի հիմնված երկրի կամ տարածքի, քաղաքական, իրավական, կամ միջազգային կարգավիճակի վրա, լինի դա անկախ, խնամարկյալ, ոչինքնակառավարվող կամ ինքնիշխանության որևէ այլ սահմանափակումով պետական կազմավորում, որին պատկանում է մարդը։</string>
+	<key>ia</key>
+	<string>Tote esser human ha tote le derectos e tote le libertates proclamate in iste Declaration, sin alicun distinction de racia, de color, de sexo, de lingua, de religion, de opinion politic o de altere opinion, de origine national o social, de position economic, de nascentia o de qualcunque altere position.
+
+In plus, il non essera facite alicun distinction fundate super le statuto politic, juridic o international del pais o del territorio al qual un persona pertine, tanto si il se tracta de un pais independente como de un territorio sub tutela, non autonome o submittite a qualcunque altere limitation de soveranitate.</string>
+	<key>id</key>
+	<string>a b c d e f g h i j k l m n o p q r s t u v w x y z</string>
+	<key>ig</key>
+	<string>a b ch d e ẹ f g gb gh gw h i ị j k kp kw l m n ṅ nw ny o ọ p r s sh t u ụ v w y z</string>
+	<key>ii</key>
+	<string>ꊾꂷꈀꐥꌠꃅꄜꋊꄯꒉꇬꅑꌠꌅꅍꌋꆀꄿꐨꆹ，ꊿꋅ、ꊾꐎꊾꆈ、ꌋꅪꌺꃰ、ꅇꂷ、ꑞꑇꌠ、ꍔꍞꌋꆀꀉꁁꑞꉜꐨ、ꑞꇩꏤ、ꐧꋦꊾꏥ、ꁨꇐ、ꒆꊿꀋꉬꀐꇬꀉꁁꊿꑞꉬꅉꂿꇬꐥꋭꌠꉬ。
+
+ꄷꀋꁨꊿꂷꀉꆍꋩꈌꌺꌠꇩꏤꏲꄸꍔꍞ，ꏱꏦꀋꉬꀐꇬꇩꏤꇢꊭꐥꐯꀋꒉꒉꄸ，ꏲꄸꋋꈚꆹꊨꏦꏲꄸ，ꀊꉬꀐꇬꄻꌠꁳꏲꄸ，ꊨꏦꀋꏲꌠꏲꄸꌋꆀꀉꁁꈍꃅꏲꄸꉬꂿꐯꀋꌠꀋꉆꌠꉬ。</string>
+	<key>io</key>
+	<string>Omnu es yurizita per omna yuri e liberesi prizentita en ca Deklaro, sen distingo irgaspeca, exemple pro raso, koloro, sexuo, linguo, religio, politikal o altra opinioni, nacional o social origino, proprietajo, nasko o altra rango.
+
+Pluse, nula distingo esez facata fondita sur la politikal, resortisal o internacional stando di la lando o teritorio a qua persono apartenas, sive nedependanta, fideikomiso, ne-suguvernanta o sub irga altra limitizo di suvereneso.</string>
+	<key>is</key>
+	<string>Hver maður skal eiga kröfu á réttindum þeim og því frjálsræði, sem fólgin eru í yfirlýsingu þessari, og skal þar engan greinarmun gera vegna kynþáttar, litarháttar, kynferðis, tungu, trúar, stjórnmálaskoðana eða annarra skoðana, þjóðernis, uppruna, eigna, ætternis eða annarra aðstæðna.
+
+Eigi má heldur gera greinarmun á mönnum fyrir sakir stjórnskipulags lands þeirra eða landsvæðis, þjóðréttarstöðu þess eða lögsögu yfir því, hvort sem landið er sjálfstætt ríki, umráðasvæði, sjálfstjórnarlaust eða á annan hátt háð takmörkunum á fullveldi sínu.</string>
+	<key>it</key>
+	<string>Ad ogni individuo spettano tutti i diritti e tutte le libertà enunciate nella presente Dichiarazione, senza distinzione alcuna, per ragioni di razza, di colore, di sesso, di lingua, di religione, di opinione politica o di altro genere, di origine nazionale o sociale, di ricchezza, di nascita o di altra condizione. Nessuna distinzione sarà inoltre stabilita sulla base dello statuto politico, giuridico o internazionale del paese o del territorio cui una persona appartiene, sia indipendente, o sottoposto ad amministrazione fiduciaria o non autonomo, o soggetto a qualsiasi limitazione di sovranità.</string>
+	<key>iu</key>
+	<string>ᑭᓇᒃᑯᑐᐃᓐᓇᓕᒫᑦᑎᐊᑦ ᐱᔪᒃᓴᐅᑕᐃᓐᓇᑦᑎᐊᖕᒍᕗᑦ ᑕᒪᐃᓐᓄᓕᒫᖅ ᐱᔪᓐᓇᐃᑎᓂᒃ ᐊᒻᒪᓗ ᐃᓱᒪᖅᓱᕈᓐᓇᐃᑎᓂᒃ ᐃᓕᖕᒐᓂᓕᐅᖅᑕᐅᓯᒪᔭᕇᖕᒪᑕ ᓇᓗᓇᐃᔭᐅᑎᖃᑦᑎᐊᑦᖢᑎᒃᓗ ᑖᒃᑯᑎᒎᓇᖅ, ᐊᔾᔨᐅᙱᖃᑎᒌᖕᓂᓕᕆᓗᐊᙱᓪᓗᑎᒃ ᓇᓪᓕᐊᒍᑐᐃᓐᓇᖅ, ᓲᕐᓗ ᓇᓂᕐᒥᐅᑕᐅᓂᕐᒥᒃᑎᒍᑦ, ᐅᕙᓂᖃᑎᒌᙱᓐᓂᕐᒥᖅᑎᒍᑦ, ᐊᕐᓇᐅᓂᖕᒍ ᐊᖕᒍᑕᐅᓂᖕᒐ ᐃᓱᒪᒋᓇᒍ, ᐅᖃᐅᓯᖃᖃᑎᒌᙱᓂᖅ, ᐅᒃᐱᕐᕕᖃᕐᓂᖅ ᑐᒃᓯᐊᕐᕕᖕᒥᖕᓂᒃ, ᒐᕙᒪᓕᕆᐅᑎᖃᕐᓂᖅ ᐅᕝᕙᓗ ᐊᓯᐊᒍᑦ ᑕᒪᒃᑯᐊ ᐃᓯᒪᒋᔪᓐᓇᖅᑕᖕᒋᑦ ᓯᖁᑎᒋᓇᒋᑦ, ᓇᓂᑐᐃᓐᓇᖅ ᓄᓇᒋᔭᐅᔪᒥᑦ ᐅᕝᕙᓘᓐᓃᑦ ᐊᓂᖅᑎᕆᔪᓐᓇᕐᓂᕐᒥᑎᒍᑦ, ᓄᓇᖃᖅᓂᒃᑯᑦ, ᐃᕐᓂᐊᖕᒍᓯᒪᓂᒃᑯᑦ ᐅᕝᕙᓘᓐᓃᑦ ᐊᓱᖕᒋᓐᓂᒃ. ᓯᓕᒃᑲᓐᓂᖅᑕᐅᖅ, ᐊᔾᔨᐅᙱᑎᑦᑎᔪᑕᐅᕙᒃᑐᑦ ᓴᓇᔭᐅᒪᔪᓐᓃᕐᓗᑎᒃ ᒐᕙᒪᐅᑎᓕᕆᔨᓄᐊᖅᑕᐅᕙᒃᑐᑦ, ᒪᓕᒐᑎᒍᑦ ᑲᒪᕕᒋᔪᓐᓇᖅᑕᖕᒐᒎᕈᑕᐅᕙᒃᑐᑦ ᐅᕝᕙᓘᓐᓃᑦ ᓯᕐᓚᔪᐊᕐᒥᐅᓄᑦ ᐊᑐᒐᐅᓕᖅᑕᖅᑐᑦ ᑎᑎᕋᕐᓯᒪᔪᑦ ᓄᓇᖓᓄᑦ ᓄᓇᖁᑎᒋᔭᐅᔪᒧᓪᓘᓐᓃᑦ ᓇᓪᓕᐊᕐᓄᑦ ᑖᓐᓇ ᐃᓄᒃᑐᖓ ᐊᑕᓪᓚᑦᑖᕐᒪᖔᑦ ᐸᓪᓗ, ᐃᓄᑑᔾᔨᓂᐊᕐᒪᖔᑦ, ᐊᖏᒐᒃᓴᐅᖕᒪᖔᑦ, ᓇᖕᒥᓂᖅ ᒐᕙᓕᐅᕿᒪᙱᑦᑑᖕᒪᖔᑦ ᐅᕝᕙᓘᓐᓃᑦ ᐅᖃᕐᓯᒪᓂᖓ ᓇᓪᓕᐊᑐᐃᓐᓇᖅ ᐊᓯᖏᑎᒍᑦ ᑭᒡᓕᓕᐅᕈᑕᐅᓯᒪᖃᑦᑕᖅᑐᑦ ᐱᖁᔭᕐᔪᐊᑦ ᐊᑕᔪᑐᖃᐃᑦ ᒪᓕᒃᖢᒋᑦ.</string>
+	<key>ja</key>
+	<string>すべて人は、人種、皮膚の色、性、言語、宗教、政治上その他の意見、国民的もしくは社会的出身、財産、門地その他の地位又はこれに類するいかなる自由による差別をも受けることなく、この宣言に掲げるすべての権利と自由とを享有することができる。さらに、個人の属する国又は地域が独立国であると、信託統治地域であると、非自治地域であると、又は他のなんらかの主権制限の下にあるとを問わず、その国又は地域の政治上、管轄上又は国際上の地位に基ずくいかなる差別もしてはならない。</string>
+	<key>jmc</key>
+	<string>a b c d e f g h i j k l m n o p r s t u v w y z</string>
+	<key>ka</key>
+	<string>ამ დეკლარაცით გამოცხადებული ყველა უფლება და ყველა თავისუფლება მინიჭებული უნდა ჰქონდეს ყოველ ადამიანს განურჩევლად რაიმე განსხვავების, სახელდობრ, რასის, კანის ფერის, სქესის, ენის, რელიგიის, პოლიტიკური თუ სხვა რწმენის, ეროვნული თუ სოციალური წარმომავლობის, ქონებრივი, წოდებრივი თუ სხვა მდგომარეობისა. გარდა ამისა, დაუშვებელია რაიმე განსხვავება იმ ქვეყნის თუ ტერიტორიის პოლიტიკური, სამართლებრივი ან საერთაშორისო სტატუსის საფუძველზე, რომელსაც ადამიანი ეკუთვნის, მიუხედავად იმისა, თუ როგორია ეს ტერიტორია - დამოუკიდებელი, სამეურვეო, არათვითმმართველი თუ სხვაგვარად შეზღუდული თავის სევერენიტეტში.</string>
+	<key>kab</key>
+	<string>a b c č d ḍ e ɛ f g ǧ ɣ h ḥ i j k l m n p q r ṛ s ṣ t ṭ u w x y z ẓ</string>
+	<key>kam</key>
+	<string>a b c d e f g h i ĩ j k l m n o p q r s t u ũ v w y z</string>
+	<key>kde</key>
+	<string>a b c d e f g h i j k l m n o p q r s t u v w x y z</string>
+	<key>kea</key>
+	<string>a b d dj e f g i j k l lh m n nh o p r s t tx u v x z</string>
+	<key>khq</key>
+	<string>a ã b c d e ẽ f g h i j k l m n ɲ ŋ o õ p q r s š t u w x y z ž</string>
+	<key>ki</key>
+	<string>a b c d e g h i ĩ j k m n o r t u ũ w y</string>
+	<key>kk</key>
+	<string>Әр адам, нәсіліне, түр‐түсіне, жынысына. тіліне, дініне, саяси немесе басқа да наным‐сенімдеріне, ұлттық, немесе әлеуметтік тегіне, мүліктік. тектік‐топтық, немесе басқа да жағдаяттарға қарамастан осы Декларацияда жарияланған барлық құқықтар мен бостандықтарға алаланбай, бірдей тең ие болуы тиіс.
+
+Сонымен қатар, ешкім де өзі тұратын елінің, не болмаса территорияның саяси, құқықтық, немесе халықаралық мәртебесінің негізі бойынша, және де ол территория тәуелсіз, әлде біреудің қарамағында, әлде өзін‐өзі басқарушы емес, немесе оның егемендігі әртүрлі нысанда шектеулі болған күннің өзінде де, алаланбауы тиіс.</string>
+	<key>kl</key>
+	<string>Kinal uunniit pisinnaatitaaffinnik killilersugaanngitsumillu iliorsinnaatitaaffinnik nalunaarummi maani taaneqartunik tamanik atuiumasinnaavoq, sukkulluunniit assigiinngisitsinertaqanngitsumik, s. ass. inuiannut sorlernut ataneq, ammip qalipaataa, arnaaneq/angutaaneq, oqaatsit, upperisaq, naalakkersuinikkut isuma allatulluunniit isumaqarneq, inuiaassutsikkut imaluunniit innuttaaqatigiinni qanoq atugaqartuneerneq, pigisaqassuseq, inunnguutsimit imaluunniit inuiaqatigiinni allatut inissisimaneq pissutigalugit.
+
+Aammattaaq nunami imaluunniit sumiiffimmi eqqartuussisinnaanikkut pissutsit imaluunniitt naalakkersuinikkut imaluunniit nunat allamiut inuup aalajangersimasup attaveqarfigisaasa isumaat pissutiagalugit assigiinngisitsineqassanngilaq, sumiiffik naalakkersuinikkut attaveqarfeqanngikkaluarpalluunniit, allanit oqartussaaffigineqaraluarpat namminersortuunngikkaluarpalluunniit, imaluunniit imminut naalakkersorsinnaassusia arlaatigut killiliivigineqarsimagaluarpat.</string>
+	<key>kln</key>
+	<string>a b c d e g h i j k l m n o p r s t u w y</string>
+	<key>km</key>
+	<string>មនុស្សម្នាក់ៗ អាចប្រើប្រាស់សិទ្ធិនិងសេរីភាពទាំងអស់ ដែលមានចែងក្នុងសេចក្ដីប្រកាសនេះ ដោយគ្មានការប្រកាន់បែងចែកបែបណាមួយ មានជាអាទិ៍ ពូជសាសន៍ ពណ៌សម្បុរ ភេទ ភាសា សាសនា មតិនយោបាយ ឬមតិផ្សេងៗទៀត ដើមកំណើតជាតិ ឬសង្គម ទ្រព្យសម្បត្ដិ កំណើត ឬស្ថានភាព ដទៃៗទៀតឡើយ។
+
+លើសពីនេះ មិនត្រូវធ្វើការប្រកាន់បែងចែកណាមួយ ដោយសំអាងទៅលើឋានៈខាងនយោបាយ ខាងដែនសមត្ថកិច្ច ឬខាងអន្ដរជាតិរបស់ប្រទេស ឬដែនដីដែលបុគ្គលណាម្នាក់រស់នៅ ទោះបីជាប្រទេស ឬដែនដីនោះឯករាជ្យក្ដី ស្ថិតក្រោមអាណាព្យាបាលក្ដី ឬគ្មានស្វ័យគ្រប់គ្រងក្ដី ឬស្ថិតក្រោមការដាក់ កម្រិតផ្សេងទៀតណាមួយ ដល់អធិបតេយ្យភាពក្ដី។</string>
+	<key>kn</key>
+	<string>಼ ೦ ೧ ೨ ೩ ೪ ೫ ೬ ೭ ೮ ೯ ಅ ಆ ಇ ಈ ಉ ಊ ಋ ೠ ಌ ೡ ಎ ಏ ಐ ಒ ಓ ಔ ಂ ಃ ಕ ಖ ಗ ಘ ಙ ಚ ಛ ಜ ಝ ಞ ಟ ಠ ಡ ಢ ಣ ತ ಥ ದ ಧ ನ ಪ ಫ ಬ ಭ ಮ ಯ ರ ಱ ಲ ವ ಶ ಷ ಸ ಹ ಳ ೞ ಽ ಾ ಿ ೀ ು ೂ ೃ ೄ ೆ ೇ ೈ ೊ ೋ ೌ ್ ೕ ೖ</string>
+	<key>ko</key>
+	<string>모든 사람은 인종, 피부색, 성, 언어, 종교, 정치적 또는 기타의 견해, 민족적 또는 사회적 출신, 재산, 출생 또는 기타의 신분과 같은 어떠한 종류의 차별이 없이, 이 선언에 규정된 모든 권리와 자유를 향유할 자격이 있다 . 더 나아가 개인이 속한 국가 또는 영토가 독립국 , 신탁통치지역 , 비자치지역이거나 또는 주권에 대한 여타의 제약을 받느냐에 관계없이 , 그 국가 또는 영토의 정치적, 법적 또는 국제적 지위에 근거하여 차별이 있어서는 아니된다 .</string>
+	<key>kok</key>
+	<string>़ ० १ २ ३ ४ ५ ६ ७ ८ ९ ॐ ं ँ ः अ आ इ ई उ ऊ ऋ ऌ ऍ ए ऐ ऑ ओ औ क क़ ख ख़ ग ग़ घ ङ च छ ज ज़ झ ञ ट ठ ड ड़ ढ ढ़ ण त थ द ध न प फ फ़ ब भ म य य़ र ल व श ष स ह ळ ऽ ा ि ी ु ू ृ ॄ ॅ े ै ॉ ो ौ ्</string>
+	<key>ksb</key>
+	<string>a b c d e f g h i j k l m n o p s t u v w y z</string>
+	<key>ksf</key>
+	<string>a á b c d e é ǝ ǝ́ ɛ ɛ́ f g h i í j k l m n ŋ o ó ɔ ɔ́ p r s t u ú v w y z</string>
+	<key>ksh</key>
+	<string>a å ä æ b c d e ë ė f g h i j k l m n o ö œ p q r s t u ů ü v w x y z</string>
+	<key>ku</key>
+	<string>ئ ا ب پ ت ج چ ح خ د ر ز ڕ ژ س ش ع غ ف ڤ ق ک گ ل ڵ م ن ه ھ و ۆ ی ێ</string>
+	<key>ku_Latn</key>
+	<string>Heryek, bê tu cihêyî, nemaze ya nijad, reng, zayend (cisn), ziman, ol, ramana siyasî an her ramana din, eslê neteweyî an civakî, serwet, zayîn an her rewşeke din, xwediyê hemû maf û hemû azadiyên ku di vê Danezanê de hatine daxuyankirî ye.
+
+Bi serde, ewê tu cihêyî neyê kirin ji ber statuya siyasî, hiqûqî an navneteweyî ya welat an erdê ku kesek jê tê, heke ev welat an erd serbixwe, li jêr dest, ne xweser (otonom) an li jêr her tahdîda din a serweriyê be an na.</string>
+	<key>kw</key>
+	<string>a b c d e f g h i j k l m n o p q r s t u v w x y z</string>
+	<key>ky</key>
+	<string>а б г д е ё ж з и й к л м н ӊ о ө п р с т у ү х ч ш ъ ы э ю я</string>
+	<key>lag</key>
+	<string>a á b c d e é f g h i í ɨ j k l m n o ó p q r s t u ú ʉ v w x y z</string>
+	<key>la</key>
+	<string>Omnium hominum propria sunt quae iura et libertates in hac DECLARATIONE enuntiantur: generis,vultus, sexus, linguae, religionis, opinionis civilis, nullo discrimine atque sine natione divitiis loco discretis. Praeterea nullum discrimen statuetur civitatis forma et iuris aut gentium, regionis aut territorii cuius quidam est, sive ea regio aut territorium sui iuris est vel in administrationis fiduciariae dicione vel non liberum vel in cuiuslibet imperii modi potestate.</string>
+	<key>lad</key>
+	<string>Kada persona tiene todos los derechos i libertades proklamados en esta Deklarasion sin dinguna diferensia de rasa, kolor, sekso, lingua, relijion, opinion politika, orijin nasional o sosial, situasion ekonomika, nasimiento o kualkiera otra kondision.
+
+Indemas, no se azera dinguna diferensia bazada en la kondision politika, juridika o internasional del paiz o territorio al kual apartiene una persona, ke sea un paiz independente, o un territorio basho administrasion legal, no otonomo, o sometido a kualkiera otra limitasion de soverania.</string>
+	<key>lg</key>
+	<string>a b c d e f g i j k l m n ny ŋ o p r s t u v w y z</string>
+	<key>ln</key>
+	<string>Moto nyonso azali na makoki pe bonsomi nyonso oyo elimbolami na kati ya Lisakoli oyo, bokeseni ata moke te, na mambi matali loposo ya nzoto, bomwasi to bobali, lokota, lingomba ya nzambe, makanisi ya politiki to ya ndenge mosusu, ekolo to longomba ya bato, bokulaka, mbotama to makambo mosusu.
+
+Epai mosusu, na botalaka eloko ya moto, epikisami kosala bokeseni na mambi matali mibeko ya politiki, mibeko ya bosambisi to ya boyokani na mikili mosusu, ezala ekolo to mabele ya nsomi to oyo eyangelemani na bauta, to oyo ezwi bonsomi ya sikisiki te.</string>
+	<key>lao</key>
+	<string>ຂໍ້ 1.ຄົນຜູ້ໃດກໍ່ອ້າງຕົນໄດ້ວ່າ:ມີສິດ ແລະ ເສລີພາບທຸກຢ່າງທີ່ໄດ້ປ່າວຮ້ອງຢູ່ໃນປະກາດສະບັບນີ້ໂດຍບໍ່ເລືອກໜ້າ ບໍ່ຈຳກັດເຊື້ອຊາດ,ຜິວເນື້ອ,ເພດ,ສາສະໜາ ຄວາມຄິດເຫັນໃນດ້ານການເມືອງ ຫຼື ອື່ນໆ ກຳເນີດແຫ່ງຊາດຫຼື ສັງຄົມຖານະການມີຊັບສົມບັດມາກ ຫຼື ນ້ອຍ,ມີຕະກຸນ ຫຼື ຖານະອື່ນໆ.
+
+ຂໍ້ 2.ອີກປະການໜື່ງ ຈະບໍ່ຈຳກັດຢ່າງໃດໃນການແຕກຕ່າງກັນອັນເນື່ອງມາຈາກລະບຽບການເມືອງການປົກຄອງ ຫຼື ລະຫວ່າງຊາດຂອງປະເທດ ຫຼື ດິນແດນ ຊື່ງບຸກຄົນຜູ້ໃດຜູ້ໜື່ງສັງກັດຢູ່;ດິນແດນນັ້ນຈຳເປັນເອກະລາດຢູ່ໃນຄວາມອາລັກຂາຂອງມະຫາອຳນາດ ຫຼື ບໍ່ມີອິດສະຫຼະ ຫຼື ຖືກລົດອະທິປະໄຕລົງໂດຍຈຳກັດກໍ່ຕາມ.</string>
+	<key>lt</key>
+	<string>a ą b c č d e ę ė f g h i į y j k l m n o p r s š t u ų ū v z ž</string>
+	<key>lu</key>
+	<string>a á à b c d e é è ɛ ɛ́ ɛ̀ f h i í ì j k l m n ng ny o ó ò ɔ ɔ́ ɔ̀ p ph q s shi t u ú ù v w y z</string>
+	<key>luo</key>
+	<string>a b c d e f g h i j k l m n o p r s t u v w y</string>
+	<key>luy</key>
+	<string>a b c d e f g h i j k l m n o p q r s t u v w x y z</string>
+	<key>lv</key>
+	<string>a ā b c č d e ē f g ģ h i ī j k ķ l ļ m n ņ o p r s š t u ū v z ž</string>
+	<key>mas</key>
+	<string>a á à â ā b c d e é è ê ē ɛ g h i í ì î ī ɨ j k l m n ny ŋ o ó ò ô ō ɔ p r rr s sh t u ú ù û ū ʉ ʉ́ w wu y yi</string>
+	<key>mer</key>
+	<string>a b c d e f g h i ĩ j k l m n o p q r s t u ũ v w x y z</string>
+	<key>mfe</key>
+	<string>a b c d e f g h i j k l m n o p r s t u v w x y z</string>
+	<key>mg</key>
+	<string>a à â b d e é è ê ë f g h i ì î ï j k l m n ñ o ô p r s t v y z</string>
+	<key>mgh</key>
+	<string>a b c d e f g h i j k l m n o p r s t u v w y z</string>
+	<key>mk</key>
+	<string>Сите права и слободи наведени во оваа Декларација им припаѓаат на сите луѓе, без оглед на нивните разлики, како што се: раса, боја, пол, јазик, религија, политичко или друго убедување, национално или општествено потекло, сопственост, раѓање, или друг статус.
+
+Натаму, нема да се зема предвид политичкиот, правниот или меѓународниот статус на земјата или територијата на која и припаѓа лицето, без разлика дали земјата е независна, под старателство, без самоуправна власт или под каков и да е друг облик на ограничување на нејзиниот суверенитет.</string>
+	<key>mi</key>
+	<string>E whai mana ana ia tangata kia whiwhi ki te katoa o nga rangatiratanga me nga huarahi whanui o te ao e whakakaupapatia nei i roto i tenei Whakapuakitanga, kaua e araitia ahakoa pewhea, ara i runga i enei ahuatanga e whai ake nei, i te mea he iwi ke, i te ahua kua kiri ke, i te tanetanga i te wahinetanga, i te reo, i te whakapono, i te awhina ropu whakaara ture i tetahi atu kaupapa whakaaro ranei, ahakoa no roto mai i te iwi whanui no tetahi ropu ranei, no te kaupapa pupuri taonga, no te whanaungatanga mai, no tetahi tunga whai-tikanga ranei He apiti atu ki enei, kaua e meinga hei ritenga wehewehe te mea i whakakaupapatia na runga i nga whakahaere ture, i nga mana whanui ranei o te ao kua whakawhiwhia ki tetahi whenua ki tetahi wahanga whenua ranei no reira nei tetahi tangata, ahakoa taua wahanga whenua he whai mana motuhake, kei raro ranei i te Kaitiakitanga, he takiwa whenua ranei kahore nei ona Mana Kawanatanga Motuhake, kei raro ranei i tetahi atu ritenga whakawhaiti i tona mana motuhake.</string>
+	<key>ml</key>
+	<string>ജാതി, മതം, നിറം, ഭാഷ, സ്ത്രീപുരുഷഭേദം, രാഷ്ട്രീയാഭിപ്രായം സ്വത്ത്‌, കുലം എന്നിവയെ കണക്കാക്കാതെ ഈ പ്രഖ്യാപനത്തില്‍ പറയുന്ന അവകാശങ്ങള്‍ക്കും സ്വാതന്ത്ര്യത്തിനും സര്‍വ്വജനങ്ങളും അര്‍ഹരാണ്‌. രാഷ്ട്രീയ സ്ഥിതിയെ അടിസ്ഥാനമാക്കി (സ്വതന്ത്രമോ, പരിമിത ഭരണാധികാരത്തോടു കൂടിയതോ ഏതായാലും വേണ്ടതില്ല) ഈ പ്രഖ്യാപനത്തിലെ അവകാശങ്ങളെ സംബന്ധിച്ചേടത്തോളം യാതൊരു വ്യത്യാസവും യാതൊരാളോടും കാണിക്കാന്‍ പാടുള്ളതല്ല.</string>
+	<key>mn</key>
+	<string>Хүн бүр энэ Тунхаглалд заасан бүхий л эрх, эрх чөлөөг ямар ч ялгаваргүйгээр, яс үндэс, арьс өнгө, хүйс, хэл, шашин шүтлэг, улс төрийн болон бусад үзэл бодол, үндэсний буюу нийгмийн гарал, эд хөрөнгийн байдал, язгуур угсаа, бусад ялгааг эс харгалзан адилхан эдлэх ёстой. Мөн түүнчлэн тухайн хүний харъяалдаг улс орон буюу нутаг дэвсгэрийн улс төр, эрх зүйн буюу олон улсын статус ямар ч байлаа гэсэн, тэрхүү нутаг дэвсгэр нь тусгаар тогтносон, бусдын асрамжид байгаа, өөртөө захиргаагүй буюу бүрэн эрхт байдал нь өөр ямар ч байдлаар хязгаарлагдмал байсан, хүнийг ялгаварлаж үл болно.</string>
+	<key>mn_Mong</key>
+	<string>᠐ ᠑ ᠒ ᠓ ᠔ ᠕ ᠖ ᠗ ᠘ ᠙ ᠠ ᠡ ᠢ ᠣ ᠤ ᠥ ᠦ ᠧ ᠨ ᠩ ᠪ ᠫ ᠬ ᠭ ᠮ ᠯ ᠰ ᠱ ᠲ ᠳ ᠴ ᠵ ᠶ ᠷ ᠸ ᠹ ᠺ ᠻ ᠼ ᠽ ᠾ ᠿ ᡀ ᡁ ᡂ</string>
+	<key>mr</key>
+	<string>या जाहीरनाम्यात नमूद केलेले सर्व अधिकार व सर्व प्रकारचे स्वातंत्र्य प्रत्येकास आहे व त्या बाबतीत वंश, वर्ण, स्त्रीपुरुषभेद, भाषा, धर्म, राजकीय किंवा इतर मतप्रणाली राष्ट्रीय किंवा सामाजिक मूलस्थान संपत्ति, जन्म किंवा इतर दर्जा यासारखा कोणताहि भेदभाव केला जाता कामा नये.
+
+आणखी असे की, एखादी व्यक्ती ज्या देशांची किंवा प्रदेशाची रहिवासी असेल त्या देशाच्या किंवा प्रदेशाच्या, मग तो देश किंवा प्रदेश स्वतंत्र असो, विश्वस्त व्यवस्थेखालील असो, स्वायत्त शासन नसलेला असो किंवा कोणत्याहि प्रकारच्या सार्वभौमत्वाखालील असो, राजकीय, क्षेत्राधिकारात्मक किंवा आंतरराष्ट्रीय दर्जाच्या कारणास्तव कोणताहि भेदभाव करता कामा नये.</string>
+	<key>ms</key>
+	<string>a ai au b c d dz e f g h i j k kh l m n ng ngg ny o p q r s sy t ts u ua v w x y z</string>
+	<key>mt</key>
+	<string>Kulħadd hu intitolat għal dawn il-jeddijiet u l-libertajiet imxandra f’din l-Istqarrija, bla ebda għażla, bħal ta’ razza, lewn, sess, ilsien, reliġjon, opinjoni politika jew kull opinjoni oħra, oriġini nazzjonali jew soċjali, proprjetà, twelid jew kull qagħda oħra.
+
+Mhux biss, iżda l-ebda għażla m’għandha ssir fuq bażi tal-qagħda politika, ġuridika jew internazzjonali tal-pajjiż jew territorju li minnu tiġi l-persuna, kemm jekk tkun indipendenti, kemm jekk tkun fdata lil xi pajjiż ieħor, kemm jekk ma jkollhiex gvern tagħha kif ukoll jekk ikollha xi limiti oħra fis-sovranità tagħha.</string>
+	<key>mua</key>
+	<string>a ã b ɓ c d ɗ e ë ǝ f g h i ĩ j k l m n ŋ o õ p r s t u v ṽ w y z</string>
+	<key>my</key>
+	<string>လူတိုင်းသည် လူ့အခွင့် အရေး ကြေညာစာတမ်းတွင် ဖော်ပြထားသည့် အခွင့်အရေး အားလုံး၊ လွတ်လပ်ခွင့် အားလုံးတို့ကို ပိုင်ဆိုင် ခံစားခွင့်ရှိသည်။ လူမျိုးနွယ်အားဖြင့် ဖြစ်စေ၊ အသားအရောင်အားဖြင့် ဖြစ်စေ၊ ကျား ၊ မ ၊ သဘာဝအားဖြင့် ဖြစ်စေ၊ ဘာသာစကားအားဖြင့် ဖြစ်စေ၊ ကိုးကွယ်သည့် ဘာသာအားဖြင့် ဖြစ်စေ၊ နိုင်ငံရေးယူဆချက်၊ သို့တည်းမဟုတ် အခြားယူဆချက်အားဖြင့် ဖြစ်စေ၊ နိုင်ငံနှင့် ဆိုင်သော၊ သို့တည်းမဟုတ် လူမှုအဆင့်အတန်းနှင့် ဆိုင်သော ဇစ်မြစ် အားဖြင့်ဖြစ်စေ၊ ပစ္စည်း ဥစ္စာ ဂုဏ်အားဖြင့် ဖြစ်စေ၊ မျိုးရိုးဇာတိအားဖြင့် ဖြစ်စေ၊ အခြား အဆင့်အတန်း အားဖြင့် ဖြစ်စေ ခွဲခြားခြင်းမရှိစေရ။
+
+ထို့ပြင် လူတစ်ဦး တစ်ယောက် နေထိုင်ရာ နိုင်ငံ၏ သို့တည်းမဟုတ် နယ်မြေဒေသ၏ နိုင်ငံရေးဆိုင်ရာ ဖြစ်စေ စီရင် ပိုင်ခွင့်ဆိုင်ရာ ဖြစ်စေ တိုင်းပြည် အချင်းချင်း ဆိုင်ရာဖြစ်စေ၊ အဆင့်အတန်း တစ်ခုခုကို အခြေပြု၍ သော်လည်းကောင်း၊ ဒေသနယ်မြေတစ်ခုသည် အချုပ်အခြာ အာဏာပိုင် လွတ်လပ်သည့် နယ်မြေ၊ သို့တည်းမဟုတ် ကုလသမဂ္ဂ ထိန်းသိမ်း စောင့်ရှောက် ထားရသည့် နယ်မြေ၊ သို့တည်းမဟုတ် ကိုယ်ပိုင် အုပ်ချုပ်ခွင့် အာဏာတို့ တစိတ်တဒေသလောက်သာ ရရှိသည့် နယ်မြေ စသဖြင့် ယင်းသို့ သော နယ်မြေများ ဖြစ်သည်၊ဖြစ်သည် ဟူသော အကြောင်းကို အထောက်အထား ပြု၍ သော်လည်းကောင်း ခွဲခြားခြင်း လုံးဝ မရှိစေရ။</string>
+	<key>naq</key>
+	<string>a â b c d e f g h i î k m n o ô p q r s t u û w x y z ǀ ǁ ǂ ǃ</string>
+	<key>nb</key>
+	<string>Enhver har krav på alle de rettigheter og friheter som er nevnt i denne erklæring, uten forskjell av noen art, f. eks. på grunn av rase, farge, kjønn, språk, religion, politisk eller annen oppfatning, nasjonal eller sosial opprinnelse eiendom, fødsel eller annet forhold. Det skal heller ikke gjøres noen forskjell på grunn av den politiske, rettslige eller internasjonale stilling som innehas av det land eller det område en person hører til, enten landet er uavhengig, står under tilsyn, er ikke-selvstyrende, eller på annen måte har begrenset suverenitet.</string>
+	<key>nd</key>
+	<string>a b c d e f g h i j k l m n o p q s t u v w x y z</string>
+	<key>ne</key>
+	<string>जाति, वर्ण, लिङ्ग, भाषा, धर्म राजनैतिक वा हरू विचार राष्ट्रिय वा सामाजिक उत्पति सम्पत्ति वा अरू कुनै मर्यादाको आधारमा भेदभाव नगरि प्रत्येक व्यक्तिलाई यस घोषणामा उल्लेखित अधिकार र स्वतन्त्रता को अधिकार हुनेछ। यसको अतिरिक्त चाहे कुनै देश सवतन्त्र होस वा संरक्षित, स्वशासनरहित वा परिमित प्रभुशत्ता भएको होस त्यहाँका व्यक्तिहरूमा राजनैतिक क्षेत्रीय वा अन्तराष्ट्रिय भेदभाव गरिने छैन।</string>
+	<key>nl</key>
+	<string>Een ieder heeft aanspraak op alle rechten en vrijheden, in deze Verklaring opgesomd, zonder enig onderscheid van welke aard ook, zoals ras, kleur, geslacht, taal, godsdienst, politieke of andere overtuiging, nationale of maatschappelijke afkomst, eigendom, geboorte of andere status. Verder zal geen onderscheid worden gemaakt naar de politieke, juridische of internationale status van het land of gebied, waartoe iemand behoort, onverschillig of het een onafhankelijk, trust-, of niet-zelfbesturend gebied betreft, dan wel of er een andere beperking van de soevereiniteit bestaat.</string>
+	<key>nmg</key>
+	<string>a á ă â ä ā b ɓ c d e é ĕ ê ē ǝ ǝ́ ǝ̆ ǝ̂ ǝ̄ ɛ ɛ́ ɛ̆ ɛ̂ ɛ̄ f g h i í ĭ î ï ī j k l m n ń ŋ o ó ŏ ô ö ō ɔ ɔ́ ɔ̆ ɔ̂ ɔ̄ p r ŕ s t u ú ŭ û ū v w y</string>
+	<key>nn</key>
+	<string>Kvar einskild har krav på all den rett og fridom som fråsegna nemner, utan skilnad av noko slag på grunn av rase, farge, kjønn, språk, religion, politisk syn eller anna meining, nasjonalt eller sosialt opphav, eigedom, fødsel eller andre tilhøve. Den politiske stoda, lovverket eller dei internasjonale påboda eit land lever under, kan ikkje vere påskott til at det blir gjort skilnad på nokon i det landet eller området han høyrer til, anten landet har sjølvstende, står under tilsyn, er ikkje-sjølvstyrt eller sjølvstyret er avgrensa på nokon annan måte.</string>
+	<key>nso</key>
+	<string>a b d e ê f g h i j k l m n o ô p r s š t u w x y</string>
+	<key>nus</key>
+	<string>a ä a̱ b c d e ë e̱ ɛ ɛ̈ ɛ̱ ɛ̱̈ f g ɣ h i ï i̱ j k l m n ŋ o ö o̱ ɔ ɔ̈ ɔ̱ p q r s t u v w x y z</string>
+	<key>nyn</key>
+	<string>a b c d e f g h i j k l m n o p q r s t u v w x y z</string>
+	<key>om</key>
+	<string>a b c d e f g h i j k l m n o p q r s t u v w x y z</string>
+	<key>or</key>
+	<string>଼ ଅ ଆ ଇ ଈ ଉ ଊ ଋ ଏ ଐ ଓ ଔ ଁ ଂ ଃ କ ଖ ଗ ଘ ଙ ଚ ଛ ଜ ଝ ଞ ଟ ଠ ଡ ଡ଼ ଢ ଢ଼ ଣ ତ ଥ ଦ ଧ ନ ପ ଫ ବ ଭ ମ ଯ ୟ ର ଲ ଳ ଵ ୱ ଶ ଷ ସ ହ ା ି ୀ ୁ ୂ ୃ େ ୈ ୋ ୌ ୍</string>
+	<key>pa</key>
+	<string>ਹਰੇਕ ਵਿਅਕਤੀ ਨੂੰ ਭਾਵੇਂ ਉਸ ਦੀ ਕੋਈ ਨਸਲ, ਰੰਗ, ਲਿੰਗ, ਭਾਸ਼ਾ, ਧਰਮ, ਰਾਜਨੀਤਕ ਵਿਚਾਰਧਾਰਾ ਜਾਂ ਕੋਈ ਹੋਰ ਵਿਚਾਰਧਾਰਾ ਹੋਏ, ਭਾਵੇਂ ਉਸ ਦੀ ਕੋਈ ਵੀ ਜਾਇਦਾਦ ਹੋਵੇ ਅਤੇ ਭਾਵੇਂ ਉਸ ਦਾ ਕਿਤੇ ਵੀ ਜਨਮ ਹੋਇਆ ਹੋਵੇ ਤੇ ਉਸਦਾ ਕੋਈ ਵੀ ਰੁਤਬਾ ਹੋਵੇ, ਉਹ ਐਲਾਨਨਾਮੇ ਵਿਚ ਮਿਲੇ ਅਧਿਕਾਰਾਂ ਤੇ ਆਜ਼ਾਦੀਆਂ ਨੂੰ ਪ੍ਰਾਪਤ ਕਰਨ ਦਾ ਹੱਕ ਰਖਦਾ ਹੈ ।
+
+ਇਸ ਤੋਂ ਵੀ ਅੱਗੇ ਇਸ ਗੱਲ ਦਾ ਕੋਈ ਭੇਦ ਭਾਵ ਨਹੀਂ ਰਖਿਆ ਜਾਏਗਾ ਕਿ ਉਹ ਵਿਅਕਤੀ ਕਿਹੜੇ ਮੁਲਕ ਦਾ ਹੈ ਅਤੇ ਉਸ ਮੁਲਕ ਦਾ ਅੰਤਰਰਾਸ਼ਟਰੀ ਰੁਤਬਾ ਕਿਹੋ ਜਿਹਾ ਹੈ । ਇਸ ਗੱਲ ਦਾ ਵੀ ਖਿਆਲ ਨਹੀਂ ਰਖਿਆ ਜਾਏਗਾ ਕਿ ਉਹ ਵਿਅਕਤੀ ਕਿਸੇ ਆਜ਼ਾਦ ਮੁਲਕ ਦਾ ਹੈ, ਜਾਂ ਉਹ ਮੁਲਕ ਕਿਸੇ ਟਰੱਸਟ ਅਧੀਨ ਹੈ ਜਾਂ ਉਸ ਦਾ ਆਪਣਾ ਸਵੈਸ਼ਾਸਨ ਨਹੀਂ ਅਤੇ ਜਾਂ ਉਹ ਕਿਸੇ ਅਜਿਹੇ ਇਲਾਕੇ ਵਿਚ ਰਹਿੰਦਾ ਹੈ ਜਿਸ ਦੀ ਪ੍ਰਭੂਸੱਤਾ ਸੀਮਤ ਹੈ ।</string>
+	<key>pa_Arab</key>
+	<string>ہر شخص اوہناں ساریاں آزادیاں تے حقوق دا مالک اے جھیڑے ایس منشور وچ بیان کر وتے گئے نیں تے اوہدے ایس حق ا تے اوہدے رنگ، نسل، زبان، مذہب، سیاسی نظریے، عقیدے، قومیت، معاشرے، امیری غریبی، خاندان تے اوہدے عورت یا مرد ہون دا کوئی فرق نہیں پیندا
+
+ایس توں دکھ کوئی دی شخص جہیڑے دی کسے ملک نال تعلق رکھدا اے اوس ملک دے سیاسی اختیارات یا بین الاقوامی حیثیت دی وجہ توں اوہدے نال دوجیال توں کوئی وکھرا سملوک نہیں کیتا جائے گا بھانویں اوہدا ملک یا علاقہ آزاد اے تے بھانویں تولیتی غیر مختار یا سیاسی اختیار دے لحاظ نال کے گل دا پابند اے ۔ ۔</string>
+	<key>pl</key>
+	<string>Każdy człowiek posiada wszystkie prawa i wolności zawarte w niniejszej Deklaracji bez względu na jakiekolwiek różnice rasy, koloru, płci, języka, wyznania, poglądów politycznych i innych, narodowości, pochodzenia społecznego, majątku, urodzenia lub jakiegokolwiek innego stanu. Nie wolno ponadto czynić żadnej różnicy w zależności od sytuacji politycznej, prawnej lub międzynarodowej kraju lub obszaru, do którego dana osoba przynależy, bez względu na to, czy dany kraj lub obszar jest niepodległy, czy też podlega systemowi powiernictwa, nie rządzi się samodzielnie lub jest w jakikolwiek sposób ograniczony w swej niepodległości.</string>
+	<key>ps</key>
+	<string>َ ِ ُ ً ٍ ٌ ّ ْ ٔ ٰ آ ا أ ء ب پ ت ټ ث ج ځ چ څ ح خ د ډ ذ ر ړ ز ژ ږ س ش ښ ص ض ط ظ ع غ ف ق ک ګ ل م ن ڼ ه ة و ؤ ی ي ې ۍ ئ</string>
+	<key>pt</key>
+	<string>Todos os seres humanos podem invocar os direitos e as liberdades proclamados na presente Declaração, sem distinção alguma, nomeadamente de raça, de cor, de sexo, de língua, de religião, de opinião política ou outra, de origem nacional ou social, de fortuna, de nascimento ou de qualquer outra situação. Além disso, não será feita nenhuma distinção fundada no estatuto político, jurídico ou internacional do país ou do território da naturalidade da pessoa, seja esse país ou território independente, sob tutela, autônomo ou sujeito a alguma limitação de soberania.</string>
+	<key>rn</key>
+	<string>a b c d e f g h i j k l m n o p q r s t u v w x y z</string>
+	<key>ro</key>
+	<string>Fiecare om se poate prevala de toate drepturile și libertățile proclamate în prezenta Declarație fără niciun fel de deosebire ca, de pildă, deosebirea de rasă, culoare, sex, limbă, religie, opinie politică sau orice altă opinie, de origine națională sau socială, avere, naștere sau orice alte împrejurări. În afară de aceasta, nu se va face nicio deosebire după statutul politic, juridic sau internațional al țării sau al teritoriului de care ține o persoană, fie că această țară sau teritoriu sunt independente, sub tutelă, neautonome sau supuse vreunei alte limitări a suveranității.</string>
+	<key>rof</key>
+	<string>a b c d e f g h i j k l m n o p r s t u v w y z</string>
+	<key>ru</key>
+	<string>Каждый человек должен обладать всеми правами и всеми свободами, провозглашенными настоящей Декларацией, без какого бы то ни было различия, как-то в отношении расы, цвета кожи, пола, языка, религии, политических или иных убеждений, национального или социального происхождения, имущественного, сословного или иного положения.
+
+Кроме того, не должно проводиться никакого различия на основе политического, правового или международного статуса страны или территории, к которой человек принадлежит, независимо от того, является ли эта территория независимой, подопечной, несамоуправляющейся или как-либо иначе ограниченной в своем суверенитете.</string>
+	<key>rw</key>
+	<string>a b c d e f g h i j k l m n o p q r s t u v w x y z</string>
+	<key>rwk</key>
+	<string>a b c d e f g h i j k l m n o p r s t u v w y z</string>
+	<key>sah</key>
+	<string>Хас биирдии киһи, расатыттан, тириитин өҥуттэн, эр киһититтэн-дьахтарыттан, саҥарар тылыттан, омугуттан, религиятыттан, политическай да ханнык да санаатыттан, национальнай эбэтэр социальнай төрүтүттэн, баайыттан- дьадаҥытыттан тутулуга суох бу Декларация биллэрэрин курдук бырааптаах уонна көҥүллээх.
+
+Маны таһынан дьону ханнык да дойдуга, ханнык да политическай, правовой эбэтэр норуоттар икки ардыларынааҕы статуһуттан сиэттэрэн араарыллыы суох буолуохтаах, бу дойду территорията төһө да тутулуга суох, эппиэккэ сылдьааччы, бэйэтэ саламмат биитэр суверенитет өттунэн хааччахтаах буолбутун да иһин.</string>
+	<key>saq</key>
+	<string>a b c d e g h i j k l m n o p r s t u v w y</string>
+	<key>sbp</key>
+	<string>a b c d e f g h i j k l m n o p s t u v w y</string>
+	<key>sco</key>
+	<string>Awbody is entitelt til aw the richts and freedoms furthset in this Declaration wi nae distinction o ony kind, sic as race, colour, gender, language, religioun, political or ither opinioun, national or social origin, gear, birth or ither status.
+
+Mair, nae distinction shal be made on the grunds o the political, jurisdictional or international status o the countrie or territour a bodie belangs, whuther it be staund-alane, trust, nane-self-governing or in ower ony ither haims o soverantie.</string>
+	<key>se</key>
+	<string>a á b c č d đ e f g h i j k l m n ŋ o p r s š t ŧ u v z ž</string>
+	<key>seh</key>
+	<string>a á à â ã b c ç d e é ê f g h i í j k l m n o ó ò ô õ p q r s t u ú v w x y z</string>
+	<key>ses</key>
+	<string>a ã b c d e ẽ f g h i j k l m n ɲ ŋ o õ p q r s š t u w x y z ž</string>
+	<key>sg</key>
+	<string>a â ä b d e ê ë f g h i î ï j k l m n o ô ö p r s t u ù û ü v w y z</string>
+	<key>shi</key>
+	<string>a b c d ḍ e ɛ f g gʷ ɣ h ḥ i j k kʷ l m n q r ṛ s ṣ t ṭ u w x y z</string>
+	<key>shi_Tfng</key>
+	<string>ⴰ ⴱ ⴳ ⴳⵯ ⴷ ⴹ ⴻ ⴼ ⴽ ⴽⵯ ⵀ ⵃ ⵄ ⵅ ⵇ ⵉ ⵊ ⵍ ⵎ ⵏ ⵓ ⵔ ⵕ ⵖ ⵙ ⵚ ⵛ ⵜ ⵟ ⵡ ⵢ ⵣ ⵥ</string>
+	<key>si</key>
+	<string>අ ආ ඇ ඈ ඉ ඊ උ ඌ ඍ එ ඒ ඓ ඔ ඕ ඖ ං ඃ ක ඛ ග ඝ ඞ ඟ ච ඡ ජ ඣ ඥ ඤ ට ඨ ඩ ඪ ණ ඬ ත ථ ද ධ න ඳ ප ඵ බ භ ම ඹ ය ර ල ව ශ ෂ ස හ ළ ෆ ා ැ ෑ ි ී ු ූ ෘ ෲ ෟ ෙ ේ ෛ ො ෝ ෞ ්</string>
+	<key>sk</key>
+	<string>Každý má všetky práva a všetky slobody, vyhlášené v tejto deklarácii, bez hociakého rozlišovania najma pod ľa rasy, farby, pohlavia, jazyka, náboženstva, politického alebo iného smýšľania, národnostného alebo sociálného povodu, majetku, rodu alebo iného postavenia Žiaden rozdiel sa nebude robiť na podklade politického, právného alebo nedzinárodného postavenia krajiny alebo územia, ku ktorému osoba prí sluší, či je to krajina alebo územie nezávislé alebo pod poručenstvom, nesamosprávne alebo podrobené hociakému inému obmedzeniu suverenity.</string>
+	<key>sl</key>
+	<string>a b c č d e f g h i j k l m n o p r s š t u v z ž</string>
+	<key>sn</key>
+	<string>a b c d e f g h i j k l m n o p r s t u v w y z</string>
+	<key>so</key>
+	<string>a b c d e f g h i j k l m n o p q r s t u v w x y z</string>
+	<key>sq</key>
+	<string>Secili gëzon të gjitha të drejtat dhe liritë e parashtruara në këtë Deklaratë pa kurrfarë kufizimesh përsa i përket racës, ngjyrës, gjinisë, gjuhës, besimit fetar, mendimit politik ose tjetër, origjinës kombëtare a shoqërore, pasurisë, lindjes ose tjetër.
+
+Asnjë dallim nuk do të bëhet në bazë të statusit politik, juridik ose ndërkombëtar të shtetit ose vendit të cilit i përket çdo njeri, qoftë kur shteti ose vendi është i pavarur, qoftë nën kujdestari, qoftë jo vetëqeverisës ose që gjindet në çfarëdo kushtesh të tjera të kufizimit të sovranitetit.</string>
+	<key>sr</key>
+	<string>Сваком припадају сва права и слободе проглашене у овој Декларацији без икаквих разлика у погледу расе, боје, пола, језика, вероисповести, политичког или другог мишљења, националног или друштвеног порекла, имовине, рођења или других околности.
+
+Даље, неће се правити никаква разлика на основу политичког, правног или међународног статуса земље или територије којој неко лице припада, било да је она независна, под старатељством, несамоуправна, или да јој је сувереност на ма који други начин ограничена.</string>
+	<key>sr_Latn</key>
+	<string>Svakom pripadaju sva prava i slobode proglašene u ovoj Deklaraciji bez ikakvih razlika u pogledu rase, boje, pola, jezika, veroispovesti, političkog ili drugog mišljenja, nacionalnog ili društvenog porekla, imovine, rođenja ili drugih okolnosti.
+
+Dalje, neće se praviti nikakva razlika na osnovu političkog, pravnog ili međunarodnog statusa zemlje ili teritorije kojoj neko lice pripada, bilo da je ona nezavisna, pod starateljstvom, nesamoupravna, ili da joj je suverenost na ma koji drugi način ograničena.</string>
+	<key>ss</key>
+	<string>a b c d e f g h i j k l m n o p q r s t u v w x y z</string>
+	<key>st</key>
+	<string>a b d e f g h i j k l m n o p q r s t u w y</string>
+	<key>sv</key>
+	<string>Envar är berättigad till alla de fri- och rättigheter, som uttalas i denna förklaring, utan åtskillnad av något slag, såsom ras, hudfärg, kön, språk, religion, politisk eller annan uppfattning, nationellt eller socialt ursprung, egendom, börd eller ställning i övrigt. Ingen åtskillnad må vidare göras på grund av den politiska, juridiska eller internationella ställning, som intages av det land eller område, till vilket en person hör, vare sig detta land eller område är oberoende, står under förvaltarskap, är icke-självstyrande eller är underkastat någon annan begränsning av sin suveränitet.</string>
+	<key>sw</key>
+	<string>Kila mtu anastahili kuwa na haki zote na uhuru wote ambao umeelezwa katika Taarifa hii bila ubaguzi wo wote. Yaani bila kubaguana kwa rangi, taifa, wanaume kwa wanawake, dini, siasa, fikara, asili ya taifa la mtu, mali, kwa kizazi au kwa hali nyingine yo yote.
+
+Juu ya hayo usifanye ubaguzi kwa kutegemea siasa, utawala au kwa kutegemea uhusiano wa nchi fulani na mataifa mengine au nchi ya asili ya mtu, haidhuru nchi hiyo iwe inayojitawala, ya udhamini, isiyojitawala au inayotawaliwa na nchi nyingine kwa hali ya namna yo yote.</string>
+	<key>swc</key>
+	<string>a b c d e f g h i j k l m n o p r s t u v w y z</string>
+	<key>ta</key>
+	<string>இனம், நிறம், பால், மொழி, மதம், அரசியல் அல்லத வேறு அபிப்பிராயமடைமை, தேசிய அல்லத சமூகத் தோற்றம், ஆகனம், பிறப்பு அல்லத பிற அந்தஸ்து என்பன போன்ற எத்தகைய வேறுபாடுமின்றி, இப்பிரகடனத்தில் தரப்பட்டுள்ள எல்லா உரிமைகளுக்கும் சுதந்திரங்களுக்கும் எல்லோரும் உரித்துடையவராவர்.
+
+மேலும், எவரும் அவருக்குரித்துள்ள நாட் டின் அல்லது ஆள்புலத்தின் அரசியல், நியாயாதிக்க அல்லது நாட் டிடை அந்தஸ்தின் அடிப்படையில் அது தனியாட்சி நாடாக, நம்பிக்கைப் பொறுப்பு நாடாக, தன்னாட்சியற்ற நாடாக அல்லது இறைமை வேறேதேனும் வகையில் மட்டப்படுத்தப்பட்ட நாடாக இருப்பினுஞ்சரி - வேறுபாெடதுவும் காட்டப்படலாகாது.</string>
+	<key>te</key>
+	<string>అ ఆ ఇ ఈ ఉ ఊ ఋ ౠ ఌ ౡ ఎ ఏ ఐ ఒ ఓ ఔ ఁ ం ః క ఖ గ ఘ ఙ చ ఛ జ ఝ ఞ ట ఠ డ ఢ ణ త థ ద ధ న ప ఫ బ భ మ య ర ఱ ల వ శ ష స హ ళ ా ి ీ ు ూ ృ ౄ ె ే ై ొ ో ౌ ్ ౕ ౖ</string>
+	<key>teo</key>
+	<string>a b c d e g h i j k l m n o p r s t u v w x y</string>
+	<key>tg</key>
+	<string>а б в г ғ д е ё ж з и ӣ й к қ л м н о п р с т у ӯ ф х ҳ ч ҷ ш ъ э ю я</string>
+	<key>th</key>
+	<string>ทุกคนย่อมมีสิทธิและอิสรภาพบรรดาที่กำหนดไว้ในปฏิญญานี้ โดยปราศจากความแตกต่างไม่ว่าชนิดใด ๆ ดังเช่น เชื้อชาติ ผิว เพศ ภาษา ศาสนา ความคิดเห็นทางการเมืองหรือทางอื่น เผ่าพันธุ์แห่งชาติ หรือสังคม ทรัพย์สิน กำเนิด หรือสถานะอื่น ๆ อนึ่งจะไม่มีความแตกต่างใด ๆ ตามมูลฐานแห่งสถานะทางการเมือง ทางการศาล หรือทางการระหว่างประเทศของประเทศหรือดินแดนที่บุคคลสังกัด ไม่ว่าดินแดนนี้จะเป็นเอกราช อยู่ในความพิทักษ์มิได้ปกครองตนเอง หรืออยู่ภายใต้การจำกัดอธิปไตยใด ๆ ทั้งสิ้น</string>
+	<key>ti</key>
+	<string>ሕድሕድ ሰብ ብዘርኢ፣ ብቀለም፣ ብፆታ፣ ብቋንቋ፣ ብሃይማኖት፣ ብፖለቲካ ወይ ብካልኦት ኦሪኦእያታት፣ ብብሄር ወይ ብማሕበራዊ መበቈል፣ ብሃብቲ፣ ብትውልዲ ወይ ብካልኦት ደሪጃታት ኦድልዎ እንተይተገብሪሉ ኦብዚ ድንጋገ እዚ ናይ ዝሰፈሩ ኩሎም መሰላትን ነፃነታትን ተጠኝሚ እዩ፡፡
+
+ብተወሳኺ ሓደ ዜጋ፣ ሃገሩ ነፃ ግዝኦት፣ ብሞግዚት ዝመሓደር፣ ዓርሰ ምምሕዳር ዘይብሉ ወይ ኦብ ትሕቲ ዝኾነ ይኹን ሉኦላዊ ገደብ ዝርከብ እንተኾነ’ውን ብምኽንያት ናይ ሃገሩ ፖለቲካዊ፣ ሕጋዊ ስልጣን ወይ ዓለምለኻዊ ደሪጃ ኦድልዎ ኦይፍፀሞን፡፡</string>
+	<key>tl</key>
+	<string>Ang bawat tao&apos;y karapat-dapat sa lahat ng karapatan at kalayaang nakalahad sa Pahayag na ito, nang walang ano mang uri ng pagtatangi, gaya ng lahi, kulay, kasarian, wika, relihiyon, kuro-kurong pampulitika o iba pa, pinagmulang bansa o lipunan, ari-arian, kapanganakan o iba pang katayuan.
+
+Bukod dito, walang pagtatanging gagawin batay sa katayuang pampulitika, hurisdiksiyunal o pandaigdig na kalagayan ng bansa o teritoryong kinabibilangan ng isang tao, maging ito ay nagsasarili, itinitiwala, di-nakapamamahala sa sarili o nasa ilalim ng ano mang katakdaan ng soberanya.</string>
+	<key>tn</key>
+	<string>a b d e ê f g h i j k l m n o ô p r s t u w y</string>
+	<key>to</key>
+	<string>a ā e ē f h ʻ i ī k l m n ng o ō p s t u ū v</string>
+	<key>tr</key>
+	<string>Herkes, ırk, renk, cinsiyet, dil, din, siyasi veya diğer herhangi bir akide, milli veya içtimai menşe, servet, doğuş veya herhangi diğer bir fark gözetilmeksizin işbu Beyannamede ilan olunan tekmil haklardan ve bütün hürriyetlerden istifade edebilir. Bundan başka, bağımsız memleket uyruğu olsun, vesayet altında bulunan, gayri muhtar veya sair bir egemenlik kayıtlamasına tabi ülke uyruğu olsun, bir şahıs hakkında, uyruğu bulunduğu memleket veya ülkenin siyasi, hukuki veya milletlerarası statüsü bakımından hiçbir ayrılık gözetilmeyecektir.</string>
+	<key>ts</key>
+	<string>a b c d e f g h i j k l m n o p q r s t u v w x y z</string>
+	<key>tt</key>
+	<string>Һәр кеше үзенең милли яисә иҗтимагый чыгышына, мөлкәтенә, нинди катлаудан булуына, расасына, тән төсенә, җенесенә, теленә, диненә, сәяси яисә башка инануларына карамастан, бернинди аермасыз, Декларациядә игъдан ителгән барлык хокукларга, бөтен ирекләргә иа булырга тиеш.
+
+Моннан тыш, кешенең торган җиренең мөстәкыйль яисә үзидарәсез, берәр ил карамагында булуына яисә мөстәкыйльлеге башка берәр торле чикләнүснә карамастан, иленең сәяси, халыкара, хокукый хәленә карамастан, ана бернинди дә аерымлау үткәрелергә [үткәреләргә] тиеш түгел.</string>
+	<key>twq</key>
+	<string>a ã b c d e ẽ f g h i j k l m n ŋ ɲ o õ p q r s š t u w x y z ž</string>
+	<key>tzm</key>
+	<string>a b c d ḍ e ɛ f g gʷ ɣ h ḥ i j k kʷ l m n q r ṛ s ṣ t ṭ u w x y z</string>
+	<key>uk</key>
+	<string>Кожна людина повинна мати всі права і всі свободи, проголошені цією Декларацією, незалежно від раси, кольору шкіри, статі, мови, релігії, політичних або інших переконань, національного чи соціального походження, майнового, станового або іншого становища. Крім того, не повинно проводитися ніякого розрізнення на основі політичного, правового або міжнародного статусу країни або території, до якої людина належить, незалежно від того, чи є ця територія незалежною, підопічною, несамоврядованою або як‐небудь інакше обмеженою у своєму суверенітеті.</string>
+	<key>ur</key>
+	<string>ہر شخص ان تمام آزادیوں اور حقوق کا مستحق ہے جو اس اعلان میں بیان کیٔے گیٔے ہیں، اور اس حق پر نسل، رنگ، جنس، زبان، مذہب اور سیاسی تفریق کا یا کسی قسم کے عقیدے، قوم، معاشرے، دولت یا خاندانی حیثیت وغیرہ کا کویٔی اثر نہ پڑے گا۔
+
+اس کے علاوہ جس علاقے یا ملک سے جو شخص تعلق رکھتا ہے اس کی سیاسی کیفیت دایٔرہ اختیار یا بین الاقوامی حیثیت کی بنا پر اس سے کویٔی امتیازی سلوک نہیں کیا جایٔے گا۔ چاہے وہ ملک یا علاقہ آزاد ہو یا تولیتی ہو یا غیر مختار ہو یا سیاسی اقتدار کے لحاظ سے کسی دوسری بندش کا پابند ہو۔</string>
+	<key>uz</key>
+	<string>Ҳар бир инсон, бирор бир айирмачиликсиз, ирқи, терисининг ранги, жинси, тили, дини, сиёсий эътиқоди ёки бошқа эътиқодларидан, миллий ёки ижтимоий келиб чиқишидан, мулкий аҳволи, қайси табақага мансублиги ва бошқа ҳолатларидан қатъи назар, мазкур Декларацияда эълон қилинган барча ҳуқуқлар ва эркинликлар соҳиби бўлиши керак.
+
+Бундан ташқари, инсон мансуб бўлган мамлакат ёки ҳудуднинг сиёсий, ҳуқуқий ёки халқаро мақомидан қатъи назар, ушбу ҳудуд мустақилми, васийликдами, ўзини ўзи бошқарадими, ёки мустақиллиги бирор бир тарзда чекланганми, бундан қатъи назар сира айирмачилик бўлмаслиги керак.</string>
+	<key>uz_Arab</key>
+	<string>ً ٌ ٍ َ ُ ِ ّ ْ ٔ ٰ ء آ أ ؤ ئ ا ب پ ة ت ث ټ ج چ ح خ ځ څ د ذ ډ ر ز ړ ږ ژ س ش ښ ص ض ط ظ ع غ ف ق ک ګ گ ل م ن ڼ ه و ۇ ۉ ي ی ۍ ې</string>
+	<key>uz_Latn</key>
+	<string>Har bir inson, biror bir ayirmachiliksiz, irqi, terisining rangi, jinsi, tili, dini, siyosiy eʼtiqodi yoki boshqa eʼtiqodlaridan, milliy yoki ijtimoiy kelib chiqishidan, mulkiy ahvoli, qaysi tabaqaga mansubligi va boshqa holatlaridan qatʼi nazar, mazkur Deklaratsiyada eʼlon qilingan barcha huquqlar va erkinliklar sohibi boʻlishi kerak.
+
+Bundan tashqari, inson mansub boʻlgan mamlakat yoki hududning siyosiy, huquqiy yoki xalqaro maqomidan qatʼi nazar, ushbu hudud mustaqilmi, vasiylikdami, oʻzini oʻzi boshqaradimi, yoki mustaqilligi biror bir tarzda cheklanganmi, bundan qatʼi nazar sira ayirmachilik boʻlmasligi kerak.</string>
+	<key>vai</key>
+	<string>ꗞ ꗏꗒ ꔰ ꕚ ꖷ ꗋꖺꕒꕌ ꖸ ꔰ ꕞ ꕺꖃ ꘈꗢ ꗏ ꗷꔤ ꕞ ꘃꖷ ꗞ ꗏ ꗓꖺ ꔰ ꔇꔀ ꕉ ꕮ, ꕉꔤ ꔳ ꗞ ꔱꔤꕮ ꖏ ꖺ ꗞ ꗬꔤꕮ ꖺ ꗞ ꕺꖃ ꕮꔧ ꕮꔕ, ꕉꔤ ꔳ ꖷꖬ ꖏ ꖺ ꕪꔤ, ꕉꔤ ꕢ ꔽꔤ ꕮ ꖺ ꔵꘉ, ꖺ ꕐꕌꔳ, ꖺ ꖏ ꘀꗫ ꕃꔤ ꖺ ꗞꗢ ꗃꕎ ꕸꖃ ꖷ ꗏ ꖺ ꗞ ꖷ ꖸ ꗏ, ꕉꔤ ꔳ ꔻꔤ ꗞꖻ ꖏ ꖺ ꔌꘋ ꕴꕱ ꗞꖻ, ꕉꔤ ꕢ ꕴꖃ ꕃꔤ ꕮ ꔧ ꖏ ꕮꔕ ꗷꔤ ꔰ.
+
+ꕉꔤ ꕒꕢ ꕉ ꔫꔤ ꕞ, ꗞ ꕮ ꗞ ꖸ ꗏ ꗓꖺ ꕮꕨ ꔻꔤ ꖏ ꗱ, ꖺ ꕢꕎꕌ ꖏ ꖴꕮ ꖺ ꗷꔤ ꖷ ꖦꖕꕰꕊ ꗪ ꗞꗢ ꕞ ꕴꖃ ꕸꖃꔀ ꗱ ꗡꕯ, ꖺ ꕐꕌꔳ ꖷ ꗏ ꗞꗢ ꗃꕎ, ꕉꔤ ꔳ ꕸꖃ ꖴꘋ ꖏ, ꔧ ꗨꗡ ꕉꕌ ꕸꖃꔀ ꗪ ꕸꖃ ꕮꔕ ꗛꖺ, ꔧ ꗨꗡ ꕉꕌ ꕸꖃꔀ ꗪ ꖴꗷ ꕢꕮ ꕒꕩ ꗏ ꖺ ꗷꔤ ꕮꔕ ꔰ ꕞ.</string>
+	<key>vai_Latn</key>
+	<string>a á ã b ɓ c d ɗ e é ẽ ɛ ɛ́ ɛ̃ f g h i í ĩ j k l m n ŋ o ó õ ɔ ɔ́ ɔ̃ p q r s t u ú ũ v w x y z</string>
+	<key>ve</key>
+	<string>a b d ḓ e f g h i k l ḽ m n ṅ ṋ o p r s t ṱ u v w x y z</string>
+	<key>vi</key>
+	<string>Mọi người đều được hưởng tất cả những quyền và tự do nêu trong Bản tuyên ngôn này, không phân biệt chủng tộc, màu da, giới tính, ngôn ngữ, tôn giáo, quan điểm chính trị hay các quan điểm khác, nguồn gốc quốc gia hay xã hội, tài sản, thành phần xuất thân hay địa vị xã hội.
+
+Ngoài ra, cũng không có bất cứ sự phân biệt nào về địa vị chính trị, pháp quyền hay quốc tế của quốc gia hay lãnh thổ mà một người xuất thân, cho dù quốc gia hay lãnh thổ đó được độc lập, được đặt dưới chế độ uỷ trị, chưa tự quản hay có chủ quyền hạn chế.</string>
+	<key>vun</key>
+	<string>a b c d e f g h i j k l m n o p r s t u v w y z</string>
+	<key>wa</key>
+	<string>Chaskeun&apos;, seûy-t-i ome ou feume, pout fé valeûr tos lès dreûts èt totes lès lîbèrtés qui nous sont rachou d&apos;vins l&apos;prézinte Dèclaråcion, èt n&apos;pôrèt-on prinde nouk&apos; po mons qu&apos;i n&apos;èst a cåse di s&apos;race, dè-l&apos;coleûr di s&apos;pè, di s&apos;lingadje, di çou qu&apos;i creût, di sès-îdèyes so-l&apos;politique ou so tot ôte tchwès, di qué payis qu&apos;i provint, di s&apos;condicion d&apos;ritche ou d&apos;pôve, dè-l&apos;contrêye wice qu&apos;il a vèyou l&apos;djou ou bin d&apos;tot minme qwè qui ç&apos;seûye.
+
+Di pus&apos; nolu n&apos;deût påti dè-l&apos;condicion di s&apos;patrèye rapôrt ås-ôtes payis, qui l&apos;contrêye ou l&apos;payis di d&apos;wice qu&apos;i provint seyèsse indépandants, nin mêsses di zèls po d&apos;bon ou bin rastrindou d&apos;vins leûs dreûts, èt mågré tot çou qu&apos;on pôreût tûzer di leû gouvèrnumint.</string>
+	<key>wae</key>
+	<string>a á ä ã b c č d e é f g h i í j k l m n o ó ö õ p q r s š t u ú ü ũ v w x y z</string>
+	<key>wal</key>
+	<string>፟ ᎐-᎙ ሀ-ሏ ⶀ ሐ-ሟ ᎀ-ᎃ ⶁ ሠ-ሯ ⶂ ሰ-ሷ ⶃ ሸ-ሿ ⶄ ቀ-ቈ ቊ-ቍ ቐ-ቖ ቘ ቚ-ቝ በ-ቧ ᎄ-ᎇ ⶅ ቨ-ቷ ⶆ ቸ-ቿ ⶇ ኀ-ኈ ኊ-ኍ ነ-ኗ ⶈ ኘ-ኟ ⶉ አ-ኧ ⶊ ከ-ኰ ኲ-ኵ ኸ-ኾ ዀ ዂ-ዅ ወ-ዖ ዘ-ዟ ⶋ ዠ-ዷ ⶌ ዸ-ዿ ⶍ ጀ-ጇ ⶎ ገ-ጐ ጒ-ጕ ጘ-ጟ ⶓ-ⶖ ጠ-ጧ ⶏ ጨ-ጯ ⶐ ጰ-ጷ ⶑ ጸ-ፏ ᎈ-ᎋ ፐ-ፗ ᎌ-ᎏ ⶒ ፘ-ፚ ⶠ-ⶦ ⶨ-ⶮ ⶰ-ⶶ ⶸ-ⶾ ⷀ-ⷆ ⷈ-ⷎ ⷐ-ⷖ ⷘ-ⷞ</string>
+	<key>xh</key>
+	<string>Wonke umntu unamalungelo kwiimfanelo nenkululeko eziqulathwe kule nkcazelo, ngaphandle kokwahlulwa ngobuhlanga, ibala, ubuni, ulwimi, inkolo, ezopolitiko nezinye izimvo, ezesizwe okanye ezentlalo, ezokuzalwa okanye namanye amawonga.
+
+Ngaphezu koko, akukho mahluko unokwenziwa usekelwe kwezopolitiko, ulawulo lwezobulungisa okanye amawonga ezizwe nezizwana okanye ummandla apho umntu akhoyo, nokuba uzimele, ukuthembeka, urhulumente ongazimelanga okanye nokuba zeziphi indlela zokunciphisa ulawulo lobukumkani.</string>
+	<key>xog</key>
+	<string>a b c d e f g h i j k l m n o p q r s t u v w x y z</string>
+	<key>yav</key>
+	<string>a á à â ǎ ā b c d e é è ɛ ɛ́ ɛ̀ f h i í ì î ī k l m mb n ny ŋ ŋg o ó ò ô ǒ ō ɔ ɔ́ ɔ̀ p s t u ú ù û ǔ ū v w y</string>
+	<key>yi</key>
+	<string>יעדער איז באַרעכטיקט אױף די אַלע רעכט און פֿרײַהײטן װאָס שטײען געשריבן אין אָט דער דעקלאַראַציע, ניט געקוקט אױף װאָסער־ניט־איז אונטערשײד, זאָל זײַן פֿאָלק, הױטפֿאַרב, לשון, רעליגיע, פּאָליטישע אָדער אַנדערע געדאַנקען, נאַציאָנאַליטעט, קולטור, פֿאַרמאָג, געבורט, אָדער װאָסער־ניט־איז אַנדערן סטאַטוס.
+
+נאָכמער, טאָר ניט זײַן קײן אונטערשײד צוליב דער פּאָליטישער, געזעציקער, אָדער אינטערנאַציאָנאַלער לאַגע פֿון דעם לאַנד װוּ ער װױנט, זאָל דאָס לאַנד זײַן אומאָפּהענגיק, אָפּהענגיק, אָדער אונטער װאָסער־ניט־איז באַגרענעצטער סוּװערעניטעט.</string>
+	<key>yo</key>
+	<string>a á à b d e é è ẹ ẹ́ ẹ̀ f g gb h i í ì j k l m n o ó ò ọ ọ́ ọ̀ p r s ṣ t u ú ù w y</string>
+	<key>zh</key>
+	<string>人人有资格享有本宣言所载的一切权利和自由,不分种族、肤色、性别、语言、宗教、政治或其他见解、国籍或社会出身、财产、出生或其他身分等任何区别。并且不得因一人所属的国家或领土的政治的、行政的或者国际的地位之不同而有所区别,无论该领土是独立领土、托管领土、非自治领土或者处于其他任何主权受限制的情况之下。</string>
+	<key>zh_Hant</key>
+	<string>人人有資格享受本宣言所載的一切權利和自由,不分種族、膚色、性別、語言、宗教、政治或其他見解、國籍或社會出身、財產、出生或其他身分等任何區別。</string>
+	<key>zu</key>
+	<string>Wonke umuntu kumele awathole wonke lamalungelo nenkululeko ebhalwe kuloluGunyazo, ngale kokwehlukaniswa, ngokobuhlanga, ngokwebala, ngokobulili, ngokolimi, ngokwenkolo, ezombangazwe noma umbono, ubuzwe noma imvelaphi, umhlaba, ukuzalwa noma isiphi‐ke nje esinye isimo.
+
+Ngaphezu kwaloko, akukho kuhlukaniswa okuyokwenziwa ngenxa yezombangazwe, isimo sokwenganyelwa kwezwe noma imingcele yezwe umuntu ahlala kulo, noma ngabe uzimelegeqe, ubanjelwe, ozibuse noma uphansi kolawulo olunqunyelwe.</string>
+</dict>
+</plist>
