@@ -36,4 +36,12 @@ class AppState {
         return [["test": "json"], ["test": "json"]]
     }
     
+    static func dropMessage(latLong: (Double, Double), title:String, message:String) {
+        
+        WebServicesManager.postMessage(latLong: latLong, title: title, message: message) { responseObject, error in
+            print("responseObject = \(String(describing: responseObject)); error = \(String(describing: error))")
+            return
+        }
+    }
+    
 }

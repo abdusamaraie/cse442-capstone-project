@@ -18,8 +18,12 @@ target 'MapChat' do
   end
 
   pod 'Alamofire'
+<<<<<<< HEAD
   pod 'FacebookCore'
   pod 'FacebookLogin'
   pod 'FacebookShare'
 
+=======
+  pod 'lottie-ios'
+>>>>>>> origin/develop
 end

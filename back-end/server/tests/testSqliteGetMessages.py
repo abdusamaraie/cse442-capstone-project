@@ -17,7 +17,7 @@ class TestGetMessages(unittest.TestCase):
         before_num = len(json.loads(messages_json))
 
         # add a post to the database
-        sqlite.post_message('daru1', location, "unit test post", time=(datetime.now() + timedelta(days=7)))
+        sqlite.post_message('daru1', location, "unit test post", exp_time=(datetime.now() + timedelta(days=7)))
 
         # get number of posts returned after adding one
         messages_json = sqlite.get_messages(location, distance)

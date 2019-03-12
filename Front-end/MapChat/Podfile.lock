@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.8.0)
+<<<<<<< HEAD
   - Bolts (1.9.0):
     - Bolts/AppLinks (= 1.9.0)
     - Bolts/Tasks (= 1.9.0)
@@ -31,10 +32,18 @@ DEPENDENCIES:
   - FacebookCore
   - FacebookLogin
   - FacebookShare
+=======
+  - lottie-ios (2.5.2)
+
+DEPENDENCIES:
+  - Alamofire
+  - lottie-ios
+>>>>>>> origin/develop
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+<<<<<<< HEAD
     - Bolts
     - FacebookCore
     - FacebookLogin
@@ -54,5 +63,14 @@ SPEC CHECKSUMS:
   FBSDKShareKit: 0e45916f4150da485928ae2a17ca021950b194f5
 
 PODFILE CHECKSUM: f5df6118eabd4b1f2c6547ba63d65873c70e621d
+=======
+    - lottie-ios
+
+SPEC CHECKSUMS:
+  Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
+  lottie-ios: 3fef45d3fabe63e3c7c2eb603dd64ddfffc73062
+
+PODFILE CHECKSUM: a08b6195db499f18957bcca5e26ddcab4e60aa52
+>>>>>>> origin/develop
 
 COCOAPODS: 1.6.1

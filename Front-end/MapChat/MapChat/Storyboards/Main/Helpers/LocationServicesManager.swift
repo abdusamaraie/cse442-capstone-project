@@ -9,25 +9,8 @@
 import Foundation
 import CoreLocation
 
-class LocationServicesManager {
+class LocationServicesManager: NSObject, CLLocationManagerDelegate {
     
-    static func getCurrentLocation() -> (Double, Double) {
-        
-        let locManager = CLLocationManager()
-        locManager.requestWhenInUseAuthorization()
-        
-        var currentLocation: CLLocation!
-        
-        if( CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
-            CLLocationManager.authorizationStatus() ==  .authorizedAlways){
-            
-            currentLocation = locManager.location
-        }
-        
-        print("\(currentLocation.coordinate.longitude)")
-        print("\(currentLocation.coordinate.latitude)")
-        
-        return (currentLocation.coordinate.latitude, currentLocation.coordinate.longitude)
-    }
+    static let sharedInstance = LocationServicesManager()
     
 }

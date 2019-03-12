@@ -31,8 +31,12 @@
             <objects>
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="pBb-ZE-IHT" customClass="PageViewController" customModule="MapChat" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
+<<<<<<< HEAD
                         <segue destination="ggK-s1-CMJ" kind="show" identifier="to_auth" id="ILS-7u-ZLD"/>
                         <segue destination="L18-IP-h9R" kind="show" identifier="to_auth2" id="GYa-Sv-PGC"/>
+=======
+                        <segue destination="JQA-H9-9p9" kind="show" identifier="to_mainview" id="J7e-9B-jqC"/>
+>>>>>>> origin/develop
                     </connections>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kp2-Fd-1Am" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -86,6 +90,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RBR-em-QA6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1102" y="623"/>
+        </scene>
+        <!--MainView-->
+        <scene sceneID="3mZ-mV-iAh">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MainView" id="JQA-H9-9p9" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2oM-9X-yWG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1788" y="-96"/>
         </scene>
         <!--sThree-->
         <scene sceneID="37w-Ea-Zp0">
