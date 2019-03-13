@@ -16,6 +16,8 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("test")
+        
         self.dataSource = self
         self.delegate = self
         
@@ -37,6 +39,9 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         // button text "sign in"
         sign_in_button.setTitle("Sign in", for: .normal)
         
+        // add button target
+        sign_in_button.addTarget(self, action: #selector(sign_in), for: .touchUpInside)
+        
         // button color white
         sign_in_button.backgroundColor = UIColor.blue
         
@@ -53,6 +58,9 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
 
         // button text "sign up"
         sign_up_button.setTitle("Sign up", for: .normal)
+        
+        // add button target
+        sign_up_button.addTarget(self, action: #selector(sign_up), for: .touchUpInside)
 
         // center within view
         sign_up_button.center.x = self.view.frame.midX
@@ -66,13 +74,17 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
     @objc func sign_in() {
         //self.performSegue(withIdentifier: "to_sign_in", sender: self)
         print("sign in")
-        self.performSegue(withIdentifier: "to_mainview", sender: self)
+
+        self.performSegue(withIdentifier: "to_auth2", sender: self)
+
     }
     
     @objc func sign_up() {
         //self.performSegue(withIdentifier: "to_sign_up", sender: self)
         print("sign up")
-        self.performSegue(withIdentifier: "to_mainview", sender: self)
+
+        self.performSegue(withIdentifier: "to_auth", sender: self)
+
     }
     
     func configurePageControl() {

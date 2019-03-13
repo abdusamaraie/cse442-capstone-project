@@ -10,17 +10,34 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Auth-->
+        <scene sceneID="2Aq-Vz-1O8">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Auth" storyboardName="Auth" id="ggK-s1-CMJ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wx8-2u-dqO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-529" y="217"/>
+        </scene>
+        <!--Auth2-->
+        <scene sceneID="8xL-Va-nrB">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Auth2" storyboardName="Auth2" id="L18-IP-h9R" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8QL-y5-sqP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-468" y="-85"/>
+        </scene>
         <!--Page View Controller-->
         <scene sceneID="FQ7-rX-IgX">
             <objects>
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="pBb-ZE-IHT" customClass="PageViewController" customModule="MapChat" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
-                        <segue destination="JQA-H9-9p9" kind="show" identifier="to_mainview" id="J7e-9B-jqC"/>
+                        <segue destination="ggK-s1-CMJ" kind="show" identifier="to_auth" id="ILS-7u-ZLD"/>
+                        <segue destination="L18-IP-h9R" kind="show" identifier="to_auth2" id="GYa-Sv-PGC"/>
                     </connections>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kp2-Fd-1Am" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="412" y="-70"/>
+            <point key="canvasLocation" x="506" y="-43"/>
         </scene>
         <!--sOne-->
         <scene sceneID="zzU-3U-8F7">
@@ -44,7 +61,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7F3-L8-auO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="412" y="623"/>
+            <point key="canvasLocation" x="476" y="623"/>
         </scene>
         <!--sTwo-->
         <scene sceneID="Sf5-bd-dPT">

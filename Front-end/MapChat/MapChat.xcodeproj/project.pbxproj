@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		056A378A2223301A005A49CB /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 056A37892223301A005A49CB /* Auth.storyboard */; };
+		056A378C2223308C005A49CB /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056A378B2223308C005A49CB /* SignInView.swift */; };
+		056A378E222330A7005A49CB /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056A378D222330A7005A49CB /* SignUpView.swift */; };
+		056A379422233FC1005A49CB /* Auth2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 056A379322233FC1005A49CB /* Auth2.storyboard */; };
 		40D5A00C4EDA5CB66FAE5139 /* Pods_MapChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEEF9F98D541554EEAD87DA7 /* Pods_MapChatTests.framework */; };
 		43100785EC0B2D92AC929817 /* Pods_MapChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F40FC9B6A3AF41E2EA0585 /* Pods_MapChat.framework */; };
 		EB414CE22214F298007C3FE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB414CE12214F298007C3FE4 /* AppDelegate.swift */; };
@@ -15,8 +19,6 @@
 		EB414CEA2214F298007C3FE4 /* MapChat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EB414CE82214F298007C3FE4 /* MapChat.xcdatamodeld */; };
 		EB414CEC2214F29A007C3FE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB414CEB2214F29A007C3FE4 /* Assets.xcassets */; };
 		EB414CEF2214F29A007C3FE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB414CED2214F29A007C3FE4 /* LaunchScreen.storyboard */; };
-		EB414CFA2214F29A007C3FE4 /* MapChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB414CF92214F29A007C3FE4 /* MapChatTests.swift */; };
-		EB414D052214F29A007C3FE4 /* MapChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB414D042214F29A007C3FE4 /* MapChatUITests.swift */; };
 		EBAA2FED222322B8003A7FD5 /* SPageOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAA2FEC222322B8003A7FD5 /* SPageOne.swift */; };
 		EBAA2FEF222322C3003A7FD5 /* SPageTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAA2FEE222322C3003A7FD5 /* SPageTwo.swift */; };
 		EBAA2FF1222322CD003A7FD5 /* SPageThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAA2FF0222322CD003A7FD5 /* SPageThree.swift */; };
@@ -53,6 +55,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		056A37892223301A005A49CB /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		056A378B2223308C005A49CB /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		056A378D222330A7005A49CB /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		056A379322233FC1005A49CB /* Auth2.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth2.storyboard; sourceTree = "<group>"; };
 		1DE61570E901C6844CC5F675 /* Pods-MapChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapChatTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapChatTests/Pods-MapChatTests.release.xcconfig"; sourceTree = "<group>"; };
 		4527A64964C100488AE037C9 /* Pods-MapChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapChat/Pods-MapChat.release.xcconfig"; sourceTree = "<group>"; };
 		503386CE2733449CC61C1E2A /* Pods_MapChatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapChatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,11 +77,7 @@
 		EB414CEE2214F29A007C3FE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB414CF02214F29A007C3FE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB414CF52214F29A007C3FE4 /* MapChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EB414CF92214F29A007C3FE4 /* MapChatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapChatTests.swift; sourceTree = "<group>"; };
-		EB414CFB2214F29A007C3FE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB414D002214F29A007C3FE4 /* MapChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EB414D042214F29A007C3FE4 /* MapChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapChatUITests.swift; sourceTree = "<group>"; };
-		EB414D062214F29A007C3FE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EBAA2FEC222322B8003A7FD5 /* SPageOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPageOne.swift; sourceTree = "<group>"; };
 		EBAA2FEE222322C3003A7FD5 /* SPageTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPageTwo.swift; sourceTree = "<group>"; };
 		EBAA2FF0222322CD003A7FD5 /* SPageThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPageThree.swift; sourceTree = "<group>"; };
@@ -123,6 +125,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		056A378822232FEF005A49CB /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				056A37892223301A005A49CB /* Auth.storyboard */,
+				056A378B2223308C005A49CB /* SignInView.swift */,
+				056A378D222330A7005A49CB /* SignUpView.swift */,
+				056A379322233FC1005A49CB /* Auth2.storyboard */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 		3A665395404191021F52F86D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,8 +163,6 @@
 			isa = PBXGroup;
 			children = (
 				EB414CE02214F298007C3FE4 /* MapChat */,
-				EB414CF82214F29A007C3FE4 /* MapChatTests */,
-				EB414D032214F29A007C3FE4 /* MapChatUITests */,
 				EB414CDF2214F298007C3FE4 /* Products */,
 				50781BE8E189CF3D5F5E6AEE /* Pods */,
 				3A665395404191021F52F86D /* Frameworks */,
@@ -183,27 +194,10 @@
 			path = MapChat;
 			sourceTree = "<group>";
 		};
-		EB414CF82214F29A007C3FE4 /* MapChatTests */ = {
-			isa = PBXGroup;
-			children = (
-				EB414CF92214F29A007C3FE4 /* MapChatTests.swift */,
-				EB414CFB2214F29A007C3FE4 /* Info.plist */,
-			);
-			path = MapChatTests;
-			sourceTree = "<group>";
-		};
-		EB414D032214F29A007C3FE4 /* MapChatUITests */ = {
-			isa = PBXGroup;
-			children = (
-				EB414D042214F29A007C3FE4 /* MapChatUITests.swift */,
-				EB414D062214F29A007C3FE4 /* Info.plist */,
-			);
-			path = MapChatUITests;
-			sourceTree = "<group>";
-		};
 		EBAA2FE722232135003A7FD5 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				056A378822232FEF005A49CB /* Auth */,
 				EBFAC66D22261AE1004B5074 /* Main */,
 				EBAA2FE822232142003A7FD5 /* Splash */,
 			);
@@ -381,6 +375,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				056A379422233FC1005A49CB /* Auth2.storyboard in Resources */,
+				056A378A2223301A005A49CB /* Auth.storyboard in Resources */,
 				EB414CEF2214F29A007C3FE4 /* LaunchScreen.storyboard in Resources */,
 				EB414CEC2214F29A007C3FE4 /* Assets.xcassets in Resources */,
 				EBEB9304223092BA003DAD1E /* message-success.json in Resources */,
@@ -413,18 +409,32 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MapChat/Pods-MapChat-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-MapChat/Pods-MapChat-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookShare/FacebookShare.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookShare.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MapChat/Pods-MapChat-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MapChat/Pods-MapChat-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		56F18BC12C39FD55D0577321 /* [CP] Check Pods Manifest.lock */ = {
@@ -502,6 +512,8 @@
 				EBAA2FF1222322CD003A7FD5 /* SPageThree.swift in Sources */,
 				EBEB9302222F4BFA003DAD1E /* DropMessageView.swift in Sources */,
 				EBAA2FEF222322C3003A7FD5 /* SPageTwo.swift in Sources */,
+				056A378C2223308C005A49CB /* SignInView.swift in Sources */,
+				056A378E222330A7005A49CB /* SignUpView.swift in Sources */,
 				EBAA2FED222322B8003A7FD5 /* SPageOne.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -510,7 +522,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB414CFA2214F29A007C3FE4 /* MapChatTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,7 +529,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB414D052214F29A007C3FE4 /* MapChatUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
