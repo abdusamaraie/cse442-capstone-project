@@ -11,7 +11,7 @@ class User:
         self.lastname = ''
         self.photo = ''
 
-    def setUser(self,firstname, lastname,photourl, username,password=None):
+    def setUser(self, firstname, lastname, photourl, username, password=None):
         self.firstname = firstname
         self.lastname = lastname
         self.photo = photourl

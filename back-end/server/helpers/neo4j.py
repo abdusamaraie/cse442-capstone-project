@@ -4,7 +4,7 @@ from objects.user import User
 from helpers.radius_math import get_user_radius_bounds
 import json
 
-GRAPH = Graph()  # assumes neo4j is running locally on port 7474 (default)
+GRAPH = Graph("bolt://localhost:7687", auth=("neo4j", " "))  # assumes neo4j is running locally on port 7474 (default)
 
 '''
 # connect to database
@@ -20,7 +20,7 @@ def add_user(user):
                          username=user.username,
                          hashed_password=user.password_hash,
                          first_name=user.firstname,
-                         lastname=user.lastname)
+                         last_name=user.lastname)
         GRAPH.create(user_node)
         return True
     except Exception as e:
@@ -31,10 +31,13 @@ def add_user(user):
 # get user data from database by username
 def get_user(username):
     try:
+        # find user node in database
         matcher = NodeMatcher(GRAPH)
         user = matcher.match("User", username=username).first()
+
+        # if user is found, return user
         if user:
-            return user
+            return dict(user)
         else:
             return False
 
@@ -43,7 +46,7 @@ def get_user(username):
         return False
 
 
-# USED TO DELETE USER FORM DATABASE IF USER DECIDED TO UNREGISTER
+# delete a user from the database (unregister)
 def delete_user(username, password):
     # setup database connection
     # do database query
