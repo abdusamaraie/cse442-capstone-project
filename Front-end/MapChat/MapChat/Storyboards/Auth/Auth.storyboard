@@ -67,6 +67,9 @@
                                 <state key="normal" title="Sign Up">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="sign_up:" destination="K6k-Wf-1yE" eventType="touchUpInside" id="P2b-ty-8NB"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -87,6 +90,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="N09-wN-COC"/>
                     </view>
+                    <connections>
+                        <outlet property="display_name" destination="wXa-0R-P9l" id="Qng-j8-s0y"/>
+                        <outlet property="password_1" destination="o62-P1-q2A" id="gNl-yn-Qud"/>
+                        <outlet property="password_2" destination="M1j-gZ-iB0" id="hbT-TQ-XY1"/>
+                        <outlet property="username" destination="zqn-Qd-17a" id="qjh-EI-d0l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gM8-hi-W7F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
