@@ -6,7 +6,7 @@ from objects.filestream import Filestream
 # Flask
 from flask import Flask, request, json
 
-# Core Libaries
+# Core Libraries
 import multiprocessing
 import signal
 import sys, os, uuid
@@ -83,7 +83,7 @@ def message():
         (lat, long) = location
         location_ = {"latitude": lat, "longitude": long}
 
-        return neo4j.get_messages(location_, distance)
+        return neo4j.get_posts(location_, distance)
 
     # USED TO POST MESSAGES
     else:
@@ -144,14 +144,24 @@ def deactivate():
         return str(neo4j.delete_user(username, password_hash))
 
 
-@app.route('/deletemessage', methods=['POST'])
-def replies():
+@app.route('/delete/message', methods=['POST'])
+def delete():
     # REQUIRED BY DEFAULT
     post_id = request.json['postId']
 
     # USED FOR DELETING A POST
     if request.method == 'POST':
-        return neo4j.delete_post(post_id)
+        return str(neo4j.delete_post(post_id))
+
+
+@app.route('/delete/reply', methods=['POST'])
+def delete():
+    # REQUIRED BY DEFAULT
+    reply_id = request.json['replyId']
+
+    # USED FOR DELETING A POST
+    if request.method == 'POST':
+        return str(neo4j.delete_reply(reply_id))
 
 
 def start_server():
