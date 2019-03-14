@@ -1,5 +1,7 @@
 from py2neo import Graph, Node, Relationship, NodeMatcher, RelationshipMatcher
 from datetime import datetime
+from pytz import timezone
+import uuid
 from objects.user import User
 from helpers.radius_math import get_user_radius_bounds
 import json
@@ -106,9 +108,44 @@ def get_photo(username):
 
 
 def post_message(username, location, message, exp_time):
-    # setup database connection
-    # do database query
-    return None
+    # get lat and long
+    lat = location['latitude']
+    lon = location['longitude']
+
+    # get current time for time of post
+    es = timezone("US/Eastern")
+    time = str(datetime.now().astimezone(es))
+
+    # generate post id
+    pid = str(uuid.uuid4())
+
+    try:
+        # create post node
+        post_node = Node("Post",
+                         content=message,
+                         post_time=time,
+                         expire_time=exp_time,
+                         latitude=lat,
+                         longitude=lon,
+                         post_id=pid)
+        GRAPH.create(post_node)
+
+        # get corresponding user node
+        matcher = NodeMatcher(GRAPH)
+        user_node = matcher.match("User", username=username).first()
+
+        # create relationship between user and post
+        GRAPH.create(Relationship(user_node, "POSTED", post_node))
+
+        # add node to spatial layer for indexing
+        GRAPH.run("MATCH (p:Post {{post_id: '{}'}}) WITH p CALL spatial.addNode('posts', p) YIELD node RETURN node".format(pid))
+
+        return dict(post_node)['post_id']
+
+    except Exception as e:
+        print(e)
+        return False
+
 
 
 def get_messages(location, distance):
