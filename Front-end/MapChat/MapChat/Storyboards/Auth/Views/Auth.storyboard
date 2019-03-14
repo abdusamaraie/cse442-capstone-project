@@ -46,7 +46,7 @@
                                 </constraints>
                                 <state key="normal" image="close"/>
                                 <connections>
-                                    <segue destination="PhU-i6-QVl" kind="show" identifier="" id="IOb-0C-AD9"/>
+                                    <action selector="goBack:" destination="K6k-Wf-1yE" eventType="touchUpInside" id="5D6-Od-hed"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tDK-cr-2hU">
@@ -137,6 +137,7 @@
                                 </constraints>
                                 <state key="normal" image="close"/>
                                 <connections>
+                                    <action selector="goBack:" destination="Pwa-Ky-z3r" eventType="touchUpInside" id="Eil-kT-3Ux"/>
                                     <segue destination="K6k-Wf-1yE" kind="show" id="7v6-RU-cbh"/>
                                 </connections>
                             </button>

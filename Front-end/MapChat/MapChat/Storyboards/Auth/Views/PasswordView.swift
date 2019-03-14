@@ -35,4 +35,8 @@ class PasswordView: UIViewController {
             print("first element issue: \(AuthenticationHelper.check_input(input_elements: input_elements)[0])")
         }
     }
+    
+    @IBAction func goBack(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
