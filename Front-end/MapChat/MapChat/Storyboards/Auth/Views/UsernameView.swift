@@ -21,7 +21,7 @@ class UsernameView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        sign_in_button = UIButton(frame: CGRect(x: 0, y: (self.view.frame.maxY - self.view.frame.maxY/5), width: (self.view.frame.maxX - self.view.frame.maxX/4), height: 50))
+        sign_in_button = UIButton(frame: CGRect(x: 0, y: (self.view.frame.maxY - self.view.frame.maxY/12), width: (self.view.frame.maxX - self.view.frame.maxX/4), height: 50))
         
         // button text "sign in"
         sign_in_button.setTitle("Sign in", for: .normal)
@@ -35,6 +35,10 @@ class UsernameView: UIViewController {
         // center within view
         sign_in_button.center.x = self.view.frame.midX
     
+        // round button
+        sign_in_button.layer.cornerRadius = 10
+        // button.layer.borderWidth = 1
+        // button.layer.borderColor = UIColor.black.cgColor
         
         // add button to view
         self.view.addSubview(sign_in_button)
@@ -47,7 +51,10 @@ class UsernameView: UIViewController {
     }
     
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        self.username.becomeFirstResponder()
+        
+    }
     
 //    @IBAction func sign_up(_ sender: Any) {
 //
