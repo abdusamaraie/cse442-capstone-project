@@ -1,8 +1,9 @@
 import hashlib
 import base64
 import uuid
-import sqlite3 as sql
-from constants.constants import HASH_PASSWORD_PATH,DATABASE_PATH
+from constants.constants import HASH_PASSWORD_PATH
+from py2neo import NodeMatcher
+from helpers.neo4j import GRAPH
 
 
 def generate_hash(password):
@@ -21,18 +22,17 @@ def generate_hash(password):
 
 
 def verify_user(username, password_hash):
-
-    con = sql.connect(DATABASE_PATH)
-    cur = con.cursor()
-
     try:
-        login = cur.execute("SELECT * from Users WHERE username = ? AND hashed_password = ? ", (username, password_hash))
-        if len(login.fetchall()) > 0:
+        # find user node in database
+        matcher = NodeMatcher(GRAPH)
+        user_node = matcher.match("User", username=username, hashed_password=password_hash).first()
+
+        # if user is found, return user
+        if user_node is not None:
             return True
         else:
             return False
+
     except Exception as e:
-        return str(e)
-    finally:
-        cur.close()
-        con.close()
+        print(e)
+        return False

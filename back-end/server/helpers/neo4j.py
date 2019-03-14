@@ -2,17 +2,9 @@ from py2neo import Graph, Node, Relationship, NodeMatcher, RelationshipMatcher
 from datetime import datetime
 from pytz import timezone
 import uuid
-from objects.user import User
-from helpers.radius_math import get_user_radius_bounds
 import json
 
-GRAPH = Graph("bolt://localhost:7687", auth=("neo4j", " "))  # assumes neo4j is running locally on port 7474 (default)
-
-'''
-# connect to database
-def get_db():
-    graph = Graph()      return graph
-'''
+GRAPH = Graph(auth=("neo4j", " "))  # assumes neo4j is running locally on port 7474 (default)
 
 
 # add user to the database
