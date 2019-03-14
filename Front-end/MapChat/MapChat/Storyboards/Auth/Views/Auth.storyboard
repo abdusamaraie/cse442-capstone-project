@@ -18,29 +18,6 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Main-->
-        <scene sceneID="YN9-f2-3Hz">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Main" id="PhU-i6-QVl" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aJZ-L0-yYc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="389" y="-87"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="46a-n7-8rI">
-            <objects>
-                <viewController id="5B1-gm-WMS" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="2eN-u6-iLh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="utB-F7-vCl"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rKx-3b-tUA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-116" y="379"/>
-        </scene>
         <!--Username View-->
         <scene sceneID="K1r-bt-bDv">
             <objects>
@@ -102,80 +79,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gM8-hi-W7F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="928.79999999999995" y="51.724137931034484"/>
-        </scene>
-        <!--Password View-->
-        <scene sceneID="uEr-x1-KzX">
-            <objects>
-                <viewController id="Pwa-Ky-z3r" customClass="PasswordView" customModule="MapChat" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="MO0-RH-kjr">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YDh-hc-pY0">
-                                <rect key="frame" x="99" y="115" width="177" height="24"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Verify Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x2w-Tc-9Gs">
-                                <rect key="frame" x="99" y="144" width="177" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="53B-Hc-bnZ"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BMa-YW-Ypj">
-                                <rect key="frame" x="97.5" y="220" width="180" height="40"/>
-                                <color key="backgroundColor" red="0.26099732619999999" green="0.71887143779999996" blue="0.19031629929999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="fsL-ez-M57"/>
-                                    <constraint firstAttribute="width" constant="180" id="qbY-ni-XDH"/>
-                                </constraints>
-                                <color key="tintColor" red="0.26099732619999999" green="0.71887143779999996" blue="0.19031629929999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Sign Up">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="sign_up:" destination="Pwa-Ky-z3r" eventType="touchUpInside" id="gtr-ya-APc"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="txX-HD-tlQ">
-                                <rect key="frame" x="16" y="20" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="PQ2-eY-P4T"/>
-                                </constraints>
-                                <state key="normal" image="close"/>
-                                <connections>
-                                    <action selector="goBack:" destination="Pwa-Ky-z3r" eventType="touchUpInside" id="Eil-kT-3Ux"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="x2w-Tc-9Gs" firstAttribute="leading" secondItem="amF-bk-lG2" secondAttribute="leading" constant="99" id="I5G-YD-vHM"/>
-                            <constraint firstItem="YDh-hc-pY0" firstAttribute="leading" secondItem="amF-bk-lG2" secondAttribute="leading" constant="99" id="Otf-FT-wei"/>
-                            <constraint firstItem="YDh-hc-pY0" firstAttribute="top" secondItem="amF-bk-lG2" secondAttribute="top" constant="95" id="RyO-kb-gH5"/>
-                            <constraint firstItem="amF-bk-lG2" firstAttribute="trailing" secondItem="x2w-Tc-9Gs" secondAttribute="trailing" constant="99" id="TNf-FS-4Kk"/>
-                            <constraint firstItem="BMa-YW-Ypj" firstAttribute="top" secondItem="x2w-Tc-9Gs" secondAttribute="bottom" constant="46" id="ZNQ-tG-lcD"/>
-                            <constraint firstItem="BMa-YW-Ypj" firstAttribute="centerX" secondItem="amF-bk-lG2" secondAttribute="centerX" id="dQM-Ci-EGh"/>
-                            <constraint firstItem="txX-HD-tlQ" firstAttribute="width" secondItem="txX-HD-tlQ" secondAttribute="height" multiplier="1:1" id="e1Z-Jz-jko"/>
-                            <constraint firstItem="x2w-Tc-9Gs" firstAttribute="top" secondItem="YDh-hc-pY0" secondAttribute="bottom" constant="5" id="pBL-rb-cQM"/>
-                            <constraint firstItem="txX-HD-tlQ" firstAttribute="leading" secondItem="amF-bk-lG2" secondAttribute="leading" constant="16" id="pyO-P7-CmC"/>
-                            <constraint firstItem="txX-HD-tlQ" firstAttribute="top" secondItem="amF-bk-lG2" secondAttribute="top" id="thM-gb-wZi"/>
-                            <constraint firstItem="amF-bk-lG2" firstAttribute="trailing" secondItem="YDh-hc-pY0" secondAttribute="trailing" constant="99" id="zUP-sb-aZa"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="amF-bk-lG2"/>
-                    </view>
-                    <connections>
-                        <outlet property="password_initial" destination="YDh-hc-pY0" id="rjs-RE-EpR"/>
-                        <outlet property="password_verify" destination="x2w-Tc-9Gs" id="f92-3d-tJM"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="02M-4d-zXk" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3418" y="-245"/>
         </scene>
         <!--Name View-->
         <scene sceneID="xt7-0t-Npi">
@@ -260,7 +163,7 @@
                                 <rect key="frame" x="138" y="194" width="99" height="29"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="AirbnbCerealApp-Light" family="Airbnb Cereal App" pointSize="22"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

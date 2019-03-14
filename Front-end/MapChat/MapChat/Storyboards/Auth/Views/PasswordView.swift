@@ -11,12 +11,16 @@ import UIKit
 
 class PasswordView: UIViewController {
     
+    var input_elements:[AuthenticationHelper.input_element] = []
+    
     @IBOutlet weak var password: UITextField!
     
     var next_button: UIButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        input_elements.append(AuthenticationHelper.input_element(element_literal: password, element_name: "Password"))
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -42,8 +46,8 @@ class PasswordView: UIViewController {
         // add button to view
         self.view.addSubview(next_button)
         
-        
         next_button.bindToKeyboard()
+        
         self.password.becomeFirstResponder()
     }
     
@@ -52,7 +56,15 @@ class PasswordView: UIViewController {
     }
     
     @objc func next_view() {
-        self.performSegue(withIdentifier: "to_main", sender: self)
+        if (AuthenticationHelper.check_input(input_elements: input_elements).count == 0) {
+            print("good")
+            AuthenticationHelper.sharedInstance.password = password.text!
+            self.performSegue(withIdentifier: "to_main", sender: self)
+        } else {
+            // there are errors
+            // get first element that cause issue
+            print("first element issue: \(AuthenticationHelper.check_input(input_elements: input_elements)[0])")
+        }
     }
     
     @IBAction func go_back(_ sender: Any) {

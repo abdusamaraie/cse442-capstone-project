@@ -21,6 +21,10 @@ class UsernameView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        input_elements.append(AuthenticationHelper.input_element(element_literal: username, element_name: "username"))
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         sign_in_button = UIButton(frame: CGRect(x: 0, y: (self.view.frame.maxY - self.view.frame.maxY/12), width: (self.view.frame.maxX - self.view.frame.maxX/6), height: 50))
         
         // button text "sign in"
@@ -34,7 +38,7 @@ class UsernameView: UIViewController {
         
         // center within view
         sign_in_button.center.x = self.view.frame.midX
-    
+        
         // round button
         sign_in_button.layer.cornerRadius = 10
         // button.layer.borderWidth = 1
@@ -43,47 +47,27 @@ class UsernameView: UIViewController {
         // add button to view
         self.view.addSubview(sign_in_button)
         
-        
         sign_in_button.bindToKeyboard()
-        
-        input_elements.append(AuthenticationHelper.input_element(element_literal: username, element_name: "Username"))
-        // input_elements.append(AuthenticationHelper.input_element(element_literal: display_name, element_name: "Display name"))
+        self.username.becomeFirstResponder()
     }
     
     @objc func next_view() {
-        print("going to next view")
-        self.performSegue(withIdentifier: "to_name", sender: self)
+        
+        if (AuthenticationHelper.check_input(input_elements: input_elements).count == 0) {
+            print("good")
+            AuthenticationHelper.sharedInstance.username = username.text!
+            self.performSegue(withIdentifier: "to_name", sender: self)
+        } else {
+            // there are errors
+            // get first element that cause issue
+            print("first element issue: \(AuthenticationHelper.check_input(input_elements: input_elements)[0])")
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         //self.username.endEditing(true)
         self.username.resignFirstResponder()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.username.becomeFirstResponder()
-    }
-    
-    
-    
-    
-    
-//    @IBAction func sign_up(_ sender: Any) {
-//
-//        if (AuthenticationHelper.check_input(input_elements: input_elements).count == 0) {
-//            print("good")
-//            AuthenticationHelper.sharedInstance.username = username.text!
-//            AuthenticationHelper.sharedInstance.display_name = display_name.text!
-//            self.performSegue(withIdentifier: "to_next_signup", sender: self)
-//        } else {
-//            // there are errors
-//            // get first element that cause issue
-//            print("first element issue: \(AuthenticationHelper.check_input(input_elements: input_elements)[0])")
-//        }
-//
-//
-//
-//    }
 
     @IBAction func goBack(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)

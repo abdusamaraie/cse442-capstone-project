@@ -11,6 +11,8 @@ import UIKit
 
 class NameView: UIViewController {
     
+    var input_elements:[AuthenticationHelper.input_element] = []
+    
     @IBOutlet weak var first_last_name: UITextField!
     
     var next_button: UIButton = UIButton()
@@ -18,6 +20,7 @@ class NameView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        input_elements.append(AuthenticationHelper.input_element(element_literal: first_last_name, element_name: "First and last name"))
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -50,7 +53,16 @@ class NameView: UIViewController {
     }
     
     @objc func next_view() {
-        self.performSegue(withIdentifier: "to_password", sender: self)
+        
+        if (AuthenticationHelper.check_input(input_elements: input_elements).count == 0) {
+            print("good")
+            AuthenticationHelper.sharedInstance.display_name = first_last_name.text!
+            self.performSegue(withIdentifier: "to_password", sender: self)
+        } else {
+            // there are errors
+            // get first element that cause issue
+            print("first element issue: \(AuthenticationHelper.check_input(input_elements: input_elements)[0])")
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
