@@ -6,7 +6,7 @@ from datetime import timedelta
 from helpers import neo4j
 
 
-class TestDeletReply(unittest.TestCase):
+class TestDeleteReply(unittest.TestCase):
     def test_delete_reply(self):
 
         # get msg, username, and post_id from client
@@ -29,12 +29,17 @@ class TestDeletReply(unittest.TestCase):
         replies_json = neo4j.get_post_replies(post_id)
         before_num = len(json.loads(replies_json))
 
-        # delete test post
+        # delete test reply
         neo4j.delete_reply(reply_id)
 
-
+        # get number of replies returned after removing
+        replies_json = neo4j.get_post_replies(post_id)
+        after_num = len(json.loads(replies_json))
 
         self.assertLess(after_num, before_num)
+
+        # delete test post
+        neo4j.delete_post(post_id)
 
 
 if __name__ == '__main__':
