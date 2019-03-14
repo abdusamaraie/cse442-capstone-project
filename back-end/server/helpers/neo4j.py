@@ -252,15 +252,23 @@ def reply_to_post(reply_text, post_id, username):
 
 
 def get_post_replies(post_id):
-    # setup database connection
-    # do database query
-    return None
+    try:
+        # get replies under a post
+        results = GRAPH.run("MATCH(p:Post {{post_id: '{}'}})<-[:REPLY_TO]-(r:Reply) RETURN r".format(post_id))
+
+        # loop through results and create json
+        replies_json = json.dumps([dict(ix) for ix in results.data()])
+        return replies_json
+
+    except Exception as e:
+        print(e)
+        return False
 
 
 def delete_post(post_id):
     try:
-        # delete post node
-        GRAPH.run("MATCH (p:Post {{post_id: '{}'}}) DETACH DELETE p".format(post_id))
+        # delete post node and all replies
+        GRAPH.run("MATCH (p:Post {{post_id: '{}'}})<-[:REPLY_TO]-(r:Reply) DETACH DELETE r, p".format(post_id))
         return True
     except Exception as e:
         print(e)
