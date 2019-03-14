@@ -33,11 +33,11 @@ def get_user(username):
     try:
         # find user node in database
         matcher = NodeMatcher(GRAPH)
-        user = matcher.match("User", username=username).first()
+        user_node = matcher.match("User", username=username).first()
 
         # if user is found, return user
-        if user:
-            return dict(user)
+        if user_node:
+            return dict(user_node)
         else:
             return False
 
@@ -48,9 +48,21 @@ def get_user(username):
 
 # delete a user from the database (unregister)
 def delete_user(username, password):
-    # setup database connection
-    # do database query
-    return None
+    try:
+        # find user node in database
+        matcher = NodeMatcher(GRAPH)
+        user_node = matcher.match("User", username=username, hashed_password=password).first()
+
+        # if user is found, delete user
+        if user_node:
+            GRAPH.delete(user_node)
+            return True
+        else:
+            return False
+
+    except Exception as e:
+        print(e)
+        return False
 
 
 def add_photo(username, photoURL):

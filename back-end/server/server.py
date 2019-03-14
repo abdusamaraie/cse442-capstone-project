@@ -127,12 +127,13 @@ def replies():
 
 @app.route('/deactivate', methods=['POST'])
 def deactivate():
-    # retrive user info
+    # retrieve user info
     username = request.args.get('username')
     password = request.args.get('password')
+    password_hash = authenticate.generate_hash(password)
 
     if request.method == 'POST':
-        return str(sqlite.delete_user(username, password))
+        return str(sqlite.delete_user(username, password_hash))
 
 
 @app.route('/deletemessage', methods=['POST'])
