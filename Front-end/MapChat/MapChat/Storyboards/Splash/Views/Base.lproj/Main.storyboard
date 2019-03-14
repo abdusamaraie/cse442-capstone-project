@@ -9,6 +9,14 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="AirbnbCereal-Light.ttf">
+            <string>AirbnbCerealApp-Light</string>
+        </array>
+        <array key="AirbnbCereal-Medium.ttf">
+            <string>AirbnbCerealApp-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Auth-->
         <scene sceneID="2Aq-Vz-1O8">
@@ -47,21 +55,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u9R-9A-f1N">
-                                <rect key="frame" x="166" y="323" width="50" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View messages, posts and pictures based on other people that have standed where you are right now!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQn-e3-N6D">
+                                <rect key="frame" x="16" y="366" width="343" height="62.5"/>
+                                <fontDescription key="fontDescription" name="AirbnbCerealApp-Light" family="Airbnb Cereal App" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Interact with your surroundings like never before! " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jSg-W3-atX">
+                                <rect key="frame" x="16" y="310.5" width="343" height="47"/>
+                                <fontDescription key="fontDescription" name="AirbnbCerealApp-Medium" family="Airbnb Cereal App" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.63703760939999998" green="0.87123686649999998" blue="0.62281571010000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="BhO-bm-nwm" firstAttribute="trailing" secondItem="jQn-e3-N6D" secondAttribute="trailing" constant="16" id="RHW-FV-A66"/>
+                            <constraint firstItem="jQn-e3-N6D" firstAttribute="top" secondItem="jSg-W3-atX" secondAttribute="bottom" constant="8.5" id="aS6-o6-Oya"/>
+                            <constraint firstItem="BhO-bm-nwm" firstAttribute="bottom" secondItem="jQn-e3-N6D" secondAttribute="bottom" constant="238.5" id="c9v-jL-4dg"/>
+                            <constraint firstItem="jQn-e3-N6D" firstAttribute="leading" secondItem="BhO-bm-nwm" secondAttribute="leading" constant="16" id="db5-MF-hQL"/>
+                            <constraint firstItem="jSg-W3-atX" firstAttribute="leading" secondItem="BhO-bm-nwm" secondAttribute="leading" constant="16" id="eGG-rn-dzo"/>
+                            <constraint firstItem="BhO-bm-nwm" firstAttribute="trailing" secondItem="jSg-W3-atX" secondAttribute="trailing" constant="16" id="nps-y0-Fqe"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="BhO-bm-nwm"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7F3-L8-auO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="476" y="623"/>
+            <point key="canvasLocation" x="476" y="622.93853073463276"/>
         </scene>
         <!--sTwo-->
         <scene sceneID="Sf5-bd-dPT">
@@ -71,21 +92,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfY-4c-9vu">
-                                <rect key="frame" x="166" y="323" width="52" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View messages, posts and pictures based on other people that have standed where you are right now!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pod-lb-pbk">
+                                <rect key="frame" x="16" y="369.5" width="343" height="62.5"/>
+                                <fontDescription key="fontDescription" name="AirbnbCerealApp-Light" family="Airbnb Cereal App" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Interact with your surroundings like never before! " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Qb-IX-joh">
+                                <rect key="frame" x="16" y="314" width="343" height="47"/>
+                                <fontDescription key="fontDescription" name="AirbnbCerealApp-Medium" family="Airbnb Cereal App" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.63703760939999998" green="0.87123686649999998" blue="0.62281571010000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="pod-lb-pbk" firstAttribute="leading" secondItem="dOZ-lW-awG" secondAttribute="leading" constant="16" id="2yj-fq-6rB"/>
+                            <constraint firstItem="dOZ-lW-awG" firstAttribute="bottom" secondItem="pod-lb-pbk" secondAttribute="bottom" constant="235" id="9PH-ly-dmE"/>
+                            <constraint firstItem="pod-lb-pbk" firstAttribute="top" secondItem="2Qb-IX-joh" secondAttribute="bottom" constant="8.5" id="BZo-2n-WXA"/>
+                            <constraint firstItem="dOZ-lW-awG" firstAttribute="trailing" secondItem="2Qb-IX-joh" secondAttribute="trailing" constant="16" id="iWV-iH-UP8"/>
+                            <constraint firstItem="2Qb-IX-joh" firstAttribute="leading" secondItem="dOZ-lW-awG" secondAttribute="leading" constant="16" id="lqC-gN-DyR"/>
+                            <constraint firstItem="dOZ-lW-awG" firstAttribute="trailing" secondItem="pod-lb-pbk" secondAttribute="trailing" constant="16" id="p6K-jq-FSm"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="dOZ-lW-awG"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RBR-em-QA6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1102" y="623"/>
+            <point key="canvasLocation" x="1101.5999999999999" y="622.93853073463276"/>
         </scene>
         <!--MainView-->
         <scene sceneID="3mZ-mV-iAh">
@@ -103,21 +137,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rLc-kV-1hN">
-                                <rect key="frame" x="166" y="323" width="52" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View messages, posts and pictures based on other people that have standed where you are right now!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HKP-ws-K2V">
+                                <rect key="frame" x="16" y="367.5" width="343" height="62.5"/>
+                                <fontDescription key="fontDescription" name="AirbnbCerealApp-Light" family="Airbnb Cereal App" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Interact with your surroundings like never before! " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aaB-Ip-5qq">
+                                <rect key="frame" x="16" y="312" width="343" height="47"/>
+                                <fontDescription key="fontDescription" name="AirbnbCerealApp-Medium" family="Airbnb Cereal App" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.63703760939999998" green="0.87123686649999998" blue="0.62281571010000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="TeZ-tj-m59" firstAttribute="trailing" secondItem="HKP-ws-K2V" secondAttribute="trailing" constant="16" id="6E9-nP-0aP"/>
+                            <constraint firstItem="HKP-ws-K2V" firstAttribute="top" secondItem="aaB-Ip-5qq" secondAttribute="bottom" constant="8.5" id="Duc-ua-04n"/>
+                            <constraint firstItem="TeZ-tj-m59" firstAttribute="trailing" secondItem="aaB-Ip-5qq" secondAttribute="trailing" constant="16" id="Nq3-MC-5Q9"/>
+                            <constraint firstItem="aaB-Ip-5qq" firstAttribute="leading" secondItem="TeZ-tj-m59" secondAttribute="leading" constant="16" id="WB2-pO-VwW"/>
+                            <constraint firstItem="HKP-ws-K2V" firstAttribute="leading" secondItem="TeZ-tj-m59" secondAttribute="leading" constant="16" id="oZl-Sf-Php"/>
+                            <constraint firstItem="TeZ-tj-m59" firstAttribute="bottom" secondItem="HKP-ws-K2V" secondAttribute="bottom" constant="237" id="poz-k7-jim"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="TeZ-tj-m59"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1dx-zT-S2u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1791" y="623"/>
+            <point key="canvasLocation" x="1789.5999999999999" y="622.93853073463276"/>
         </scene>
     </scenes>
 </document>
