@@ -147,14 +147,32 @@ def post_message(username, location, message, exp_time):
         return False
 
 
+def get_posts(location, distance):
+    # get lat and long
+    lat = location['latitude']
+    lon = location['longitude']
 
-def get_messages(location, distance):
-    # setup database connection
-    # do database query
-    return None
+    # convert distance im meters to km
+    radius = distance * 0.001
+
+    # get current time to check if posts are expired
+    es = timezone("US/Eastern")
+    time = str(datetime.now().astimezone(es))
+
+    try:
+        # run spatial query
+        results = GRAPH.run("CALL spatial.withinDistance('posts', {{latitude: {},longitude: {}}}, {}) YIELD node AS p WITH p WHERE p.expire_time > '{}' RETURN p".format(lat, lon, radius, time))
+
+        # loop through results and create json
+        messages_json = json.dumps([dict(ix) for ix in results.data()])
+
+        return messages_json
+    except Exception as e:
+        print(e)
+        return False
 
 
-def rate_message(post_id, table):
+def rate_post(post_id, table):
     # setup database connection
     # do database query
     return None
@@ -172,13 +190,13 @@ def get_post_replies(post_id):
     return None
 
 
-def delete_message(post_id):
+def delete_post(post_id):
     # setup database connection
     # do database query
     return None
 
 
-def get_user_message_history(username):
+def get_user_post_history(username):
     # setup database connection
     # do database query
     return None

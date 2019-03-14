@@ -106,7 +106,7 @@ def rate():
     # GET POST ID
     post_id = request.args.get('postId')
 
-    return str(sqlite.rate_message(post_id, table))
+    return str(sqlite.rate_post(post_id, table))
 
 
 @app.route('/replies', methods=['GET', 'POST'])
@@ -143,7 +143,7 @@ def replies():
 
     # USED FOR REPLYING TO A POST
     if request.method == 'POST':
-        return sqlite.delete_message(post_id)
+        return sqlite.delete_post(post_id)
 
 
 def start_server():
