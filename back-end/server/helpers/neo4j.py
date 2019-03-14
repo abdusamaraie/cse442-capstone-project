@@ -165,8 +165,8 @@ def get_posts(location, distance):
 
         # loop through results and create json
         messages_json = json.dumps([dict(ix) for ix in results.data()])
-
         return messages_json
+
     except Exception as e:
         print(e)
         return False
@@ -191,9 +191,13 @@ def get_post_replies(post_id):
 
 
 def delete_post(post_id):
-    # setup database connection
-    # do database query
-    return None
+    try:
+        # delete post node
+        GRAPH.run("MATCH (p:Post {{post_id: '{}'}}) DETACH DELETE p".format(post_id))
+        return True
+    except Exception as e:
+        print(e)
+        return False
 
 
 def get_user_post_history(username):

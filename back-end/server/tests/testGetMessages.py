@@ -16,18 +16,18 @@ class TestGetMessages(unittest.TestCase):
         time = str(datetime.now().astimezone(es) + timedelta(days=7))
 
         # get number of posts returned
-        messages_json = neo4j.get_messages(location, distance)
+        messages_json = neo4j.get_posts(location, distance)
         before_num = len(json.loads(messages_json))
 
         # add a post to the database
-        # post_id = neo4j.post_message('daru', location, "unit test post", exp_time=time)
+        post_id = neo4j.post_message('daru', location, "unit test post", exp_time=time)
 
         # get number of posts returned after adding one
-        messages_json = neo4j.get_messages(location, distance)
+        messages_json = neo4j.get_posts(location, distance)
         after_num = len(json.loads(messages_json))
 
         # delete test post
-        # neo4j.delete_message(post_id)
+        neo4j.delete_post(post_id)
 
         self.assertGreater(after_num, before_num)
 
