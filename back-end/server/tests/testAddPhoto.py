@@ -5,14 +5,15 @@ from datetime import timedelta
 from helpers import neo4j
 
 
-class TestGetUser(unittest.TestCase):
-    def test_get_user(self):
+class TestAddPhoto(unittest.TestCase):
+    def test_add_photo(self):
 
         username = "daru"
+        url = "https://i.kym-cdn.com/photos/images/original/001/297/938/8e6.png"
 
-        user = neo4j.get_user(username)
+        user = neo4j.add_photo(username, url)
 
-        self.assertEqual(user['username'], 'daru')
+        self.assertTrue(user)
         # self.assertLess(after_num, before_num)
 
 

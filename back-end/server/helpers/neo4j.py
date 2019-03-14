@@ -65,10 +65,23 @@ def delete_user(username, password):
         return False
 
 
-def add_photo(username, photoURL):
-    # setup database connection
-    # do database query
-    return None
+def add_photo(username, photo_url):
+    try:
+        # find user node in database
+        matcher = NodeMatcher(GRAPH)
+        user_node = matcher.match("User", username=username).first()
+
+        # if user is found, delete user
+        if user_node:
+            GRAPH.run("MATCH (u:User {{username: '{}'}}) SET u.photo_url = '{}' RETURN u".format(username, photo_url))
+            return True
+        else:
+            print("Couldn't find user")
+            return False
+
+    except Exception as e:
+        print(e)
+        return False
 
 
 def get_photo(username):
