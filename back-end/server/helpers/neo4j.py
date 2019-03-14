@@ -181,9 +181,6 @@ def rate_post(post_id, relation, username):
         # get post node
         post_node = matcher.match("Post", post_id=post_id).first()
 
-        print(post_node)
-        print(user_node)
-
         if user_node is not None and post_node is not None:
             # get relationship matcher
             rel_matcher = RelationshipMatcher(GRAPH)
@@ -194,16 +191,16 @@ def rate_post(post_id, relation, username):
 
             # if the user is trying to rate a post the same way twice, their rating is removed
             if already_liked is not None and relation == "LIKED":
-                GRAPH.delete(already_liked)
+                GRAPH.separate(already_liked)
                 return True
             elif already_disliked is not None and relation == "DISLIKED":
-                GRAPH.delete(already_disliked)
+                GRAPH.separate(already_disliked)
                 return True
             # if the user is switching their rating, we delete to old one, and create a new one
             elif already_liked is not None and relation == "DISLIKED":
-                GRAPH.delete(already_liked)
+                GRAPH.separate(already_liked)
             elif already_disliked is not None and relation == "LIKED":
-                GRAPH.delete(already_disliked)
+                GRAPH.separate(already_disliked)
 
             # create relationship between user and post
             GRAPH.merge(Relationship(user_node, relation, post_node), relation, '')
