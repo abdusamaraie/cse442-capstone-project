@@ -140,7 +140,7 @@ def post_message(username, location, message, exp_time):
         # add node to spatial layer for indexing
         GRAPH.run("MATCH (p:Post {{post_id: '{}'}}) WITH p CALL spatial.addNode('posts', p) YIELD node RETURN node".format(pid))
 
-        return dict(post_node)['post_id']
+        return pid
 
     except Exception as e:
         print(e)
@@ -244,7 +244,7 @@ def reply_to_post(reply_text, post_id, username):
         # create relationship between reply and original post
         GRAPH.create(Relationship(reply_node, "REPLY_TO", post_node))
 
-        return True
+        return rid
 
     except Exception as e:
         print(e)
@@ -300,5 +300,11 @@ def get_ratings(post_id):
         return False
 
 
-def delete_reply():
-    return None
+def delete_reply(reply_id):
+    try:
+        # delete post node and all replies
+        GRAPH.run("MATCH (r:Reply {{reply_id: '{}'}}) DETACH DELETE r".format(reply_id))
+        return True
+    except Exception as e:
+        print(e)
+        return False
