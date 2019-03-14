@@ -51,20 +51,28 @@ def auth():
     if request.method == 'GET':
         username = request.args.get('username')
         password = request.args.get('password')
-        password_hash = authenticate.generate_hash(password)
+
+        hash_with_salt = authenticate.generate_hash(username, password)
+        password_hash = hash_with_salt['hash']
+        print(hash_with_salt)
 
         # check if username and password exist
         return str(authenticate.verify_user(username, password_hash))
 
     # USED FOR SIGN UP
     else:  # POST
+        # get information from client
         username = request.json['username']
         password = request.json['password']
         first_name = request.json['firstname']
         last_name = request.json['lastname']
-        password_hash = authenticate.generate_hash(password)
 
-        user = User(username, first_name, last_name, password_hash)
+        # generate new hash
+        hash_with_salt = authenticate.generate_hash(username, password)
+        password_hash = hash_with_salt['hash']
+        salt = hash_with_salt['salt']
+
+        user = User(username, first_name, last_name, password_hash, salt)
 
         return str(neo4j.add_user(user))
 

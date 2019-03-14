@@ -1,12 +1,15 @@
 from helpers import authenticate
-class User:
-    def __init__(self, username, firstname, lastname, password_hash=None):
 
-        if not password_hash:
-            self.password_hash = ''
+
+class User:
+    def __init__(self, username, firstname, lastname, password_hash, salt):
+
+        # if not password_hash:
+        #     self.password_hash = ''
 
         self.username = username
         self.password_hash = password_hash
+        self.salt = salt
         self.firstname = firstname
         self.lastname = lastname
         self.photo = ''

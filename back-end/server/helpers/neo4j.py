@@ -12,9 +12,10 @@ def add_user(user):
     try:
         user_node = Node("User",
                          username=user.username,
-                         hashed_password=str(user.password_hash),
+                         hashed_password=user.password_hash,
                          first_name=user.firstname,
-                         last_name=user.lastname)
+                         last_name=user.lastname,
+                         salt=user.salt)
         GRAPH.create(user_node)
         return True
     except Exception as e:
