@@ -49,21 +49,6 @@
                                     <action selector="goBack:" destination="K6k-Wf-1yE" eventType="touchUpInside" id="5D6-Od-hed"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tDK-cr-2hU">
-                                <rect key="frame" x="97.5" y="220" width="180" height="40"/>
-                                <color key="backgroundColor" red="0.26099732619999999" green="0.71887143779999996" blue="0.19031629929999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="Qwj-NH-3d8"/>
-                                    <constraint firstAttribute="width" constant="180" id="yuN-bw-mQd"/>
-                                </constraints>
-                                <color key="tintColor" red="0.26099732619999999" green="0.71887143779999996" blue="0.19031629929999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Next">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="sign_up:" destination="K6k-Wf-1yE" eventType="touchUpInside" id="P2b-ty-8NB"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -73,9 +58,7 @@
                             <constraint firstItem="zqn-Qd-17a" firstAttribute="leading" secondItem="N09-wN-COC" secondAttribute="leading" constant="99" id="PJh-eT-Mhp"/>
                             <constraint firstItem="wXa-0R-P9l" firstAttribute="top" secondItem="zqn-Qd-17a" secondAttribute="bottom" constant="8" id="QNR-qo-9BC"/>
                             <constraint firstItem="wXa-0R-P9l" firstAttribute="leading" secondItem="N09-wN-COC" secondAttribute="leading" constant="99" id="XEq-QI-Ot0"/>
-                            <constraint firstItem="tDK-cr-2hU" firstAttribute="top" secondItem="wXa-0R-P9l" secondAttribute="bottom" constant="52" id="cUy-kU-IgJ"/>
                             <constraint firstItem="N09-wN-COC" firstAttribute="trailing" secondItem="wXa-0R-P9l" secondAttribute="trailing" constant="99" id="fhw-Wq-8qe"/>
-                            <constraint firstItem="tDK-cr-2hU" firstAttribute="centerX" secondItem="N09-wN-COC" secondAttribute="centerX" id="lh5-GR-bRh"/>
                             <constraint firstItem="6WW-xd-ITC" firstAttribute="leading" secondItem="N09-wN-COC" secondAttribute="leading" constant="16" id="rDW-cX-k7V"/>
                             <constraint firstItem="N09-wN-COC" firstAttribute="trailing" secondItem="zqn-Qd-17a" secondAttribute="trailing" constant="99" id="wNC-d9-yMM"/>
                         </constraints>

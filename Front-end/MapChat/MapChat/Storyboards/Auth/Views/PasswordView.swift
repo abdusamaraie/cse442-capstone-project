@@ -27,22 +27,15 @@ class PasswordView: UIViewController {
     @IBAction func sign_up(_ sender: Any) {
         if (AuthenticationHelper.check_input(input_elements: input_elements).count == 0) {
             print("good")
-            let user = AuthenticationHelper.user(username: AuthenticationHelper.sharedInstance.username, password: AuthenticationHelper.sharedInstance.password, display_name: AuthenticationHelper.sharedInstance.display_name)
-            AuthenticationHelper.sharedInstance.current_user = user
-            
-            AuthenticationHelper.sharedInstance.sign_up (completion: { (response) in
-                
-                print(response)
-            })
-            
-//            loadData (completion: { (number, strArr1, strArr2, strArr3) in
-//                // do it
-//                // for exapmple
-//                self.number = number
-//                self.strArr1 = strArr1
-//                // and so on
+//            let user = AuthenticationHelper.user(username: AuthenticationHelper.sharedInstance.username, password: AuthenticationHelper.sharedInstance.password, display_name: AuthenticationHelper.sharedInstance.display_name)
+//            AuthenticationHelper.sharedInstance.current_user = user
 //
+//            AuthenticationHelper.sharedInstance.sign_up (completion: { (response) in
+//
+//                print(response)
 //            })
+            
+            self.performSegue(withIdentifier: "to_main", sender: self)
             
         } else {
             // there are errors
