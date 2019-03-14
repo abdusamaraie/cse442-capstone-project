@@ -27,8 +27,23 @@ class PasswordView: UIViewController {
     @IBAction func sign_up(_ sender: Any) {
         if (AuthenticationHelper.check_input(input_elements: input_elements).count == 0) {
             print("good")
-            var user = AuthenticationHelper.user(username: AuthenticationHelper.sharedInstance.username, password: AuthenticationHelper.sharedInstance.password, display_name: AuthenticationHelper.sharedInstance.display_name)
-            AuthenticationHelper.sharedInstance.sign_up(user_: user)
+            let user = AuthenticationHelper.user(username: AuthenticationHelper.sharedInstance.username, password: AuthenticationHelper.sharedInstance.password, display_name: AuthenticationHelper.sharedInstance.display_name)
+            AuthenticationHelper.sharedInstance.current_user = user
+            
+            AuthenticationHelper.sharedInstance.sign_up (completion: { (response) in
+                
+                print(response)
+            })
+            
+//            loadData (completion: { (number, strArr1, strArr2, strArr3) in
+//                // do it
+//                // for exapmple
+//                self.number = number
+//                self.strArr1 = strArr1
+//                // and so on
+//
+//            })
+            
         } else {
             // there are errors
             // get first element that cause issue

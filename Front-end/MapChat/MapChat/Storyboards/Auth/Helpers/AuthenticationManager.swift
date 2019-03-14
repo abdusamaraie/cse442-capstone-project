@@ -18,9 +18,18 @@ class AuthenticationHelper {
     }
     
     struct user {
-        var username: String
-        var password: String
-        var display_name: String
+        var username: String?
+        var password: String?
+        var display_name: String?
+        
+        init(username: String? = nil, //👈
+            password: String? = nil,
+            display_name: String? = nil) {
+            
+            self.username = username
+            self.password = password
+            self.display_name = display_name
+        }
     }
     
     static var sharedInstance = AuthenticationHelper()
@@ -29,6 +38,8 @@ class AuthenticationHelper {
     var password: String = ""
     var display_name: String = ""
     var url_string:String = "192.168.0.0"
+    
+    var current_user:user = user()
     
     static func check_input(input_elements:[input_element]) -> [Any] {
         var invalid_elements:[Any] = []
@@ -42,30 +53,20 @@ class AuthenticationHelper {
         return invalid_elements
     }
     
-    func sign_up(user_:user) {
+    func sign_up(completion: @escaping (_ response_:String) -> ()){
         
-    }
-    
-    func loadData(completion: @escaping (_ response_:String) -> ()){
-        
-        
-        let parameters: Parameters = ["username": AuthenticationHelper.sharedInstance.username, "password": AuthenticationHelper.sharedInstance.password, "display_name": AuthenticationHelper.sharedInstance.display_name]
+        let parameters: Parameters = ["username": AuthenticationHelper.sharedInstance.current_user.username, "password": AuthenticationHelper.sharedInstance.current_user.password, "display_name": AuthenticationHelper.sharedInstance.current_user.display_name]
         
         Alamofire.request(url_string, method: .post, parameters: parameters).validate().responseJSON { response in
             
             switch(response.result) {
                 case .success(_):
-                    if let JSON = response.result.value as! [[String : AnyObject]]!{
-                        //Here I retrieve the data
-                    }
-                    var response_ = ""
-                    completion(String)
+                    completion("Success")
                     break
-                
+
                 case .failure(_):
                     print("Error")
-                    var response_ = ""
-                    completion(String)
+                    completion("Error")
                     break
             }
             
