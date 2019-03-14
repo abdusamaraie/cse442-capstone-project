@@ -9,14 +9,15 @@
 import Foundation
 import UIKit
 
-class PasswordView: UIViewController {
+class NameView: UIViewController {
     
-    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var first_last_name: UITextField!
     
     var next_button: UIButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -44,15 +45,16 @@ class PasswordView: UIViewController {
         
         
         next_button.bindToKeyboard()
-        self.password.becomeFirstResponder()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        self.password.resignFirstResponder()
+        
+        self.first_last_name.becomeFirstResponder()
     }
     
     @objc func next_view() {
-        self.performSegue(withIdentifier: "to_main", sender: self)
+        self.performSegue(withIdentifier: "to_password", sender: self)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.first_last_name.resignFirstResponder()
     }
     
     @IBAction func go_back(_ sender: Any) {

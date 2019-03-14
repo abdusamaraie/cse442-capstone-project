@@ -14,20 +14,20 @@ class UsernameView: UIViewController {
     var input_elements:[AuthenticationHelper.input_element] = []
     
     @IBOutlet weak var username: UITextField!
-    @IBOutlet weak var display_name: UITextField!
+    // @IBOutlet weak var display_name: UITextField!
     
     var sign_in_button: UIButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        sign_in_button = UIButton(frame: CGRect(x: 0, y: (self.view.frame.maxY - self.view.frame.maxY/12), width: (self.view.frame.maxX - self.view.frame.maxX/4), height: 50))
+        sign_in_button = UIButton(frame: CGRect(x: 0, y: (self.view.frame.maxY - self.view.frame.maxY/12), width: (self.view.frame.maxX - self.view.frame.maxX/6), height: 50))
         
         // button text "sign in"
-        sign_in_button.setTitle("Sign in", for: .normal)
+        sign_in_button.setTitle("Continue", for: .normal)
         
         // add button target
-        //sign_in_button.addTarget(self, action: #selector(sign_in), for: .touchUpInside)
+        sign_in_button.addTarget(self, action: #selector(next_view), for: .touchUpInside)
         
         // button color white
         sign_in_button.backgroundColor = UIColor.blue
@@ -47,14 +47,26 @@ class UsernameView: UIViewController {
         sign_in_button.bindToKeyboard()
         
         input_elements.append(AuthenticationHelper.input_element(element_literal: username, element_name: "Username"))
-        input_elements.append(AuthenticationHelper.input_element(element_literal: display_name, element_name: "Display name"))
+        // input_elements.append(AuthenticationHelper.input_element(element_literal: display_name, element_name: "Display name"))
     }
     
+    @objc func next_view() {
+        print("going to next view")
+        self.performSegue(withIdentifier: "to_name", sender: self)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        //self.username.endEditing(true)
+        self.username.resignFirstResponder()
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         self.username.becomeFirstResponder()
-        
     }
+    
+    
+    
+    
     
 //    @IBAction func sign_up(_ sender: Any) {
 //
@@ -94,5 +106,43 @@ extension UIView {
         UIView.animateKeyframes(withDuration: duration, delay: 0.0, options: UIView.KeyframeAnimationOptions(rawValue: curve), animations: {
             self.frame.origin.y += deltaY
         }, completion: nil)
+    }
+}
+
+
+class SegueFromLeft: UIStoryboardSegue
+{
+    override func perform(){
+        
+        let src = self.source
+        let dst = self.destination
+        
+        src.view.superview?.insertSubview(dst.view, aboveSubview: src.view)
+        dst.view.transform = CGAffineTransform(translationX: -src.view.frame.size.width, y: 0)
+        
+        UIView.animate(withDuration: 0.25,
+                       delay: 0.0,
+                       options: UIView.AnimationOptions.curveEaseInOut,
+                       animations: {
+                        dst.view.transform = CGAffineTransform(translationX: 0, y: 0)
+        },
+                       completion: { finished in
+                        src.present(dst, animated: false, completion: nil)
+        })
+    }
+}
+
+class SegueFromRight: UIStoryboardSegue {
+    override func perform() {
+        let src = self.source
+        let dst = self.destination
+        
+        src.view.superview?.insertSubview(dst.view, aboveSubview: src.view)
+        dst.view.transform = CGAffineTransform(translationX: src.view.frame.size.width*2, y: 0) //Double the X-Axis
+        UIView.animate(withDuration: 0.25, delay: 0.0, options: UIView.AnimationOptions.curveEaseInOut, animations: {
+            dst.view.transform = CGAffineTransform(translationX: 0, y: 0)
+        }) { (finished) in
+            src.present(dst, animated: false, completion: nil)
+        }
     }
 }
