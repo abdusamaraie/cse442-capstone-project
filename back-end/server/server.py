@@ -1,6 +1,6 @@
 # Local Helpers
 from constants.constants import UPLOAD_PATH
-from helpers import authenticate, sqlite
+from helpers import authenticate, neo4j
 from objects.user import User
 from objects.filestream import Filestream
 # Flask
@@ -37,11 +37,11 @@ def uploadPhoto():
         f_name = str(uuid.uuid4()) + extension
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], f_name))'''
         # add photo path to database
-        return str(sqlite.add_photo(username, file))
+        return str(neo4j.add_photo(username, file))
 
     else:
 
-        return str(sqlite.get_photo(username))
+        return str(neo4j.get_photo(username))
 
 
 @app.route('/auth', methods=['GET', 'POST'])
@@ -64,7 +64,7 @@ def auth():
 
         user = User(username, password_hash=password_hash)
 
-        return str(sqlite.add_user(user))
+        return str(neo4j.add_user(user))
 
 
 @app.route('/message', methods=['GET', 'POST'])
@@ -82,14 +82,14 @@ def message():
         (lat, long) = location
         location_ = {"latitude": lat, "longitude": long}
 
-        return sqlite.get_messages(location_, distance)
+        return neo4j.get_messages(location_, distance)
 
     # USED TO POST MESSAGES
     else:
         location = request.json['location']
         msg = request.json['message']
         expire_time = request.json['expireTime']
-        return str(sqlite.post_message(username, location, msg, expire_time))
+        return str(neo4j.post_message(username, location, msg, expire_time))
 
 
 @app.route('/rate', methods=['POST'])
@@ -106,7 +106,7 @@ def rate():
     # GET POST ID
     post_id = request.args.get('postId')
 
-    return str(sqlite.rate_post(post_id, table))
+    return str(neo4j.rate_post(post_id, table))
 
 
 @app.route('/replies', methods=['GET', 'POST'])
@@ -118,11 +118,11 @@ def replies():
     if request.method == 'POST':
         username = request.json['username']
         reply_text = request.json['replyText']
-        return str(sqlite.reply_to_post(reply_text, post_id, username))
+        return str(neo4j.reply_to_post(reply_text, post_id, username))
 
     # USED FOR RETRIEVING A POST'S REPLIES
     else:
-        return sqlite.get_post_replies(post_id)
+        return neo4j.get_post_replies(post_id)
 
 
 @app.route('/deactivate', methods=['POST'])
@@ -133,7 +133,7 @@ def deactivate():
     password_hash = authenticate.generate_hash(password)
 
     if request.method == 'POST':
-        return str(sqlite.delete_user(username, password_hash))
+        return str(neo4j.delete_user(username, password_hash))
 
 
 @app.route('/deletemessage', methods=['POST'])
@@ -143,7 +143,7 @@ def replies():
 
     # USED FOR REPLYING TO A POST
     if request.method == 'POST':
-        return sqlite.delete_post(post_id)
+        return neo4j.delete_post(post_id)
 
 
 def start_server():
