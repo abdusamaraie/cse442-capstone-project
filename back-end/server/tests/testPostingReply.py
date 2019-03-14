@@ -24,7 +24,7 @@ class TestPostingReply(unittest.TestCase):
         self.assertTrue(neo4j.reply_to_post(msg, post_id, username))
 
         # delete test post
-        neo4j.delete_message(post_id)
+        neo4j.delete_post(post_id)
 
 
 if __name__ == '__main__':

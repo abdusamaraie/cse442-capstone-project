@@ -164,8 +164,8 @@ def get_posts(location, distance):
         results = GRAPH.run("CALL spatial.withinDistance('posts', {{latitude: {},longitude: {}}}, {}) YIELD node AS p WITH p WHERE p.expire_time > '{}' RETURN p".format(lat, lon, radius, time))
 
         # loop through results and create json
-        messages_json = json.dumps([dict(ix) for ix in results.data()])
-        return messages_json
+        posts_json = json.dumps([dict(ix) for ix in results.data()])
+        return posts_json
 
     except Exception as e:
         print(e)
@@ -276,9 +276,17 @@ def delete_post(post_id):
 
 
 def get_user_post_history(username):
-    # setup database connection
-    # do database query
-    return None
+    try:
+        # delete post node and all replies
+        results = GRAPH.run("MATCH (p:Post)<-[:POSTED]-(u:User {{username: '{}'}}) RETURN p".format(username))
+
+        # loop through results and create json
+        post_history_json = json.dumps([dict(ix) for ix in results.data()])
+        return post_history_json
+
+    except Exception as e:
+        print(e)
+        return False
 
 
 def get_ratings(post_id):

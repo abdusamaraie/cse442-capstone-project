@@ -20,10 +20,10 @@ class TestPostingMessages(unittest.TestCase):
         # post a message with the above information
         post_id = neo4j.post_message(username, location, msg, exp_time)
 
-        self.assertGreaterEqual(post_id, True)
+        self.assertNotEqual(post_id, None)
 
         # remove to post created for the test
-        # neo4j.delete_message(post_id)
+        neo4j.delete_post(post_id)
 
 
 if __name__ == '__main__':
