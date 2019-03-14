@@ -9,18 +9,18 @@
 import Foundation
 import UIKit
 
-class PasswordView: UIViewController {
+class NameView: UIViewController {
     
     var input_elements:[AuthenticationHelper.input_element] = []
     
-    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var first_last_name: UITextField!
     
     var next_button: UIButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        input_elements.append(AuthenticationHelper.input_element(element_literal: password, element_name: "Password"))
+        input_elements.append(AuthenticationHelper.input_element(element_literal: first_last_name, element_name: "First and last name"))
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -46,25 +46,27 @@ class PasswordView: UIViewController {
         // add button to view
         self.view.addSubview(next_button)
         
+        
         next_button.bindToKeyboard()
         
-        self.password.becomeFirstResponder()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        self.password.resignFirstResponder()
+        self.first_last_name.becomeFirstResponder()
     }
     
     @objc func next_view() {
+        
         if (AuthenticationHelper.check_input(input_elements: input_elements).count == 0) {
             print("good")
-            AuthenticationHelper.sharedInstance.password = password.text!
-            self.performSegue(withIdentifier: "to_main", sender: self)
+            AuthenticationHelper.sharedInstance.display_name = first_last_name.text!
+            self.performSegue(withIdentifier: "to_password", sender: self)
         } else {
             // there are errors
             // get first element that cause issue
             print("first element issue: \(AuthenticationHelper.check_input(input_elements: input_elements)[0])")
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.first_last_name.resignFirstResponder()
     }
     
     @IBAction func go_back(_ sender: Any) {
