@@ -38,7 +38,7 @@ def get_user(username):
         user_node = matcher.match("User", username=username).first()
 
         # if user is found, return user
-        if user_node:
+        if user_node is not None:
             return dict(user_node)
         else:
             return False
@@ -56,7 +56,7 @@ def delete_user(username, password):
         user_node = matcher.match("User", username=username, hashed_password=password).first()
 
         # if user is found, delete user
-        if user_node:
+        if user_node is not None:
             GRAPH.delete(user_node)
             return True
         else:
@@ -74,7 +74,7 @@ def add_photo(username, photo_url):
         user_node = matcher.match("User", username=username).first()
 
         # if user is found, delete user
-        if user_node:
+        if user_node is not None:
             GRAPH.run("MATCH (u:User {{username: '{}'}}) SET u.photo_url = '{}' RETURN u".format(username, photo_url))
             return True
         else:
@@ -93,9 +93,9 @@ def get_photo(username):
         user_node = matcher.match("User", username=username).first()
 
         # if user is found, delete user
-        if user_node:
-            result = GRAPH.run("MATCH (u:User {{username: '{}'}}) RETURN u.photo_url".format(username))
-            url = result.data()[0]['u.photo_url']
+        if user_node is not None:
+            result = GRAPH.run("MATCH (u:User {{username: '{}'}}) RETURN u.photo_url as photo_url".format(username))
+            url = result.data()[0]['photo_url']
 
             return url
         else:
@@ -172,10 +172,50 @@ def get_posts(location, distance):
         return False
 
 
-def rate_post(post_id, table):
-    # setup database connection
-    # do database query
-    return None
+def rate_post(post_id, relation, username):
+    try:
+        # get user node
+        matcher = NodeMatcher(GRAPH)
+        user_node = matcher.match("User", username=username).first()
+
+        # get post node
+        post_node = matcher.match("Post", post_id=post_id).first()
+
+        print(post_node)
+        print(user_node)
+
+        if user_node is not None and post_node is not None:
+            # get relationship matcher
+            rel_matcher = RelationshipMatcher(GRAPH)
+
+            # check if the user has already liked/disliked the post
+            already_liked = rel_matcher.match([user_node, post_node], 'LIKED').first()
+            already_disliked = rel_matcher.match([user_node, post_node], 'DISLIKED').first()
+
+            # if the user is trying to rate a post the same way twice, their rating is removed
+            if already_liked is not None and relation == "LIKED":
+                GRAPH.delete(already_liked)
+                return True
+            elif already_disliked is not None and relation == "DISLIKED":
+                GRAPH.delete(already_disliked)
+                return True
+            # if the user is switching their rating, we delete to old one, and create a new one
+            elif already_liked is not None and relation == "DISLIKED":
+                GRAPH.delete(already_liked)
+            elif already_disliked is not None and relation == "LIKED":
+                GRAPH.delete(already_disliked)
+
+            # create relationship between user and post
+            GRAPH.merge(Relationship(user_node, relation, post_node), relation, '')
+            return True
+
+        else:
+            print("Either the user or the post couldn't be found")
+            return False
+
+    except Exception as e:
+        print(e)
+        return False
 
 
 def reply_to_post(reply_text, post_id, username):
@@ -204,3 +244,14 @@ def get_user_post_history(username):
     # setup database connection
     # do database query
     return None
+
+
+def get_ratings(post_id):
+    try:
+        # delete post node
+        result = GRAPH.run("MATCH(p:Post {{post_id: '{}'}})<-[likes:LIKED]-() MATCH(p)<-[dislikes:DISLIKED]-() RETURN count(likes) as likes, count(dislikes) as dislikes".format(post_id))
+        ratings = json.dumps(dict(result.data()))
+        return ratings
+    except Exception as e:
+        print(e)
+        return False

@@ -92,21 +92,28 @@ def message():
         return str(neo4j.post_message(username, location, msg, expire_time))
 
 
-@app.route('/rate', methods=['POST'])
-def rate():
-    # GET RATING
-    rating = request.args.get('rating')
-
-    # PARSE RATING (true is a like, false is a dislike)
-    if rating:
-        table = "likes"
-    else:
-        table = "dislikes"
-
+@app.route('/rating', methods=['POST', 'GET'])
+def rating():
     # GET POST ID
     post_id = request.args.get('postId')
 
-    return str(neo4j.rate_post(post_id, table))
+    # FOR LIKING OR DISLIKING A POST
+    if request.method == 'POST':
+        # GET RATING
+        rating = request.args.get('rating')
+        username = request.args.get('username')
+
+        # PARSE RATING (true is a like, false is a dislike)
+        if rating:
+            relation = "LIKED"
+        else:
+            relation = "DISLIKED"
+
+        return str(neo4j.rate_post(post_id, relation, username))
+
+    # USED TO RETRIEVE THE LIKES/DISLIKES ON A POST
+    if request.method == 'GET':
+        return neo4j.get_ratings
 
 
 @app.route('/replies', methods=['GET', 'POST'])
@@ -141,7 +148,7 @@ def replies():
     # REQUIRED BY DEFAULT
     post_id = request.json['postId']
 
-    # USED FOR REPLYING TO A POST
+    # USED FOR DELETING A POST
     if request.method == 'POST':
         return neo4j.delete_post(post_id)
 
