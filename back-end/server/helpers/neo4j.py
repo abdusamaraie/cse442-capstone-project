@@ -283,3 +283,6 @@ def get_ratings(post_id):
         print(e)
         return False
 
+
+def delete_reply():
+    return None
