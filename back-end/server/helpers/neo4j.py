@@ -216,9 +216,39 @@ def rate_post(post_id, relation, username):
 
 
 def reply_to_post(reply_text, post_id, username):
-    # setup database connection
-    # do database query
-    return None
+    # get current time for time of reply
+    es = timezone("US/Eastern")
+    time = str(datetime.now().astimezone(es))
+
+    # generate reply id
+    rid = str(uuid.uuid4())
+
+    try:
+        # create reply node
+        reply_node = Node("Reply",
+                          content=reply_text,
+                          post_time=time,
+                          reply_id=rid)
+        GRAPH.create(reply_node)
+
+        # get node of user making reply
+        matcher = NodeMatcher(GRAPH)
+        user_node = matcher.match("User", username=username).first()
+
+        # get original post node
+        matcher = NodeMatcher(GRAPH)
+        post_node = matcher.match("Post", post_id=post_id).first()
+
+        # create relationship between user and reply
+        GRAPH.create(Relationship(user_node, "REPLIED", reply_node))
+        # create relationship between reply and original post
+        GRAPH.create(Relationship(reply_node, "REPLY_TO", post_node))
+
+        return True
+
+    except Exception as e:
+        print(e)
+        return False
 
 
 def get_post_replies(post_id):
@@ -252,3 +282,4 @@ def get_ratings(post_id):
     except Exception as e:
         print(e)
         return False
+
