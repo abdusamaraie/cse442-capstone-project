@@ -55,7 +55,7 @@ def auth():
         password_hash = authenticate.generate_hash(password)
 
         # check if username and password exist
-        return authenticate.verify_user(username, password_hash)
+        return str(authenticate.verify_user(username, password_hash))
 
     # USED FOR SIGN UP
     else:
@@ -101,11 +101,11 @@ def rating():
     # FOR LIKING OR DISLIKING A POST
     if request.method == 'POST':
         # GET RATING
-        rating = request.args.get('rating')
+        p_rating = request.args.get('rating')
         username = request.args.get('username')
 
         # PARSE RATING (true is a like, false is a dislike)
-        if rating:
+        if p_rating:
             relation = "LIKED"
         else:
             relation = "DISLIKED"
@@ -145,7 +145,7 @@ def deactivate():
 
 
 @app.route('/delete/message', methods=['POST'])
-def delete():
+def delete_post():
     # REQUIRED BY DEFAULT
     post_id = request.json['postId']
 
@@ -155,7 +155,7 @@ def delete():
 
 
 @app.route('/delete/reply', methods=['POST'])
-def delete():
+def delete_reply():
     # REQUIRED BY DEFAULT
     reply_id = request.json['replyId']
 
@@ -165,7 +165,8 @@ def delete():
 
 
 def start_server():
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    # app.run(host='0.0.0.0', port=80, debug=True)
+    app.run(host='127.0.0.1', port=5000, debug=True)
 
 
 def signal_handler(sig, frame):
