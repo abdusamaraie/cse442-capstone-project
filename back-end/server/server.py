@@ -48,6 +48,8 @@ def uploadPhoto():
 def auth():
     username = request.args.get('username')
     password = request.args.get('password')
+    firstname = request.args.get('firstname')
+    lastname = request.args.get('lastname')
 
     # USED FOR SIGN IN
     if request.method == 'GET':
@@ -62,7 +64,7 @@ def auth():
 
         password_hash = authenticate.generate_hash(password)
 
-        user = User(username, password_hash=password_hash)
+        user = User(username, firstname, lastname, password_hash)
 
         return str(neo4j.add_user(user))
 
