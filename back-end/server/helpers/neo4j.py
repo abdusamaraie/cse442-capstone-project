@@ -85,9 +85,24 @@ def add_photo(username, photo_url):
 
 
 def get_photo(username):
-    # setup database connection
-    # do database query
-    return None
+    try:
+        # find user node in database
+        matcher = NodeMatcher(GRAPH)
+        user_node = matcher.match("User", username=username).first()
+
+        # if user is found, delete user
+        if user_node:
+            result = GRAPH.run("MATCH (u:User {{username: '{}'}}) RETURN u.photo_url".format(username))
+            url = result.data()[0]['u.photo_url']
+
+            return url
+        else:
+            print("Couldn't find user")
+            return False
+
+    except Exception as e:
+        print(e)
+        return False
 
 
 def post_message(username, location, message, exp_time):

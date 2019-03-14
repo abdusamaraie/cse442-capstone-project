@@ -6,7 +6,7 @@ from helpers import neo4j
 
 
 class TestAddPhoto(unittest.TestCase):
-    def test_add_photo(self):
+    def test_add_user(self):
 
         username = "daru"
         url = "https://i.kym-cdn.com/photos/images/original/001/297/938/8e6.png"
