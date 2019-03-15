@@ -1,10 +1,27 @@
 from py2neo import Graph, Node, Relationship, NodeMatcher, RelationshipMatcher
 from datetime import datetime
+import pytz
 from pytz import timezone
 import uuid
 import json
 
 GRAPH = Graph(auth=("neo4j", " "))  # assumes neo4j is running locally on port 7474 (default)
+
+
+def get_time(time_zone="US/Eastern"):
+    # get timezone object
+    timezone_of_post = timezone(time_zone)
+
+    # get the current system time
+    now = datetime.now()
+
+    # check if system time is naive. GCP server time is naive utc
+    if now.tzinfo is None:  # is naive
+        now = pytz.utc.localize(now)
+
+    # convert to poster's local time
+    time = now.astimezone(timezone_of_post)
+    return str(time)
 
 
 # add user to the database
@@ -106,8 +123,7 @@ def post_message(username, location, message, exp_time):
     lon = location['longitude']
 
     # get current time for time of post
-    es = timezone("US/Eastern")
-    time = str(datetime.now().astimezone(es))
+    time = get_time()
 
     # generate post id
     pid = str(uuid.uuid4())
@@ -148,9 +164,9 @@ def get_posts(location, distance):
     # convert distance im meters to km
     radius_km = distance * 0.001
 
-    # get current time to check if posts are expired
-    es = timezone("US/Eastern")
-    time = str(datetime.now().astimezone(es))
+    # get current time for time of post
+    time = get_time()
+
 
     try:
         # run spatial query
@@ -209,9 +225,8 @@ def rate_post(post_id, relation, username):
 
 
 def reply_to_post(reply_text, post_id, username):
-    # get current time for time of reply
-    es = timezone("US/Eastern")
-    time = str(datetime.now().astimezone(es))
+    # get current time for time of post
+    time = get_time()
 
     # generate reply id
     rid = str(uuid.uuid4())

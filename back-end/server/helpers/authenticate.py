@@ -7,7 +7,7 @@ from helpers.neo4j import GRAPH
 
 
 def generate_hash(username, password):
-    tf_out = open(HASH_PASSWORD_PATH, 'wb')
+    #tf_out = open(HASH_PASSWORD_PATH, 'wb')
 
     # find user node in database
     matcher = NodeMatcher(GRAPH)
@@ -23,8 +23,8 @@ def generate_hash(username, password):
     t_sha.update(password.encode('utf-8') + salt)
 
     hashed_password = base64.urlsafe_b64encode(t_sha.digest())
-    tf_out.write(hashed_password)
-    tf_out.close()
+    #tf_out.write(hashed_password)
+    #tf_out.close()
 
     return {'salt': salt, 'hash': hashed_password}
 
