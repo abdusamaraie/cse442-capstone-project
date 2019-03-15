@@ -146,7 +146,7 @@ def get_posts(location, distance):
     lon = location['longitude']
 
     # convert distance im meters to km
-    radius = distance * 0.001
+    radius_km = distance * 0.001
 
     # get current time to check if posts are expired
     es = timezone("US/Eastern")
@@ -154,10 +154,10 @@ def get_posts(location, distance):
 
     try:
         # run spatial query
-        results = GRAPH.run("CALL spatial.withinDistance('posts', {{latitude: {},longitude: {}}}, {}) YIELD node AS p WITH p WHERE p.expire_time > '{}' RETURN p".format(lat, lon, radius, time))
+        results = GRAPH.run("CALL spatial.withinDistance('posts', {{latitude: {},longitude: {}}}, {}) YIELD node AS p WITH p WHERE p.expire_time > '{}' RETURN p".format(lat, lon, radius_km, time))
 
         # loop through results and create json
-        posts_json = json.dumps([dict(ix) for ix in results.data()])
+        posts_json = json.dumps([dict(ix)['p'] for ix in results.data()])
         return posts_json
 
     except Exception as e:
@@ -217,31 +217,35 @@ def reply_to_post(reply_text, post_id, username):
     rid = str(uuid.uuid4())
 
     try:
-        # create reply node
-        reply_node = Node("Reply",
-                          content=reply_text,
-                          post_time=time,
-                          reply_id=rid)
-        GRAPH.create(reply_node)
-
-        # get node of user making reply
-        matcher = NodeMatcher(GRAPH)
-        user_node = matcher.match("User", username=username).first()
-
         # get original post node
         matcher = NodeMatcher(GRAPH)
         post_node = matcher.match("Post", post_id=post_id).first()
 
-        # create relationship between user and reply
-        GRAPH.create(Relationship(user_node, "REPLIED", reply_node))
-        # create relationship between reply and original post
-        GRAPH.create(Relationship(reply_node, "REPLY_TO", post_node))
+        if post_node is not None:
+            # create reply node
+            reply_node = Node("Reply",
+                              content=reply_text,
+                              post_time=time,
+                              reply_id=rid)
+            GRAPH.create(reply_node)
 
-        return rid
+            # get node of user making reply
+            matcher = NodeMatcher(GRAPH)
+            user_node = matcher.match("User", username=username).first()
+
+            # create relationship between user and reply
+            GRAPH.create(Relationship(user_node, "REPLIED", reply_node))
+            # create relationship between reply and original post
+            GRAPH.create(Relationship(reply_node, "REPLY_TO", post_node))
+
+            return rid
+        else:
+            print('Could not find post to reply to')
+            return 'False'
 
     except Exception as e:
         print(e)
-        return False
+        return 'False'
 
 
 def get_post_replies(post_id):
@@ -250,12 +254,12 @@ def get_post_replies(post_id):
         results = GRAPH.run("MATCH(p:Post {{post_id: '{}'}})<-[:REPLY_TO]-(r:Reply) RETURN r".format(post_id))
 
         # loop through results and create json
-        replies_json = json.dumps([dict(ix) for ix in results.data()])
+        replies_json = json.dumps([dict(ix)['r'] for ix in results.data()])
         return replies_json
 
     except Exception as e:
         print(e)
-        return False
+        return 'False'
 
 
 def delete_post(post_id):
@@ -274,23 +278,27 @@ def get_user_post_history(username):
         results = GRAPH.run("MATCH (p:Post)<-[:POSTED]-(u:User {{username: '{}'}}) RETURN p".format(username))
 
         # loop through results and create json
-        post_history_json = json.dumps([dict(ix) for ix in results.data()])
+        post_history_json = json.dumps([dict(ix)['p'] for ix in results.data()])
         return post_history_json
 
     except Exception as e:
         print(e)
-        return False
+        return 'False'
 
 
 def get_ratings(post_id):
     try:
         # delete post node
-        result = GRAPH.run("MATCH(p:Post {{post_id: '{}'}})<-[likes:LIKED]-() MATCH(p)<-[dislikes:DISLIKED]-() RETURN count(likes) as likes, count(dislikes) as dislikes".format(post_id))
-        ratings = json.dumps(dict(result.data()))
-        return ratings
+        like_result = GRAPH.run("MATCH(p:Post {{post_id: '{}'}}) <-[likes:LIKED]-() RETURN count(likes) as likes".format(post_id))
+        dislike_result = GRAPH.run("MATCH(p:Post {{post_id: '{}'}}) <-[dislikes:DISLIKED]-() RETURN count(dislikes) as dislikes".format(post_id))
+
+        like_num = like_result.data()[0]['likes']
+        dislike_num = dislike_result.data()[0]['dislikes']
+
+        return json.dumps({"likes": like_num, "dislikes": dislike_num})
     except Exception as e:
         print(e)
-        return False
+        return 'False'
 
 
 def delete_reply(reply_id):

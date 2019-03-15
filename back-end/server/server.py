@@ -52,9 +52,9 @@ def auth():
         username = request.args.get('username')
         password = request.args.get('password')
 
+        # get hashed password
         hash_with_salt = authenticate.generate_hash(username, password)
         password_hash = hash_with_salt['hash']
-        print(hash_with_salt)
 
         # check if username and password exist
         return str(authenticate.verify_user(username, password_hash))
@@ -82,10 +82,11 @@ def message():
     # USED FOR RETRIEVING MESSAGES
     if request.method == 'GET':
 
-        location = request.args.get('location')
-        distance = request.args.get('distance')
-        (lat, long) = location
-        location_json = {"latitude": lat, "longitude": long}
+        lat = float(request.args.get('lat'))
+        lon = float(request.args.get('long'))
+        distance = int(request.args.get('distance'))
+
+        location_json = {"latitude": lat, "longitude": lon}
 
         return neo4j.get_posts(location_json, distance)
 
@@ -143,8 +144,10 @@ def deactivate():
         username = request.json['username']
         password = request.json['password']
 
-        # hash password
-        password_hash = authenticate.generate_hash(password)
+        # get hashed password
+        hash_with_salt = authenticate.generate_hash(username, password)
+        password_hash = hash_with_salt['hash']
+
         return str(neo4j.delete_user(username, password_hash))
 
 
