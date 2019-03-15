@@ -1,7 +1,8 @@
 import unittest
+from pytz import timezone
 from datetime import datetime
 from datetime import timedelta
-from helpers import sqlite
+from helpers import neo4j
 
 
 class TestPostingMessages(unittest.TestCase):
@@ -10,18 +11,19 @@ class TestPostingMessages(unittest.TestCase):
         # get location, username, msg, and expiration time from client
         location = {'latitude': 43.0100431, 'longitude': -78.8012356}
         username = "daru"
-        msg = "this is a test post"
-        exp_time = (datetime.now() + timedelta(days=7))
+        msg = "this is a neo4j test post"
+
+        # get current time for time of post
+        es = timezone("US/Eastern")
+        exp_time = str((datetime.now().astimezone(es) + timedelta(days=7)))
 
         # post a message with the above information
-        post_id = sqlite.post_message(username, location, msg, exp_time)
+        post_id = neo4j.post_message(username, location, msg, exp_time)
+
+        self.assertNotEqual(post_id, None)
 
         # remove to post created for the test
-        sqlite.delete_message(post_id)
-
-        self.assertGreaterEqual(post_id, 0)
-
-
+        neo4j.delete_post(post_id)
 
 
 if __name__ == '__main__':

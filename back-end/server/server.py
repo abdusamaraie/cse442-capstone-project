@@ -1,12 +1,12 @@
 # Local Helpers
 from constants.constants import UPLOAD_PATH
-from helpers import authenticate, sqlite
+from helpers import authenticate, neo4j
 from objects.user import User
 from objects.filestream import Filestream
 # Flask
 from flask import Flask, request, json
 
-# Core Libaries
+# Core Libraries
 import multiprocessing
 import signal
 import sys, os, uuid
@@ -25,9 +25,13 @@ def hello_world():
 
 @app.route('/uploadPhoto', methods=['GET', 'POST'])
 def uploadPhoto():
-    username = request.args.get('username')
 
-    if request.method == 'POST':
+    if request.method == 'GET':
+        username = request.args.get('username')
+        return str(neo4j.get_photo(username))
+
+    else:
+        username = request.json['username']
         file = request.json['file']  # if request in json format from frontend clint
         ''' 
         #will implement from front end side where swift will ask user to upload a photo 
@@ -37,116 +41,135 @@ def uploadPhoto():
         f_name = str(uuid.uuid4()) + extension
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], f_name))'''
         # add photo path to database
-        return str(sqlite.add_photo(username, file))
-
-    else:
-
-        return str(sqlite.get_photo(username))
+        return str(neo4j.add_photo(username, file))
 
 
 @app.route('/auth', methods=['GET', 'POST'])
 def auth():
-    username = request.args.get('username')
-    password = request.args.get('password')
 
     # USED FOR SIGN IN
     if request.method == 'GET':
+        username = request.args.get('username')
+        password = request.args.get('password')
 
-        password_hash = authenticate.generate_hash(password)
+        # get hashed password
+        hash_with_salt = authenticate.generate_hash(username, password)
+        password_hash = hash_with_salt['hash']
 
         # check if username and password exist
-        return authenticate.verify_user(username, password_hash)
+        return str(authenticate.verify_user(username, password_hash))
 
     # USED FOR SIGN UP
-    else:
+    else:  # POST
+        # get information from client
+        username = request.json['username']
+        password = request.json['password']
+        first_name = request.json['firstname']
+        last_name = request.json['lastname']
 
-        password_hash = authenticate.generate_hash(password)
+        # generate new hash
+        hash_with_salt = authenticate.generate_hash(username, password)
+        password_hash = hash_with_salt['hash']
+        salt = hash_with_salt['salt']
 
-        user = User(username, password_hash=password_hash)
+        user = User(username, first_name, last_name, password_hash, salt)
 
-        return str(sqlite.add_user(user))
+        return str(neo4j.add_user(user))
 
 
 @app.route('/message', methods=['GET', 'POST'])
 def message():
-    # THESE FIELDS ARE REQUIRED BY DEFAULT
-    username = request.args.get('username')
-    location = request.args.get('location')
-
-    # (lat, long)
-    # {"latitude": __, "longitude": __}
-
     # USED FOR RETRIEVING MESSAGES
     if request.method == 'GET':
-        distance = request.args.get('distance')
-        (lat, long) = location
-        location_ = {"latitude": lat, "longitude": long}
 
-        return sqlite.get_messages(location_, distance)
+        lat = float(request.args.get('lat'))
+        lon = float(request.args.get('long'))
+        distance = int(request.args.get('distance'))
+
+        location_json = {"latitude": lat, "longitude": lon}
+
+        return neo4j.get_posts(location_json, distance)
 
     # USED TO POST MESSAGES
     else:
+        username = request.json['username']
         location = request.json['location']
         msg = request.json['message']
         expire_time = request.json['expireTime']
-        return str(sqlite.post_message(username, location, msg, expire_time))
+        return str(neo4j.post_message(username, location, msg, expire_time))
 
 
-@app.route('/rate', methods=['POST'])
-def rate():
-    # GET RATING
-    rating = request.args.get('rating')
+@app.route('/rating', methods=['POST', 'GET'])
+def rating():
+    # USED TO RETRIEVE THE LIKES/DISLIKES ON A POST
+    if request.method == 'GET':
+        post_id = request.args.get('postId')
 
-    # PARSE RATING (true is a like, false is a dislike)
-    if rating:
-        table = "likes"
+        return neo4j.get_ratings(post_id)
+
+    # USED FOR LIKING OR DISLIKING A POST
     else:
-        table = "dislikes"
+        post_id = request.json['postId']
+        p_rating = request.json['rating']
+        username = request.json['username']
 
-    # GET POST ID
-    post_id = request.args.get('postId')
+        # PARSE RATING (true is a like, false is a dislike)
+        if p_rating:
+            relation = "LIKED"
+        else:
+            relation = "DISLIKED"
 
-    return str(sqlite.rate_message(post_id, table))
+        return str(neo4j.rate_post(post_id, relation, username))
 
 
 @app.route('/replies', methods=['GET', 'POST'])
 def replies():
-    # REQUIRED BY DEFAULT
-    post_id = request.args.get('postId')
+    # USED FOR RETRIEVING A POST'S REPLIES
+    if request.method == 'GET':
+        post_id = request.args.get('postId')
+        return neo4j.get_post_replies(post_id)
 
     # USED FOR REPLYING TO A POST
-    if request.method == 'POST':
+    else:
+        post_id = request.json['postId']
         username = request.json['username']
         reply_text = request.json['replyText']
-        return str(sqlite.reply_to_post(reply_text, post_id, username))
-
-    # USED FOR RETRIEVING A POST'S REPLIES
-    else:
-        return sqlite.get_post_replies(post_id)
+        return str(neo4j.reply_to_post(reply_text, post_id, username))
 
 
 @app.route('/deactivate', methods=['POST'])
 def deactivate():
-    # retrive user info
-    username = request.args.get('username')
-    password = request.args.get('password')
-
     if request.method == 'POST':
-        return str(sqlite.delete_user(username, password))
+        # retrieve user info
+        username = request.json['username']
+        password = request.json['password']
+
+        # get hashed password
+        hash_with_salt = authenticate.generate_hash(username, password)
+        password_hash = hash_with_salt['hash']
+
+        return str(neo4j.delete_user(username, password_hash))
 
 
-@app.route('/deletemessage', methods=['POST'])
-def replies():
-    # REQUIRED BY DEFAULT
-    post_id = request.json['postId']
-
-    # USED FOR REPLYING TO A POST
+@app.route('/delete/message', methods=['POST'])
+def delete_post():
+    # USED FOR DELETING A POST
     if request.method == 'POST':
-        return sqlite.delete_message(post_id)
+        post_id = request.json['postId']
+        return str(neo4j.delete_post(post_id))
+
+
+@app.route('/delete/reply', methods=['POST'])
+def delete_reply():
+    # USED FOR DELETING A REPLY
+    if request.method == 'POST':
+        reply_id = request.json['replyId']
+        return str(neo4j.delete_reply(reply_id))
 
 
 def start_server():
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=80, debug=True)
+    # app.run(host='127.0.0.1', port=5000, debug=True)
 
 
 def signal_handler(sig, frame):
