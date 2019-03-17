@@ -66,6 +66,7 @@ def auth():
         password = request.json['password']
         first_name = request.json['firstname']
         last_name = request.json['lastname']
+        email = request.json['email']
 
         # generate new hash
         hash_with_salt = authenticate.generate_hash(username, password)

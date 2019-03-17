@@ -2,7 +2,7 @@ from helpers import authenticate
 
 
 class User:
-    def __init__(self, username, firstname, lastname, password_hash, salt):
+    def __init__(self, username, firstname, lastname, email, password_hash, salt):
 
         # if not password_hash:
         #     self.password_hash = ''
@@ -12,6 +12,7 @@ class User:
         self.salt = salt
         self.firstname = firstname
         self.lastname = lastname
+        self.email = email
         self.photo = ''
 
     def setUser(self, firstname, lastname, photourl, username, password=None):
