@@ -73,7 +73,7 @@ def auth():
         password_hash = hash_with_salt['hash']
         salt = hash_with_salt['salt']
 
-        user = User(username, first_name, last_name, password_hash, salt)
+        user = User(username, first_name, last_name, email, password_hash, salt)
 
         return str(neo4j.add_user(user))
 
