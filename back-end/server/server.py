@@ -66,13 +66,14 @@ def auth():
         password = request.json['password']
         first_name = request.json['firstname']
         last_name = request.json['lastname']
+        email = request.json['email']
 
         # generate new hash
         hash_with_salt = authenticate.generate_hash(username, password)
         password_hash = hash_with_salt['hash']
         salt = hash_with_salt['salt']
 
-        user = User(username, first_name, last_name, password_hash, salt)
+        user = User(username, first_name, last_name, email, password_hash, salt)
 
         return str(neo4j.add_user(user))
 

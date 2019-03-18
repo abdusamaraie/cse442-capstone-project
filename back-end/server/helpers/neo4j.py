@@ -9,7 +9,7 @@ GRAPH = Graph(auth=("neo4j", " "))  # assumes neo4j is running locally on port 7
 
 
 def get_time(time_zone="US/Eastern"):
-    # get timezone object
+    # get timezone object (passed in from client)
     timezone_of_post = timezone(time_zone)
 
     # get the current system time
@@ -32,7 +32,8 @@ def add_user(user):
                          hashed_password=user.password_hash,
                          first_name=user.firstname,
                          last_name=user.lastname,
-                         salt=user.salt)
+                         salt=user.salt,
+                         email=user.email)
         GRAPH.create(user_node)
         return True
     except Exception as e:
