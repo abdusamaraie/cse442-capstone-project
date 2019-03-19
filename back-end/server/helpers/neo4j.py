@@ -185,7 +185,8 @@ def get_posts(location, distance):
                             "YIELD node AS p "
                             "WITH p "
                             "WHERE p.expire_time > '{}' "
-                            "RETURN p".format(lat, lon, radius_km, time))
+                            "RETURN p{{.*, likes: size((p)<-[:LIKED]-()), "
+                            "dislikes: size((p)<-[:DISLIKED]-())}}".format(lat, lon, radius_km, time))
 
         # loop through results and create json
         posts_json = json.dumps([dict(ix)['p'] for ix in results.data()])
@@ -324,9 +325,8 @@ def get_ratings(post_id):
     try:
         # get likes and dislikes from post
         result = GRAPH.run("MATCH (p:Post {{post_id: '{}'}}) "
-                           "OPTIONAL MATCH (p)<-[likes:LIKED]-() "
-                           "OPTIONAL MATCH (p)<-[dislikes:DISLIKED]-() "
-                           "RETURN count(likes) as likes, count(dislikes) as dislikes".format(post_id))
+                           "RETURN size((p)<-[:LIKED]-()) as likes, "
+                           "size((p)<-[:DISLIKED]-()) as dislikes".format(post_id))
         return json.dumps(result.data()[0])
     except Exception as e:
         print(e)
