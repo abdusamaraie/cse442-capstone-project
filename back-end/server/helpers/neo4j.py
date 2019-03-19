@@ -322,16 +322,12 @@ def get_user_post_history(username):
 
 def get_ratings(post_id):
     try:
-        # delete post node
-        like_result = GRAPH.run("MATCH(p:Post {{post_id: '{}'}}) <-[likes:LIKED]-() "
-                                "RETURN count(likes) as likes".format(post_id))
-        dislike_result = GRAPH.run("MATCH(p:Post {{post_id: '{}'}}) <-[dislikes:DISLIKED]-() "
-                                   "RETURN count(dislikes) as dislikes".format(post_id))
-
-        like_num = like_result.data()[0]['likes']
-        dislike_num = dislike_result.data()[0]['dislikes']
-
-        return json.dumps({"likes": like_num, "dislikes": dislike_num})
+        # get likes and dislikes from post
+        result = GRAPH.run("MATCH (p:Post {{post_id: '{}'}}) "
+                           "OPTIONAL MATCH (p)<-[likes:LIKED]-() "
+                           "OPTIONAL MATCH (p)<-[dislikes:DISLIKED]-() "
+                           "RETURN count(likes) as likes, count(dislikes) as dislikes".format(post_id))
+        return json.dumps(result.data()[0])
     except Exception as e:
         print(e)
         return 'False'
