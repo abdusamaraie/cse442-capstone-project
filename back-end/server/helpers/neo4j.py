@@ -68,9 +68,15 @@ def delete_user(username, password):
 
         # if user is found, delete user
         if user_node is not None:
-            GRAPH.delete(user_node)
+            # delete user, their posts, all replies to their posts, and all of their replies
+            GRAPH.run("MATCH (u:User {{username: '{}'}}) "
+                      "OPTIONAL MATCH (u)-[:POSTED]->(p:Post) "
+                      "OPTIONAL MATCH (p)<-[:REPLY_TO]-(r:Reply) "
+                      "OPTIONAL MATCH (u)-[:REPLIED]->(ur:Reply) "
+                      "DETACH DELETE u, p, r, ur".format(username))
             return True
         else:
+            print("Couldn't find user")
             return False
 
     except Exception as e:
@@ -86,7 +92,9 @@ def add_photo(username, photo_url):
 
         # if user is found, delete user
         if user_node is not None:
-            GRAPH.run("MATCH (u:User {{username: '{}'}}) SET u.photo_url = '{}' RETURN u".format(username, photo_url))
+            GRAPH.run("MATCH (u:User {{username: '{}'}}) "
+                      "SET u.photo_url = '{}' "
+                      "RETURN u".format(username, photo_url))
             return True
         else:
             print("Couldn't find user")
@@ -105,7 +113,8 @@ def get_photo(username):
 
         # if user is found, delete user
         if user_node is not None:
-            result = GRAPH.run("MATCH (u:User {{username: '{}'}}) RETURN u.photo_url as photo_url".format(username))
+            result = GRAPH.run("MATCH (u:User {{username: '{}'}}) "
+                               "RETURN u.photo_url as photo_url".format(username))
             url = result.data()[0]['photo_url']
 
             return url
@@ -148,8 +157,10 @@ def post_message(username, location, message, exp_time):
         GRAPH.create(Relationship(user_node, "POSTED", post_node))
 
         # add node to spatial layer for indexing
-        GRAPH.run("MATCH (p:Post {{post_id: '{}'}}) WITH p CALL spatial.addNode('posts', p) YIELD node RETURN node".format(pid))
-
+        GRAPH.run("MATCH (p:Post {{post_id: '{}'}}) "
+                  "WITH p "
+                  "CALL spatial.addNode('posts', p) "
+                  "YIELD node RETURN node".format(pid))
         return pid
 
     except Exception as e:
@@ -168,10 +179,13 @@ def get_posts(location, distance):
     # get current time for time of post
     time = get_time()
 
-
     try:
         # run spatial query
-        results = GRAPH.run("CALL spatial.withinDistance('posts', {{latitude: {},longitude: {}}}, {}) YIELD node AS p WITH p WHERE p.expire_time > '{}' RETURN p".format(lat, lon, radius_km, time))
+        results = GRAPH.run("CALL spatial.withinDistance('posts', {{latitude: {},longitude: {}}}, {}) "
+                            "YIELD node AS p "
+                            "WITH p "
+                            "WHERE p.expire_time > '{}' "
+                            "RETURN p".format(lat, lon, radius_km, time))
 
         # loop through results and create json
         posts_json = json.dumps([dict(ix)['p'] for ix in results.data()])
@@ -267,7 +281,8 @@ def reply_to_post(reply_text, post_id, username):
 def get_post_replies(post_id):
     try:
         # get replies under a post
-        results = GRAPH.run("MATCH(p:Post {{post_id: '{}'}})<-[:REPLY_TO]-(r:Reply) RETURN r".format(post_id))
+        results = GRAPH.run("MATCH(p:Post {{post_id: '{}'}})<-[:REPLY_TO]-(r:Reply) "
+                            "RETURN r".format(post_id))
 
         # loop through results and create json
         replies_json = json.dumps([dict(ix)['r'] for ix in results.data()])
@@ -281,7 +296,9 @@ def get_post_replies(post_id):
 def delete_post(post_id):
     try:
         # delete post node and all replies
-        GRAPH.run("MATCH (p:Post {{post_id: '{}'}})<-[:REPLY_TO]-(r:Reply) DETACH DELETE r, p".format(post_id))
+        GRAPH.run("MATCH (p:Post {{post_id: '{}'}}) "
+                  "OPTIONAL MATCH (p)<-[:REPLY_TO]-(r:Reply) "
+                  "DETACH DELETE r, p".format(post_id))
         return True
     except Exception as e:
         print(e)
@@ -291,7 +308,8 @@ def delete_post(post_id):
 def get_user_post_history(username):
     try:
         # delete post node and all replies
-        results = GRAPH.run("MATCH (p:Post)<-[:POSTED]-(u:User {{username: '{}'}}) RETURN p".format(username))
+        results = GRAPH.run("MATCH (p:Post)<-[:POSTED]-(u:User {{username: '{}'}}) "
+                            "RETURN p".format(username))
 
         # loop through results and create json
         post_history_json = json.dumps([dict(ix)['p'] for ix in results.data()])
@@ -304,14 +322,12 @@ def get_user_post_history(username):
 
 def get_ratings(post_id):
     try:
-        # delete post node
-        like_result = GRAPH.run("MATCH(p:Post {{post_id: '{}'}}) <-[likes:LIKED]-() RETURN count(likes) as likes".format(post_id))
-        dislike_result = GRAPH.run("MATCH(p:Post {{post_id: '{}'}}) <-[dislikes:DISLIKED]-() RETURN count(dislikes) as dislikes".format(post_id))
-
-        like_num = like_result.data()[0]['likes']
-        dislike_num = dislike_result.data()[0]['dislikes']
-
-        return json.dumps({"likes": like_num, "dislikes": dislike_num})
+        # get likes and dislikes from post
+        result = GRAPH.run("MATCH (p:Post {{post_id: '{}'}}) "
+                           "OPTIONAL MATCH (p)<-[likes:LIKED]-() "
+                           "OPTIONAL MATCH (p)<-[dislikes:DISLIKED]-() "
+                           "RETURN count(likes) as likes, count(dislikes) as dislikes".format(post_id))
+        return json.dumps(result.data()[0])
     except Exception as e:
         print(e)
         return 'False'
@@ -320,7 +336,8 @@ def get_ratings(post_id):
 def delete_reply(reply_id):
     try:
         # delete post node and all replies
-        GRAPH.run("MATCH (r:Reply {{reply_id: '{}'}}) DETACH DELETE r".format(reply_id))
+        GRAPH.run("MATCH (r:Reply {{reply_id: '{}'}}) "
+                  "DETACH DELETE r".format(reply_id))
         return True
     except Exception as e:
         print(e)
