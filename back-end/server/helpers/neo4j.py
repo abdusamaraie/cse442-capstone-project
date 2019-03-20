@@ -35,10 +35,10 @@ def add_user(user):
                          salt=user.salt,
                          email=user.email)
         GRAPH.create(user_node)
-        return True
+        return str(True)
     except Exception as e:
         print(e)
-        return False
+        return str(False)
 
 
 # get user data from database by username
@@ -52,11 +52,11 @@ def get_user(username):
         if user_node is not None:
             return dict(user_node)
         else:
-            return False
+            return str(False)
 
     except Exception as e:
         print(e)
-        return False
+        return str(False)
 
 
 # delete a user from the database (unregister)
@@ -74,14 +74,14 @@ def delete_user(username, password):
                       "OPTIONAL MATCH (p)<-[:REPLY_TO]-(r:Reply) "
                       "OPTIONAL MATCH (u)-[:REPLIED]->(ur:Reply) "
                       "DETACH DELETE u, p, r, ur".format(username))
-            return True
+            return str(True)
         else:
             print("Couldn't find user")
-            return False
+            return str(False)
 
     except Exception as e:
         print(e)
-        return False
+        return str(False)
 
 
 def add_photo(username, photo_url):
@@ -95,14 +95,14 @@ def add_photo(username, photo_url):
             GRAPH.run("MATCH (u:User {{username: '{}'}}) "
                       "SET u.photo_url = '{}' "
                       "RETURN u".format(username, photo_url))
-            return True
+            return str(True)
         else:
             print("Couldn't find user")
-            return False
+            return str(False)
 
     except Exception as e:
         print(e)
-        return False
+        return str(False)
 
 
 def get_photo(username):
@@ -120,11 +120,11 @@ def get_photo(username):
             return url
         else:
             print("Couldn't find user")
-            return False
+            return str(False)
 
     except Exception as e:
         print(e)
-        return False
+        return str(False)
 
 
 def post_message(username, location, message, exp_time):
@@ -165,7 +165,7 @@ def post_message(username, location, message, exp_time):
 
     except Exception as e:
         print(e)
-        return False
+        return str(False)
 
 
 def get_posts(location, distance):
@@ -194,7 +194,7 @@ def get_posts(location, distance):
 
     except Exception as e:
         print(e)
-        return False
+        return str(False)
 
 
 def rate_post(post_id, relation, username):
@@ -217,10 +217,10 @@ def rate_post(post_id, relation, username):
             # if the user is trying to rate a post the same way twice, their rating is removed
             if already_liked is not None and relation == "LIKED":
                 GRAPH.separate(already_liked)
-                return True
+                return str(True)
             elif already_disliked is not None and relation == "DISLIKED":
                 GRAPH.separate(already_disliked)
-                return True
+                return str(True)
             # if the user is switching their rating, we delete to old one, and create a new one
             elif already_liked is not None and relation == "DISLIKED":
                 GRAPH.separate(already_liked)
@@ -229,15 +229,15 @@ def rate_post(post_id, relation, username):
 
             # create relationship between user and post
             GRAPH.merge(Relationship(user_node, relation, post_node), relation, '')
-            return True
+            return str(True)
 
         else:
             print("Either the user or the post couldn't be found")
-            return False
+            return str(False)
 
     except Exception as e:
         print(e)
-        return False
+        return str(False)
 
 
 def reply_to_post(reply_text, post_id, username):
@@ -272,11 +272,11 @@ def reply_to_post(reply_text, post_id, username):
             return rid
         else:
             print('Could not find post to reply to')
-            return 'False'
+            return str(False)
 
     except Exception as e:
         print(e)
-        return 'False'
+        return str(False)
 
 
 def get_post_replies(post_id):
@@ -291,7 +291,7 @@ def get_post_replies(post_id):
 
     except Exception as e:
         print(e)
-        return 'False'
+        return str(False)
 
 
 def delete_post(post_id):
@@ -300,16 +300,16 @@ def delete_post(post_id):
         GRAPH.run("MATCH (p:Post {{post_id: '{}'}}) "
                   "OPTIONAL MATCH (p)<-[:REPLY_TO]-(r:Reply) "
                   "DETACH DELETE r, p".format(post_id))
-        return True
+        return str(True)
     except Exception as e:
         print(e)
-        return False
+        return str(False)
 
 
 def get_user_post_history(username):
     try:
         # delete post node and all replies
-        results = GRAPH.run("MATCH (p:Post)<-[:POSTED]-(u:User {{username: '{}'}}) "
+        results = GRAPH.run("MATCH (u:User {{username: '{}'}})-[:POSTED]->(p:Post) "
                             "RETURN p".format(username))
 
         # loop through results and create json
@@ -318,7 +318,7 @@ def get_user_post_history(username):
 
     except Exception as e:
         print(e)
-        return 'False'
+        return str(False)
 
 
 def get_ratings(post_id):
@@ -330,7 +330,7 @@ def get_ratings(post_id):
         return json.dumps(result.data()[0])
     except Exception as e:
         print(e)
-        return 'False'
+        return str(False)
 
 
 def delete_reply(reply_id):
@@ -338,7 +338,7 @@ def delete_reply(reply_id):
         # delete post node and all replies
         GRAPH.run("MATCH (r:Reply {{reply_id: '{}'}}) "
                   "DETACH DELETE r".format(reply_id))
-        return True
+        return str(True)
     except Exception as e:
         print(e)
-        return False
+        return str(False)

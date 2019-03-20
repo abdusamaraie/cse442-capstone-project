@@ -10,4 +10,7 @@ GRAPH.schema.create_uniqueness_constraint("Post", "post_id")
 try:  # will crash if layer already exists
     GRAPH.run("CALL spatial.addPointLayer('posts')")
 except Exception as e:
-    print("'posts' spatial layer already exists. Thank god")
+    if "Cannot create existing layer" in str(e):
+        print(" * Posts spatial layer already exists. Good")
+    else:
+        raise e
