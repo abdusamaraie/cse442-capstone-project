@@ -10,6 +10,28 @@ import Foundation
 import Alamofire
 import UIKit
 
+/*
+ 
+ Alamofire.request("http://34.73.109.229:80/", method: .get, parameters: nil, headers: nil).validate().responseString { response in
+ 
+ print("response result val: \(response.result.value!)")
+ print("response result: \(response.result)")
+ print("status code: \(response.response?.statusCode)")
+ 
+ switch(response.result) {
+ case .success(_):
+ print("Success")
+ break
+ 
+ case .failure(_):
+ print("Error")
+ break
+ }
+ 
+ }
+ 
+ */
+
 class AuthenticationHelper {
     
     struct input_element {
@@ -34,10 +56,7 @@ class AuthenticationHelper {
     
     static var sharedInstance = AuthenticationHelper()
     
-    var username: String = ""
-    var password: String = ""
-    var display_name: String = ""
-    var url_string:String = "192.168.0.0"
+    var url_string:String = "http://34.73.109.229:80"
     
     var current_user:user = user()
     
@@ -53,14 +72,64 @@ class AuthenticationHelper {
         return invalid_elements
     }
     
-    func sign_up(completion: @escaping (_ response_:String) -> ()){
+    func sign_in(completion: @escaping (_ response_:String) -> ()) {
         
-        let parameters: Parameters = ["username": AuthenticationHelper.sharedInstance.current_user.username, "password": AuthenticationHelper.sharedInstance.current_user.password, "display_name": AuthenticationHelper.sharedInstance.current_user.display_name]
+        // 34.73.109.229:80/auth?username=bailytro&password=password
         
-        Alamofire.request(url_string, method: .post, parameters: parameters).validate().responseJSON { response in
+        let emailArray = AuthenticationHelper.sharedInstance.current_user.username!.components(separatedBy: "@")
+        let username = emailArray[0]
+        
+        let sign_in_string = "\(url_string)/auth?username=\(username)&password=\(AuthenticationHelper.sharedInstance.current_user.password!)"
+        
+        print("URL STRING: \(sign_in_string)")
+        
+        Alamofire.request(sign_in_string, method: .get, parameters: nil, headers: nil).validate().responseString { response in
+            
+            print("response: \(response.result.value!)")
+            print("status code: \(response.response!.statusCode)")
+            
+            switch(response.result) {
+            case .success(_):
+                print("Success")
+                completion("Success")
+                break
+
+            case .failure(_):
+                print("Error")
+                completion("Error")
+                break
+            }
+
+        }
+    }
+    
+    func sign_up(completion: @escaping (_ response_:String) -> ()) {
+        
+        let displayNameArray = AuthenticationHelper.sharedInstance.current_user.display_name!.components(separatedBy: " ")
+        let firstname = displayNameArray[0]
+        let lastname = displayNameArray[1]
+        
+        let emailArray = AuthenticationHelper.sharedInstance.current_user.username!.components(separatedBy: "@")
+        let username = emailArray[0]
+        
+        let parameters: Parameters = [
+            "email": AuthenticationHelper.sharedInstance.current_user.username!,
+            "username": username,
+            "password": AuthenticationHelper.sharedInstance.current_user.password!,
+            "firstname": firstname,
+            "lastname": lastname
+        ]
+        
+        print("sending request: \(parameters)")
+        
+        Alamofire.request("\(url_string)/auth", method: .post, parameters: parameters).validate().responseString { response in
+            
+            print("response: \(response.result.value!)")
+            print("status code: \(response.response!.statusCode)")
             
             switch(response.result) {
                 case .success(_):
+                    print("Success")
                     completion("Success")
                     break
 

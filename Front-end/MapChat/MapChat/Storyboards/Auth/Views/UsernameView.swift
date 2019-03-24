@@ -55,7 +55,7 @@ class UsernameView: UIViewController {
         
         if (AuthenticationHelper.check_input(input_elements: input_elements).count == 0) {
             print("good")
-            AuthenticationHelper.sharedInstance.username = username.text!
+            AuthenticationHelper.sharedInstance.current_user.username = username.text!
             self.performSegue(withIdentifier: "to_name", sender: self)
         } else {
             // there are errors

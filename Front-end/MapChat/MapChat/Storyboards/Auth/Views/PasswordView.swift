@@ -58,8 +58,26 @@ class PasswordView: UIViewController {
     @objc func next_view() {
         if (AuthenticationHelper.check_input(input_elements: input_elements).count == 0) {
             print("good")
-            AuthenticationHelper.sharedInstance.password = password.text!
-            self.performSegue(withIdentifier: "to_main", sender: self)
+            AuthenticationHelper.sharedInstance.current_user.password = password.text!
+            
+            
+            //    loadData (completion: { (number, strArr1, strArr2, strArr3) in
+            //        // do it
+            //        // for exapmple
+            //        self.number = number
+            //        self.strArr1 = strArr1
+            //        // and so on
+            //
+            //    })
+            
+            AuthenticationHelper.sharedInstance.sign_up(completion: {(response) in
+                // print("result: \(response)")
+                if (response == "Error") {
+                    print("User already signed in")
+                } else {
+                    self.performSegue(withIdentifier: "to_main", sender: self)
+                }
+            })
         } else {
             // there are errors
             // get first element that cause issue

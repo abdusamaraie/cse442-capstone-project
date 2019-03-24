@@ -10,98 +10,17 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="AirbnbCereal-Book.ttf">
+            <string>AirbnbCerealApp-Book</string>
+        </array>
         <array key="AirbnbCereal-Light.ttf">
             <string>AirbnbCerealApp-Light</string>
         </array>
+        <array key="AirbnbCereal-Medium.ttf">
+            <string>AirbnbCerealApp-Medium</string>
+        </array>
     </customFonts>
     <scenes>
-        <!--Main-->
-        <scene sceneID="4q2-Gj-3Ti">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="Auth" storyboardName="Main" id="j00-IR-m0S" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="znl-Zy-oUV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-616" y="13"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="11b-3Z-YSZ">
-            <objects>
-                <viewController id="zkB-Gk-nIi" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="vvf-3u-OV4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k2i-UL-FlB">
-                                <rect key="frame" x="90" y="456" width="195" height="40"/>
-                                <color key="backgroundColor" red="0.26099732619999999" green="0.71887143779999996" blue="0.19031629929999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="k2i-UL-FlB" secondAttribute="height" multiplier="39:8" id="Wph-Hf-0bc"/>
-                                    <constraint firstAttribute="width" constant="195" id="o0j-hi-BX9"/>
-                                </constraints>
-                                <color key="tintColor" red="0.26099732619999999" green="0.71887143779999996" blue="0.19031629929999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Sign In">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WSd-KG-ueo">
-                                <rect key="frame" x="16" y="20" width="30" height="39"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="X">
-                                    <color key="titleColor" red="0.26099732619999999" green="0.71887143779999996" blue="0.19031629929999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="j00-IR-m0S" kind="show" id="6Cr-6S-LMC"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username / Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eZf-YO-DGI">
-                                <rect key="frame" x="108" y="92" width="158" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2dL-3V-ZkR">
-                                <rect key="frame" x="108" y="122" width="158" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zI5-wq-rUB">
-                                <rect key="frame" x="90" y="517" width="195" height="40"/>
-                                <color key="backgroundColor" red="0.30923363134261916" green="0.51523320778076298" blue="0.72538860103626945" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="zI5-wq-rUB" secondAttribute="height" multiplier="39:8" id="LJk-ld-GU7"/>
-                                    <constraint firstAttribute="width" constant="195" id="sTC-K8-5tg"/>
-                                </constraints>
-                                <state key="normal" title="Log in with Facebook">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="facebookSignIn:" destination="zkB-Gk-nIi" eventType="touchUpInside" id="gS5-kd-UDk"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="WSd-KG-ueo" firstAttribute="top" secondItem="QEl-e3-rIC" secondAttribute="top" id="28Y-vi-eZY"/>
-                            <constraint firstItem="2dL-3V-ZkR" firstAttribute="top" secondItem="QEl-e3-rIC" secondAttribute="top" constant="102" id="3cj-bF-sZU"/>
-                            <constraint firstItem="2dL-3V-ZkR" firstAttribute="centerX" secondItem="QEl-e3-rIC" secondAttribute="centerX" id="5f3-1C-A8k"/>
-                            <constraint firstItem="eZf-YO-DGI" firstAttribute="centerX" secondItem="QEl-e3-rIC" secondAttribute="centerX" id="Bel-1M-FG2"/>
-                            <constraint firstItem="eZf-YO-DGI" firstAttribute="top" secondItem="QEl-e3-rIC" secondAttribute="top" constant="72" id="ITl-zb-BcM"/>
-                            <constraint firstItem="zI5-wq-rUB" firstAttribute="centerX" secondItem="QEl-e3-rIC" secondAttribute="centerX" id="Mnk-Db-kJR"/>
-                            <constraint firstItem="eZf-YO-DGI" firstAttribute="leading" secondItem="QEl-e3-rIC" secondAttribute="leading" constant="108" id="SDR-fQ-uhD"/>
-                            <constraint firstItem="zI5-wq-rUB" firstAttribute="top" secondItem="QEl-e3-rIC" secondAttribute="top" constant="501" id="Tgz-W6-Qfw"/>
-                            <constraint firstItem="k2i-UL-FlB" firstAttribute="centerX" secondItem="QEl-e3-rIC" secondAttribute="centerX" id="XFk-py-GJ7"/>
-                            <constraint firstItem="2dL-3V-ZkR" firstAttribute="leading" secondItem="QEl-e3-rIC" secondAttribute="leading" constant="108" id="XMW-WQ-MHv"/>
-                            <constraint firstItem="k2i-UL-FlB" firstAttribute="top" secondItem="QEl-e3-rIC" secondAttribute="top" constant="434" id="iUF-bw-oF2"/>
-                            <constraint firstItem="WSd-KG-ueo" firstAttribute="leading" secondItem="QEl-e3-rIC" secondAttribute="leading" constant="16" id="pnk-h6-I50"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="QEl-e3-rIC"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PVU-1F-dDj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="140" y="-156.07196401799101"/>
-        </scene>
         <!--Sign In View-->
         <scene sceneID="UFV-V1-683">
             <objects>
@@ -110,18 +29,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username or Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jrc-2q-675">
-                                <rect key="frame" x="92.5" y="128" width="190" height="29"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="AirbnbCerealApp-Light" family="Airbnb Cereal App" pointSize="22"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eb1-xg-rGD">
-                                <rect key="frame" x="138" y="165" width="99" height="29"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="AirbnbCerealApp-Light" family="Airbnb Cereal App" pointSize="22"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yri-ke-b2L">
                                 <rect key="frame" x="16" y="20" width="48" height="48"/>
                                 <state key="normal" image="close"/>
@@ -129,41 +36,117 @@
                                     <action selector="goBack:" destination="hlF-LY-LFQ" eventType="touchUpInside" id="IT2-8N-8VC"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hGe-od-W3N">
-                                <rect key="frame" x="74" y="231" width="67" height="30"/>
-                                <state key="normal" title="Facebook"/>
-                                <connections>
-                                    <action selector="facebookAuth:" destination="hlF-LY-LFQ" eventType="touchUpInside" id="WiF-IX-056"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tb6-0n-ZXZ">
-                                <rect key="frame" x="262" y="231" width="39" height="30"/>
-                                <state key="normal" title="Gmail"/>
-                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dsK-j7-6Mu">
+                                <rect key="frame" x="115.5" y="119" width="144" height="29"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="AirbnbCerealApp-Light" family="Airbnb Cereal App" pointSize="22"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uod-cr-cyu">
+                                <rect key="frame" x="138" y="156" width="99" height="29"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="AirbnbCerealApp-Light" family="Airbnb Cereal App" pointSize="22"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Yri-ke-b2L" firstAttribute="leading" secondItem="lUR-Ce-dVr" secondAttribute="leading" constant="16" id="6cQ-cD-iLL"/>
-                            <constraint firstItem="eb1-xg-rGD" firstAttribute="centerX" secondItem="lUR-Ce-dVr" secondAttribute="centerX" id="JAq-Pr-EeE"/>
-                            <constraint firstItem="hGe-od-W3N" firstAttribute="leading" secondItem="lUR-Ce-dVr" secondAttribute="leading" constant="74" id="NEo-Jg-fYA"/>
-                            <constraint firstItem="Jrc-2q-675" firstAttribute="top" secondItem="lUR-Ce-dVr" secondAttribute="top" constant="108" id="R3s-ev-lsc"/>
-                            <constraint firstItem="eb1-xg-rGD" firstAttribute="top" secondItem="Jrc-2q-675" secondAttribute="bottom" constant="8" id="eKr-e7-GCo"/>
-                            <constraint firstItem="Jrc-2q-675" firstAttribute="centerX" secondItem="lUR-Ce-dVr" secondAttribute="centerX" id="hI3-cA-r0b"/>
-                            <constraint firstItem="tb6-0n-ZXZ" firstAttribute="leading" secondItem="hGe-od-W3N" secondAttribute="trailing" constant="121" id="iGH-ri-YfZ"/>
-                            <constraint firstItem="hGe-od-W3N" firstAttribute="top" secondItem="eb1-xg-rGD" secondAttribute="bottom" constant="37" id="ikl-oy-o3j"/>
-                            <constraint firstItem="tb6-0n-ZXZ" firstAttribute="top" secondItem="eb1-xg-rGD" secondAttribute="bottom" constant="37" id="rqH-ka-4sZ"/>
+                            <constraint firstItem="Uod-cr-cyu" firstAttribute="top" secondItem="dsK-j7-6Mu" secondAttribute="bottom" constant="8" id="8jn-70-HnT"/>
+                            <constraint firstItem="Uod-cr-cyu" firstAttribute="centerX" secondItem="lUR-Ce-dVr" secondAttribute="centerX" id="94Q-Vt-Pyw"/>
+                            <constraint firstItem="dsK-j7-6Mu" firstAttribute="centerX" secondItem="lUR-Ce-dVr" secondAttribute="centerX" id="Rzn-J0-X2g"/>
+                            <constraint firstItem="dsK-j7-6Mu" firstAttribute="top" secondItem="lUR-Ce-dVr" secondAttribute="top" constant="99" id="e15-Re-frU"/>
                             <constraint firstItem="Yri-ke-b2L" firstAttribute="top" secondItem="lUR-Ce-dVr" secondAttribute="top" id="y9C-75-obi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lUR-Ce-dVr"/>
                     </view>
                     <connections>
-                        <outlet property="password" destination="eb1-xg-rGD" id="nXq-05-cvg"/>
-                        <outlet property="username" destination="Jrc-2q-675" id="LAr-3R-Rgt"/>
+                        <outlet property="password" destination="Uod-cr-cyu" id="fad-aP-R5W"/>
+                        <outlet property="username" destination="dsK-j7-6Mu" id="vn0-0F-XQ9"/>
+                        <segue destination="2tZ-ja-qT4" kind="show" identifier="toMain" id="FBT-kU-Qd9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b8m-y5-Ye6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="983" y="-156"/>
+            <point key="canvasLocation" x="981.60000000000002" y="-156.07196401799101"/>
+        </scene>
+        <!--MainView-->
+        <scene sceneID="WIE-5b-NUN">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MainView" id="2tZ-ja-qT4" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8m5-SB-VEk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1838" y="-292"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="A81-Da-gdI">
+            <objects>
+                <viewController id="6w1-AP-sjR" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3OS-hI-vd8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LcU-Oe-hi6">
+                                <rect key="frame" x="45.5" y="246" width="284" height="195"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oh no!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xd1-CY-guI">
+                                        <rect key="frame" x="103.5" y="16" width="77" height="33"/>
+                                        <fontDescription key="fontDescription" name="AirbnbCerealApp-Medium" family="Airbnb Cereal App" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="It seems like you are missing a few things: " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9K-z6-cAP">
+                                        <rect key="frame" x="8" y="57" width="268" height="52.5"/>
+                                        <fontDescription key="fontDescription" name="AirbnbCerealApp-Book" family="Airbnb Cereal App" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Password " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TfJ-QI-0ck">
+                                        <rect key="frame" x="8" y="117" width="268" height="26.5"/>
+                                        <fontDescription key="fontDescription" name="AirbnbCerealApp-Light" family="Airbnb Cereal App" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QMY-YE-4ix">
+                                        <rect key="frame" x="8" y="157" width="268" height="30"/>
+                                        <color key="backgroundColor" red="0.0" green="0.43288057569999999" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Okay!">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.63703760939999998" green="0.87123686649999998" blue="0.62281571010000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="Xd1-CY-guI" firstAttribute="top" secondItem="LcU-Oe-hi6" secondAttribute="top" constant="16" id="5Uh-au-Bdd"/>
+                                    <constraint firstAttribute="width" secondItem="LcU-Oe-hi6" secondAttribute="height" multiplier="51:35" id="DjR-w3-YpY"/>
+                                    <constraint firstItem="F9K-z6-cAP" firstAttribute="top" secondItem="Xd1-CY-guI" secondAttribute="bottom" constant="8" id="DyK-mR-waY"/>
+                                    <constraint firstItem="Xd1-CY-guI" firstAttribute="leading" secondItem="LcU-Oe-hi6" secondAttribute="leading" constant="103.5" id="E1r-To-YfK"/>
+                                    <constraint firstAttribute="trailing" secondItem="TfJ-QI-0ck" secondAttribute="trailing" constant="8" id="Eq0-Xl-lrx"/>
+                                    <constraint firstItem="TfJ-QI-0ck" firstAttribute="leading" secondItem="LcU-Oe-hi6" secondAttribute="leading" constant="8" id="FM7-sI-zdI"/>
+                                    <constraint firstItem="TfJ-QI-0ck" firstAttribute="top" secondItem="F9K-z6-cAP" secondAttribute="bottom" constant="7.5" id="MhW-J3-xlC"/>
+                                    <constraint firstAttribute="trailing" secondItem="Xd1-CY-guI" secondAttribute="trailing" constant="103.5" id="Uvq-63-O4a"/>
+                                    <constraint firstItem="QMY-YE-4ix" firstAttribute="leading" secondItem="LcU-Oe-hi6" secondAttribute="leading" constant="8" id="gvr-kd-z3F"/>
+                                    <constraint firstAttribute="trailing" secondItem="QMY-YE-4ix" secondAttribute="trailing" constant="8" id="h6o-eX-P4e"/>
+                                    <constraint firstItem="QMY-YE-4ix" firstAttribute="top" secondItem="TfJ-QI-0ck" secondAttribute="bottom" constant="13.5" id="lu4-3G-REp"/>
+                                    <constraint firstAttribute="bottom" secondItem="QMY-YE-4ix" secondAttribute="bottom" constant="8" id="sUj-Ci-Lss"/>
+                                    <constraint firstItem="F9K-z6-cAP" firstAttribute="leading" secondItem="LcU-Oe-hi6" secondAttribute="leading" constant="8" id="sVQ-zn-c96"/>
+                                    <constraint firstAttribute="trailing" secondItem="F9K-z6-cAP" secondAttribute="trailing" constant="8" id="wE8-j8-ABB"/>
+                                    <constraint firstItem="Xd1-CY-guI" firstAttribute="centerX" secondItem="LcU-Oe-hi6" secondAttribute="centerX" id="xQP-2D-GVL"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="LcU-Oe-hi6" firstAttribute="centerY" secondItem="y4z-Rv-gH6" secondAttribute="centerY" id="0iG-x7-E3H"/>
+                            <constraint firstItem="LcU-Oe-hi6" firstAttribute="top" secondItem="y4z-Rv-gH6" secondAttribute="top" constant="226" id="FCi-7b-eov"/>
+                            <constraint firstItem="LcU-Oe-hi6" firstAttribute="centerX" secondItem="y4z-Rv-gH6" secondAttribute="centerX" id="YXM-CS-L54"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="y4z-Rv-gH6"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Sc-b4-72L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="164" y="-156.07196401799101"/>
         </scene>
     </scenes>
     <resources>

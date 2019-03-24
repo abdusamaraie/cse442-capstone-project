@@ -20,12 +20,12 @@ class SignInView: UIViewController {
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         input_elements.append(AuthenticationHelper.input_element(element_literal: username, element_name: "Username or Email"))
         input_elements.append(AuthenticationHelper.input_element(element_literal: password, element_name: "Password"))
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -57,9 +57,17 @@ class SignInView: UIViewController {
     
     @objc func next_view() {
         if (AuthenticationHelper.check_input(input_elements: input_elements).count == 0) {
-            print("good")
-            // AuthenticationHelper.sharedInstance.password = password.text!
-            // self.performSegue(withIdentifier: "to_main", sender: self)
+            
+            AuthenticationHelper.sharedInstance.current_user.username = self.username.text!
+            AuthenticationHelper.sharedInstance.current_user.password = self.password.text!
+            
+            AuthenticationHelper.sharedInstance.sign_in(completion: {(response) in
+                
+                print("response: \(response)")
+                if (response == "Success") {
+                    self.performSegue(withIdentifier: "toMain", sender: self)
+                }
+            })
         } else {
             // there are errors
             // get first element that cause issue
