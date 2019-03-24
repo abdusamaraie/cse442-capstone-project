@@ -32,6 +32,7 @@
 		EBEA938A222DFACD0097251A /* AirbnbCereal-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EBEA9389222DFACD0097251A /* AirbnbCereal-Light.ttf */; };
 		EBEB9302222F4BFA003DAD1E /* DropMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB9301222F4BFA003DAD1E /* DropMessageView.swift */; };
 		EBEB9304223092BA003DAD1E /* message-success.json in Resources */ = {isa = PBXBuildFile; fileRef = EBEB9303223092BA003DAD1E /* message-success.json */; };
+		EBF327632248293000F47456 /* ErrorPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF327622248293000F47456 /* ErrorPopUpView.swift */; };
 		EBFAC67022261B05004B5074 /* MainView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBFAC66F22261B05004B5074 /* MainView.storyboard */; };
 		EBFAC67622261C08004B5074 /* FeedViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFAC67522261C08004B5074 /* FeedViewCell.swift */; };
 		EBFAC67822261F89004B5074 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFAC67722261F89004B5074 /* FeedView.swift */; };
@@ -99,6 +100,7 @@
 		EBEA938C222DFE960097251A /* AirbnbCereal-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AirbnbCereal-Medium.ttf"; sourceTree = "<group>"; };
 		EBEB9301222F4BFA003DAD1E /* DropMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropMessageView.swift; sourceTree = "<group>"; };
 		EBEB9303223092BA003DAD1E /* message-success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "message-success.json"; sourceTree = "<group>"; };
+		EBF327622248293000F47456 /* ErrorPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPopUpView.swift; sourceTree = "<group>"; };
 		EBFAC66F22261B05004B5074 /* MainView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainView.storyboard; sourceTree = "<group>"; };
 		EBFAC67522261C08004B5074 /* FeedViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewCell.swift; sourceTree = "<group>"; };
 		EBFAC67722261F89004B5074 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				056A378B2223308C005A49CB /* SignInView.swift */,
 				EB33C25A223AA9BF0012630B /* NameView.swift */,
 				EB33C25C223AAB880012630B /* PasswordView.swift */,
+				EBF327622248293000F47456 /* ErrorPopUpView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -545,6 +548,7 @@
 			files = (
 				EBFAC68122272906004B5074 /* AppState.swift in Sources */,
 				EB33C25D223AAB880012630B /* PasswordView.swift in Sources */,
+				EBF327632248293000F47456 /* ErrorPopUpView.swift in Sources */,
 				EBFAC67622261C08004B5074 /* FeedViewCell.swift in Sources */,
 				EBFAC67822261F89004B5074 /* FeedView.swift in Sources */,
 				EBFAC67B2226244E004B5074 /* WebServicesManager.swift in Sources */,

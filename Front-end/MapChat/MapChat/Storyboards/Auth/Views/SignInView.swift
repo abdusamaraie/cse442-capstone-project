@@ -72,7 +72,9 @@ class SignInView: UIViewController {
             // there are errors
             // get first element that cause issue
             
-            // print("first element issue: \(AuthenticationHelper.check_input(input_elements: input_elements)[0])")
+            print("first element issue: \(AuthenticationHelper.check_input(input_elements: input_elements)[0])")
+            
+            self.performSegue(withIdentifier: "errorView", sender: self)
         }
     }
     
