@@ -26,10 +26,10 @@
             </objects>
             <point key="canvasLocation" x="-529" y="217"/>
         </scene>
-        <!--Auth2-->
+        <!--Sign-in-->
         <scene sceneID="8xL-Va-nrB">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="Auth2" storyboardName="Auth2" id="L18-IP-h9R" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="Auth2" storyboardName="Sign-in" id="L18-IP-h9R" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8QL-y5-sqP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-468" y="-85"/>
