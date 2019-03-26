@@ -78,7 +78,7 @@ def auth():
         return str(neo4j.add_user(user))
 
 
-@app.route('/message', methods=['GET', 'POST'])
+@app.route('/message', methods=['GET', 'POST', 'DELETE'])
 def message():
     # USED FOR RETRIEVING MESSAGES
     if request.method == 'GET':
@@ -86,18 +86,21 @@ def message():
         lat = float(request.args.get('lat'))
         lon = float(request.args.get('long'))
         distance = int(request.args.get('distance'))
-
         location_json = {"latitude": lat, "longitude": lon}
-
         return neo4j.get_posts(location_json, distance)
 
     # USED TO POST MESSAGES
-    else:
+    elif request.method == 'POST':
         username = request.json['username']
         location = request.json['location']
         msg = request.json['message']
         expire_time = request.json['expireTime']
         return str(neo4j.post_message(username, location, msg, expire_time))
+
+    # USED TO DELETE MESSAGES
+    else:
+        post_id = request.json['postId']
+        return str(neo4j.delete_post(post_id))
 
 
 @app.route('/rating', methods=['POST', 'GET'])
@@ -123,7 +126,7 @@ def rating():
         return str(neo4j.rate_post(post_id, relation, username))
 
 
-@app.route('/replies', methods=['GET', 'POST'])
+@app.route('/replies', methods=['GET', 'POST', 'DELETE'])
 def replies():
     # USED FOR RETRIEVING A POST'S REPLIES
     if request.method == 'GET':
@@ -131,16 +134,21 @@ def replies():
         return neo4j.get_post_replies(post_id)
 
     # USED FOR REPLYING TO A POST
-    else:
+    elif request.method == 'POST':
         post_id = request.json['postId']
         username = request.json['username']
         reply_text = request.json['replyText']
         return str(neo4j.reply_to_post(reply_text, post_id, username))
 
+    # USED FOR DELETING A REPLY
+    else:
+        reply_id = request.json['replyId']
+        return str(neo4j.delete_reply(reply_id))
 
-@app.route('/deactivate', methods=['POST'])
+
+@app.route('/deactivate', methods=['DELETE'])
 def deactivate():
-    if request.method == 'POST':
+    if request.method == 'DELETE':
         # retrieve user info
         username = request.json['username']
         password = request.json['password']
@@ -152,25 +160,9 @@ def deactivate():
         return str(neo4j.delete_user(username, password_hash))
 
 
-@app.route('/delete/message', methods=['POST'])
-def delete_post():
-    # USED FOR DELETING A POST
-    if request.method == 'POST':
-        post_id = request.json['postId']
-        return str(neo4j.delete_post(post_id))
-
-
-@app.route('/delete/reply', methods=['POST'])
-def delete_reply():
-    # USED FOR DELETING A REPLY
-    if request.method == 'POST':
-        reply_id = request.json['replyId']
-        return str(neo4j.delete_reply(reply_id))
-
-
 def start_server():
-    app.run(host='0.0.0.0', port=80, debug=True)
-    # app.run(host='127.0.0.1', port=5000, debug=True)
+    # app.run(host='0.0.0.0', port=80, debug=True)
+    app.run(host='127.0.0.1', port=5000, debug=True)
 
 
 def signal_handler(sig, frame):
