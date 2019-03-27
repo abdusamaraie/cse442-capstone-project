@@ -1,14 +1,9 @@
-import hashlib
-import base64
-import uuid
-from passlib import hash
+from passlib.hash import argon2
 from py2neo import NodeMatcher
 from helpers.neo4j import GRAPH
 
 
 def generate_hash(username, password):
-
-    hash.sha512_crypt.encrypt(password)
 
     # find user node in database
     matcher = NodeMatcher(GRAPH)
@@ -16,31 +11,12 @@ def generate_hash(username, password):
 
     # if the user already exists, we get their salt from the db
     if user_node is None:
-        # salt = base64.urlsafe_b64encode(uuid.uuid4().bytes)
-
+        hashed = argon2.encrypt(password)
     else:
-        salt = user_node['salt']
+        hashed = user_node['hashed_password']
 
-    # t_sha = hashlib.sha512()
-    # t_sha.update(password.encode('utf-8') + salt)
-
-    hashed_password = base64.urlsafe_b64encode(t_sha.digest())
-
-    return {'salt': salt, 'hash': hashed_password}
+    return hashed
 
 
-def verify_user(username, password_hash):
-    try:
-        # find user node in database
-        matcher = NodeMatcher(GRAPH)
-        user_node = matcher.match("User", username=username, hashed_password=password_hash).first()
-
-        # if user is found, return user
-        if user_node is not None:
-            return True
-        else:
-            return False
-
-    except Exception as e:
-        print(e)
-        return False
+def verify_user(password, password_hash):
+    return argon2.verify(password, password_hash)
