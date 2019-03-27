@@ -90,10 +90,15 @@ class AuthenticationHelper {
             
             switch(response.result) {
             case .success(_):
-                print("Success")
-                completion("Success")
-                break
-
+                if (response.result.value! == "True") {
+                    print("Success")
+                    completion("Success")
+                    break
+                } else {
+                    print("Failure")
+                    completion("Failure")
+                    break
+                }
             case .failure(_):
                 print("Error")
                 completion("Error")
@@ -112,7 +117,9 @@ class AuthenticationHelper {
         let emailArray = AuthenticationHelper.sharedInstance.current_user.username!.components(separatedBy: "@")
         let username = emailArray[0]
         
-        let parameters: Parameters = [
+        
+        
+        let parameters: [String: Any] = [
             "email": AuthenticationHelper.sharedInstance.current_user.username!,
             "username": username,
             "password": AuthenticationHelper.sharedInstance.current_user.password!,
@@ -122,7 +129,7 @@ class AuthenticationHelper {
         
         print("sending request: \(parameters)")
         
-        Alamofire.request("\(url_string)/auth", method: .post, parameters: parameters).validate().responseString { response in
+        Alamofire.request("\(url_string)/auth", method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().responseString { response in
             
             print("response: \(response.result.value!)")
             print("status code: \(response.response!.statusCode)")

@@ -66,6 +66,8 @@ class SignInView: UIViewController {
                 print("response: \(response)")
                 if (response == "Success") {
                     self.performSegue(withIdentifier: "toMain", sender: self)
+                } else {
+                    print("invalid credentials")
                 }
             })
         } else {
