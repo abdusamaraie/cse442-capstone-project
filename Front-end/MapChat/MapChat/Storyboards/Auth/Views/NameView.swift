@@ -56,7 +56,7 @@ class NameView: UIViewController {
         
         if (AuthenticationHelper.check_input(input_elements: input_elements).count == 0) {
             print("good")
-            AuthenticationHelper.sharedInstance.display_name = first_last_name.text!
+            AuthenticationHelper.sharedInstance.current_user.display_name = first_last_name.text!
             self.performSegue(withIdentifier: "to_password", sender: self)
         } else {
             // there are errors

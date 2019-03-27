@@ -10,7 +10,7 @@
 		056A378A2223301A005A49CB /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 056A37892223301A005A49CB /* Auth.storyboard */; };
 		056A378C2223308C005A49CB /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056A378B2223308C005A49CB /* SignInView.swift */; };
 		056A378E222330A7005A49CB /* UsernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056A378D222330A7005A49CB /* UsernameView.swift */; };
-		056A379422233FC1005A49CB /* Auth2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 056A379322233FC1005A49CB /* Auth2.storyboard */; };
+		056A379422233FC1005A49CB /* Sign-in.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 056A379322233FC1005A49CB /* Sign-in.storyboard */; };
 		40D5A00C4EDA5CB66FAE5139 /* Pods_MapChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEEF9F98D541554EEAD87DA7 /* Pods_MapChatTests.framework */; };
 		43100785EC0B2D92AC929817 /* Pods_MapChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F40FC9B6A3AF41E2EA0585 /* Pods_MapChat.framework */; };
 		EB33C25722388E9D0012630B /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB33C25622388E9D0012630B /* AuthenticationManager.swift */; };
@@ -32,6 +32,7 @@
 		EBEA938A222DFACD0097251A /* AirbnbCereal-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EBEA9389222DFACD0097251A /* AirbnbCereal-Light.ttf */; };
 		EBEB9302222F4BFA003DAD1E /* DropMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB9301222F4BFA003DAD1E /* DropMessageView.swift */; };
 		EBEB9304223092BA003DAD1E /* message-success.json in Resources */ = {isa = PBXBuildFile; fileRef = EBEB9303223092BA003DAD1E /* message-success.json */; };
+		EBF327632248293000F47456 /* ErrorPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF327622248293000F47456 /* ErrorPopUpView.swift */; };
 		EBFAC67022261B05004B5074 /* MainView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBFAC66F22261B05004B5074 /* MainView.storyboard */; };
 		EBFAC67622261C08004B5074 /* FeedViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFAC67522261C08004B5074 /* FeedViewCell.swift */; };
 		EBFAC67822261F89004B5074 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFAC67722261F89004B5074 /* FeedView.swift */; };
@@ -64,7 +65,7 @@
 		056A37892223301A005A49CB /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		056A378B2223308C005A49CB /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		056A378D222330A7005A49CB /* UsernameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameView.swift; sourceTree = "<group>"; };
-		056A379322233FC1005A49CB /* Auth2.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth2.storyboard; sourceTree = "<group>"; };
+		056A379322233FC1005A49CB /* Sign-in.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Sign-in.storyboard"; sourceTree = "<group>"; };
 		1DE61570E901C6844CC5F675 /* Pods-MapChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapChatTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapChatTests/Pods-MapChatTests.release.xcconfig"; sourceTree = "<group>"; };
 		4527A64964C100488AE037C9 /* Pods-MapChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapChat/Pods-MapChat.release.xcconfig"; sourceTree = "<group>"; };
 		503386CE2733449CC61C1E2A /* Pods_MapChatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapChatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +100,7 @@
 		EBEA938C222DFE960097251A /* AirbnbCereal-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AirbnbCereal-Medium.ttf"; sourceTree = "<group>"; };
 		EBEB9301222F4BFA003DAD1E /* DropMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropMessageView.swift; sourceTree = "<group>"; };
 		EBEB9303223092BA003DAD1E /* message-success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "message-success.json"; sourceTree = "<group>"; };
+		EBF327622248293000F47456 /* ErrorPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPopUpView.swift; sourceTree = "<group>"; };
 		EBFAC66F22261B05004B5074 /* MainView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainView.storyboard; sourceTree = "<group>"; };
 		EBFAC67522261C08004B5074 /* FeedViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewCell.swift; sourceTree = "<group>"; };
 		EBFAC67722261F89004B5074 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
@@ -173,11 +175,12 @@
 			isa = PBXGroup;
 			children = (
 				056A37892223301A005A49CB /* Auth.storyboard */,
-				056A379322233FC1005A49CB /* Auth2.storyboard */,
+				056A379322233FC1005A49CB /* Sign-in.storyboard */,
 				056A378D222330A7005A49CB /* UsernameView.swift */,
 				056A378B2223308C005A49CB /* SignInView.swift */,
 				EB33C25A223AA9BF0012630B /* NameView.swift */,
 				EB33C25C223AAB880012630B /* PasswordView.swift */,
+				EBF327622248293000F47456 /* ErrorPopUpView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -417,7 +420,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				056A379422233FC1005A49CB /* Auth2.storyboard in Resources */,
+				056A379422233FC1005A49CB /* Sign-in.storyboard in Resources */,
 				EBA2AF6C223AC844009B8962 /* location_c.json in Resources */,
 				056A378A2223301A005A49CB /* Auth.storyboard in Resources */,
 				EB414CEF2214F29A007C3FE4 /* LaunchScreen.storyboard in Resources */,
@@ -545,6 +548,7 @@
 			files = (
 				EBFAC68122272906004B5074 /* AppState.swift in Sources */,
 				EB33C25D223AAB880012630B /* PasswordView.swift in Sources */,
+				EBF327632248293000F47456 /* ErrorPopUpView.swift in Sources */,
 				EBFAC67622261C08004B5074 /* FeedViewCell.swift in Sources */,
 				EBFAC67822261F89004B5074 /* FeedView.swift in Sources */,
 				EBFAC67B2226244E004B5074 /* WebServicesManager.swift in Sources */,
