@@ -1,13 +1,14 @@
 import hashlib
 import base64
 import uuid
-from constants.constants import HASH_PASSWORD_PATH
+from passlib import hash
 from py2neo import NodeMatcher
 from helpers.neo4j import GRAPH
 
 
 def generate_hash(username, password):
-    #tf_out = open(HASH_PASSWORD_PATH, 'wb')
+
+    hash.sha512_crypt.encrypt(password)
 
     # find user node in database
     matcher = NodeMatcher(GRAPH)
@@ -15,16 +16,15 @@ def generate_hash(username, password):
 
     # if the user already exists, we get their salt from the db
     if user_node is None:
-        salt = base64.urlsafe_b64encode(uuid.uuid4().bytes)
+        # salt = base64.urlsafe_b64encode(uuid.uuid4().bytes)
+
     else:
         salt = user_node['salt']
 
-    t_sha = hashlib.sha512()
-    t_sha.update(password.encode('utf-8') + salt)
+    # t_sha = hashlib.sha512()
+    # t_sha.update(password.encode('utf-8') + salt)
 
     hashed_password = base64.urlsafe_b64encode(t_sha.digest())
-    #tf_out.write(hashed_password)
-    #tf_out.close()
 
     return {'salt': salt, 'hash': hashed_password}
 

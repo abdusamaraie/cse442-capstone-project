@@ -53,11 +53,10 @@ def auth():
         password = request.args.get('password')
 
         # get hashed password
-        hash_with_salt = authenticate.generate_hash(username, password)
-        password_hash = hash_with_salt['hash']
+        password_hash = authenticate.generate_hash(username, password)
 
         # check if username and password exist
-        return str(authenticate.verify_user(username, password_hash))
+        return str(authenticate.verify_user(password, password_hash))
 
     # USED FOR SIGN UP
     else:  # POST
@@ -69,11 +68,9 @@ def auth():
         email = request.json['email']
 
         # generate new hash
-        hash_with_salt = authenticate.generate_hash(username, password)
-        password_hash = hash_with_salt['hash']
-        salt = hash_with_salt['salt']
+        password_hash = authenticate.generate_hash(username, password)
 
-        user = User(username, first_name, last_name, email, password_hash, salt)
+        user = User(username, first_name, last_name, email, password_hash)
 
         return str(neo4j.add_user(user))
 
@@ -161,8 +158,8 @@ def deactivate():
 
 
 def start_server():
-    app.run(host='0.0.0.0', port=80, debug=True)
-    # app.run(host='127.0.0.1', port=5000, debug=True)
+    # app.run(host='0.0.0.0', port=80, debug=True)
+    app.run(host='127.0.0.1', port=5000, debug=True)
 
 
 def signal_handler(sig, frame):
