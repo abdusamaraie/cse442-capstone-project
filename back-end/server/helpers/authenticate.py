@@ -1,13 +1,9 @@
-import hashlib
-import base64
-import uuid
-from constants.constants import HASH_PASSWORD_PATH
+from passlib.hash import argon2
 from py2neo import NodeMatcher
 from helpers.neo4j import GRAPH
 
 
 def generate_hash(username, password):
-    #tf_out = open(HASH_PASSWORD_PATH, 'wb')
 
     # find user node in database
     matcher = NodeMatcher(GRAPH)
@@ -15,30 +11,27 @@ def generate_hash(username, password):
 
     # if the user already exists, we get their salt from the db
     if user_node is None:
-        salt = base64.urlsafe_b64encode(uuid.uuid4().bytes)
+        hashed = argon2.hash(password)
     else:
-        salt = user_node['salt']
+        hashed = user_node['hashed_password']
 
-    t_sha = hashlib.sha512()
-    t_sha.update(password.encode('utf-8') + salt)
-
-    hashed_password = base64.urlsafe_b64encode(t_sha.digest())
-    #tf_out.write(hashed_password)
-    #tf_out.close()
-
-    return {'salt': salt, 'hash': hashed_password}
+    return hashed
 
 
-def verify_user(username, password_hash):
+def verify_user(username, password):
     try:
         # find user node in database
         matcher = NodeMatcher(GRAPH)
-        user_node = matcher.match("User", username=username, hashed_password=password_hash).first()
+        user_node = matcher.match("User", username=username).first()
+
+        # print(user_node['hashed_password'])
 
         # if user is found, return user
         if user_node is not None:
-            return True
+            password_hash = user_node['hashed_password']
+            return argon2.verify(password, password_hash)
         else:
+            print("Couldn't find user")
             return False
 
     except Exception as e:

@@ -52,12 +52,8 @@ def auth():
         username = request.args.get('username')
         password = request.args.get('password')
 
-        # get hashed password
-        hash_with_salt = authenticate.generate_hash(username, password)
-        password_hash = hash_with_salt['hash']
-
         # check if username and password exist
-        return str(authenticate.verify_user(username, password_hash))
+        return str(authenticate.verify_user(username, password))
 
     # USED FOR SIGN UP
     else:  # POST
@@ -69,11 +65,9 @@ def auth():
         email = request.json['email']
 
         # generate new hash
-        hash_with_salt = authenticate.generate_hash(username, password)
-        password_hash = hash_with_salt['hash']
-        salt = hash_with_salt['salt']
+        password_hash = authenticate.generate_hash(username, password)
 
-        user = User(username, first_name, last_name, email, password_hash, salt)
+        user = User(username, first_name, last_name, email, password_hash)
 
         return str(neo4j.add_user(user))
 
@@ -154,8 +148,7 @@ def deactivate():
         password = request.json['password']
 
         # get hashed password
-        hash_with_salt = authenticate.generate_hash(username, password)
-        password_hash = hash_with_salt['hash']
+        password_hash = authenticate.generate_hash(username, password)
 
         return str(neo4j.delete_user(username, password_hash))
 
