@@ -1,5 +1,6 @@
 from constants.constants import PLACES_API_KEY
 import requests
+import json
 
 
 # returns the places of interest near the user
@@ -17,15 +18,4 @@ def get_nearby(lat, lon):
         relevant_places['places'].append(ret)
 
     print(relevant_places)
-    return relevant_places
-
-
-
-
-
-
-
-
-
-
-
+    return json.dumps(relevant_places)
