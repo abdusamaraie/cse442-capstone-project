@@ -153,6 +153,16 @@ def deactivate():
         return str(neo4j.delete_user(username, password_hash))
 
 
+@app.route('/nearby', methods=['GET'])
+def replies():
+    # USED FOR RETRIEVING NEARBY PLACE SUGGESTIONS WHEN MAKING A POST
+    if request.method == 'GET':
+        lat = float(request.args.get('lat'))
+        lon = float(request.args.get('long'))
+
+        return places.get_nearby(lat, lon)
+
+
 def start_server():
     app.run(host='0.0.0.0', port=80, debug=True)
     # app.run(host='127.0.0.1', port=5000, debug=True)
