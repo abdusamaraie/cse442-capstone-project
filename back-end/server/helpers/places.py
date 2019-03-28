@@ -14,7 +14,7 @@ def get_nearby_places(lat, lon):
 
     relevant_places = {'places': []}
     for place in response.json()['results'][:5]:
-        ret = {'name': place['name'], 'place_id': place['place_id']}
+        ret = {'name': place['name'], 'place_id': place['place_id'], 'photo_reference': place['photo_reference']}
         relevant_places['places'].append(ret)
 
     print(relevant_places)
