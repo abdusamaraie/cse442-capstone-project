@@ -89,7 +89,8 @@ def message():
         location = request.json['location']
         msg = request.json['message']
         expire_time = request.json['expireTime']
-        return str(neo4j.post_message(username, location, msg, expire_time))
+        place_id = request.json['placeId']
+        return str(neo4j.post_message(username, location, msg, expire_time, place_id))
 
     # USED TO DELETE MESSAGES
     else:

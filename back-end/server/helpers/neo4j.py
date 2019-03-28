@@ -4,6 +4,7 @@ import pytz
 from pytz import timezone
 import uuid
 import json
+from helpers import places
 
 GRAPH = Graph(auth=("neo4j", " "))  # assumes neo4j is running locally on port 7474 (default)
 
@@ -22,6 +23,9 @@ def get_time(time_zone="US/Eastern"):
     # convert to poster's local time
     time = now.astimezone(timezone_of_post)
     return str(time)
+
+def get_place_node():
+    return None
 
 
 # add user to the database
@@ -126,7 +130,7 @@ def get_photo(username):
         return str(False)
 
 
-def post_message(username, location, message, exp_time):
+def post_message(username, location, message, exp_time, place_id):
     # get lat and long
     lat = location['latitude']
     lon = location['longitude']
@@ -151,11 +155,15 @@ def post_message(username, location, message, exp_time):
         # get corresponding user node
         matcher = NodeMatcher(GRAPH)
         user_node = matcher.match("User", username=username).first()
+        # get corresponding place node, create if doesn't exist yet
+        place_node = get_place_node()
 
         # create relationship between user and post
         GRAPH.create(Relationship(user_node, "POSTED", post_node))
+        # create relationship between post and place
+        GRAPH.create(Relationship(post_node, "LOCATED_AT", place_node))
 
-        # add node to spatial layer for indexing
+        # add post node to spatial layer for indexing
         GRAPH.run("MATCH (p:Post {{post_id: '{}'}}) "
                   "WITH p "
                   "CALL spatial.addNode('posts', p) "
