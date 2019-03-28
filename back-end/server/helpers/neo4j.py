@@ -32,7 +32,6 @@ def add_user(user):
                          hashed_password=user.password_hash,
                          first_name=user.firstname,
                          last_name=user.lastname,
-                         salt=user.salt,
                          email=user.email)
         GRAPH.create(user_node)
         return str(True)
