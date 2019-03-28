@@ -4,7 +4,7 @@ import json
 
 
 # returns the places of interest near the user
-def get_nearby(lat, lon):
+def get_nearby_places(lat, lon):
     url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?'
     location = str(lat) + ',' + str(lon)
 

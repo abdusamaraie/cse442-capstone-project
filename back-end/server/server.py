@@ -160,7 +160,7 @@ def nearby():
         lat = float(request.args.get('lat'))
         lon = float(request.args.get('long'))
 
-        return places.get_nearby(lat, lon)
+        return places.get_nearby_places(lat, lon)
 
 
 def start_server():
