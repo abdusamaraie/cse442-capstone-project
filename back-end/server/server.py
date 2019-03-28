@@ -1,6 +1,6 @@
 # Local Helpers
 from constants.constants import UPLOAD_PATH
-from helpers import authenticate, neo4j
+from helpers import authenticate, neo4j, places
 from objects.user import User
 from objects.filestream import Filestream
 # Flask
@@ -154,7 +154,7 @@ def deactivate():
 
 
 @app.route('/nearby', methods=['GET'])
-def replies():
+def nearby():
     # USED FOR RETRIEVING NEARBY PLACE SUGGESTIONS WHEN MAKING A POST
     if request.method == 'GET':
         lat = float(request.args.get('lat'))
@@ -164,8 +164,8 @@ def replies():
 
 
 def start_server():
-    app.run(host='0.0.0.0', port=80, debug=True)
-    # app.run(host='127.0.0.1', port=5000, debug=True)
+    # app.run(host='0.0.0.0', port=80, debug=True)
+    app.run(host='127.0.0.1', port=5000, debug=True)
 
 
 def signal_handler(sig, frame):
