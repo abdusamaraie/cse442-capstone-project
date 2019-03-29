@@ -26,7 +26,11 @@ def get_time(time_zone="US/Eastern"):
 
 
 def get_place_node(place_id):
-    # find user node in database
+    # if place id is blank, assign 'Other'
+    if place_id == '':
+        place_id = 'Other'
+
+    # find place node in database
     matcher = NodeMatcher(GRAPH)
     place_node = matcher.match("Place", place_id=place_id).first()
 
