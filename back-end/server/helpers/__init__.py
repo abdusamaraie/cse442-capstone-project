@@ -10,8 +10,8 @@ GRAPH.schema.create_uniqueness_constraint("Post", "post_id")
 GRAPH.schema.create_uniqueness_constraint("Place", "place_id")
 GRAPH.schema.create_index("Post", "expire_time")
 
-# create 'Other' Place node 
-GRAPH.merge(Node("Place", place_id='Other', name='Other', photo_url=OTHER_PHOTO_URL))
+# create 'Other' Place node if doesn't exist
+GRAPH.merge(Node("Place", place_id='Other', name='Other', photo_url=OTHER_PHOTO_URL), 'Place', 'place_id')
 
 # create spatial layer on first database run
 try:  # will crash if layer already exists
