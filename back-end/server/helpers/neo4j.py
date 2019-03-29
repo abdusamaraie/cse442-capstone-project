@@ -202,15 +202,18 @@ def get_posts(location, distance):
 
     try:
         # run spatial query
-        results = GRAPH.run("CALL spatial.withinDistance('posts', {{latitude: {},longitude: {}}}, {}) "
-                            "YIELD node AS p "
-                            "WITH p "
-                            "WHERE p.expire_time > '{}' "
-                            "RETURN p{{.*, likes: size((p)<-[:LIKED]-()), "
-                            "dislikes: size((p)<-[:DISLIKED]-())}}".format(lat, lon, radius_km, time))
+
+        res = GRAPH.run("CALL spatial.withinDistance('posts', {{latitude: {},longitude: {}}}, {}) "
+                        "YIELD node AS p "
+                        "WITH p "
+                        "WHERE p.expire_time > '{}' "
+                        "MATCH(p)-[:LOCATED_AT]->(pl:Place) "
+                        "WITH pl, "
+                        "collect(p{{.*, likes: size((p)<-[:LIKED]-()), dislikes: size((p)<-[:DISLIKED]-())}}) as posts "
+                        "RETURN pl as place, posts".format(lat, lon, radius_km, time))
 
         # loop through results and create json
-        posts_json = json.dumps([dict(ix)['p'] for ix in results.data()])
+        posts_json = json.dumps([dict(ix) for ix in res.data()])
         return posts_json
 
     except Exception as e:
