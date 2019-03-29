@@ -24,8 +24,22 @@ def get_time(time_zone="US/Eastern"):
     time = now.astimezone(timezone_of_post)
     return str(time)
 
-def get_place_node():
-    return None
+
+def get_place_node(place_id):
+    # find user node in database
+    matcher = NodeMatcher(GRAPH)
+    place_node = matcher.match("Place", place_id=place_id).first()
+
+    if place_node is None:
+        info = places.get_place_info(place_id)
+
+        place_node = Node("Place",
+                          name=info['name'],
+                          place_id=place_id,
+                          photo_url=info['photo_url'])
+        GRAPH.create(place_node)
+
+    return place_node
 
 
 # add user to the database
@@ -156,7 +170,7 @@ def post_message(username, location, message, exp_time, place_id):
         matcher = NodeMatcher(GRAPH)
         user_node = matcher.match("User", username=username).first()
         # get corresponding place node, create if doesn't exist yet
-        place_node = get_place_node()
+        place_node = get_place_node(place_id)
 
         # create relationship between user and post
         GRAPH.create(Relationship(user_node, "POSTED", post_node))

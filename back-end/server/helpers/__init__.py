@@ -5,6 +5,7 @@ GRAPH.schema.create_uniqueness_constraint("User", "username")
 GRAPH.schema.create_uniqueness_constraint("User", "email")
 GRAPH.schema.create_uniqueness_constraint("Reply", "reply_id")
 GRAPH.schema.create_uniqueness_constraint("Post", "post_id")
+GRAPH.schema.create_uniqueness_constraint("Place", "place_id")
 GRAPH.schema.create_index("Post", "expire_time")
 
 # create spatial layer on first database run
