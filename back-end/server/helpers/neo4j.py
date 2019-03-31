@@ -4,6 +4,7 @@ import pytz
 from pytz import timezone
 import uuid
 import json
+from helpers import places
 
 GRAPH = Graph(auth=("neo4j", " "))  # assumes neo4j is running locally on port 7474 (default)
 
@@ -22,6 +23,27 @@ def get_time(time_zone="US/Eastern"):
     # convert to poster's local time
     time = now.astimezone(timezone_of_post)
     return str(time)
+
+
+def get_place_node(place_id):
+    # if place id is blank, assign 'Other'
+    if place_id == '':
+        place_id = 'Other'
+
+    # find place node in database
+    matcher = NodeMatcher(GRAPH)
+    place_node = matcher.match("Place", place_id=place_id).first()
+
+    if place_node is None:
+        info = places.get_place_info(place_id)
+
+        place_node = Node("Place",
+                          name=info['name'],
+                          place_id=place_id,
+                          photo_url=info['photo_url'])
+        GRAPH.create(place_node)
+
+    return place_node
 
 
 # add user to the database
@@ -126,7 +148,7 @@ def get_photo(username):
         return str(False)
 
 
-def post_message(username, location, message, exp_time):
+def post_message(username, location, message, exp_time, place_id):
     # get lat and long
     lat = location['latitude']
     lon = location['longitude']
@@ -151,11 +173,15 @@ def post_message(username, location, message, exp_time):
         # get corresponding user node
         matcher = NodeMatcher(GRAPH)
         user_node = matcher.match("User", username=username).first()
+        # get corresponding place node, create if doesn't exist yet
+        place_node = get_place_node(place_id)
 
         # create relationship between user and post
         GRAPH.create(Relationship(user_node, "POSTED", post_node))
+        # create relationship between post and place
+        GRAPH.create(Relationship(post_node, "LOCATED_AT", place_node))
 
-        # add node to spatial layer for indexing
+        # add post node to spatial layer for indexing
         GRAPH.run("MATCH (p:Post {{post_id: '{}'}}) "
                   "WITH p "
                   "CALL spatial.addNode('posts', p) "
@@ -180,15 +206,18 @@ def get_posts(location, distance):
 
     try:
         # run spatial query
-        results = GRAPH.run("CALL spatial.withinDistance('posts', {{latitude: {},longitude: {}}}, {}) "
-                            "YIELD node AS p "
-                            "WITH p "
-                            "WHERE p.expire_time > '{}' "
-                            "RETURN p{{.*, likes: size((p)<-[:LIKED]-()), "
-                            "dislikes: size((p)<-[:DISLIKED]-())}}".format(lat, lon, radius_km, time))
+
+        res = GRAPH.run("CALL spatial.withinDistance('posts', {{latitude: {},longitude: {}}}, {}) "
+                        "YIELD node AS p "
+                        "WITH p "
+                        "WHERE p.expire_time > '{}' "
+                        "MATCH(u:User)-[:POSTED]->(p)-[:LOCATED_AT]->(pl:Place) "
+                        "WITH pl, u,"
+                        "collect(p{{.*, username: u.username, likes: size((p)<-[:LIKED]-()), dislikes: size((p)<-[:DISLIKED]-())}}) as posts "
+                        "RETURN pl as place, posts".format(lat, lon, radius_km, time))
 
         # loop through results and create json
-        posts_json = json.dumps([dict(ix)['p'] for ix in results.data()])
+        posts_json = json.dumps([dict(ix) for ix in res.data()])
         return posts_json
 
     except Exception as e:

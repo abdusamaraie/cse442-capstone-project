@@ -1,6 +1,6 @@
 # Local Helpers
 from constants.constants import UPLOAD_PATH
-from helpers import authenticate, neo4j
+from helpers import authenticate, neo4j, places
 from objects.user import User
 from objects.filestream import Filestream
 # Flask
@@ -89,7 +89,8 @@ def message():
         location = request.json['location']
         msg = request.json['message']
         expire_time = request.json['expireTime']
-        return str(neo4j.post_message(username, location, msg, expire_time))
+        place_id = request.json['placeId']
+        return str(neo4j.post_message(username, location, msg, expire_time, place_id))
 
     # USED TO DELETE MESSAGES
     else:
@@ -151,6 +152,19 @@ def deactivate():
         password_hash = authenticate.generate_hash(username, password)
 
         return str(neo4j.delete_user(username, password_hash))
+
+
+'''
+THIS IS DONE ON THE FRONT END NOW
+@app.route('/nearby', methods=['GET'])
+def nearby():
+    # USED FOR RETRIEVING NEARBY PLACE SUGGESTIONS WHEN MAKING A POST
+    if request.method == 'GET':
+        lat = float(request.args.get('lat'))
+        lon = float(request.args.get('long'))
+
+        return places.get_nearby_places(lat, lon)
+'''
 
 
 def start_server():

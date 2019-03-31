@@ -11,7 +11,7 @@ def generate_hash(username, password):
 
     # if the user already exists, we get their salt from the db
     if user_node is None:
-        hashed = argon2.hash(password)
+        hashed = argon2.encrypt(password)
     else:
         hashed = user_node['hashed_password']
 
