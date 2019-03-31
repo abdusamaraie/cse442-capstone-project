@@ -36,8 +36,8 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate {
                     "latitude": location.coordinate.latitude,
                     "longitude": location.coordinate.longitude,
                 ],
-                "expireTime": "2019-03-11 22:59:45",
-                "username": "baily",
+                "expireTime": "2019-04-20 22:59:45",
+                "username": "bailytro",
                 "message": message.text!
             ]
             
