@@ -154,6 +154,8 @@ def deactivate():
         return str(neo4j.delete_user(username, password_hash))
 
 
+'''
+THIS IS DONE ON THE FRONT END NOW
 @app.route('/nearby', methods=['GET'])
 def nearby():
     # USED FOR RETRIEVING NEARBY PLACE SUGGESTIONS WHEN MAKING A POST
@@ -162,11 +164,12 @@ def nearby():
         lon = float(request.args.get('long'))
 
         return places.get_nearby_places(lat, lon)
+'''
 
 
 def start_server():
-    # app.run(host='0.0.0.0', port=80, debug=True)
-    app.run(host='127.0.0.1', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=80, debug=True)
+    # app.run(host='127.0.0.1', port=5000, debug=True)
 
 
 def signal_handler(sig, frame):
