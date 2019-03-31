@@ -211,9 +211,9 @@ def get_posts(location, distance):
                         "YIELD node AS p "
                         "WITH p "
                         "WHERE p.expire_time > '{}' "
-                        "MATCH(p)-[:LOCATED_AT]->(pl:Place) "
-                        "WITH pl, "
-                        "collect(p{{.*, likes: size((p)<-[:LIKED]-()), dislikes: size((p)<-[:DISLIKED]-())}}) as posts "
+                        "MATCH(u:User)-[:POSTED]->(p)-[:LOCATED_AT]->(pl:Place) "
+                        "WITH pl, u,"
+                        "collect(p{{.*, username: u.username, likes: size((p)<-[:LIKED]-()), dislikes: size((p)<-[:DISLIKED]-())}}) as posts "
                         "RETURN pl as place, posts".format(lat, lon, radius_km, time))
 
         # loop through results and create json
