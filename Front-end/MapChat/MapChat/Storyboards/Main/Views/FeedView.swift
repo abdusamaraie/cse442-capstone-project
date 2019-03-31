@@ -10,13 +10,31 @@ import Foundation
 import UIKit
 import CoreLocation
 import MapKit
+import Alamofire
+
+struct MessageObject {
+    var latitude: String
+    var longitude: String
+    // var username: String
+    var content: String
+}
 
 class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
     
     @IBOutlet weak var feedView: UITableView!
     
+    var locManager = CLLocationManager()
+    
+    var messageObjects = [MessageObject]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        locManager.delegate = self
+        
+        feedView.delegate = self
+        feedView.dataSource = self
         
         self.navigationController?.title = "Feed"
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -43,34 +61,86 @@ class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource, CL
     }
     
     func loadFeed() {
-        print("loading feed")
         
-        //LocationServicesManager.sharedInstance.determineMyCurrentLocation()
+        self.messageObjects = []
         
-        // start loading spinner
-        let sv = UIViewController.displaySpinner(onView: self.view)
+        locManager.requestWhenInUseAuthorization()
+        if((CLLocationManager.authorizationStatus() == .authorizedWhenInUse) || (CLLocationManager.authorizationStatus() ==  .authorizedAlways)) {
+            locManager.requestLocation()
+        }
         
-        // refresh table view
-        self.feedView.reloadData()
-        
-        // remove spinner
-        UIViewController.removeSpinner(spinner: sv)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first {
+            
+            // start loading spinner
+            //let sv = UIViewController.displaySpinner(onView: self.view)
+            
+            let latitude = "\(location.coordinate.latitude)"
+            let longitude = "\(location.coordinate.longitude)"
+            
+            let urlString = "http://34.73.109.229:80/message"
+            
+            let parameters: [String: Any] = [
+                "lat": latitude,
+                "long": longitude,
+                "distance": "20",
+                //"username": username!
+            ]
+            
+            // print("parameters: \(parameters)")
+            
+            Alamofire.request(urlString, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { response in
+                
+                // print("response: \(response.result.value!)")
+                
+                if let result = response.result.value {
+                    let messageList = result as! [Any]
+                    print("JSON: \(messageList)")
+                    for message in messageList {
+                        
+                        let message_json = message as! NSDictionary
+
+                        let latitude = message_json.value(forKey: "latitude") as! NSNumber
+                        let longitude = message_json.value(forKey: "longitude") as! NSNumber
+                        let content = message_json.value(forKey: "content") as! String
+                        
+                        //self.messageObjects.append(MessageObject(latitude: latitude, longitude: longitude, username: username, content: content))
+                        self.messageObjects.append(MessageObject(latitude: "\(latitude)", longitude: "\(longitude)", content: content))
+                    }
+                    print("reloading data")
+                    self.feedView.reloadData()
+                }
+            }
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Failed to find user's location: \(error.localizedDescription)")
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        // todo: get number of messages based on API call
-        return 1
+        return messageObjects.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        print("building cell")
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath) as! FeedViewCell
         
         // these fields would be returned from the WebServicesManager class
+        
+        let messageContent = self.messageObjects[indexPath.row].content
+        let messageLocation = "\(self.messageObjects[indexPath.row].latitude),\(self.messageObjects[indexPath.row].longitude)"
+        
+        print("message content: \(messageContent)")
+        print("message location: \(messageLocation)")
+        
         cell.time.text = "_"
-        cell.title.text = "_"
-        cell.location.text = "_"
+        cell.title.text = messageContent
+        cell.location.text = messageLocation
 
         cell.clipsToBounds = true
 

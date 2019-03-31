@@ -245,7 +245,6 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="location" destination="BiQ-BE-0tM" id="zXh-hb-Hm8"/>
-                                            <outlet property="messageTitle" destination="eyU-os-bgD" id="26E-qW-3uQ"/>
                                             <outlet property="time" destination="BND-jf-zGP" id="G7c-ZB-h7x"/>
                                             <outlet property="title" destination="eyU-os-bgD" id="Vtr-lE-llp"/>
                                         </connections>
