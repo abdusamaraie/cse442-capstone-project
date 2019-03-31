@@ -15,7 +15,9 @@ import Lottie
 
 class DropMessageView: UIViewController, CLLocationManagerDelegate {
     
-    @IBOutlet weak var message: UITextField!
+    @IBOutlet weak var message: UITextView!
+    @IBOutlet weak var messageTitle: UITextField!
+    @IBOutlet weak var messageLocation: UIPickerView!
     
     var locManager = CLLocationManager()
     
@@ -104,7 +106,6 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func dropMessage(_ sender: Any) {
-        
         if (message.text != "") {
             locManager.requestWhenInUseAuthorization()
             if((CLLocationManager.authorizationStatus() == .authorizedWhenInUse) || (CLLocationManager.authorizationStatus() ==  .authorizedAlways)) {

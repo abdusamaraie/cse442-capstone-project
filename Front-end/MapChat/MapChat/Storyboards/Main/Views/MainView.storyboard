@@ -9,6 +9,14 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="AirbnbCereal-Book.ttf">
+            <string>AirbnbCerealApp-Book</string>
+        </array>
+        <array key="AirbnbCereal-Light.ttf">
+            <string>AirbnbCerealApp-Light</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Tab Bar Controller-->
         <scene sceneID="Y2o-Lu-c2U">
@@ -279,36 +287,86 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter message here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OHQ-B3-Zro">
-                                <rect key="frame" x="16" y="187" width="343" height="24"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GRD-pa-2nb">
+                                <rect key="frame" x="16" y="110" width="343" height="33"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="AirbnbCerealApp-Book" family="Airbnb Cereal App" pointSize="25"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidthV">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColorV">
+                                        <color key="value" white="0.69008795820000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xbE-th-Mae">
+                                <rect key="frame" x="16" y="489" width="343" height="216"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidthV">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColorV">
+                                        <color key="value" white="0.69008795820000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </pickerView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fHd-lL-Kgy">
+                                <rect key="frame" x="16" y="151" width="343" height="330"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="AirbnbCerealApp-Light" family="Airbnb Cereal App" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidthV">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColorV">
+                                        <color key="value" white="0.69008795820000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="OHQ-B3-Zro" firstAttribute="leading" secondItem="oh5-fg-URa" secondAttribute="leading" constant="16" id="6Kg-zl-wid"/>
-                            <constraint firstItem="OHQ-B3-Zro" firstAttribute="top" secondItem="oh5-fg-URa" secondAttribute="top" constant="99" id="CfQ-Vg-PEt"/>
-                            <constraint firstItem="oh5-fg-URa" firstAttribute="trailing" secondItem="OHQ-B3-Zro" secondAttribute="trailing" constant="16" id="G3J-9f-Wuh"/>
+                            <constraint firstItem="xbE-th-Mae" firstAttribute="top" secondItem="fHd-lL-Kgy" secondAttribute="bottom" constant="8" id="1KS-1a-hsy"/>
+                            <constraint firstItem="oh5-fg-URa" firstAttribute="trailing" secondItem="fHd-lL-Kgy" secondAttribute="trailing" constant="16" id="DJG-fv-tbf"/>
+                            <constraint firstItem="oh5-fg-URa" firstAttribute="trailing" secondItem="xbE-th-Mae" secondAttribute="trailing" constant="16" id="GkR-4l-Gx8"/>
+                            <constraint firstItem="oh5-fg-URa" firstAttribute="trailing" secondItem="GRD-pa-2nb" secondAttribute="trailing" constant="16" id="Mrd-qO-l7u"/>
+                            <constraint firstItem="fHd-lL-Kgy" firstAttribute="top" secondItem="GRD-pa-2nb" secondAttribute="bottom" constant="8" id="VX3-s5-Pme"/>
+                            <constraint firstItem="GRD-pa-2nb" firstAttribute="top" secondItem="oh5-fg-URa" secondAttribute="top" constant="22" id="WQg-XT-0S4"/>
+                            <constraint firstItem="xbE-th-Mae" firstAttribute="leading" secondItem="oh5-fg-URa" secondAttribute="leading" constant="16" id="but-BW-JGV"/>
+                            <constraint firstItem="GRD-pa-2nb" firstAttribute="leading" secondItem="oh5-fg-URa" secondAttribute="leading" constant="16" id="mtr-aa-35U"/>
+                            <constraint firstItem="oh5-fg-URa" firstAttribute="bottom" secondItem="xbE-th-Mae" secondAttribute="bottom" constant="24" id="pfk-uy-uqq"/>
+                            <constraint firstItem="fHd-lL-Kgy" firstAttribute="leading" secondItem="oh5-fg-URa" secondAttribute="leading" constant="16" id="wMr-ID-Cb2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oh5-fg-URa"/>
                     </view>
                     <navigationItem key="navigationItem" id="EMZ-SX-0dM">
-                        <barButtonItem key="rightBarButtonItem" title="Post" id="9FI-yg-hRW">
-                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <barButtonItem key="rightBarButtonItem" image="add" id="HNX-XF-r8T">
                             <connections>
-                                <action selector="dropMessage:" destination="TLI-jR-wA3" id="vgs-nP-0F6"/>
+                                <action selector="dropMessage:" destination="TLI-jR-wA3" id="ZKr-cg-6LD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="message" destination="OHQ-B3-Zro" id="54s-ca-hCW"/>
+                        <outlet property="message" destination="fHd-lL-Kgy" id="KJh-Xc-9Nu"/>
+                        <outlet property="messageLocation" destination="xbE-th-Mae" id="EPJ-AO-tI8"/>
+                        <outlet property="messageTitle" destination="GRD-pa-2nb" id="XdB-Oc-Jef"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bJT-gf-eP3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2025" y="893"/>
+            <point key="canvasLocation" x="2024.8" y="892.61083743842369"/>
         </scene>
     </scenes>
     <resources>
