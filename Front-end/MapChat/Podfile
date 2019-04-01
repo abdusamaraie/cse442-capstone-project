@@ -21,6 +21,7 @@ target 'MapChat' do
   pod 'FacebookCore'
   pod 'FacebookLogin'
   pod 'FacebookShare'
+  pod 'PopupDialog'
 
   pod 'lottie-ios'
 end

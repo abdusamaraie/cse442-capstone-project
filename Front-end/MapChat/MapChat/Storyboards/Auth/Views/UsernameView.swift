@@ -22,6 +22,14 @@ class UsernameView: UIViewController {
         super.viewDidLoad()
         
         input_elements.append(AuthenticationHelper.input_element(element_literal: username, element_name: "username"))
+        
+        username.addTarget(self, action: #selector(textFieldDidChange(_:)),
+                           for: UIControl.Event.editingChanged)
+        
+    }
+
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        textField.backgroundColor = nil
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -60,7 +68,12 @@ class UsernameView: UIViewController {
         } else {
             // there are errors
             // get first element that cause issue
-            print("first element issue: \(AuthenticationHelper.check_input(input_elements: input_elements)[0])")
+            //print("first element issue: \(AuthenticationHelper.check_input(input_elements: input_elements)[0])")
+            print("ELEMENTS: \(AuthenticationHelper.check_input(input_elements: input_elements))")
+            
+            for element in AuthenticationHelper.check_input(input_elements: input_elements) {
+                element.element_literal.backgroundColor = UIColor.red
+            }
         }
     }
     

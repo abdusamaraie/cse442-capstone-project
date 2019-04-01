@@ -11,6 +11,7 @@ import UIKit
 import FacebookLogin
 import FBSDKCoreKit
 import FBSDKLoginKit
+import PopupDialog
 
 class SignInView: UIViewController {
     
@@ -25,6 +26,11 @@ class SignInView: UIViewController {
         
         input_elements.append(AuthenticationHelper.input_element(element_literal: username, element_name: "Username or Email"))
         input_elements.append(AuthenticationHelper.input_element(element_literal: password, element_name: "Password"))
+        
+        username.addTarget(self, action: #selector(textFieldDidChange(_:)),
+                           for: UIControl.Event.editingChanged)
+        password.addTarget(self, action: #selector(textFieldDidChange(_:)),
+                           for: UIControl.Event.editingChanged)
         
     }
     
@@ -67,6 +73,25 @@ class SignInView: UIViewController {
                 if (response == "Success") {
                     self.performSegue(withIdentifier: "toMain", sender: self)
                 } else {
+                    // Present dialog
+                    
+                    let title = "Oh no, something has gone wrong!"
+                    let message = "We can't seem to connect to our backend, please try again."
+                    
+                    let popup = PopupDialog(title: title, message: message)
+                    
+                    // Create buttons
+                    let buttonOne = CancelButton(title: "Okay") {
+                        print("User understands issue with connection")
+                    }
+                    
+                    // Add buttons to dialog
+                    // Alternatively, you can use popup.addButton(buttonOne)
+                    // to add a single button
+                    popup.addButtons([buttonOne])
+                    
+                    
+                    self.present(popup, animated: true, completion: nil)
                     print("invalid credentials")
                 }
             })
@@ -74,10 +99,23 @@ class SignInView: UIViewController {
             // there are errors
             // get first element that cause issue
             
-            print("first element issue: \(AuthenticationHelper.check_input(input_elements: input_elements)[0])")
+            print("ELEMENTS: \(AuthenticationHelper.check_input(input_elements: input_elements))")
             
-            self.performSegue(withIdentifier: "errorView", sender: self)
+            for element in AuthenticationHelper.check_input(input_elements: input_elements) {
+                element.element_literal.backgroundColor = UIColor.red
+            }
+            // print("first element issue: \(AuthenticationHelper.check_input(input_elements: input_elements)[0])")
+            
+            // self.performSegue(withIdentifier: "errorView", sender: self)
         }
+    }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        textField.backgroundColor = nil
+    }
+    
+    @IBAction func editUsername(_ sender: Any) {
+        self.username.backgroundColor = nil
     }
     
     @IBAction func facebookAuth(_ sender: Any) {

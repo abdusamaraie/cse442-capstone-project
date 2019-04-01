@@ -60,12 +60,12 @@ class AuthenticationHelper {
     
     var current_user:user = user()
     
-    static func check_input(input_elements:[input_element]) -> [Any] {
-        var invalid_elements:[Any] = []
+    static func check_input(input_elements:[input_element]) -> [input_element] {
+        var invalid_elements:[input_element] = []
         
         for element in input_elements {
             if element.element_literal.text == "" {
-                invalid_elements.append(element.element_name)
+                invalid_elements.append(element)
             }
         }
         
