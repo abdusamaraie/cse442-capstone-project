@@ -1,4 +1,5 @@
 from py2neo import Graph, Node, Relationship, NodeMatcher, RelationshipMatcher
+from passlib.hash import argon2
 from datetime import datetime
 import pytz
 from pytz import timezone
@@ -367,6 +368,27 @@ def delete_reply(reply_id):
         GRAPH.run("MATCH (r:Reply {{reply_id: '{}'}}) "
                   "DETACH DELETE r".format(reply_id))
         return str(True)
+    except Exception as e:
+        print(e)
+        return str(False)
+
+
+def change_user_password(username, new_password):
+    # hash the password before storage
+    hashed_pass = argon2.encrypt(new_password)
+
+    try:
+        # get node of user changing their password
+        matcher = NodeMatcher(GRAPH)
+        user_node = matcher.match("User", username=username).first()
+
+        # update user's hashed password in database
+        user_node['hashed_password'] = hashed_pass
+
+        # push updated node to graph
+        GRAPH.push(user_node)
+        return str(True)
+
     except Exception as e:
         print(e)
         return str(False)

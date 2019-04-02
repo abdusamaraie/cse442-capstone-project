@@ -154,6 +154,20 @@ def deactivate():
         return str(neo4j.delete_user(username, password_hash))
 
 
+@app.route('/password', methods=['PATCH'])
+def change_password():
+    if request.method == 'PATCH':
+        # retrieve user info
+        username = request.json['username']
+        old_password = request.json['oldPassword']
+        new_password = request.json['newPassword']
+        verify_new_password = request.json['verifyNewPassword']
+
+        if authenticate.verify_user(username, old_password) and new_password == verify_new_password:
+            return str(neo4j.change_user_password(username, new_password))
+        else:
+            return str(False)
+
 '''
 THIS IS DONE ON THE FRONT END NOW
 @app.route('/nearby', methods=['GET'])
