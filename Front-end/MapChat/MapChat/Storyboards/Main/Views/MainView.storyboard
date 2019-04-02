@@ -50,7 +50,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="Cng-Yb-si6" kind="relationship" relationship="rootViewController" id="Rq7-0Y-Vib"/>
+                        <segue destination="S6S-uA-EwQ" kind="relationship" relationship="rootViewController" id="9Be-GG-tYH"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xh3-hn-iDQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -195,7 +195,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qYb-Eo-IFk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1284" y="1549.5073891625616"/>
+            <point key="canvasLocation" x="1199" y="1023"/>
         </scene>
         <!--Group View-->
         <scene sceneID="Ign-gK-K6i">
@@ -206,7 +206,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="a61-a6-thS">
-                                <rect key="frame" x="0.0" y="44" width="375" height="768"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="675"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroupViewCell" rowHeight="150" id="Nio-ML-Xi2" customClass="GroupViewCell" customModule="MapChat" customModuleProvider="target">
@@ -260,13 +260,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="t6P-Gw-uw3"/>
                     </view>
+                    <navigationItem key="navigationItem" id="5WS-gE-wdy"/>
                     <connections>
                         <outlet property="groupTableView" destination="a61-a6-thS" id="3IR-SJ-YBG"/>
+                        <segue destination="Cng-Yb-si6" kind="show" identifier="showInGroup" id="7Ry-sj-D7x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bs1-D2-h2n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="325.60000000000002" y="1028.5714285714287"/>
+            <point key="canvasLocation" x="-294" y="1023"/>
         </scene>
         <!--Feed View-->
         <scene sceneID="NoO-ua-M6o">
@@ -346,12 +348,11 @@
                     <navigationItem key="navigationItem" id="cX0-gO-SDy"/>
                     <connections>
                         <outlet property="feedView" destination="4RZ-f9-IeT" id="cDT-nE-Yhp"/>
-                        <segue destination="5I9-tQ-agW" kind="presentation" identifier="popOver" modalPresentationStyle="overCurrentContext" id="Lss-cu-zyH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aWM-JE-GCG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1284" y="893"/>
+            <point key="canvasLocation" x="468" y="1023"/>
         </scene>
         <!--Drop Message View-->
         <scene sceneID="JaA-zh-6wF">

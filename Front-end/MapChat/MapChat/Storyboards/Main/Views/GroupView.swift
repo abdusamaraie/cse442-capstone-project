@@ -8,15 +8,22 @@
 
 import Foundation
 import UIKit
+import CoreLocation
+import MapKit
+import Alamofire
 
-class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var groupTableView: UITableView!
+    
+    var locManager = CLLocationManager()
     
     var items:[Any] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        locManager.delegate = self
         
         groupTableView.dataSource = self
         groupTableView.delegate = self
@@ -25,8 +32,31 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        loadFeed()
+    }
+    
+    func loadFeed() {
         self.groupTableView.reloadData()
     }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first {
+            
+            let latitude = "\(location.coordinate.latitude)"
+            let longitude = "\(location.coordinate.longitude)"
+            
+            print("lat, long: \(latitude), \(longitude)")
+            
+            // SEND REQUEST TO GET JSON TO LOAD IN FEED
+        }
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Failed to find user's location: \(error.localizedDescription)")
+    }
+    
+    // -------------------------------------------------------------------
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("count: \(items.count)")
@@ -49,7 +79,9 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        print("You selected cell #\(indexPath.row)!")
-//    }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        //self.performSegue(withIdentifier: "", sender: self)
+        //print("You selected cell #\(indexPath.row)!")
+    }
 }
