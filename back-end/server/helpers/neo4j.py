@@ -370,3 +370,7 @@ def delete_reply(reply_id):
     except Exception as e:
         print(e)
         return str(False)
+
+
+def change_password(username, new_password):
+    return None
