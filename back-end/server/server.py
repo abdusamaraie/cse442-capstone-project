@@ -155,16 +155,16 @@ def deactivate():
 
 
 @app.route('/password', methods=['PATCH'])
-def deactivate():
+def change_password():
     if request.method == 'PATCH':
         # retrieve user info
         username = request.json['username']
         old_password = request.json['oldPassword']
         new_password = request.json['newPassword']
-        verify_new_passord = request.json['verifyNewPassword']
+        verify_new_password = request.json['verifyNewPassword']
 
-        if authenticate.verify_user(username, old_password) and new_password == verify_new_passord:
-            return str(neo4j.change_password(username, new_password))
+        if authenticate.verify_user(username, old_password) and new_password == verify_new_password:
+            return str(neo4j.change_user_password(username, new_password))
         else:
             return str(False)
 
@@ -182,8 +182,8 @@ def nearby():
 
 
 def start_server():
-    app.run(host='0.0.0.0', port=80, debug=True)
-    # app.run(host='127.0.0.1', port=5000, debug=True)
+    # app.run(host='0.0.0.0', port=80, debug=True)
+    app.run(host='127.0.0.1', port=5000, debug=True)
 
 
 def signal_handler(sig, frame):

@@ -373,18 +373,20 @@ def delete_reply(reply_id):
         return str(False)
 
 
-def change_password(username, new_password):
+def change_user_password(username, new_password):
     # hash the password before storage
     hashed_pass = argon2.encrypt(new_password)
 
     try:
-        # get node of user making reply
+        # get node of user changing their password
         matcher = NodeMatcher(GRAPH)
         user_node = matcher.match("User", username=username).first()
 
-        # set user's hashed password to new hash
+        # update user's hashed password in database
         user_node['hashed_password'] = hashed_pass
-        GRAPH.merge(user_node, 'User', 'username')
+
+        #
+        GRAPH.push(user_node)
         return str(True)
 
     except Exception as e:
