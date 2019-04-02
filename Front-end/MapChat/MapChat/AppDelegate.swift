@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import FacebookCore
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+        GMSPlacesClient.provideAPIKey("AIzaSyC_z-SXgI4uTCJl-tYrSVqBFUxSytIp5dY")
         return true
     }
     

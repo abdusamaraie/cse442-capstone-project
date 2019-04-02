@@ -17,7 +17,7 @@ class SPageOne: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if let animationView:LOTAnimationView = LOTAnimationView(name: "location_b") {
+        if let animationView:AnimationView = AnimationView(name: "location_b") {
             animationView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
             
             animationView.center = self.view.center
@@ -25,7 +25,8 @@ class SPageOne: UIViewController {
             
             self.view.addSubview(animationView)
             animationView.play()
-            animationView.loopAnimation = true
+            
+            //animationView.loopAnimation = true
             
 //            animationView.play{ (finished) in
 //                print("removing from view")

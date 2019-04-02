@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (4.8.0)
+  - Alamofire (4.8.2)
   - Bolts (1.9.0):
     - Bolts/AppLinks (= 1.9.0)
     - Bolts/Tasks (= 1.9.0)
@@ -7,27 +7,34 @@ PODS:
     - Bolts/Tasks
   - Bolts/Tasks (1.9.0)
   - DynamicBlurView (3.0.1)
-  - FacebookCore (0.5.0):
+  - FacebookCore (0.6.0):
     - Bolts (~> 1.9)
-    - FBSDKCoreKit (~> 4.37)
-  - FacebookLogin (0.5.0):
-    - Bolts (~> 1.9)
-    - FacebookCore (~> 0.5)
-    - FBSDKCoreKit (~> 4.37)
-    - FBSDKLoginKit (~> 4.37)
-  - FacebookShare (0.5.0):
+    - FBSDKCoreKit (~> 4.43)
+  - FacebookLogin (0.6.0):
     - Bolts (~> 1.9)
     - FacebookCore (~> 0.5)
-    - FBSDKCoreKit (~> 4.37)
-    - FBSDKShareKit (~> 4.37)
-  - FBSDKCoreKit (4.40.0):
+    - FBSDKCoreKit (~> 4.43)
+    - FBSDKLoginKit (~> 4.43)
+  - FacebookShare (0.6.1):
     - Bolts (~> 1.9)
-  - FBSDKLoginKit (4.40.0):
+    - FacebookCore (~> 0.5)
+    - FBSDKCoreKit (~> 4.43)
+    - FBSDKShareKit (~> 4.43)
+  - FBSDKCoreKit (4.43.0):
+    - Bolts (~> 1.9)
+  - FBSDKLoginKit (4.43.0):
     - FBSDKCoreKit
-  - FBSDKShareKit (4.40.0):
+  - FBSDKShareKit (4.43.0):
     - FBSDKCoreKit
-  - lottie-ios (2.5.3)
-  - PopupDialog (0.9.2):
+  - GoogleMaps (3.0.3):
+    - GoogleMaps/Maps (= 3.0.3)
+  - GoogleMaps/Base (3.0.3)
+  - GoogleMaps/Maps (3.0.3):
+    - GoogleMaps/Base
+  - GooglePlaces (3.0.3):
+    - GoogleMaps/Base (= 3.0.3)
+  - lottie-ios (3.0.3)
+  - PopupDialog (1.0.0):
     - DynamicBlurView (~> 3.0.1)
 
 DEPENDENCIES:
@@ -35,6 +42,8 @@ DEPENDENCIES:
   - FacebookCore
   - FacebookLogin
   - FacebookShare
+  - GoogleMaps
+  - GooglePlaces
   - lottie-ios
   - PopupDialog
 
@@ -49,22 +58,26 @@ SPEC REPOS:
     - FBSDKCoreKit
     - FBSDKLoginKit
     - FBSDKShareKit
+    - GoogleMaps
+    - GooglePlaces
     - lottie-ios
     - PopupDialog
 
 SPEC CHECKSUMS:
-  Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   DynamicBlurView: b1df5415f9bd31897549e5d7077e5ec120a4d636
-  FacebookCore: 74288d0add931d361b1596beae787ab72c438249
-  FacebookLogin: ebcf34714a1cb9f0759d9f071cfb01ed500996cf
-  FacebookShare: 963b4bb1124a64a395b1e428163d70b5774116e8
-  FBSDKCoreKit: ae214474b25033399c131dc81d258e412582a2ba
-  FBSDKLoginKit: 7a1e411d46acc8834588eca437daf34de42e1d52
-  FBSDKShareKit: 0e45916f4150da485928ae2a17ca021950b194f5
-  lottie-ios: a50d5c0160425cd4b01b852bb9578963e6d92d31
-  PopupDialog: f4bb461bf70ff422be0b56656566424ee9273080
+  FacebookCore: 38cd3a4078738d6f648eb9b6b9d35b02d693e9a1
+  FacebookLogin: 658b0569961a081a0890f5f4dbf69ced00657d9e
+  FacebookShare: 84bccbc222fc09c839b851925ad6c295a4ab7840
+  FBSDKCoreKit: cf5ff942be81ce3a45fdcbc244a3bf6f02612bac
+  FBSDKLoginKit: bea6daf533375bfb6e2bb1eefda5ccbdb3ce45ae
+  FBSDKShareKit: 5216050ba1406c3ad5fafdc07ee87afa6a8d2942
+  GoogleMaps: fd5c9fa58871781b9fb94d4936f19c69fe60ce32
+  GooglePlaces: f09e76993c9c3ee4af8f4f7f535bb94d6aa3b649
+  lottie-ios: 06e0b54aab85ba128e332687d7f4ac4861a7a7ae
+  PopupDialog: 28f29a1ffe9e1fab32fb258b53d56ca31670e8a2
 
-PODFILE CHECKSUM: 99affcb56fcacfc9024117759015a4269ff9ef01
+PODFILE CHECKSUM: 02ce5cc2f70bece72db5979a1e8676ed66676b4f
 
 COCOAPODS: 1.5.3

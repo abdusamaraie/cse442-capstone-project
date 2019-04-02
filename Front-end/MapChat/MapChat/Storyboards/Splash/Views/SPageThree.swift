@@ -17,14 +17,14 @@ class SPageThree: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if let animationView:LOTAnimationView = LOTAnimationView(name: "location_c") {
+        if let animationView:AnimationView = AnimationView(name: "location_c") {
             animationView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
             animationView.center = self.view.center
             animationView.contentMode = .scaleAspectFill
             
             self.view.addSubview(animationView)
             animationView.play()
-            animationView.loopAnimation = true
+            //animationView.loopAnimation = true
             
             //            animationView.play{ (finished) in
             //                print("removing from view")
