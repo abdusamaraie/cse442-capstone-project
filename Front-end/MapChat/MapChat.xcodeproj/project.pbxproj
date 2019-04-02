@@ -13,6 +13,9 @@
 		056A379422233FC1005A49CB /* Sign-in.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 056A379322233FC1005A49CB /* Sign-in.storyboard */; };
 		40D5A00C4EDA5CB66FAE5139 /* Pods_MapChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEEF9F98D541554EEAD87DA7 /* Pods_MapChatTests.framework */; };
 		43100785EC0B2D92AC929817 /* Pods_MapChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F40FC9B6A3AF41E2EA0585 /* Pods_MapChat.framework */; };
+		EB303FD62252954F00161BC8 /* davis_hall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB303FD52252954F00161BC8 /* davis_hall.jpg */; };
+		EB303FDA22529CB700161BC8 /* GroupViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB303FD922529CB700161BC8 /* GroupViewCell.swift */; };
+		EB303FDC22529F9C00161BC8 /* GroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB303FDB22529F9C00161BC8 /* GroupView.swift */; };
 		EB33C25722388E9D0012630B /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB33C25622388E9D0012630B /* AuthenticationManager.swift */; };
 		EB33C25B223AA9BF0012630B /* NameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB33C25A223AA9BF0012630B /* NameView.swift */; };
 		EB33C25D223AAB880012630B /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB33C25C223AAB880012630B /* PasswordView.swift */; };
@@ -75,6 +78,9 @@
 		AEEA1FB76EBADB29CD722DB7 /* Pods-MapChatUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapChatUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MapChatUITests/Pods-MapChatUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B172350A7A6338870397677A /* Pods-MapChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapChatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MapChatTests/Pods-MapChatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DEEF9F98D541554EEAD87DA7 /* Pods_MapChatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapChatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB303FD52252954F00161BC8 /* davis_hall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = davis_hall.jpg; sourceTree = "<group>"; };
+		EB303FD922529CB700161BC8 /* GroupViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewCell.swift; sourceTree = "<group>"; };
+		EB303FDB22529F9C00161BC8 /* GroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupView.swift; sourceTree = "<group>"; };
 		EB33C25622388E9D0012630B /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		EB33C25A223AA9BF0012630B /* NameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameView.swift; sourceTree = "<group>"; };
 		EB33C25C223AAB880012630B /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
@@ -297,6 +303,8 @@
 				EBFAC67E22272862004B5074 /* ProfileView.swift */,
 				EBFAC68222275DA0004B5074 /* PopUpView.swift */,
 				EBEB9301222F4BFA003DAD1E /* DropMessageView.swift */,
+				EB303FD922529CB700161BC8 /* GroupViewCell.swift */,
+				EB303FDB22529F9C00161BC8 /* GroupView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -304,6 +312,7 @@
 		EBFAC6792226243A004B5074 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				EB303FD52252954F00161BC8 /* davis_hall.jpg */,
 				EBEB9303223092BA003DAD1E /* message-success.json */,
 				EBFAC67A2226244E004B5074 /* WebServicesManager.swift */,
 				EBFAC67C2226278A004B5074 /* LocationServicesManager.swift */,
@@ -426,6 +435,7 @@
 				EB414CEF2214F29A007C3FE4 /* LaunchScreen.storyboard in Resources */,
 				EB414CEC2214F29A007C3FE4 /* Assets.xcassets in Resources */,
 				EBEB9304223092BA003DAD1E /* message-success.json in Resources */,
+				EB303FD62252954F00161BC8 /* davis_hall.jpg in Resources */,
 				EBFAC67022261B05004B5074 /* MainView.storyboard in Resources */,
 				EB414CE72214F298007C3FE4 /* Main.storyboard in Resources */,
 				EBEA938A222DFACD0097251A /* AirbnbCereal-Light.ttf in Resources */,
@@ -550,12 +560,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB303FDA22529CB700161BC8 /* GroupViewCell.swift in Sources */,
 				EBFAC68122272906004B5074 /* AppState.swift in Sources */,
 				EB33C25D223AAB880012630B /* PasswordView.swift in Sources */,
 				EBF327632248293000F47456 /* ErrorPopUpView.swift in Sources */,
 				EBFAC67622261C08004B5074 /* FeedViewCell.swift in Sources */,
 				EBFAC67822261F89004B5074 /* FeedView.swift in Sources */,
 				EBFAC67B2226244E004B5074 /* WebServicesManager.swift in Sources */,
+				EB303FDC22529F9C00161BC8 /* GroupView.swift in Sources */,
 				EB414CE42214F298007C3FE4 /* ViewController.swift in Sources */,
 				EB33C25722388E9D0012630B /* AuthenticationManager.swift in Sources */,
 				EBFAC67F22272862004B5074 /* ProfileView.swift in Sources */,

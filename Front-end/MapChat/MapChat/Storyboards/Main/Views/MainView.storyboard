@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="U3U-fj-E6b">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="S6S-uA-EwQ">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,6 +15,9 @@
         </array>
         <array key="AirbnbCereal-Light.ttf">
             <string>AirbnbCerealApp-Light</string>
+        </array>
+        <array key="AirbnbCereal-Medium.ttf">
+            <string>AirbnbCerealApp-Medium</string>
         </array>
     </customFonts>
     <scenes>
@@ -194,6 +197,77 @@
             </objects>
             <point key="canvasLocation" x="1284" y="1549.5073891625616"/>
         </scene>
+        <!--Group View-->
+        <scene sceneID="Ign-gK-K6i">
+            <objects>
+                <viewController id="S6S-uA-EwQ" customClass="GroupView" customModule="MapChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XWi-7a-ibL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="a61-a6-thS">
+                                <rect key="frame" x="0.0" y="44" width="375" height="768"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroupViewCell" rowHeight="150" id="Nio-ML-Xi2" customClass="GroupViewCell" customModule="MapChat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="150"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Nio-ML-Xi2" id="WeF-KY-nFt">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="149.66666666666666"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="davis_hall.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="MvE-We-0wo">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Davis Hall" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sw7-Uf-qix">
+                                                    <rect key="frame" x="142" y="61" width="91" height="27"/>
+                                                    <fontDescription key="fontDescription" name="AirbnbCerealApp-Medium" family="Airbnb Cereal App" pointSize="20"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Sw7-Uf-qix" firstAttribute="leading" secondItem="WeF-KY-nFt" secondAttribute="leading" constant="142" id="1VD-9V-cb4"/>
+                                                <constraint firstItem="MvE-We-0wo" firstAttribute="top" secondItem="WeF-KY-nFt" secondAttribute="top" id="N6T-ij-NAh"/>
+                                                <constraint firstItem="Sw7-Uf-qix" firstAttribute="leading" secondItem="MvE-We-0wo" secondAttribute="trailing" constant="-233" id="XH3-eQ-ASU"/>
+                                                <constraint firstItem="MvE-We-0wo" firstAttribute="leading" secondItem="WeF-KY-nFt" secondAttribute="leading" id="Y2E-lb-ypi"/>
+                                                <constraint firstAttribute="trailing" secondItem="Sw7-Uf-qix" secondAttribute="trailing" constant="142" id="a3t-jv-BCz"/>
+                                                <constraint firstAttribute="bottom" secondItem="Sw7-Uf-qix" secondAttribute="bottom" constant="61.666666666666657" id="dJV-Fr-xN8"/>
+                                                <constraint firstAttribute="trailing" secondItem="MvE-We-0wo" secondAttribute="trailing" id="etP-n9-MZV"/>
+                                                <constraint firstItem="MvE-We-0wo" firstAttribute="top" secondItem="Sw7-Uf-qix" secondAttribute="bottom" constant="-88" id="raP-oa-GZg"/>
+                                                <constraint firstItem="Sw7-Uf-qix" firstAttribute="top" secondItem="WeF-KY-nFt" secondAttribute="top" constant="61" id="uLE-uB-ryR"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstItem="MvE-We-0wo" firstAttribute="leading" secondItem="Nio-ML-Xi2" secondAttribute="leading" id="0AB-kD-EGY"/>
+                                            <constraint firstAttribute="bottom" secondItem="MvE-We-0wo" secondAttribute="bottom" id="J62-6l-hxG"/>
+                                            <constraint firstItem="MvE-We-0wo" firstAttribute="top" secondItem="Nio-ML-Xi2" secondAttribute="top" id="R3w-3r-JfI"/>
+                                            <constraint firstAttribute="trailing" secondItem="MvE-We-0wo" secondAttribute="trailing" id="beB-B3-Nux"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="groupImage" destination="MvE-We-0wo" id="Zlg-by-nD1"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="t6P-Gw-uw3" firstAttribute="trailing" secondItem="a61-a6-thS" secondAttribute="trailing" id="8Ky-nP-dAS"/>
+                            <constraint firstItem="a61-a6-thS" firstAttribute="top" secondItem="t6P-Gw-uw3" secondAttribute="top" id="SPI-5M-W7m"/>
+                            <constraint firstItem="a61-a6-thS" firstAttribute="leading" secondItem="t6P-Gw-uw3" secondAttribute="leading" id="gVu-GI-HcU"/>
+                            <constraint firstItem="a61-a6-thS" firstAttribute="bottom" secondItem="t6P-Gw-uw3" secondAttribute="bottom" constant="34" id="o5v-ZA-eM4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="t6P-Gw-uw3"/>
+                    </view>
+                    <connections>
+                        <outlet property="groupTableView" destination="a61-a6-thS" id="3IR-SJ-YBG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bs1-D2-h2n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="325.60000000000002" y="1028.5714285714287"/>
+        </scene>
         <!--Feed View-->
         <scene sceneID="NoO-ua-M6o">
             <objects>
@@ -370,11 +444,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="add" width="72" height="72"/>
-        <image name="close" width="72" height="72"/>
-        <image name="feed" width="72" height="72"/>
-        <image name="profile" width="72" height="72"/>
-        <image name="thumbDown" width="72" height="72"/>
-        <image name="thumbUp" width="72" height="72"/>
+        <image name="add" width="24" height="24"/>
+        <image name="close" width="24" height="24"/>
+        <image name="davis_hall.jpg" width="1200" height="795"/>
+        <image name="feed" width="24" height="24"/>
+        <image name="profile" width="24" height="24"/>
+        <image name="thumbDown" width="24" height="24"/>
+        <image name="thumbUp" width="24" height="24"/>
     </resources>
 </document>
