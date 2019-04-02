@@ -1,4 +1,5 @@
 from py2neo import Graph, Node, Relationship, NodeMatcher, RelationshipMatcher
+from passlib.hash import argon2
 from datetime import datetime
 import pytz
 from pytz import timezone
@@ -373,4 +374,19 @@ def delete_reply(reply_id):
 
 
 def change_password(username, new_password):
-    return None
+    # hash the password before storage
+    hashed_pass = argon2.encrypt(new_password)
+
+    try:
+        # get node of user making reply
+        matcher = NodeMatcher(GRAPH)
+        user_node = matcher.match("User", username=username).first()
+
+        # set user's hashed password to new hash
+        user_node['hashed_password'] = hashed_pass
+        GRAPH.merge(user_node, 'User', 'username')
+        return str(True)
+
+    except Exception as e:
+        print(e)
+        return str(False)
