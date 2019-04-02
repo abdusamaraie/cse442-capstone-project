@@ -385,7 +385,7 @@ def change_user_password(username, new_password):
         # update user's hashed password in database
         user_node['hashed_password'] = hashed_pass
 
-        #
+        # push updated node to graph
         GRAPH.push(user_node)
         return str(True)
 
