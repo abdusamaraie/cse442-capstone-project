@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="S6S-uA-EwQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="U3U-fj-E6b">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -218,24 +218,25 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="davis_hall.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="MvE-We-0wo">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="150" id="cn9-Rw-2cA"/>
+                                                    </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Davis Hall" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sw7-Uf-qix">
-                                                    <rect key="frame" x="142" y="61" width="91" height="27"/>
+                                                    <rect key="frame" x="142" y="61.666666666666664" width="91" height="26.666666666666664"/>
                                                     <fontDescription key="fontDescription" name="AirbnbCerealApp-Medium" family="Airbnb Cereal App" pointSize="20"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Sw7-Uf-qix" firstAttribute="leading" secondItem="WeF-KY-nFt" secondAttribute="leading" constant="142" id="1VD-9V-cb4"/>
+                                                <constraint firstItem="Sw7-Uf-qix" firstAttribute="centerX" secondItem="MvE-We-0wo" secondAttribute="centerX" id="C7f-f3-cpD"/>
+                                                <constraint firstItem="MvE-We-0wo" firstAttribute="top" secondItem="Sw7-Uf-qix" secondAttribute="bottom" constant="-88.333333333333329" id="JKY-v6-fnK"/>
                                                 <constraint firstItem="MvE-We-0wo" firstAttribute="top" secondItem="WeF-KY-nFt" secondAttribute="top" id="N6T-ij-NAh"/>
-                                                <constraint firstItem="Sw7-Uf-qix" firstAttribute="leading" secondItem="MvE-We-0wo" secondAttribute="trailing" constant="-233" id="XH3-eQ-ASU"/>
                                                 <constraint firstItem="MvE-We-0wo" firstAttribute="leading" secondItem="WeF-KY-nFt" secondAttribute="leading" id="Y2E-lb-ypi"/>
-                                                <constraint firstAttribute="trailing" secondItem="Sw7-Uf-qix" secondAttribute="trailing" constant="142" id="a3t-jv-BCz"/>
-                                                <constraint firstAttribute="bottom" secondItem="Sw7-Uf-qix" secondAttribute="bottom" constant="61.666666666666657" id="dJV-Fr-xN8"/>
+                                                <constraint firstItem="Sw7-Uf-qix" firstAttribute="centerY" secondItem="MvE-We-0wo" secondAttribute="centerY" id="bOY-Ls-XfK"/>
                                                 <constraint firstAttribute="trailing" secondItem="MvE-We-0wo" secondAttribute="trailing" id="etP-n9-MZV"/>
-                                                <constraint firstItem="MvE-We-0wo" firstAttribute="top" secondItem="Sw7-Uf-qix" secondAttribute="bottom" constant="-88" id="raP-oa-GZg"/>
-                                                <constraint firstItem="Sw7-Uf-qix" firstAttribute="top" secondItem="WeF-KY-nFt" secondAttribute="top" constant="61" id="uLE-uB-ryR"/>
+                                                <constraint firstItem="Sw7-Uf-qix" firstAttribute="top" secondItem="MvE-We-0wo" secondAttribute="bottom" constant="-88.333333333333343" id="oPI-7z-EU3"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <constraints>

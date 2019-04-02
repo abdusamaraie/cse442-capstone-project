@@ -20,6 +20,8 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
     
     var items:[Any] = []
     
+    var group_list:[GroupPostManager.GroupObject] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,31 +58,46 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
                 //"username": username!
             ]
             
+            // EXAMPLE DATA:
+            /*
+            [
+                {
+                    "place": {
+                        "name": "Jabulani mall",
+                        "place_id": "ChIJgbX7WpkOlR4RwXZjAPQrZFM",
+                        "photo_url": "https://i.kym-cdn.com/entries/icons/original/000/025/999/Screen_Shot_2018-04-24_at_1.33.44_PM.png"},
+                        "posts": [
+                                    {"dislikes": 0, "username": "bailytro", "likes": 0, "latitude": -26.2041028, "bbox": [28.0473051, -26.2041028, 28.0473051, -26.2041028], "post_id": "dc8a4fa7-bf51-402e-a9c5-62c4f13f9193", "post_time": "2019-04-02 15:14:11.575823-04:00", "longitude": 28.0473051, "gtype": 1, "expire_time": "2019-04-20 22:59:45", "content": "Asdf"}, {"dislikes": 0, "username": "bailytro", "likes": 0, "latitude": -26.2041028, "bbox": [28.0473051, -26.2041028, 28.0473051, -26.2041028], "post_id": "fc1649b6-f2a9-483a-89be-6219944a09c5", "post_time": "2019-04-02 15:14:11.582744-04:00", "longitude": 28.0473051, "gtype": 1, "expire_time": "2019-04-20 22:59:45", "content": "Asdf"}, {"dislikes": 0, "username": "bailytro", "likes": 0, "latitude": -26.2041028, "bbox": [28.0473051, -26.2041028, 28.0473051, -26.2041028], "post_id": "b814827d-1323-417e-a968-e3f5eb635717", "post_time": "2019-04-02 15:13:25.539699-04:00", "longitude": 28.0473051, "gtype": 1, "expire_time": "2019-04-20 22:59:45", "content": "Fdsfdsa"
+                                    }
+                                  ]
+                    
+                }
+            ]
+            */
             Alamofire.request(urlString, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { response in
                 
                 // print("response: \(response.result.value!)")
                 
                 if let result = response.result.value {
-                    let messageList = result as! [Any]
-                    print("JSON: \(messageList)")
-                    for message in messageList {
+                    
+                    let groupList = result as! [Any]
+                    
+                    print("JSON: \(groupList)")
+                    for group in groupList {
                         
-                        let message_json = message as! NSDictionary
+                        let groupDictionary = group as! NSDictionary
                         
-                        let latitude = message_json.value(forKey: "latitude") as! NSNumber
-                        let longitude = message_json.value(forKey: "longitude") as! NSNumber
-                        let content = message_json.value(forKey: "content") as! String
+                        let place = groupDictionary.value(forKey: "place") as! NSDictionary
                         
-                        //self.messageObjects.append(MessageObject(latitude: latitude, longitude: longitude, username: username, content: content))
-                        //self.messageObjects.append(MessageObject(latitude: "\(latitude)", longitude: "\(longitude)", content: content))
+                        let groupObject = GroupPostManager.GroupObject(URL: place.value(forKey: "photo_url") as! String, posts: place.value(forKey: "posts") as! [NSDictionary], name: place.value(forKey: "name") as! String)
+                        
+                        self.group_list.append(groupObject)
                     }
                     print("reloading data")
                     self.groupTableView.reloadData()
                     //self.feedView.reloadData()
                 }
             }
-            
-            // SEND REQUEST TO GET JSON TO LOAD IN FEED
         }
         
     }

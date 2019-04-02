@@ -13,6 +13,7 @@
 		056A379422233FC1005A49CB /* Sign-in.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 056A379322233FC1005A49CB /* Sign-in.storyboard */; };
 		40D5A00C4EDA5CB66FAE5139 /* Pods_MapChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEEF9F98D541554EEAD87DA7 /* Pods_MapChatTests.framework */; };
 		43100785EC0B2D92AC929817 /* Pods_MapChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F40FC9B6A3AF41E2EA0585 /* Pods_MapChat.framework */; };
+		EB086E9F2253F23A00F9D2D3 /* GroupPostManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB086E9E2253F23A00F9D2D3 /* GroupPostManager.swift */; };
 		EB303FD62252954F00161BC8 /* davis_hall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB303FD52252954F00161BC8 /* davis_hall.jpg */; };
 		EB303FDA22529CB700161BC8 /* GroupViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB303FD922529CB700161BC8 /* GroupViewCell.swift */; };
 		EB303FDC22529F9C00161BC8 /* GroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB303FDB22529F9C00161BC8 /* GroupView.swift */; };
@@ -78,6 +79,7 @@
 		AEEA1FB76EBADB29CD722DB7 /* Pods-MapChatUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapChatUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MapChatUITests/Pods-MapChatUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B172350A7A6338870397677A /* Pods-MapChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapChatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MapChatTests/Pods-MapChatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DEEF9F98D541554EEAD87DA7 /* Pods_MapChatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapChatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB086E9E2253F23A00F9D2D3 /* GroupPostManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupPostManager.swift; sourceTree = "<group>"; };
 		EB303FD52252954F00161BC8 /* davis_hall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = davis_hall.jpg; sourceTree = "<group>"; };
 		EB303FD922529CB700161BC8 /* GroupViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewCell.swift; sourceTree = "<group>"; };
 		EB303FDB22529F9C00161BC8 /* GroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupView.swift; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 				EBFAC67A2226244E004B5074 /* WebServicesManager.swift */,
 				EBFAC67C2226278A004B5074 /* LocationServicesManager.swift */,
 				EBFAC68022272906004B5074 /* AppState.swift */,
+				EB086E9E2253F23A00F9D2D3 /* GroupPostManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -596,6 +599,7 @@
 				EBFAC68322275DA0004B5074 /* PopUpView.swift in Sources */,
 				EBAA2FF32223236E003A7FD5 /* PageViewController.swift in Sources */,
 				EB414CE22214F298007C3FE4 /* AppDelegate.swift in Sources */,
+				EB086E9F2253F23A00F9D2D3 /* GroupPostManager.swift in Sources */,
 				EB414CEA2214F298007C3FE4 /* MapChat.xcdatamodeld in Sources */,
 				EBAA2FF1222322CD003A7FD5 /* SPageThree.swift in Sources */,
 				EBEB9302222F4BFA003DAD1E /* DropMessageView.swift in Sources */,
