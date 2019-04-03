@@ -17,7 +17,14 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
     @IBOutlet weak var groupTableView: UITableView!
     
     var locManager = CLLocationManager()
-    var group_list:[GroupPostManager.GroupObject] = []
+    
+    // var group_list:[GroupPostManager.GroupObject]!
+    
+    var group_list:[GroupPostManager.GroupObject]! {
+        didSet{
+            groupTableView.reloadData()
+        }
+    }
     
     var selectedGroup: GroupPostManager.GroupObject = GroupPostManager.GroupObject()
     
@@ -25,15 +32,19 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
         super.viewDidLoad()
         
         locManager.delegate = self
-        
         groupTableView.dataSource = self
         groupTableView.delegate = self
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        self.group_list = []
+    override func viewWillAppear(_ animated: Bool) {
+        print("list APPEAR: \(group_list)")
         loadFeed()
+    }
+    
+    func wipe_feed() {
+        print("wiping feed")
+        self.group_list = []
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -41,6 +52,8 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
     }
     
     func loadFeed() {
+        
+        wipe_feed()
         
         locManager.requestWhenInUseAuthorization()
         if((CLLocationManager.authorizationStatus() == .authorizedWhenInUse) || (CLLocationManager.authorizationStatus() ==  .authorizedAlways)) {
@@ -60,6 +73,8 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
             GroupPostManager.sharedInstance.latitude = latitude
             GroupPostManager.sharedInstance.longitude = longitude
             
+            let sv = UIViewController.displaySpinner(onView: self.view)
+            
             GroupPostManager.sharedInstance.getGroupData(completion: {(response) in
                 
                 let response_object: [GroupPostManager.GroupObject] = response
@@ -71,9 +86,11 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
                     // print("response: \(response)")
                     
                     self.group_list = response
+                    UIViewController.removeSpinner(spinner: sv)
                     self.groupTableView.reloadData()
                 } else {
                     // print("RESPONSE WAS NIL")
+                    UIViewController.removeSpinner(spinner: sv)
                 }
             })
             

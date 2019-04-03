@@ -29,7 +29,7 @@ class GroupPostManager {
         }
     }
     
-    let urlString = "http://34.73.109.229:80/message"
+    let urlString = "http://34.73.109.229:80/place"
     
     static var sharedInstance = GroupPostManager()
     
@@ -49,16 +49,13 @@ class GroupPostManager {
     
     func getGroupData(completion: @escaping (_ response_:[GroupObject]) -> ()) {
         
+        let parameters: [String: Any] = ["lat": latitude,"long": longitude]
         
-        let parameters: [String: Any] = [
-            "lat": latitude,
-            "long": longitude,
-            "distance": "20"
-        ]
+        print("parameters: \(parameters)")
         
-        Alamofire.request(urlString, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { response in
+        Alamofire.request("\(urlString)", method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { response in
             
-            // print("response: \(response.result.value!)")
+            print("response: \(response.result.value)")
             
             if let result = response.result.value {
     
@@ -71,11 +68,12 @@ class GroupPostManager {
                     // print("group: \(group)")
                     
                     let groupDictionary = group as! NSDictionary
-                    let place = groupDictionary.value(forKey: "place") as! NSDictionary
+                    print("group dict: \(groupDictionary)")
+                    // let place = groupDictionary.value(forKey: "place") as! NSDictionary
                     
-                    let groupObject = GroupPostManager.GroupObject(URL: (place.value(forKey: "photo_url") as! String), posts: (groupDictionary.value(forKey: "posts") as! [NSDictionary]), name: (place.value(forKey: "name") as! String), ID: (place.value(forKey: "place_id") as! String))
+                    // let groupObject = GroupPostManager.GroupObject(URL: (place.value(forKey: "photo_url") as! String), posts: (groupDictionary.value(forKey: "posts") as! [NSDictionary]), name: (place.value(forKey: "name") as! String), ID: (place.value(forKey: "place_id") as! String))
                     
-                    self.group_list.append(groupObject)
+                    // self.group_list.append(groupObject)
                 }
                 
                 // print("completion of group list!!! GOOD")
@@ -94,14 +92,10 @@ class GroupPostManager {
     func getPostData(completion: @escaping (_ response_:[NSDictionary]) -> ()) {
         
         let parameters: [String: Any] = [
-            "lat": latitude,
-            "long": longitude,
-            "distance": "20"
+            "placeID": current_group.ID!
         ]
         
-        // print("parameters: \(parameters)")
-        
-        Alamofire.request(urlString, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { response in
+        Alamofire.request("\(urlString)/message", method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { response in
             
             if let result = response.result.value {
                 

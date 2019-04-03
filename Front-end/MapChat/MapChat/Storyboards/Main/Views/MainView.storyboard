@@ -289,47 +289,20 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="99.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyU-os-bgD">
-                                                    <rect key="frame" x="15" y="11" width="345" height="50"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="m4e-v6-eo8"/>
-                                                        <constraint firstAttribute="width" constant="345" id="pNr-k4-qn4"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GPS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BiQ-BE-0tM">
-                                                    <rect key="frame" x="15" y="68" width="34" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="4e5-lz-UOu"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BND-jf-zGP">
-                                                    <rect key="frame" x="322" y="68" width="38" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="oYh-yY-xxh"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyU-os-bgD">
+                                                    <rect key="frame" x="166.66666666666666" y="36.666666666666664" width="41.666666666666657" height="26.333333333333336"/>
+                                                    <fontDescription key="fontDescription" name="AirbnbCerealApp-Medium" family="Airbnb Cereal App" pointSize="20"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="BiQ-BE-0tM" firstAttribute="top" secondItem="eyU-os-bgD" secondAttribute="bottom" constant="7" id="P2L-Wf-juJ"/>
-                                                <constraint firstAttribute="trailing" secondItem="BND-jf-zGP" secondAttribute="trailing" constant="15" id="Rpb-cN-wHW"/>
-                                                <constraint firstItem="BND-jf-zGP" firstAttribute="top" secondItem="eyU-os-bgD" secondAttribute="bottom" constant="7" id="VFC-1r-337"/>
                                                 <constraint firstItem="eyU-os-bgD" firstAttribute="centerX" secondItem="cML-85-v89" secondAttribute="centerX" id="axR-6q-81L"/>
-                                                <constraint firstItem="eyU-os-bgD" firstAttribute="top" secondItem="cML-85-v89" secondAttribute="top" constant="11" id="cJ6-Tb-viM"/>
-                                                <constraint firstItem="BiQ-BE-0tM" firstAttribute="leading" secondItem="cML-85-v89" secondAttribute="leading" constant="15" id="uqH-gX-iQw"/>
+                                                <constraint firstItem="eyU-os-bgD" firstAttribute="centerY" secondItem="cML-85-v89" secondAttribute="centerY" id="bCu-tJ-FQP"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.46905211330000002" green="0.61198362589999999" blue="0.39588681790000002" alpha="0.70168244290000004" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
-                                            <outlet property="location" destination="BiQ-BE-0tM" id="zXh-hb-Hm8"/>
-                                            <outlet property="time" destination="BND-jf-zGP" id="G7c-ZB-h7x"/>
                                             <outlet property="title" destination="eyU-os-bgD" id="Vtr-lE-llp"/>
                                         </connections>
                                     </tableViewCell>
@@ -352,7 +325,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aWM-JE-GCG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="562" y="1023"/>
+            <point key="canvasLocation" x="560.79999999999995" y="1022.6600985221676"/>
         </scene>
         <!--Drop Message View-->
         <scene sceneID="JaA-zh-6wF">

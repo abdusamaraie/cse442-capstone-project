@@ -12,29 +12,6 @@ import CoreLocation
 import MapKit
 import Alamofire
 
-/*
- 
- {
- bbox =     (
- "-78.79558400000001",
- "42.998865",
- "-78.79558400000001",
- "42.998865"
- );
- content = "Hey there";
- dislikes = 0;
- "expire_time" = "2019-04-20 22:59:45";
- gtype = 1;
- latitude = "42.998865";
- likes = 0;
- longitude = "-78.79558400000001";
- "post_id" = "d55dcac1-1a69-4a67-9965-acacd90985f3";
- "post_time" = "2019-04-02 18:02:41.116118-04:00";
- username = bailytro;
- }
- 
- */
-
 struct Message {
     var message: String
     var username: String
@@ -58,33 +35,13 @@ class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource, CL
         
         feedView.delegate = self
         feedView.dataSource = self
-        
-        self.navigationController?.title = "Feed"
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(updateRefresh), for: .valueChanged)
-        feedView.refreshControl = refreshControl
     }
-    
     
     override func viewDidAppear(_ animated: Bool) {
         loadFeed()
     }
     
-    @objc func updateRefresh(refreshControl: UIRefreshControl) {
-        
-        // load feed, calling API, refreshing table view and spinning loader
-        loadFeed()
-        refreshControl.endRefreshing()
-        
-        // todo: add functionality with flask instance
-        WebServicesManager.testAlamofire()
-    }
-    
     func loadFeed() {
-        
-        self.messages = []
         
         locManager.requestWhenInUseAuthorization()
         if((CLLocationManager.authorizationStatus() == .authorizedWhenInUse) || (CLLocationManager.authorizationStatus() ==  .authorizedAlways)) {
@@ -94,10 +51,10 @@ class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource, CL
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        self.messages = []
+        
         if let location = locations.first {
-            
-            // start loading spinner
-            // let sv = UIViewController.displaySpinner(onView: self.view)
             
             GroupPostManager.sharedInstance.assignLatLong(latitde: "\(location.coordinate.latitude)", longitude: "\(location.coordinate.longitude)")
             
@@ -131,18 +88,18 @@ class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource, CL
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath) as! FeedViewCell
         
-        // these fields would be returned from the WebServicesManager class
-        
         let messageContent = self.messages[indexPath.row].message
-        // let messageLocation = "\(self.messageObjects[indexPath.row].latitude),\(self.messageObjects[indexPath.row].longitude)"
         
-        cell.time.text = "_"
+        
         cell.title.text = messageContent
-        cell.location.text = "_"
-
-        cell.clipsToBounds = true
+        cell.title.center = cell.center
+        // cell.clipsToBounds = true
 
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(100)
     }
 }
 
