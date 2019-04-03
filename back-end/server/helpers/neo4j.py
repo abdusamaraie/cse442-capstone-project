@@ -35,14 +35,24 @@ def get_place_node(place_id):
     matcher = NodeMatcher(GRAPH)
     place_node = matcher.match("Place", place_id=place_id).first()
 
+    # if a place node with the given place ID doesnt exist, we create one
     if place_node is None:
         info = places.get_place_info(place_id)
 
         place_node = Node("Place",
                           name=info['name'],
                           place_id=place_id,
-                          photo_url=info['photo_url'])
+                          photo_url=info['photo_url'],
+                          latitude=info['geometry']['location']['lat'],
+                          longitude=info['geometry']['location']['lng'],
+                          types=info['types'])
         GRAPH.create(place_node)
+
+        # add place node to spatial layer for indexing
+        GRAPH.run("MATCH (pl:Place {{place_id: '{}'}}) "
+                  "WITH pl "
+                  "CALL spatial.addNode('places', pl) "
+                  "YIELD node RETURN node".format(place_id))
 
     return place_node
 

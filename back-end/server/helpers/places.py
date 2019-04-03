@@ -26,7 +26,7 @@ def get_place_info(place_id):
 
     # make http request to google places api
     url = 'https://maps.googleapis.com/maps/api/place/details/json?'
-    payload = {'place_id': place_id, 'fields': 'name,photo', 'key': PLACES_API_KEY}
+    payload = {'place_id': place_id, 'fields': 'name,photo,geometry,type', 'key': PLACES_API_KEY}
     place_info = requests.get(url=url, params=payload).json()['result']
 
     # if the place has a photo

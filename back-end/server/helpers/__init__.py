@@ -13,11 +13,20 @@ GRAPH.schema.create_index("Post", "expire_time")
 # create 'Other' Place node if doesn't exist
 GRAPH.merge(Node("Place", place_id='Other', name='Other', photo_url=OTHER_PHOTO_URL), 'Place', 'place_id')
 
-# create spatial layer on first database run
+# create 'posts' spatial layer on first database run
 try:  # will crash if layer already exists
     GRAPH.run("CALL spatial.addPointLayer('posts')")
 except Exception as e:
     if "Cannot create existing layer" in str(e):
         print(" * Posts spatial layer already exists. Good")
+    else:
+        raise e
+
+# create 'places' spatial layer on first database run
+try:  # will crash if layer already exists
+    GRAPH.run("CALL spatial.addPointLayer('places')")
+except Exception as e:
+    if "Cannot create existing layer" in str(e):
+        print(" * Places spatial layer already exists. Also good")
     else:
         raise e
