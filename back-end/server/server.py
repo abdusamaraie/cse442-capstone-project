@@ -168,6 +168,28 @@ def change_password():
         else:
             return str(False)
 
+
+@app.route('/place', methods=['GET'])
+def place():
+    # GET ALL THE PLACES WITH POSTS IN .25 KM RADIUS
+    if request.method == 'GET':
+        lat = request.args.get('lat')
+        long = request.args.get('long')
+        return neo4j.get_wide_place_nodes(lat, long)
+    else:
+        return str(False)
+
+
+@app.route('/place/message', methods=['GET'])
+def place_message():
+    # GET ALL THE MESSAGES LOCATED AT A PLACE
+    if request.method == 'GET':
+        place_id = request.args.get('placeId')
+        return neo4j.get_posts_at_place(place_id)
+    else:
+        return str(False)
+
+
 '''
 THIS IS DONE ON THE FRONT END NOW
 @app.route('/nearby', methods=['GET'])

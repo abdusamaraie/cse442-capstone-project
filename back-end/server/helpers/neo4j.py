@@ -35,14 +35,24 @@ def get_place_node(place_id):
     matcher = NodeMatcher(GRAPH)
     place_node = matcher.match("Place", place_id=place_id).first()
 
+    # if a place node with the given place ID doesnt exist, we create one
     if place_node is None:
         info = places.get_place_info(place_id)
 
         place_node = Node("Place",
                           name=info['name'],
                           place_id=place_id,
-                          photo_url=info['photo_url'])
+                          photo_url=info['photo_url'],
+                          latitude=info['geometry']['location']['lat'],
+                          longitude=info['geometry']['location']['lng'],
+                          types=info['types'])
         GRAPH.create(place_node)
+
+        # add place node to spatial layer for indexing
+        GRAPH.run("MATCH (pl:Place {{place_id: '{}'}}) "
+                  "WITH pl "
+                  "CALL spatial.addNode('places', pl) "
+                  "YIELD node RETURN node".format(place_id))
 
     return place_node
 
@@ -388,6 +398,48 @@ def change_user_password(username, new_password):
         # push updated node to graph
         GRAPH.push(user_node)
         return str(True)
+
+    except Exception as e:
+        print(e)
+        return str(False)
+
+
+def get_wide_place_nodes(lat, lon):
+
+    # convert distance im meters to km
+    radius_km = .25
+
+    # get current time for time of post
+    time = get_time()
+
+    try:
+        # run spatial query
+
+        res = GRAPH.run("CALL spatial.withinDistance('places', {{latitude: {},longitude: {}}}, {}) "
+                        "YIELD node AS places "
+                        "MATCH (p:Post)-[:LOCATED_AT]->(places) WHERE p.expire_time > '{}' "
+                        "RETURN places{{.*, number_of_posts: count(p)}} LIMIT 10".format(lat, lon, radius_km, time))
+
+        # loop through results and create json
+        places_json = json.dumps([dict(ix)['places'] for ix in res.data()])
+        return places_json
+
+    except Exception as e:
+        print(e)
+        return str(False)
+
+
+def get_posts_at_place(place_id):
+    time = get_time()
+
+    try:
+        result = GRAPH.run("MATCH(p: Post)-[: LOCATED_AT]->(pl:Place {{place_id: '{}'}})"
+                           "WHERE p.expire_time > '{}' "
+                           "RETURN p".format(place_id, time))
+
+        # loop through results and create json
+        posts_json = json.dumps([dict(ix)['p'] for ix in result.data()])
+        return posts_json
 
     except Exception as e:
         print(e)
