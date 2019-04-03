@@ -179,6 +179,15 @@ def place():
         return str(False)
 
 
+@app.route('/place/message', methods=['GET'])
+def place():
+    if request.method == 'GET':
+        place_id = request.args.get('placeId')
+        return neo4j.get_posts_at_place(place_id)
+    else:
+        return str(False)
+
+
 '''
 THIS IS DONE ON THE FRONT END NOW
 @app.route('/nearby', methods=['GET'])

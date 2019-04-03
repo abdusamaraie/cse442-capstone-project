@@ -407,18 +407,18 @@ def change_user_password(username, new_password):
 def get_wide_place_nodes(lat, lon):
 
     # convert distance im meters to km
-    radius_km = 5
-    print(radius_km)
+    radius_km = .25
+
     # get current time for time of post
     time = get_time()
-    print(time)
+
     try:
         # run spatial query
 
         res = GRAPH.run("CALL spatial.withinDistance('places', {{latitude: {},longitude: {}}}, {}) "
                         "YIELD node AS places "
                         "MATCH (p:Post)-[:LOCATED_AT]->(places) WHERE p.expire_time > '{}' "
-                        "RETURN places{{.*, number_of_posts: count(p)}}".format(lat, lon, radius_km, time))
+                        "RETURN places{{.*, number_of_posts: count(p)}} LIMIT 10".format(lat, lon, radius_km, time))
 
         # loop through results and create json
         posts_json = json.dumps([dict(ix)['places'] for ix in res.data()])
