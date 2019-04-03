@@ -168,6 +168,15 @@ def change_password():
         else:
             return str(False)
 
+
+@app.route('/place', methods=['GET'])
+def places():
+    if request.method == 'GET ':
+        lat = request.args.get('lat')
+        long = request.args.get('long')
+        return neo4j.get_place_nodes_wide(lat,long)
+
+
 '''
 THIS IS DONE ON THE FRONT END NOW
 @app.route('/nearby', methods=['GET'])
