@@ -17,10 +17,9 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
     @IBOutlet weak var groupTableView: UITableView!
     
     var locManager = CLLocationManager()
-    
-    var items:[Any] = []
-    
     var group_list:[GroupPostManager.GroupObject] = []
+    
+    var selectedGroup: GroupPostManager.GroupObject = GroupPostManager.GroupObject()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,108 +29,104 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
         groupTableView.dataSource = self
         groupTableView.delegate = self
         
-        items.append("hey")
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        self.group_list = []
         loadFeed()
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(150)
+    }
+    
     func loadFeed() {
-        self.groupTableView.reloadData()
+        
+        locManager.requestWhenInUseAuthorization()
+        if((CLLocationManager.authorizationStatus() == .authorizedWhenInUse) || (CLLocationManager.authorizationStatus() ==  .authorizedAlways)) {
+            locManager.requestLocation()
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
         if let location = locations.first {
             
             let latitude = "\(location.coordinate.latitude)"
             let longitude = "\(location.coordinate.longitude)"
             
-            print("lat, long: \(latitude), \(longitude)")
+            // print("lat, long: \(latitude), \(longitude)")
             
-            let urlString = "http://34.73.109.229:80/message"
+            GroupPostManager.sharedInstance.latitude = latitude
+            GroupPostManager.sharedInstance.longitude = longitude
             
-            let parameters: [String: Any] = [
-                "lat": latitude,
-                "long": longitude,
-                "distance": "20",
-                //"username": username!
-            ]
-            
-            // EXAMPLE DATA:
-            /*
-            [
-                {
-                    "place": {
-                        "name": "Jabulani mall",
-                        "place_id": "ChIJgbX7WpkOlR4RwXZjAPQrZFM",
-                        "photo_url": "https://i.kym-cdn.com/entries/icons/original/000/025/999/Screen_Shot_2018-04-24_at_1.33.44_PM.png"},
-                        "posts": [
-                                    {"dislikes": 0, "username": "bailytro", "likes": 0, "latitude": -26.2041028, "bbox": [28.0473051, -26.2041028, 28.0473051, -26.2041028], "post_id": "dc8a4fa7-bf51-402e-a9c5-62c4f13f9193", "post_time": "2019-04-02 15:14:11.575823-04:00", "longitude": 28.0473051, "gtype": 1, "expire_time": "2019-04-20 22:59:45", "content": "Asdf"}, {"dislikes": 0, "username": "bailytro", "likes": 0, "latitude": -26.2041028, "bbox": [28.0473051, -26.2041028, 28.0473051, -26.2041028], "post_id": "fc1649b6-f2a9-483a-89be-6219944a09c5", "post_time": "2019-04-02 15:14:11.582744-04:00", "longitude": 28.0473051, "gtype": 1, "expire_time": "2019-04-20 22:59:45", "content": "Asdf"}, {"dislikes": 0, "username": "bailytro", "likes": 0, "latitude": -26.2041028, "bbox": [28.0473051, -26.2041028, 28.0473051, -26.2041028], "post_id": "b814827d-1323-417e-a968-e3f5eb635717", "post_time": "2019-04-02 15:13:25.539699-04:00", "longitude": 28.0473051, "gtype": 1, "expire_time": "2019-04-20 22:59:45", "content": "Fdsfdsa"
-                                    }
-                                  ]
-                    
-                }
-            ]
-            */
-            Alamofire.request(urlString, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { response in
+            GroupPostManager.sharedInstance.getGroupData(completion: {(response) in
                 
-                // print("response: \(response.result.value!)")
+                let response_object: [GroupPostManager.GroupObject] = response
                 
-                if let result = response.result.value {
+                // print("response object_group view: \(response_object)")
+                // print("count_group view: \(response_object.count)")
+                
+                if (response_object.count != 0) {
+                    // print("response: \(response)")
                     
-                    let groupList = result as! [Any]
-                    
-                    print("JSON: \(groupList)")
-                    for group in groupList {
-                        
-                        let groupDictionary = group as! NSDictionary
-                        
-                        let place = groupDictionary.value(forKey: "place") as! NSDictionary
-                        
-                        let groupObject = GroupPostManager.GroupObject(URL: place.value(forKey: "photo_url") as! String, posts: place.value(forKey: "posts") as! [NSDictionary], name: place.value(forKey: "name") as! String)
-                        
-                        self.group_list.append(groupObject)
-                    }
-                    print("reloading data")
+                    self.group_list = response
                     self.groupTableView.reloadData()
-                    //self.feedView.reloadData()
+                } else {
+                    // print("RESPONSE WAS NIL")
                 }
-            }
+            })
+            
         }
-        
     }
-    
+        
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Failed to find user's location: \(error.localizedDescription)")
     }
     
-    // -------------------------------------------------------------------
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("count: \(items.count)")
-        return items.count
+        print("count: \(group_list.count)")
+        return group_list.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        print("loading cell")
+        let group_item = group_list[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "GroupViewCell", for: indexPath as IndexPath) as! GroupViewCell
         
+        // cell.groupImage.image = #imageLiteral(resourceName: "davis_hall")
         
-        cell.groupImage.image = #imageLiteral(resourceName: "davis_hall")
-        cell.groupImage.alpha = 0.35
-        cell.groupImage.contentMode = .scaleToFill
+        let url = URL(string: group_item.URL!)
         
-        //cell.textLabel?.text = self.items[indexPath.row]
+        DispatchQueue.global().async {
+            let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+            DispatchQueue.main.async {
+                cell.groupImage.image = UIImage(data: data!)
+                cell.groupImage.contentMode = .scaleToFill
+                // cell.groupImage.alpha = 0.35
+            }
+        }
+        
+        cell.buildingName.text = group_list[indexPath.row].name
         
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        //self.performSegue(withIdentifier: "", sender: self)
-        //print("You selected cell #\(indexPath.row)!")
+        self.selectedGroup = group_list[indexPath.row]
+        GroupPostManager.sharedInstance.current_group = self.selectedGroup
+        self.performSegue(withIdentifier: "toGroup", sender: self)
     }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "toGroup") {
+            let feedView = segue.destination as! FeedView
+            feedView.place_id = selectedGroup.ID!
+            feedView.place_name = selectedGroup.name!
+        }
+    }
+    
 }

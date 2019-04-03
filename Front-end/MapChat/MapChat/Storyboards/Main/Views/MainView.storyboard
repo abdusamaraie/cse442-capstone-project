@@ -195,7 +195,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qYb-Eo-IFk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1199" y="1023"/>
+            <point key="canvasLocation" x="1402" y="1023"/>
         </scene>
         <!--Group View-->
         <scene sceneID="Ign-gK-K6i">
@@ -211,42 +211,41 @@
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroupViewCell" rowHeight="150" id="Nio-ML-Xi2" customClass="GroupViewCell" customModule="MapChat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="150"/>
-                                        <autoresizingMask key="autoresizingMask"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Nio-ML-Xi2" id="WeF-KY-nFt">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="149.66666666666666"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="davis_hall.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="MvE-We-0wo">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="150" id="cn9-Rw-2cA"/>
-                                                    </constraints>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="davis_hall.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="nI9-1c-alI">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="149.66666666666666"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Davis Hall" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sw7-Uf-qix">
-                                                    <rect key="frame" x="142" y="61.666666666666664" width="91" height="26.666666666666664"/>
-                                                    <fontDescription key="fontDescription" name="AirbnbCerealApp-Medium" family="Airbnb Cereal App" pointSize="20"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wLC-1m-c60">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="149.66666666666666"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Davis Hall" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbm-e7-ZoV">
+                                                    <rect key="frame" x="139.66666666666666" y="61" width="96" height="28"/>
+                                                    <fontDescription key="fontDescription" name="AirbnbCerealApp-Medium" family="Airbnb Cereal App" pointSize="21"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Sw7-Uf-qix" firstAttribute="centerX" secondItem="MvE-We-0wo" secondAttribute="centerX" id="C7f-f3-cpD"/>
-                                                <constraint firstItem="MvE-We-0wo" firstAttribute="top" secondItem="Sw7-Uf-qix" secondAttribute="bottom" constant="-88.333333333333329" id="JKY-v6-fnK"/>
-                                                <constraint firstItem="MvE-We-0wo" firstAttribute="top" secondItem="WeF-KY-nFt" secondAttribute="top" id="N6T-ij-NAh"/>
-                                                <constraint firstItem="MvE-We-0wo" firstAttribute="leading" secondItem="WeF-KY-nFt" secondAttribute="leading" id="Y2E-lb-ypi"/>
-                                                <constraint firstItem="Sw7-Uf-qix" firstAttribute="centerY" secondItem="MvE-We-0wo" secondAttribute="centerY" id="bOY-Ls-XfK"/>
-                                                <constraint firstAttribute="trailing" secondItem="MvE-We-0wo" secondAttribute="trailing" id="etP-n9-MZV"/>
-                                                <constraint firstItem="Sw7-Uf-qix" firstAttribute="top" secondItem="MvE-We-0wo" secondAttribute="bottom" constant="-88.333333333333343" id="oPI-7z-EU3"/>
+                                                <constraint firstItem="nI9-1c-alI" firstAttribute="top" secondItem="WeF-KY-nFt" secondAttribute="top" id="0J9-MI-Pd1"/>
+                                                <constraint firstAttribute="trailing" secondItem="nI9-1c-alI" secondAttribute="trailing" id="Hs7-DD-Atc"/>
+                                                <constraint firstItem="dbm-e7-ZoV" firstAttribute="centerX" secondItem="wLC-1m-c60" secondAttribute="centerX" id="Pft-up-FZy"/>
+                                                <constraint firstItem="wLC-1m-c60" firstAttribute="top" secondItem="WeF-KY-nFt" secondAttribute="top" id="UJw-11-W0t"/>
+                                                <constraint firstItem="dbm-e7-ZoV" firstAttribute="centerY" secondItem="wLC-1m-c60" secondAttribute="centerY" id="YVm-Uj-His"/>
+                                                <constraint firstAttribute="trailing" secondItem="wLC-1m-c60" secondAttribute="trailing" id="bZ2-ju-2dX"/>
+                                                <constraint firstItem="nI9-1c-alI" firstAttribute="leading" secondItem="WeF-KY-nFt" secondAttribute="leading" id="ctp-9a-MR9"/>
+                                                <constraint firstAttribute="bottom" secondItem="nI9-1c-alI" secondAttribute="bottom" id="czs-YP-C5d"/>
+                                                <constraint firstAttribute="bottom" secondItem="wLC-1m-c60" secondAttribute="bottom" id="kio-vG-KKB"/>
+                                                <constraint firstItem="wLC-1m-c60" firstAttribute="leading" secondItem="WeF-KY-nFt" secondAttribute="leading" id="tup-80-ECQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <constraints>
-                                            <constraint firstItem="MvE-We-0wo" firstAttribute="leading" secondItem="Nio-ML-Xi2" secondAttribute="leading" id="0AB-kD-EGY"/>
-                                            <constraint firstAttribute="bottom" secondItem="MvE-We-0wo" secondAttribute="bottom" id="J62-6l-hxG"/>
-                                            <constraint firstItem="MvE-We-0wo" firstAttribute="top" secondItem="Nio-ML-Xi2" secondAttribute="top" id="R3w-3r-JfI"/>
-                                            <constraint firstAttribute="trailing" secondItem="MvE-We-0wo" secondAttribute="trailing" id="beB-B3-Nux"/>
-                                        </constraints>
                                         <connections>
-                                            <outlet property="groupImage" destination="MvE-We-0wo" id="Zlg-by-nD1"/>
+                                            <outlet property="buildingName" destination="dbm-e7-ZoV" id="PuR-qA-0HU"/>
+                                            <outlet property="groupImage" destination="nI9-1c-alI" id="Ul0-4x-DPi"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -264,12 +263,12 @@
                     <navigationItem key="navigationItem" id="5WS-gE-wdy"/>
                     <connections>
                         <outlet property="groupTableView" destination="a61-a6-thS" id="3IR-SJ-YBG"/>
-                        <segue destination="Cng-Yb-si6" kind="show" identifier="showInGroup" id="7Ry-sj-D7x"/>
+                        <segue destination="Cng-Yb-si6" kind="show" identifier="toGroup" id="n1i-2P-ySb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bs1-D2-h2n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-294" y="1023"/>
+            <point key="canvasLocation" x="-295.19999999999999" y="1022.6600985221676"/>
         </scene>
         <!--Feed View-->
         <scene sceneID="NoO-ua-M6o">
@@ -353,7 +352,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aWM-JE-GCG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="468" y="1023"/>
+            <point key="canvasLocation" x="562" y="1023"/>
         </scene>
         <!--Drop Message View-->
         <scene sceneID="JaA-zh-6wF">

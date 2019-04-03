@@ -12,11 +12,32 @@ import CoreLocation
 import MapKit
 import Alamofire
 
-struct MessageObject {
-    var latitude: String
-    var longitude: String
-    // var username: String
-    var content: String
+/*
+ 
+ {
+ bbox =     (
+ "-78.79558400000001",
+ "42.998865",
+ "-78.79558400000001",
+ "42.998865"
+ );
+ content = "Hey there";
+ dislikes = 0;
+ "expire_time" = "2019-04-20 22:59:45";
+ gtype = 1;
+ latitude = "42.998865";
+ likes = 0;
+ longitude = "-78.79558400000001";
+ "post_id" = "d55dcac1-1a69-4a67-9965-acacd90985f3";
+ "post_time" = "2019-04-02 18:02:41.116118-04:00";
+ username = bailytro;
+ }
+ 
+ */
+
+struct Message {
+    var message: String
+    var username: String
 }
 
 class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
@@ -25,11 +46,13 @@ class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource, CL
     
     var locManager = CLLocationManager()
     
-    var messageObjects = [MessageObject]()
+    var messages: [Message] = []
+    
+    var place_id: String = ""
+    var place_name: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         locManager.delegate = self
         
@@ -52,7 +75,6 @@ class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource, CL
     @objc func updateRefresh(refreshControl: UIRefreshControl) {
         
         // load feed, calling API, refreshing table view and spinning loader
-        
         loadFeed()
         refreshControl.endRefreshing()
         
@@ -62,7 +84,7 @@ class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource, CL
     
     func loadFeed() {
         
-        self.messageObjects = []
+        self.messages = []
         
         locManager.requestWhenInUseAuthorization()
         if((CLLocationManager.authorizationStatus() == .authorizedWhenInUse) || (CLLocationManager.authorizationStatus() ==  .authorizedAlways)) {
@@ -75,44 +97,25 @@ class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource, CL
         if let location = locations.first {
             
             // start loading spinner
-            //let sv = UIViewController.displaySpinner(onView: self.view)
+            // let sv = UIViewController.displaySpinner(onView: self.view)
             
-            let latitude = "\(location.coordinate.latitude)"
-            let longitude = "\(location.coordinate.longitude)"
+            GroupPostManager.sharedInstance.assignLatLong(latitde: "\(location.coordinate.latitude)", longitude: "\(location.coordinate.longitude)")
             
-            let urlString = "http://34.73.109.229:80/message"
-            
-            let parameters: [String: Any] = [
-                "lat": latitude,
-                "long": longitude,
-                "distance": "20",
-                //"username": username!
-            ]
-            
-            // print("parameters: \(parameters)")
-            
-            Alamofire.request(urlString, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { response in
+            GroupPostManager.sharedInstance.getPostData(completion: {(response) in
                 
-                // print("response: \(response.result.value!)")
+                // response dictionary
+                let response_dict: [NSDictionary] = response
+                print("response_dict: \(response_dict)")
                 
-                if let result = response.result.value {
-                    let messageList = result as! [Any]
-                    print("JSON: \(messageList)")
-                    for message in messageList {
-                        
-                        let message_json = message as! NSDictionary
-
-                        let latitude = message_json.value(forKey: "latitude") as! NSNumber
-                        let longitude = message_json.value(forKey: "longitude") as! NSNumber
-                        let content = message_json.value(forKey: "content") as! String
-                        
-                        //self.messageObjects.append(MessageObject(latitude: latitude, longitude: longitude, username: username, content: content))
-                        self.messageObjects.append(MessageObject(latitude: "\(latitude)", longitude: "\(longitude)", content: content))
-                    }
-                    print("reloading data")
-                    self.feedView.reloadData()
+                for message_dict in response_dict {
+                    let message:String = message_dict.value(forKey: "content") as! String
+                    let username:String = message_dict.value(forKey: "username") as! String
+                    
+                    self.messages.append(Message(message: message, username: username))
                 }
-            }
+                
+                self.feedView.reloadData()
+            })
         }
     }
     
@@ -121,26 +124,21 @@ class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource, CL
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return messageObjects.count
+        return messages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        print("building cell")
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath) as! FeedViewCell
         
         // these fields would be returned from the WebServicesManager class
         
-        let messageContent = self.messageObjects[indexPath.row].content
-        let messageLocation = "\(self.messageObjects[indexPath.row].latitude),\(self.messageObjects[indexPath.row].longitude)"
-        
-        print("message content: \(messageContent)")
-        print("message location: \(messageLocation)")
+        let messageContent = self.messages[indexPath.row].message
+        // let messageLocation = "\(self.messageObjects[indexPath.row].latitude),\(self.messageObjects[indexPath.row].longitude)"
         
         cell.time.text = "_"
         cell.title.text = messageContent
-        cell.location.text = messageLocation
+        cell.location.text = "_"
 
         cell.clipsToBounds = true
 

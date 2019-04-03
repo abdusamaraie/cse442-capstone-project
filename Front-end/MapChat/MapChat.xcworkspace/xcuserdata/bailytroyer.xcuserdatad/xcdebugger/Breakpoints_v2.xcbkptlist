@@ -9,29 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MapChat/Storyboards/Main/Views/GroupView.swift"
-            timestampString = "575858922.124272"
+            filePath = "MapChat/Storyboards/Main/Helpers/GroupPostManager.swift"
+            timestampString = "575945153.9255919"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "loadFeed()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MapChat/Storyboards/Auth/Views/SignInView.swift"
-            timestampString = "575858922.124612"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "viewDidAppear(_:)"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "getGroupData(completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

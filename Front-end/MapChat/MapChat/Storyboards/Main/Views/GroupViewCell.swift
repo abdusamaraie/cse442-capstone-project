@@ -11,6 +11,7 @@ import UIKit
 
 class GroupViewCell: UITableViewCell {
     
+    @IBOutlet weak var buildingName: UILabel!
     @IBOutlet weak var groupImage: UIImageView!
     
     override func awakeFromNib() {
