@@ -170,11 +170,13 @@ def change_password():
 
 
 @app.route('/place', methods=['GET'])
-def places():
-    if request.method == 'GET ':
+def place():
+    if request.method == 'GET':
         lat = request.args.get('lat')
         long = request.args.get('long')
-        return neo4j.get_place_nodes_wide(lat,long)
+        return neo4j.get_wide_place_nodes(lat, long)
+    else:
+        return str(False)
 
 
 '''
@@ -191,8 +193,8 @@ def nearby():
 
 
 def start_server():
-    app.run(host='0.0.0.0', port=80, debug=True)
-    # app.run(host='127.0.0.1', port=5000, debug=True)
+    # app.run(host='0.0.0.0', port=80, debug=True)
+    app.run(host='127.0.0.1', port=5000, debug=True)
 
 
 def signal_handler(sig, frame):
