@@ -421,10 +421,26 @@ def get_wide_place_nodes(lat, lon):
                         "RETURN places{{.*, number_of_posts: count(p)}} LIMIT 10".format(lat, lon, radius_km, time))
 
         # loop through results and create json
-        posts_json = json.dumps([dict(ix)['places'] for ix in res.data()])
-        return posts_json
+        places_json = json.dumps([dict(ix)['places'] for ix in res.data()])
+        return places_json
 
     except Exception as e:
         print(e)
         return str(False)
 
+
+def get_posts_at_place(place_id):
+    time = get_time()
+
+    try:
+        result = GRAPH.run("MATCH(p: Post)-[: LOCATED_AT]->(pl:Place {{place_id: '{}'}})"
+                           "WHERE p.expire_time > '{}' "
+                           "RETURN p".format(place_id, time))
+
+        # loop through results and create json
+        posts_json = json.dumps([dict(ix)['p'] for ix in result.data()])
+        return posts_json
+
+    except Exception as e:
+        print(e)
+        return str(False)
