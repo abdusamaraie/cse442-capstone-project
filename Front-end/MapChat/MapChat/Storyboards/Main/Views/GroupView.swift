@@ -38,7 +38,6 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("list APPEAR: \(group_list)")
         loadFeed()
     }
     
@@ -65,14 +64,10 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
         
         if let location = locations.first {
             
-            let latitude = "\(location.coordinate.latitude)"
-            let longitude = "\(location.coordinate.longitude)"
+            GroupPostManager.sharedInstance.latitude = "\(location.coordinate.latitude)"
+            GroupPostManager.sharedInstance.longitude = "\(location.coordinate.longitude)"
             
-            // print("lat, long: \(latitude), \(longitude)")
-            
-            GroupPostManager.sharedInstance.latitude = latitude
-            GroupPostManager.sharedInstance.longitude = longitude
-            
+            // displau spinner
             let sv = UIViewController.displaySpinner(onView: self.view)
             
             GroupPostManager.sharedInstance.getGroupData(completion: {(response) in

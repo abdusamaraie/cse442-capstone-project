@@ -8,28 +8,26 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 class GroupPostManager {
     
     struct GroupObject {
         var URL: String?
-        var posts: [NSDictionary]?
         var name: String?
         var ID: String?
         
         init(URL: String? = nil, //👈
-            posts: [NSDictionary]? = nil,
             name: String? = nil,
             ID: String? = nil) {
 
             self.URL = URL
-            self.posts = posts
             self.name = name
             self.ID = ID
         }
     }
     
-    let urlString = "http://34.73.109.229:80/place"
+    let urlString = "http://34.73.109.229:80"
     
     static var sharedInstance = GroupPostManager()
     
@@ -51,39 +49,22 @@ class GroupPostManager {
         
         let parameters: [String: Any] = ["lat": latitude,"long": longitude]
         
-        print("parameters: \(parameters)")
-        
-        Alamofire.request("\(urlString)", method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { response in
+        Alamofire.request("\(urlString)/place", method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { response in
             
-            print("response: \(response.result.value)")
-            
-            if let result = response.result.value {
-    
-                let groupList = result as! [Any]
+            if((response.result.value) != nil) {
+                let places = JSON(response.result.value!)
                 
-                // print("group List: \(groupList)")
-                // print("JSON: \(groupList)")
-                for group in groupList {
-                    
-                    // print("group: \(group)")
-                    
-                    let groupDictionary = group as! NSDictionary
-                    print("group dict: \(groupDictionary)")
-                    // let place = groupDictionary.value(forKey: "place") as! NSDictionary
-                    
-                    // let groupObject = GroupPostManager.GroupObject(URL: (place.value(forKey: "photo_url") as! String), posts: (groupDictionary.value(forKey: "posts") as! [NSDictionary]), name: (place.value(forKey: "name") as! String), ID: (place.value(forKey: "place_id") as! String))
-                    
-                    // self.group_list.append(groupObject)
+                for (_,place) in places {
+            
+                    self.group_list.append(GroupPostManager.GroupObject(URL: place["photo_url"].string!, name: place["name"].string!, ID: place["place_id"].string!))
                 }
                 
-                // print("completion of group list!!! GOOD")
                 completion(self.group_list)
-
-//                self.groupTableView.reloadData()
+                self.group_list = []
+                
             }
-            
-            // print("completion of empty list due to error")
             completion([])
+            self.group_list = []
         }
     }
     
@@ -95,14 +76,11 @@ class GroupPostManager {
             "placeID": current_group.ID!
         ]
         
-        Alamofire.request("\(urlString)/message", method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { response in
+        Alamofire.request("\(urlString)/place/message", method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { response in
             
             if let result = response.result.value {
                 
                 let groupList = result as! [Any]
-                
-                // print("current group ID: \(self.current_group.ID)")
-                // print("group list: \(groupList)")
                 
                 for group in groupList {
                     
