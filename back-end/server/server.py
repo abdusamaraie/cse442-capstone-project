@@ -5,6 +5,7 @@ from objects.user import User
 from objects.filestream import Filestream
 # Flask
 from flask import Flask, request, json
+from flask_socketio import SocketIO,emit,send
 
 # Core Libraries
 import multiprocessing
@@ -12,7 +13,8 @@ import signal
 import sys, os, uuid
 
 app = Flask(__name__)
-
+app.config['SECRET_KEY'] = 'mykeyissecret'
+socketio = SocketIO(app)
 
 # app.config['UPLOAD_FOLDER'] = UPLOAD_PATH
 # app.wsgi_app = Filestream(app.wsgi_app)
@@ -201,11 +203,63 @@ def nearby():
 
         return places.get_nearby_places(lat, lon)
 '''
+#Handle auth
+@socketio.on('my login' )
+def on_auth(data):
+    socketio.emit('my response' , data,callback=auth)
+    pass
+#Handle message 
+@socketio.on('my message')
+def on_message(data):
+    socketio.emit('my response' , data,callback=message,broadcast=True)
+    pass
+#Handle rating
+@socketio.on('my rating' )
+def on_rating(data):
+    socketio.emit('my response' , data,callback=rating)
+    pass
+#Handle replies
+@socketio.on('my replies' )
+def on_replies(data):
+    socketio.emit('my response' , data,callback=replies)
+    pass
+#Handle deactivate
+@socketio.on('delete user' )
+def on_deactivate(data):
+    socketio.emit('my response' , data,callback=deactivate)
+    pass
+#Handle post deletion
+@socketio.on('delete post' )
+def on_delete_post(data):
+    print('post deleted: ' + str(data))
+    socketio.emit('my response' , data,callback=delete_post)
+
+#Handle reply deletion
+@socketio.on('delete reply' )
+def on_delete_reply(data):
+    socketio.emit('my response' , data,callback=delete_reply)
+    pass
+#Handle change password
+@socketio.on('change password' )
+def on_change_password(data):
+    socketio.emit('my response' , data,callback=change_password)
+    pass
+#Handle place
+@socketio.on('place' )
+def on_place(data):
+    socketio.emit('my response' , data,callback=place)
+    pass
+#Handle place
+@socketio.on('place message' )
+def on_place_message(data):
+    socketio.emit('my response' , data,callback=place_message)
+    pass
 
 
 def start_server():
-    app.run(host='0.0.0.0', port=80, debug=True)
+    #app.run(host='0.0.0.0', port=80, debug=True)
     # app.run(host='127.0.0.1', port=5000, debug=True)
+    socketio.run(app,host='0.0.0.0', port=80, debug=True)
 
 
 def signal_handler(sig, frame):
