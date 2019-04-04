@@ -5,6 +5,7 @@ from objects.user import User
 from objects.filestream import Filestream
 # Flask
 from flask import Flask, request, json
+from flask_socketio import SocketIO,emit,send
 
 # Core Libraries
 import multiprocessing
@@ -12,7 +13,8 @@ import signal
 import sys, os, uuid
 
 app = Flask(__name__)
-
+app.config['SECRET_KEY'] = 'mykeyissecret'
+socketio = SocketIO(app)
 
 # app.config['UPLOAD_FOLDER'] = UPLOAD_PATH
 # app.wsgi_app = Filestream(app.wsgi_app)
@@ -206,6 +208,7 @@ def nearby():
 def start_server():
     app.run(host='0.0.0.0', port=80, debug=True)
     # app.run(host='127.0.0.1', port=5000, debug=True)
+    #socketio.run(app,host='0.0.0.0', port=80, debug=True)
 
 
 def signal_handler(sig, frame):
