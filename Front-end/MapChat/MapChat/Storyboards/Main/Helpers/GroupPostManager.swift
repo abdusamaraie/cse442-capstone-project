@@ -54,6 +54,8 @@ class GroupPostManager {
             if((response.result.value) != nil) {
                 let places = JSON(response.result.value!)
                 
+                print("places: \(places)")
+                
                 for (_,place) in places {
             
                     self.group_list.append(GroupPostManager.GroupObject(URL: place["photo_url"].string!, name: place["name"].string!, ID: place["place_id"].string!))
@@ -76,26 +78,23 @@ class GroupPostManager {
             "placeID": current_group.ID!
         ]
         
+        print("parameters: \(parameters)")
+        
         Alamofire.request("\(urlString)/place/message", method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { response in
             
-            if let result = response.result.value {
+            
+            if((response.result.value) != nil) {
+                let posts = JSON(response.result.value!)
                 
-                let groupList = result as! [Any]
+                print("posts: \(posts)")
                 
-                for group in groupList {
-                    
-                    let groupDictionary = group as! NSDictionary
-                    let place = groupDictionary.value(forKey: "place") as! NSDictionary
-                    
-                    
-                    let place_id = place.value(forKey: "place_id") as! String
-                    
-                    if (place_id == self.current_group.ID) {
-                        let posts_: [NSDictionary] = groupDictionary.value(forKey: "posts") as! [NSDictionary]
-                        self.posts = posts_
-                        completion(self.posts)
-                    }
-                }
+//                for (_,place) in places {
+//
+//                    self.group_list.append(GroupPostManager.GroupObject(URL: place["photo_url"].string!, name: place["name"].string!, ID: place["place_id"].string!))
+//                }
+                
+                completion(self.posts)
+                
             }
             completion([])
         }
