@@ -203,7 +203,16 @@ def nearby():
 
         return places.get_nearby_places(lat, lon)
 '''
-
+#Handle auth
+@socketio.on('my login' )
+def on_auth(data):
+    socketio.emit('my response' , data,callback=auth)
+    pass
+#Handle message 
+@socketio.on('my message')
+def on_message(data):
+    socketio.emit('my response' , data,callback=message,broadcast=True)
+    pass
 
 def start_server():
     app.run(host='0.0.0.0', port=80, debug=True)
