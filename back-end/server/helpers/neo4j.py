@@ -433,9 +433,10 @@ def get_posts_at_place(place_id):
     time = get_time()
 
     try:
-        result = GRAPH.run("MATCH(p: Post)-[: LOCATED_AT]->(pl:Place {{place_id: '{}'}})"
+        result = GRAPH.run("MATCH (u:User)-[:POSTED]->(p:Post)-[:LOCATED_AT]->(pl:Place {{place_id: '{}'}})"
                            "WHERE p.expire_time > '{}' "
-                           "RETURN p".format(place_id, time))
+                           "WITH u, p "
+                           "RETURN p{{.*, username: u.username, likes: size((p)<-[:LIKED]-()), dislikes: size((p)<-[:DISLIKED]-())}}".format(place_id, time))
 
         # loop through results and create json
         posts_json = json.dumps([dict(ix)['p'] for ix in result.data()])
