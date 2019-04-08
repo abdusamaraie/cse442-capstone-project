@@ -246,17 +246,7 @@ def on_replies(data):
 def on_deactivate(data):
     socketio.emit('my response' , data,callback=deactivate)
     pass
-#Handle post deletion
-@socketio.on('delete post' )
-def on_delete_post(data):
-    print('post deleted: ' + str(data))
-    socketio.emit('my response' , data,callback=delete_post)
 
-#Handle reply deletion
-@socketio.on('delete reply' )
-def on_delete_reply(data):
-    socketio.emit('my response' , data,callback=delete_reply)
-    pass
 #Handle change password
 @socketio.on('change password' )
 def on_change_password(data):
@@ -272,7 +262,6 @@ def on_place(data):
 def on_place_message(data):
     socketio.emit('my response' , data,callback=place_message)
     pass
-
 
 def start_server():
     #app.run(host='0.0.0.0', port=80, debug=True)
