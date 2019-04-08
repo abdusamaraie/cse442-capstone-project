@@ -6,6 +6,7 @@ from objects.filestream import Filestream
 # Flask
 from flask import Flask, request, json
 from flask_socketio import SocketIO,emit,send
+from flask_login import LoginManager, login_user, current_user,UserMixin
 
 # Core Libraries
 import multiprocessing
@@ -15,10 +16,24 @@ import sys, os, uuid
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'mykeyissecret'
 socketio = SocketIO(app)
+login = LoginManager(app)
 
 # app.config['UPLOAD_FOLDER'] = UPLOAD_PATH
 # app.wsgi_app = Filestream(app.wsgi_app)
 
+class UserSession(UserMixin):
+    def __init__(self, username):
+        self.id = username
+
+@login.user_loader
+def user_loader(id):
+    return UserSession(id)
+
+@socketio.on('connect')
+def on_connect():
+    if current_user.is_anonymous:
+        return False
+    emit('welcome', {'username': current_user.id})
 
 @app.route('/', methods=['GET'])
 def hello_world():
@@ -46,6 +61,8 @@ def uploadPhoto():
         return str(neo4j.add_photo(username, file))
 
 
+
+
 @app.route('/auth', methods=['GET', 'POST'])
 def auth():
 
@@ -53,7 +70,9 @@ def auth():
     if request.method == 'GET':
         username = request.args.get('username')
         password = request.args.get('password')
-
+        if not authenticate.verify_user(username, password):
+            return 'user not found'
+        login_user(UserSession(username))
         # check if username and password exist
         return str(authenticate.verify_user(username, password))
 
@@ -205,14 +224,17 @@ def nearby():
 '''
 #Handle auth
 @socketio.on('my login' )
-def on_auth(data):
-    socketio.emit('my response' , data,callback=auth)
-    pass
+def on_auth():
+    if current_user.is_anonymous:
+        return False
+    socketio.emit('my response' , {'username': current_user.id},namespace='/auth')
 #Handle message 
 @socketio.on('my message')
 def on_message(data):
-    socketio.emit('my response' , data,callback=message,broadcast=True)
-    pass
+    if current_user.is_anonymous:
+        return False
+    print('recived my event: ' + str(data))
+    socketio.emit('my response' , data,namespace='/message')
 #Handle rating
 @socketio.on('my rating' )
 def on_rating(data):
@@ -228,17 +250,7 @@ def on_replies(data):
 def on_deactivate(data):
     socketio.emit('my response' , data,callback=deactivate)
     pass
-#Handle post deletion
-@socketio.on('delete post' )
-def on_delete_post(data):
-    print('post deleted: ' + str(data))
-    socketio.emit('my response' , data,callback=delete_post)
 
-#Handle reply deletion
-@socketio.on('delete reply' )
-def on_delete_reply(data):
-    socketio.emit('my response' , data,callback=delete_reply)
-    pass
 #Handle change password
 @socketio.on('change password' )
 def on_change_password(data):
@@ -255,10 +267,9 @@ def on_place_message(data):
     socketio.emit('my response' , data,callback=place_message)
     pass
 
-
 def start_server():
     #app.run(host='0.0.0.0', port=80, debug=True)
-    # app.run(host='127.0.0.1', port=5000, debug=True)
+    #socketio.run(app,host='127.0.0.1', port=5000, debug=True)
     socketio.run(app,host='0.0.0.0', port=80, debug=True)
 
 
