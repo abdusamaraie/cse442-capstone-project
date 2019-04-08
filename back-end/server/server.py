@@ -220,9 +220,10 @@ def nearby():
 '''
 #Handle auth
 @socketio.on('my login' )
-def on_auth(data):
-    socketio.emit('my response' , data,callback=auth)
-    pass
+def on_auth():
+    if current_user.is_anonymous:
+        return False
+    socketio.emit('my response' , {'username': current_user.id},namespace='/auth')
 #Handle message 
 @socketio.on('my message')
 def on_message(data):
