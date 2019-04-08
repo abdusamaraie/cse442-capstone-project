@@ -5,3 +5,4 @@ py2neo
 passlib
 argon2-cffi
 flask_socketio
+flask_login

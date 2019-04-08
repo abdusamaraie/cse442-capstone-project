@@ -6,6 +6,7 @@ from objects.filestream import Filestream
 # Flask
 from flask import Flask, request, json
 from flask_socketio import SocketIO,emit,send
+from flask_login import LoginManager, login_user, current_user,UserMixin
 
 # Core Libraries
 import multiprocessing
@@ -15,10 +16,18 @@ import sys, os, uuid
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'mykeyissecret'
 socketio = SocketIO(app)
+login = LoginManager(app)
 
 # app.config['UPLOAD_FOLDER'] = UPLOAD_PATH
 # app.wsgi_app = Filestream(app.wsgi_app)
 
+class UserSession(UserMixin):
+    def __init__(self, username):
+        self.id = username
+
+@login.user_loader
+def user_loader(id):
+    return UserSession(id)
 
 @app.route('/', methods=['GET'])
 def hello_world():
