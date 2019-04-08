@@ -29,6 +29,12 @@ class UserSession(UserMixin):
 def user_loader(id):
     return UserSession(id)
 
+@socketio.on('connect')
+def on_connect():
+    if current_user.is_anonymous:
+        return False
+    emit('welcome', {'username': current_user.id})
+
 @app.route('/', methods=['GET'])
 def hello_world():
     return 'Hello, World!'
@@ -62,7 +68,7 @@ def auth():
     if request.method == 'GET':
         username = request.args.get('username')
         password = request.args.get('password')
-
+        login_user(UserSession(username))
         # check if username and password exist
         return str(authenticate.verify_user(username, password))
 
