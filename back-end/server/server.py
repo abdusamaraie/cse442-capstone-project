@@ -227,8 +227,10 @@ def on_auth():
 #Handle message 
 @socketio.on('my message')
 def on_message(data):
-    socketio.emit('my response' , data,callback=message,broadcast=True)
-    pass
+    if current_user.is_anonymous:
+        return False
+    print('recived my event: ' + str(data))
+    socketio.emit('my response' , data,namespace='/message')
 #Handle rating
 @socketio.on('my rating' )
 def on_rating(data):
