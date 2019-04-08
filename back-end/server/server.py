@@ -60,14 +60,7 @@ def uploadPhoto():
         # add photo path to database
         return str(neo4j.add_photo(username, file))
 
-@app.route('/login', methods=['POST'])
-def login():
-    username = request.json['username']
-    password = request.json['password']
-    if not authenticate.verify_user(username, password):
-        return 'user not found'
-    login_user(UserSession(username))
-    return 'user logged in'
+
 
 
 @app.route('/auth', methods=['GET', 'POST'])
@@ -77,6 +70,9 @@ def auth():
     if request.method == 'GET':
         username = request.args.get('username')
         password = request.args.get('password')
+        if not authenticate.verify_user(username, password):
+            return 'user not found'
+        login_user(UserSession(username))
         # check if username and password exist
         return str(authenticate.verify_user(username, password))
 
