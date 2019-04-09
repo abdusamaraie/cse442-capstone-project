@@ -211,6 +211,18 @@ def place_message():
         return str(False)
 
 
+@app.route('/distance', methods=['GET'])
+def place_message():
+    # RETURN THE DISTANCE BETWEEN A USER AND A PLACE
+    if request.method == 'GET':
+        place_id = request.args.get('placeId')
+        lat = request.args.get('lat')
+        long = request.args.get('long')
+        return places.distance_from_place(place_id, lat, long)
+    else:
+        return str(False)
+
+
 '''
 THIS IS DONE ON THE FRONT END NOW
 @app.route('/nearby', methods=['GET'])
