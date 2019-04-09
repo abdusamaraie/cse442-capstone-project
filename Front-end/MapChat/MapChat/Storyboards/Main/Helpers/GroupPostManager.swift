@@ -56,7 +56,7 @@ class GroupPostManager {
             if((response.result.value) != nil) {
                 let places = JSON(response.result.value!)
                 
-                print("places: \(places)")
+                // print("places: \(places)")
                 
                 for (_,place) in places {
             

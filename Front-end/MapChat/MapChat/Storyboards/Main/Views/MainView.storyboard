@@ -186,6 +186,9 @@
                                         </constraints>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="camera"/>
+                                        <connections>
+                                            <action selector="changeImage:" destination="vNL-4U-srH" eventType="touchUpInside" id="Kmk-VG-CEd"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -230,6 +233,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Cco-1g-dqr"/>
                     <connections>
+                        <outlet property="changeImagrButton" destination="xOF-nY-Rqp" id="uzx-lh-mr1"/>
                         <outlet property="profileImage" destination="Svs-Ww-i9D" id="7Xp-Yb-6P1"/>
                         <outlet property="profileName" destination="H2y-Aa-yt3" id="RCs-AD-1Dj"/>
                         <outlet property="settingsView" destination="SBk-Vs-7B0" id="mSK-aO-kEw"/>
@@ -341,7 +345,7 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="davis_hall.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="nI9-1c-alI">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="149.66666666666666"/>
                                                 </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wLC-1m-c60">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wLC-1m-c60">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="149.66666666666666"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </imageView>

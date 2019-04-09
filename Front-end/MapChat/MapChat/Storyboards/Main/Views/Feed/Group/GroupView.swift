@@ -18,13 +18,17 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
     
     var locManager = CLLocationManager()
     
+    var refreshControl = UIRefreshControl()
+    
     // var group_list:[GroupPostManager.GroupObject]!
     
-    var group_list:[GroupPostManager.GroupObject]! {
-        didSet{
-            groupTableView.reloadData()
-        }
-    }
+    var group_list:[GroupPostManager.GroupObject] = []
+    
+//    var group_list:[GroupPostManager.GroupObject]! {
+//        didSet{
+//            groupTableView.reloadData()
+//        }
+//    }
     
     var selectedGroup: GroupPostManager.GroupObject = GroupPostManager.GroupObject()
     
@@ -35,11 +39,28 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
         groupTableView.dataSource = self
         groupTableView.delegate = self
         
+        // refresh
+        refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: UIControl.Event.valueChanged)
+        groupTableView.addSubview(refreshControl)
+        
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    @objc func refresh(sender:AnyObject) {
+        // Code to refresh table view
+        loadFeed()
+        refreshControl.endRefreshing()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+//        if let indexPath = groupTableView.indexPathForSelectedRow {
+//            groupTableView.deselectRow(at: indexPath, animated: true)
+//        }
         loadFeed()
     }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        loadFeed()
+//    }
     
     func wipe_feed() {
         print("wiping feed")
@@ -54,21 +75,29 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
         
         wipe_feed()
         
+        print("requesting location")
         locManager.requestWhenInUseAuthorization()
         if((CLLocationManager.authorizationStatus() == .authorizedWhenInUse) || (CLLocationManager.authorizationStatus() ==  .authorizedAlways)) {
-            locManager.requestLocation()
+            print("loaction requested... now loading loc manager")
+            locManager.startUpdatingLocation()
+            // locManager.requestLocation()
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
+        print("location manager INSIDE")
+        
+        // let sv = UIViewController.displaySpinner(onView: self.view)
+        
         if let location = locations.first {
+            
+            self.navigationItem.title = "\(location.coordinate.latitude), \(location.coordinate.longitude)"
             
             GroupPostManager.sharedInstance.latitude = "\(location.coordinate.latitude)"
             GroupPostManager.sharedInstance.longitude = "\(location.coordinate.longitude)"
             
             // displau spinner
-            let sv = UIViewController.displaySpinner(onView: self.view)
             
             GroupPostManager.sharedInstance.getGroupData(completion: {(response) in
                 
@@ -81,11 +110,11 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
                     // print("response: \(response)")
                     
                     self.group_list = response
-                    UIViewController.removeSpinner(spinner: sv)
+                    // UIViewController.removeSpinner(spinner: sv)
                     self.groupTableView.reloadData()
                 } else {
                     // print("RESPONSE WAS NIL")
-                    UIViewController.removeSpinner(spinner: sv)
+                    // UIViewController.removeSpinner(spinner: sv)
                 }
             })
             
@@ -126,10 +155,16 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        self.selectedGroup = group_list[indexPath.row]
-        GroupPostManager.sharedInstance.current_group = self.selectedGroup
-        self.performSegue(withIdentifier: "toGroup", sender: self)
+        print("index path: \(indexPath.row)")
+        print("group list: \(group_list)")
+        if (group_list.count > 0) {
+            self.selectedGroup = group_list[indexPath.row]
+            GroupPostManager.sharedInstance.current_group = self.selectedGroup
+            self.performSegue(withIdentifier: "toGroup", sender: self)
+            groupTableView.deselectRow(at: indexPath, animated: true)
+        } else {
+            print("not yet")
+        }
     }
     
     
