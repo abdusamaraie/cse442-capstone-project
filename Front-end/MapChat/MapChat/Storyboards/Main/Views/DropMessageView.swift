@@ -87,6 +87,8 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UIPickerView
             if let placeLikelihoodList = placeLikelihoodList {
                 for likelihood in placeLikelihoodList {
                     let place = likelihood.place
+                    print("place's lat: \(place.coordinate.latitude)")
+                    print("place's long: \(place.coordinate.longitude)")
                     self.places.append(Place(placeID: place.placeID!, placeName: place.name!, likelihood: "\(likelihood.likelihood)"))
                     print("Current Place name \(String(describing: place.name)) at likelihood \(likelihood.likelihood)")
                     print("Current PlaceID \(String(describing: place.placeID))")
@@ -97,6 +99,12 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UIPickerView
             
             print("update pickerview")
             self.messageLocation.reloadAllComponents()
+            
+            
+            GroupPostManager.sharedInstance.placeDistance(completion: {(response) in
+                print("response in drop message: \(response)")
+            })
+    
         })
         
     }

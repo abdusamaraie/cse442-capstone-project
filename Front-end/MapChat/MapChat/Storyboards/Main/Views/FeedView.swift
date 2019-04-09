@@ -11,6 +11,7 @@ import UIKit
 import CoreLocation
 import MapKit
 import Alamofire
+import SwiftyJSON
 
 struct Message {
     var message: String
@@ -52,25 +53,27 @@ class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource, CL
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        self.messages = []
+        // self.messages = []
+        
+        let sv = UIViewController.displaySpinner(onView: self.view)
         
         if let location = locations.first {
             
             GroupPostManager.sharedInstance.assignLatLong(latitde: "\(location.coordinate.latitude)", longitude: "\(location.coordinate.longitude)")
             
+            self.messages = []
+            
             GroupPostManager.sharedInstance.getPostData(completion: {(response) in
                 
-                // response dictionary
-                let response_dict: [NSDictionary] = response
-                print("response_dict: \(response_dict)")
+                let posts: JSON = response
                 
-                for message_dict in response_dict {
-                    let message:String = message_dict.value(forKey: "content") as! String
-                    let username:String = message_dict.value(forKey: "username") as! String
-                    
-                    self.messages.append(Message(message: message, username: username))
+                print("posts: \(posts)")
+                
+                for (_, post) in posts {
+                    self.messages.append(Message(message: post["content"].string!, username: "_"))
                 }
                 
+                UIViewController.removeSpinner(spinner: sv)
                 self.feedView.reloadData()
             })
         }
@@ -90,10 +93,7 @@ class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource, CL
         
         let messageContent = self.messages[indexPath.row].message
         
-        
-        cell.title.text = messageContent
-        cell.title.center = cell.center
-        // cell.clipsToBounds = true
+        cell.messageTitle.text = messageContent
 
         return cell
     }

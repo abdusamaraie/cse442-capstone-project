@@ -70,30 +70,43 @@ class GroupPostManager {
         }
     }
     
+    func placeDistance(completion: @escaping (_ response_:Bool) -> ()) {
+        
+        let placeID = "ChIJFSvOQC1y04kRCTzdpAd_QJo"
+        
+        // /distance takes placeId, lat, long
+        
+        let parameters: [String: Any] = ["lat": latitude,"long": longitude, "placeId": placeID]
+        
+        Alamofire.request("\(urlString)/distance", method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { response in
+            
+            if((response.result.value) != nil) {
+                let placeInRadius = response.result.value!
+                
+                print("placeInRadius: \(placeInRadius)")
+                
+                completion(true)
+            }
+            completion(false)
+        }
+    }
     
     
-    func getPostData(completion: @escaping (_ response_:[NSDictionary]) -> ()) {
+    
+    func getPostData(completion: @escaping (_ response_:JSON) -> ()) {
         
         let parameters: [String: Any] = [
-            "placeID": current_group.ID!
+            "placeId": current_group.ID!
         ]
         
-        print("parameters: \(parameters)")
+        // print("parameters: \(parameters)")
         
         Alamofire.request("\(urlString)/place/message", method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { response in
             
             
             if((response.result.value) != nil) {
                 let posts = JSON(response.result.value!)
-                
-                print("posts: \(posts)")
-                
-//                for (_,place) in places {
-//
-//                    self.group_list.append(GroupPostManager.GroupObject(URL: place["photo_url"].string!, name: place["name"].string!, ID: place["place_id"].string!))
-//                }
-                
-                completion(self.posts)
+                completion(posts)
                 
             }
             completion([])

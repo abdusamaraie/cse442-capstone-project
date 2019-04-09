@@ -11,7 +11,8 @@ import UIKit
 
 class FeedViewCell: UITableViewCell {
     
-    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var messageTitle: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
