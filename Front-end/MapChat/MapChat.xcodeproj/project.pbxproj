@@ -14,6 +14,7 @@
 		40D5A00C4EDA5CB66FAE5139 /* Pods_MapChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEEF9F98D541554EEAD87DA7 /* Pods_MapChatTests.framework */; };
 		43100785EC0B2D92AC929817 /* Pods_MapChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F40FC9B6A3AF41E2EA0585 /* Pods_MapChat.framework */; };
 		EB086E9F2253F23A00F9D2D3 /* GroupPostManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB086E9E2253F23A00F9D2D3 /* GroupPostManager.swift */; };
+		EB2FB3E9225D25EA00151C80 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2FB3E8225D25EA00151C80 /* SettingsCell.swift */; };
 		EB303FD62252954F00161BC8 /* davis_hall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB303FD52252954F00161BC8 /* davis_hall.jpg */; };
 		EB303FDA22529CB700161BC8 /* GroupViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB303FD922529CB700161BC8 /* GroupViewCell.swift */; };
 		EB303FDC22529F9C00161BC8 /* GroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB303FDB22529F9C00161BC8 /* GroupView.swift */; };
@@ -80,6 +81,7 @@
 		B172350A7A6338870397677A /* Pods-MapChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapChatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MapChatTests/Pods-MapChatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DEEF9F98D541554EEAD87DA7 /* Pods_MapChatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapChatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB086E9E2253F23A00F9D2D3 /* GroupPostManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupPostManager.swift; sourceTree = "<group>"; };
+		EB2FB3E8225D25EA00151C80 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		EB303FD52252954F00161BC8 /* davis_hall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = davis_hall.jpg; sourceTree = "<group>"; };
 		EB303FD922529CB700161BC8 /* GroupViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewCell.swift; sourceTree = "<group>"; };
 		EB303FDB22529F9C00161BC8 /* GroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupView.swift; sourceTree = "<group>"; };
@@ -177,6 +179,43 @@
 				5DA7418D44CF80E978ED32F0 /* Pods-MapChatUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		EB2FB3E4225D257C00151C80 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				EBFAC67E22272862004B5074 /* ProfileView.swift */,
+				EB2FB3E8225D25EA00151C80 /* SettingsCell.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		EB2FB3E5225D258600151C80 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				EB2FB3E7225D25B400151C80 /* Group */,
+				EBFAC67522261C08004B5074 /* FeedViewCell.swift */,
+				EBFAC67722261F89004B5074 /* FeedView.swift */,
+				EBFAC68222275DA0004B5074 /* PopUpView.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		EB2FB3E6225D258F00151C80 /* Add */ = {
+			isa = PBXGroup;
+			children = (
+				EBEB9301222F4BFA003DAD1E /* DropMessageView.swift */,
+			);
+			path = Add;
+			sourceTree = "<group>";
+		};
+		EB2FB3E7225D25B400151C80 /* Group */ = {
+			isa = PBXGroup;
+			children = (
+				EB303FDB22529F9C00161BC8 /* GroupView.swift */,
+				EB303FD922529CB700161BC8 /* GroupViewCell.swift */,
+			);
+			path = Group;
 			sourceTree = "<group>";
 		};
 		EB33C25422388E5F0012630B /* Views */ = {
@@ -300,13 +339,9 @@
 			isa = PBXGroup;
 			children = (
 				EBFAC66F22261B05004B5074 /* MainView.storyboard */,
-				EBFAC67522261C08004B5074 /* FeedViewCell.swift */,
-				EBFAC67722261F89004B5074 /* FeedView.swift */,
-				EBFAC67E22272862004B5074 /* ProfileView.swift */,
-				EBFAC68222275DA0004B5074 /* PopUpView.swift */,
-				EBEB9301222F4BFA003DAD1E /* DropMessageView.swift */,
-				EB303FD922529CB700161BC8 /* GroupViewCell.swift */,
-				EB303FDB22529F9C00161BC8 /* GroupView.swift */,
+				EB2FB3E6225D258F00151C80 /* Add */,
+				EB2FB3E5225D258600151C80 /* Feed */,
+				EB2FB3E4225D257C00151C80 /* Profile */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -604,6 +639,7 @@
 				EB086E9F2253F23A00F9D2D3 /* GroupPostManager.swift in Sources */,
 				EB414CEA2214F298007C3FE4 /* MapChat.xcdatamodeld in Sources */,
 				EBAA2FF1222322CD003A7FD5 /* SPageThree.swift in Sources */,
+				EB2FB3E9225D25EA00151C80 /* SettingsCell.swift in Sources */,
 				EBEB9302222F4BFA003DAD1E /* DropMessageView.swift in Sources */,
 				EBAA2FEF222322C3003A7FD5 /* SPageTwo.swift in Sources */,
 				056A378C2223308C005A49CB /* SignInView.swift in Sources */,
