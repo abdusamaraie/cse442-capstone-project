@@ -239,11 +239,11 @@ def nearby():
 
 
 # Handle auth
-@socketio.on('my login' )
+@socketio.on('my login')
 def on_auth():
     if current_user.is_anonymous:
         return False
-    socketio.emit('my response' , {'username': current_user.id},namespace='/auth')
+    socketio.emit('my response', {'username': current_user.id}, namespace='/auth')
 
 
 # Handle message
@@ -265,7 +265,7 @@ def on_rating(data):
 # Handle replies
 @socketio.on('my replies')
 def on_replies(data):
-    socketio.emit('my response', data,callback=replies)
+    socketio.emit('my response', data, callback=replies)
     pass
 
 
