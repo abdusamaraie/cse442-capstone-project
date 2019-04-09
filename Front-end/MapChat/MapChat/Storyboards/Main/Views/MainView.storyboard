@@ -154,15 +154,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H2y-Aa-yt3">
-                                <rect key="frame" x="16" y="245" width="343" height="37"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="37" id="fmf-UK-yZU"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AirbnbCerealApp-Medium" family="Airbnb Cereal App" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_1" translatesAutoresizingMaskIntoConstraints="NO" id="Svs-Ww-i9D">
                                 <rect key="frame" x="119" y="102" width="136" height="135"/>
                                 <constraints>
@@ -175,6 +166,47 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H2y-Aa-yt3">
+                                <rect key="frame" x="16" y="245" width="343" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="fmf-UK-yZU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AirbnbCerealApp-Medium" family="Airbnb Cereal App" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DLM-T6-hOA">
+                                <rect key="frame" x="239" y="216" width="40" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xOF-nY-Rqp">
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="7zq-c0-5gy"/>
+                                            <constraint firstAttribute="height" constant="40" id="YUb-9S-8uE"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="camera"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="xOF-nY-Rqp" firstAttribute="leading" secondItem="DLM-T6-hOA" secondAttribute="leading" id="3on-13-grj"/>
+                                    <constraint firstAttribute="trailing" secondItem="xOF-nY-Rqp" secondAttribute="trailing" id="EEt-pF-3aL"/>
+                                    <constraint firstAttribute="bottom" secondItem="xOF-nY-Rqp" secondAttribute="bottom" id="SX9-nb-E4s"/>
+                                    <constraint firstItem="xOF-nY-Rqp" firstAttribute="top" secondItem="DLM-T6-hOA" secondAttribute="top" id="VK0-xs-FJY"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidthV">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColorV">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -182,7 +214,9 @@
                             <constraint firstItem="Svs-Ww-i9D" firstAttribute="top" secondItem="dmP-zX-d9z" secondAttribute="top" constant="14" id="4Us-Rb-ZN2"/>
                             <constraint firstItem="5re-7N-Ax0" firstAttribute="leading" secondItem="dmP-zX-d9z" secondAttribute="leading" constant="16" id="ARB-rf-Clo"/>
                             <constraint firstItem="dmP-zX-d9z" firstAttribute="trailing" secondItem="5re-7N-Ax0" secondAttribute="trailing" constant="16" id="Afk-eK-nqB"/>
+                            <constraint firstItem="xOF-nY-Rqp" firstAttribute="top" secondItem="Svs-Ww-i9D" secondAttribute="bottom" constant="-21" id="BU8-oK-vuh"/>
                             <constraint firstItem="dmP-zX-d9z" firstAttribute="trailing" secondItem="H2y-Aa-yt3" secondAttribute="trailing" constant="16" id="DBe-0a-ZEL"/>
+                            <constraint firstItem="xOF-nY-Rqp" firstAttribute="leading" secondItem="Svs-Ww-i9D" secondAttribute="trailing" constant="-16" id="Ea6-R7-aCX"/>
                             <constraint firstItem="dmP-zX-d9z" firstAttribute="bottom" secondItem="5re-7N-Ax0" secondAttribute="bottom" constant="18" id="HgI-l4-Jrm"/>
                             <constraint firstItem="SBk-Vs-7B0" firstAttribute="leading" secondItem="dmP-zX-d9z" secondAttribute="leading" id="Kir-8r-MOQ"/>
                             <constraint firstItem="Svs-Ww-i9D" firstAttribute="leading" secondItem="dmP-zX-d9z" secondAttribute="leading" constant="119" id="RdQ-WJ-H1w"/>
@@ -532,6 +566,7 @@
     </scenes>
     <resources>
         <image name="add" width="24" height="24"/>
+        <image name="camera" width="36" height="36"/>
         <image name="close" width="24" height="24"/>
         <image name="davis_hall.jpg" width="1200" height="795"/>
         <image name="feed" width="24" height="24"/>
