@@ -1,7 +1,7 @@
 test = 'test'
 DATABASE_PATH = 'database/main.db'
 HASH_PASSWORD_PATH = 'database/user_hash_passwords.txt'
-DEGREE_CONVERSION = 111111
+EARTH_RADIUS_METERS = 6371000
 UPLOAD_PATH = 'database/uploads/'
 
 # temporary api key for testing

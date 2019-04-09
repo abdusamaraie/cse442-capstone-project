@@ -1,4 +1,5 @@
-from constants.constants import PLACES_API_KEY, DEFAULT_PLACE_PHOTO
+from constants.constants import PLACES_API_KEY, DEFAULT_PLACE_PHOTO, EARTH_RADIUS_METERS
+from math import cos, sqrt
 import requests
 import json
 
@@ -45,3 +46,23 @@ def get_place_info(place_id):
         place_info['photo_url'] = DEFAULT_PLACE_PHOTO
 
     return place_info
+
+
+def distance_from_place(place_id, lat1, lon1):
+
+    # make http request to google places api
+    url = 'https://maps.googleapis.com/maps/api/place/details/json?'
+    payload = {'place_id': place_id, 'fields': 'geometry', 'key': PLACES_API_KEY}
+    place_info = requests.get(url=url, params=payload).json()['result']
+
+    print(place_info)
+
+    lat2 = place_info['geometry']['location']['lat']
+    lon2 = place_info['geometry']['location']['lng']
+
+    # Equirectangular approximation
+    x = (lon2 - lon1) * cos(0.5 * (lat2 + lat1))
+    y = lat2 - lat1
+    d = EARTH_RADIUS_METERS * sqrt(x * x + y * y)
+
+    return d
