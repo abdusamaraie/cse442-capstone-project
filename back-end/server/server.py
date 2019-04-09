@@ -270,7 +270,7 @@ def on_replies(data):
 
 
 # Handle deactivate
-@socketio.on('delete user' )
+@socketio.on('delete user')
 def on_deactivate(data):
     socketio.emit('my response', data, callback=deactivate)
     pass
