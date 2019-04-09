@@ -5,8 +5,8 @@ from objects.user import User
 from objects.filestream import Filestream
 # Flask
 from flask import Flask, request, json
-from flask_socketio import SocketIO,emit,send
-from flask_login import LoginManager, login_user, current_user,UserMixin
+from flask_socketio import SocketIO, emit, send
+from flask_login import LoginManager, login_user, current_user, UserMixin
 
 # Core Libraries
 import multiprocessing
@@ -21,13 +21,16 @@ login = LoginManager(app)
 # app.config['UPLOAD_FOLDER'] = UPLOAD_PATH
 # app.wsgi_app = Filestream(app.wsgi_app)
 
+
 class UserSession(UserMixin):
     def __init__(self, username):
         self.id = username
 
+
 @login.user_loader
-def user_loader(id):
-    return UserSession(id)
+def user_loader(uid):
+    return UserSession(uid)
+
 
 @socketio.on('connect')
 def on_connect():
@@ -35,13 +38,14 @@ def on_connect():
         return False
     emit('welcome', {'username': current_user.id})
 
+
 @app.route('/', methods=['GET'])
 def hello_world():
     return 'Hello, World!'
 
 
 @app.route('/uploadPhoto', methods=['GET', 'POST'])
-def uploadPhoto():
+def upload_photo():
 
     if request.method == 'GET':
         username = request.args.get('username')
@@ -59,8 +63,6 @@ def uploadPhoto():
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], f_name))'''
         # add photo path to database
         return str(neo4j.add_photo(username, file))
-
-
 
 
 @app.route('/auth', methods=['GET', 'POST'])
@@ -100,9 +102,9 @@ def message():
 
         lat = float(request.args.get('lat'))
         lon = float(request.args.get('long'))
-        distance = int(request.args.get('distance'))
+        dist = int(request.args.get('distance'))
         location_json = {"latitude": lat, "longitude": lon}
-        return neo4j.get_posts(location_json, distance)
+        return neo4j.get_posts(location_json, dist)
 
     # USED TO POST MESSAGES
     elif request.method == 'POST':
@@ -211,6 +213,18 @@ def place_message():
         return str(False)
 
 
+@app.route('/distance', methods=['GET'])
+def distance():
+    # RETURN THE DISTANCE BETWEEN A USER AND A PLACE
+    if request.method == 'GET':
+        place_id = request.args.get('placeId')
+        lat = float(request.args.get('lat'))
+        long = float(request.args.get('long'))
+        return places.distance_from_place(place_id, lat, long)
+    else:
+        return str(False)
+
+
 '''
 THIS IS DONE ON THE FRONT END NOW
 @app.route('/nearby', methods=['GET'])
@@ -222,55 +236,71 @@ def nearby():
 
         return places.get_nearby_places(lat, lon)
 '''
-#Handle auth
-@socketio.on('my login' )
+
+
+# Handle auth
+@socketio.on('my login')
 def on_auth():
     if current_user.is_anonymous:
         return False
-    socketio.emit('my response' , {'username': current_user.id},namespace='/auth')
-#Handle message 
+    socketio.emit('my response', {'username': current_user.id}, namespace='/auth')
+
+
+# Handle message
 @socketio.on('my message')
 def on_message(data):
     if current_user.is_anonymous:
         return False
-    print('recived my event: ' + str(data))
-    socketio.emit('my response' , data,namespace='/message')
-#Handle rating
-@socketio.on('my rating' )
+    print('received my event: ' + str(data))
+    socketio.emit('my response', data, namespace='/message')
+
+
+# Handle rating
+@socketio.on('my rating')
 def on_rating(data):
-    socketio.emit('my response' , data,callback=rating)
-    pass
-#Handle replies
-@socketio.on('my replies' )
-def on_replies(data):
-    socketio.emit('my response' , data,callback=replies)
-    pass
-#Handle deactivate
-@socketio.on('delete user' )
-def on_deactivate(data):
-    socketio.emit('my response' , data,callback=deactivate)
+    socketio.emit('my response', data, callback=rating)
     pass
 
-#Handle change password
-@socketio.on('change password' )
+
+# Handle replies
+@socketio.on('my replies')
+def on_replies(data):
+    socketio.emit('my response', data, callback=replies)
+    pass
+
+
+# Handle deactivate
+@socketio.on('delete user')
+def on_deactivate(data):
+    socketio.emit('my response', data, callback=deactivate)
+    pass
+
+
+# Handle change password
+@socketio.on('change password')
 def on_change_password(data):
-    socketio.emit('my response' , data,callback=change_password)
+    socketio.emit('my response', data, callback=change_password)
     pass
-#Handle place
-@socketio.on('place' )
+
+
+# Handle place
+@socketio.on('place')
 def on_place(data):
-    socketio.emit('my response' , data,callback=place)
+    socketio.emit('my response', data, callback=place)
     pass
-#Handle place
-@socketio.on('place message' )
+
+
+# Handle place
+@socketio.on('place message')
 def on_place_message(data):
-    socketio.emit('my response' , data,callback=place_message)
+    socketio.emit('my response', data, callback=place_message)
     pass
+
 
 def start_server():
-    #app.run(host='0.0.0.0', port=80, debug=True)
-    #socketio.run(app,host='127.0.0.1', port=5000, debug=True)
-    socketio.run(app,host='0.0.0.0', port=80, debug=True)
+    # app.run(host='0.0.0.0', port=80, debug=True)
+    # socketio.run(app, host='127.0.0.1', port=5000, debug=True)
+    socketio.run(app, host='0.0.0.0', port=80, debug=True)
 
 
 def signal_handler(sig, frame):
