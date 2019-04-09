@@ -38,6 +38,8 @@ class GroupPostManager {
     var latitude: String = ""
     var longitude: String = ""
     
+    var placeId: String = ""
+    
     var posts: [NSDictionary] = []
     
     func assignLatLong(latitde: String, longitude: String) {
@@ -70,24 +72,22 @@ class GroupPostManager {
         }
     }
     
-    func placeDistance(completion: @escaping (_ response_:Bool) -> ()) {
-        
-        let placeID = "ChIJFSvOQC1y04kRCTzdpAd_QJo"
+    func placeDistance(completion: @escaping (_ response_:Double) -> ()) {
         
         // /distance takes placeId, lat, long
         
-        let parameters: [String: Any] = ["lat": latitude,"long": longitude, "placeId": placeID]
+        let parameters: [String: Any] = ["lat": latitude,"long": longitude, "placeId": placeId]
         
         Alamofire.request("\(urlString)/distance", method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { response in
             
             if((response.result.value) != nil) {
-                let placeInRadius = response.result.value!
+                let placeInRadius = response.result.value! as? Double
                 
-                print("placeInRadius: \(placeInRadius)")
+                print("placeInRadius: \(placeInRadius!)")
                 
-                completion(true)
+                completion(placeInRadius!)
             }
-            completion(false)
+            completion(-1.0)
         }
     }
     

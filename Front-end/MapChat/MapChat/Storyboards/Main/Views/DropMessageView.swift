@@ -87,24 +87,32 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UIPickerView
             if let placeLikelihoodList = placeLikelihoodList {
                 for likelihood in placeLikelihoodList {
                     let place = likelihood.place
-                    print("place's lat: \(place.coordinate.latitude)")
-                    print("place's long: \(place.coordinate.longitude)")
-                    self.places.append(Place(placeID: place.placeID!, placeName: place.name!, likelihood: "\(likelihood.likelihood)"))
-                    print("Current Place name \(String(describing: place.name)) at likelihood \(likelihood.likelihood)")
-                    print("Current PlaceID \(String(describing: place.placeID))")
+                    
+                    // getting distance from current location here:
+                    
+                    GroupPostManager.sharedInstance.placeId = place.placeID!
+
+                    GroupPostManager.sharedInstance.placeDistance(completion: {(response) in
+                        if (response > 0 && response < 200) {
+                            print("place \(place.placeID!) GOOD! \(response)")
+                            print("adding place")
+                            self.places.append(Place(placeID: place.placeID!, placeName: place.name!, likelihood: "\(likelihood.likelihood)"))
+                            print("places: \(self.places)")
+                        } else {
+                            print("place \(place.placeID!) too far away \(response)")
+                        }
+                        
+                        //
+                        print("update pickerview")
+                        self.messageLocation.reloadAllComponents()
+                    })
                 }
             }
-            
+
             self.places.append(Place(placeID: "-1", placeName: "Other", likelihood: "-1"))
-            
+            //
             print("update pickerview")
             self.messageLocation.reloadAllComponents()
-            
-            
-            GroupPostManager.sharedInstance.placeDistance(completion: {(response) in
-                print("response in drop message: \(response)")
-            })
-    
         })
         
     }
@@ -114,6 +122,7 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UIPickerView
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
         if let location = locations.first {
             
             let selectedPlaceID = places[messageLocation.selectedRow(inComponent: 0)].placeID
