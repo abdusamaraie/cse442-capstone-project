@@ -1,5 +1,5 @@
 from constants.constants import PLACES_API_KEY, DEFAULT_PLACE_PHOTO, EARTH_RADIUS_METERS
-from math import cos, sqrt
+from math import pi, cos, sqrt, sin, atan2
 import requests
 import json
 
@@ -55,14 +55,18 @@ def distance_from_place(place_id, lat1, lon1):
     payload = {'place_id': place_id, 'fields': 'geometry', 'key': PLACES_API_KEY}
     place_info = requests.get(url=url, params=payload).json()['result']
 
-    print(place_info)
-
+    # get place coordinates
     lat2 = place_info['geometry']['location']['lat']
     lon2 = place_info['geometry']['location']['lng']
 
-    # Equirectangular approximation
-    x = (lon2 - lon1) * cos(0.5 * (lat2 + lat1))
-    y = lat2 - lat1
-    d = EARTH_RADIUS_METERS * sqrt(x * x + y * y)
+    # haversine distance formula
+    d_lat = (lat2-lat1) * pi / 180
+    d_lng = (lon2-lon1) * pi / 180
 
-    return d
+    lat1 = lat1 * pi / 180
+    lat2 = lat2 * pi / 180
+
+    val = sin(d_lat/2) * sin(d_lat/2) + sin(d_lng/2) * sin(d_lng/2) * cos(lat1) * cos(lat2)
+    ang = 2 * atan2(sqrt(val), sqrt(1-val))
+
+    return str(EARTH_RADIUS_METERS * ang)
