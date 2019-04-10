@@ -34,6 +34,7 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UIPickerView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         locManager.delegate = self
         
         placesClient = GMSPlacesClient.shared()
@@ -43,6 +44,8 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UIPickerView
         
         self.message.delegate = self
         self.messageTitle.delegate = self
+        
+        locManager.distanceFilter = 10
     }
     
     override func viewDidAppear(_ animated: Bool) {

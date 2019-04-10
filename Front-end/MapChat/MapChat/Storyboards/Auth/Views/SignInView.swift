@@ -13,7 +13,7 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 import PopupDialog
 
-class SignInView: UIViewController {
+class SignInView: UIViewController, UITextFieldDelegate {
     
     var sign_in_button: UIButton = UIButton()
     var input_elements:[AuthenticationHelper.input_element] = []
@@ -32,6 +32,21 @@ class SignInView: UIViewController {
         password.addTarget(self, action: #selector(textFieldDidChange(_:)),
                            for: UIControl.Event.editingChanged)
         
+        username.delegate = self
+        password.delegate = self
+        
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == username {
+            password.becomeFirstResponder()
+        } else {
+            validate()
+        }
+//        else {
+//            passwordTextField.resignFirstResponder()
+//        }
+        return true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -61,7 +76,7 @@ class SignInView: UIViewController {
         self.username.becomeFirstResponder()
     }
     
-    @objc func next_view() {
+    func validate() {
         if (AuthenticationHelper.check_input(input_elements: input_elements).count == 0) {
             
             AuthenticationHelper.sharedInstance.current_user.username = self.username.text!
@@ -108,6 +123,10 @@ class SignInView: UIViewController {
             
             // self.performSegue(withIdentifier: "errorView", sender: self)
         }
+    }
+    
+    @objc func next_view() {
+        validate()
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
