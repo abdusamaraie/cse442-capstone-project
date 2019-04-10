@@ -22,6 +22,41 @@ struct Place {
 
 class DropMessageView: UIViewController, CLLocationManagerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate, UITextFieldDelegate {
     
+    @IBOutlet weak var message: UITextView!
+    @IBOutlet weak var messageTitle: UITextField!
+    @IBOutlet weak var messageLocation: UIPickerView!
+    
+    var locManager = CLLocationManager()
+    
+    var placesClient: GMSPlacesClient!
+    var places: [Place] = []
+    var dropMessage: Bool = false
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        locManager.delegate = self
+        
+        placesClient = GMSPlacesClient.shared()
+        
+        self.messageLocation.delegate = self
+        self.messageLocation.dataSource = self
+        
+        self.message.delegate = self
+        self.messageTitle.delegate = self
+        
+        locManager.distanceFilter = 10
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        getPlace()
+    }
+    
+    //
+    
+    // -------------------------------------------
+    
+    // picker view
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -33,30 +68,11 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UIPickerView
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return self.places[row].placeName
     }
+    // picker view
     
+    // -------------------------------------------
     
-    @IBOutlet weak var message: UITextView!
-    @IBOutlet weak var messageTitle: UITextField!
-    @IBOutlet weak var messageLocation: UIPickerView!
-    
-    var locManager = CLLocationManager()
-    
-    var placesClient: GMSPlacesClient!
-    var places: [Place] = []
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        locManager.delegate = self
-        
-        placesClient = GMSPlacesClient.shared()
-        
-        self.messageLocation.delegate = self
-        self.messageLocation.dataSource = self
-        
-        self.message.delegate = self
-        self.messageTitle.delegate = self
-    }
-    
+    // text field changes
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if(string == "\n") {
             textField.resignFirstResponder()
@@ -72,6 +88,9 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UIPickerView
         }
         return true
     }
+    // text field changes
+    
+    // -------------------------------------------
     
     func getPlace() {
         // Specify the place data types to return.
@@ -84,41 +103,37 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UIPickerView
                 return
             }
             
+            self.places = []
+            
             if let placeLikelihoodList = placeLikelihoodList {
                 for likelihood in placeLikelihoodList {
                     let place = likelihood.place
-                    
-                    // getting distance from current location here:
                     
                     GroupPostManager.sharedInstance.placeId = place.placeID!
 
                     GroupPostManager.sharedInstance.placeDistance(completion: {(response) in
                         if (response > 0 && response < 200) {
-                            print("place \(place.placeID!) GOOD! \(response)")
-                            print("adding place")
                             self.places.append(Place(placeID: place.placeID!, placeName: place.name!, likelihood: "\(likelihood.likelihood)"))
-                            print("places: \(self.places)")
-                        } else {
-                            print("place \(place.placeID!) too far away \(response)")
                         }
-                        
-                        //
-                        print("update pickerview")
                         self.messageLocation.reloadAllComponents()
                     })
                 }
             }
 
             self.places.append(Place(placeID: "-1", placeName: "Other", likelihood: "-1"))
-            //
-            print("update pickerview")
+
             self.messageLocation.reloadAllComponents()
+            self.startGettingLocation()
         })
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        getPlace()
+    
+    func startGettingLocation() {
+        locManager.requestWhenInUseAuthorization()
+        if((CLLocationManager.authorizationStatus() == .authorizedWhenInUse) || (CLLocationManager.authorizationStatus() ==  .authorizedAlways)) {
+            locManager.startUpdatingLocation()
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -128,8 +143,6 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UIPickerView
             let selectedPlaceID = places[messageLocation.selectedRow(inComponent: 0)].placeID
             
             if (selectedPlaceID != "") {
-                
-                print("Found user's location: \(location)")
                 
                 let urlString = "http://34.73.109.229:80/message"
                 
@@ -144,52 +157,31 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UIPickerView
                     "placeId": selectedPlaceID
                 ]
                 
-                //            {
-                //                "username": "daru",
-                //                "location": {"latitude": 32.06541, "longitude": 71.674351},
-                //                "message": "This is a test post",
-                //                "expireTime": "2019-04-01 20:34:02-04:00"
-                //                "placeId": "NFjbf534Jflje5_t4iT"
-                //            }
-                
-                print("JSON: \(parameters)")
-                
-                Alamofire.request(urlString, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseString { response in
+                if (self.dropMessage) {
+                    self.dropMessage = false
                     
-                    switch response.result {
-                    case .success:
+                    Alamofire.request(urlString, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseString { response in
                         
-                        print("======RESPONSE=============\n")
-                        print("resp res val: \(response.result.value!)")
-                        self.message.text = ""
-                        
-                        
-                        if let animationView:AnimationView = AnimationView(name: "message-success") {
+                        switch response.result {
+                        case .success:
+                            
+                            self.message.text = ""
+                            
+                            let animationView:AnimationView = AnimationView(name: "message-success")
                             animationView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
                             animationView.center = self.view.center
                             animationView.contentMode = .scaleAspectFill
-                            
                             self.view.addSubview(animationView)
+                            animationView.play{ (finished) in animationView.removeFromSuperview() }
                             
-                            animationView.play{ (finished) in
-                                print("removing from view")
-                                animationView.removeFromSuperview()
-                            }
+                            // break
+                        case .failure(let error):
+                            print("error: \(error)")
+                            self.message.text = ""
                         }
-                        
-                        break
-                        
-                    //=========
-                    case .failure(let error):
-                        
-                        print("=======ERROR============\n")
-                        print("ERROR: \(error)")
-                        self.message.text = ""
                     }
                 }
             }
-            
-            
         }
     }
     
@@ -198,11 +190,10 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UIPickerView
     }
     
     @IBAction func dropMessage(_ sender: Any) {
+        
         if (message.text != "") {
-            locManager.requestWhenInUseAuthorization()
-            if((CLLocationManager.authorizationStatus() == .authorizedWhenInUse) || (CLLocationManager.authorizationStatus() ==  .authorizedAlways)) {
-                locManager.requestLocation()
-            }
+            message.resignFirstResponder()
+            self.dropMessage = true
         }
     }
 }

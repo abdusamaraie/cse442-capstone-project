@@ -39,6 +39,7 @@ class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource, CL
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        self.navigationItem.title = place_name
         loadFeed()
     }
     
@@ -46,22 +47,19 @@ class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource, CL
         
         locManager.requestWhenInUseAuthorization()
         if((CLLocationManager.authorizationStatus() == .authorizedWhenInUse) || (CLLocationManager.authorizationStatus() ==  .authorizedAlways)) {
-            locManager.requestLocation()
+            locManager.startUpdatingLocation()
+            // locManager.requestLocation()
         }
         
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        // self.messages = []
-        
-        let sv = UIViewController.displaySpinner(onView: self.view)
+        self.messages = []
         
         if let location = locations.first {
             
             GroupPostManager.sharedInstance.assignLatLong(latitde: "\(location.coordinate.latitude)", longitude: "\(location.coordinate.longitude)")
-            
-            self.messages = []
             
             GroupPostManager.sharedInstance.getPostData(completion: {(response) in
                 
@@ -72,8 +70,7 @@ class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource, CL
                 for (_, post) in posts {
                     self.messages.append(Message(message: post["content"].string!, username: "_"))
                 }
-                
-                UIViewController.removeSpinner(spinner: sv)
+            
                 self.feedView.reloadData()
             })
         }
@@ -91,10 +88,12 @@ class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource, CL
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath) as! FeedViewCell
         
+        print("messages: \(self.messages)")
+        
         let messageContent = self.messages[indexPath.row].message
         
         cell.messageTitle.text = messageContent
-
+        
         return cell
     }
     
