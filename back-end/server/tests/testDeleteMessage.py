@@ -14,9 +14,9 @@ class TestDeleteMessage(unittest.TestCase):
         distance = 30  # radius in meters
         es = timezone("US/Eastern")
         time = str(datetime.now().astimezone(es) + timedelta(days=7))
-
+        placeId = 'ChIJwe_oGNJz04kRDxhd61f1WiQ'
         # add a post to the database
-        remove_id = neo4j.post_message('daru', location, "unit test post to be removed", exp_time=time)
+        remove_id = neo4j.post_message('admin', location, "unit test post to be removed", time, placeId)
         print(remove_id)
 
         # get total number of posts

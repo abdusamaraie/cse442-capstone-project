@@ -73,7 +73,7 @@ def auth():
         username = request.args.get('username')
         password = request.args.get('password')
         if not authenticate.verify_user(username, password):
-            return 'user not found'
+            return str(False)
         login_user(UserSession(username))
         # check if username and password exist
         return str(authenticate.verify_user(username, password))

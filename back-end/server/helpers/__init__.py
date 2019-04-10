@@ -18,7 +18,7 @@ try:  # will crash if layer already exists
     GRAPH.run("CALL spatial.addPointLayer('posts')")
 except Exception as e:
     if "Cannot create existing layer" in str(e):
-        print(" * Posts spatial layer already exists. Good")
+        print(" * Posts spatial layer already exists. Good\n")
     else:
         raise e
 
@@ -27,6 +27,6 @@ try:  # will crash if layer already exists
     GRAPH.run("CALL spatial.addPointLayer('places')")
 except Exception as e:
     if "Cannot create existing layer" in str(e):
-        print(" * Places spatial layer already exists. Also good")
+        print(" * Places spatial layer already exists. Also good\n")
     else:
         raise e

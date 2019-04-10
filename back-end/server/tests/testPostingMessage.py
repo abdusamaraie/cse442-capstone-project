@@ -1,4 +1,4 @@
-import unittest
+import unittest,json
 from pytz import timezone
 from datetime import datetime
 from datetime import timedelta
@@ -10,20 +10,22 @@ class TestPostingMessages(unittest.TestCase):
 
         # get location, username, msg, and expiration time from client
         location = {'latitude': 43.0100431, 'longitude': -78.8012356}
-        username = "daru"
+        username = "admin"
         msg = "this is a neo4j test post"
-
+        place_id = "ChIJwe_oGNJz04kRDxhd61f1WiQ"
         # get current time for time of post
         es = timezone("US/Eastern")
         exp_time = str((datetime.now().astimezone(es) + timedelta(days=7)))
 
         # post a message with the above information
-        post_id = neo4j.post_message(username, location, msg, exp_time)
+        post_id = neo4j.post_message(username, location, msg, exp_time,place_id)
 
         self.assertNotEqual(post_id, None)
 
         # remove to post created for the test
-        neo4j.delete_post(post_id)
+        #neo4j.delete_post(post_id)
+
+
 
 
 if __name__ == '__main__':
