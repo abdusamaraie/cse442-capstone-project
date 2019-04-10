@@ -1,7 +1,9 @@
 import unittest
 import requests,json
 from server import app, socketio
-
+from pytz import timezone
+from datetime import datetime
+from datetime import timedelta
 
 class TestSocketHandler(unittest.TestCase):
 
@@ -23,57 +25,64 @@ class TestSocketHandler(unittest.TestCase):
         self.assertEqual(result.status_code, 200)
 
 
-    def test_auth_endpoint(self):
+    def test_auth_post_req(self):
         url = 'http://127.0.0.1:5000/auth'
-        #post
+        # Post request payload to server endpoint
         payload = {'username':'admin',
                    'password':'admin',
                    'firstname':'abd',
                    'lastname':'nazar',
                    'email':'admin@admin.com'}
         r = requests.post(url=url, json=payload)
-        self.assertTrue(r.text)
+        self.assertEqual(r.status_code, 200)
         print(r.text)
-        if r.text == True:
-            print("user has signed up")
-        else:
-            print("error user exists ")
+        self.assertEqual(r.text,"True",msg=" User already exists ")
 
-
-
-        #get
+    def test_auth_get_req(self):
+        url = 'http://127.0.0.1:5000/auth'
+        # Get request payload to server endpoint
         payload = {'username': 'admin',
                    'password': 'admin'}
         r = requests.get(url=url, params=payload)
+        self.assertEqual(r.status_code, 200)
+        print(r.text)
+        self.assertEqual(r.text,"True",msg=" User couldn't be retrieved")
 
-        self.assertTrue(r.text)
-
-    def test_message_endpoint(self):
+    def test_message_post_req(self):
         url = 'http://127.0.0.1:5000/message'
 
-        # post
-        payload = {'username': 'admin',
-                   'location': {'latitude': '50',
-                                'longitude': '50'},
-                   'message': 'hello',
-                   'expireTime': 'now',
-                   'placeId':'123'}
+        # get current time for time of post
+        es = timezone("US/Eastern")
+        exp_time = str((datetime.now().astimezone(es) + timedelta(days=7)))
 
-        # post
+        # post request payload to server endpoint
+        payload = {'username': 'admin',
+                   'location': {'latitude': 43.0100431,
+                                'longitude': -78.8012356},
+                   'message': 'hello there again',
+                   'expireTime': exp_time,
+                   'placeId':'ChIJwe_oGNJz04kRDxhd61f1WiQ'}
+
         r = requests.post(url=url, json=payload)
-        if r.text:
-            print("message posting error")
-        else:
-            print("successfully posted")
-        # get
-        payload = {'lat': '50',
-                   'lon': '51',
-                   'distance': '52'}
+        self.assertEqual(r.status_code, 200)
+        print(r.text)
+        self.assertNotEqual(r.text, None,msg=" Message not found error")
+
+
+
+
+    def test_message_get_req(self):
+        url = 'http://127.0.0.1:5000/message'
+        # get request payload to server endpoint
+        payload = {'lat': 43.0100431,
+                   'long': -78.8012356,
+                   'distance': 30}
 
         r = requests.get(url=url, params=payload)
-
-        print(r.text)
         self.assertEqual(r.status_code, 200)
+        print(r.text)
+        self.assertNotEqual(r.text, None,msg=" Message not found error")
+
 
 
 
@@ -82,22 +91,22 @@ class TestSocketHandler(unittest.TestCase):
         # make sure the server rejected the connection
         assert not self.socketio_test_client.is_connected()
 
-        # post
+        # Post request payload to server endpoint
         payload = {'username':'admin',
                    'password':'admin',
                    'firstname':'abd',
                    'lastname':'nazar',
                    'email':'admin@admin.com'}
 
-        # log in via HTTP
+        # Log in via HTTP
         r = self.flask_test_client.post('/auth', json=payload)
         assert r.status_code == 200
 
-        # test GET
+        # Test GET
         R = self.flask_test_client.get('/auth', query_string=payload)
         self.assertEqual(R.status_code, 200)
 
-        # connect to Socket.IO again, but now as a logged in user
+        # Connect to Socket.IO again, but now as a logged in user
         self.socketio_test_client = socketio.test_client(
             app,'/auth', flask_test_client=self.flask_test_client)
 
@@ -105,10 +114,10 @@ class TestSocketHandler(unittest.TestCase):
         # R = self.flask_test_client.post('/auth',json=payload)
         # test GET with non registered user
         R = self.flask_test_client.get('/auth', query_string={'username':'admin',
-                   'password':'addmin'})
+                   'password':'admin'})
         self.assertEqual(R.status_code, 200)
 
-        #invoke socket handler and send event to server
+        # Invoke socket handler and send event to server
         self.socketio_test_client.emit('my login')
 
         r = self.socketio_test_client.get_received('/auth')
@@ -126,18 +135,24 @@ class TestSocketHandler(unittest.TestCase):
                    'password': 'admin'}
 
         # log in via HTTP
-        r = self.flask_test_client.post('/login', data=payload)
+        r = self.flask_test_client.get('/auth', query_string=payload)
         assert r.status_code == 200
 
         # connect to Socket.IO again, but now as a logged in user
         self.socketio_test_client = socketio.test_client(
             app, '/message', flask_test_client=self.flask_test_client)
+
+        # get current time for time of post
+        es = timezone("US/Eastern")
+        exp_time = str((datetime.now().astimezone(es) + timedelta(days=7)))
+
         #for message
         payload = {'username': 'admin',
-                   'location': {'latitude': '50',
-                                'longitude': '50'},
+                   'location':{'latitude': 43.0100431,
+                                'longitude': -78.8012356},
                    'message': 'hello',
-                   'expireTime': 'now'}
+                   'expireTime': exp_time,
+                   'placeId':'ChIJwe_oGNJz04kRDxhd61f1WiQ'}
 
         #test POST
         R = self.flask_test_client.post('/message',json=payload)
