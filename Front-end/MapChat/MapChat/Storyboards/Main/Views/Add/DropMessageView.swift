@@ -20,11 +20,10 @@ struct Place {
     var likelihood: String
 }
 
-class DropMessageView: UIViewController, CLLocationManagerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate, UITextFieldDelegate {
+class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDelegate, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet weak var message: UITextView!
-    @IBOutlet weak var messageTitle: UITextField!
-    @IBOutlet weak var messageLocation: UIPickerView!
+    @IBOutlet weak var placesView: UICollectionView!
     
     var locManager = CLLocationManager()
     
@@ -37,18 +36,18 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UIPickerView
         
         locManager.delegate = self
         
+        placesView.delegate = self
+        placesView.dataSource = self
+        
         placesClient = GMSPlacesClient.shared()
         
-        self.messageLocation.delegate = self
-        self.messageLocation.dataSource = self
-        
         self.message.delegate = self
-        self.messageTitle.delegate = self
         
         locManager.distanceFilter = 10
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        self.message.becomeFirstResponder()
         getPlace()
     }
     
@@ -56,19 +55,33 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UIPickerView
     
     // -------------------------------------------
     
-    // picker view
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.places.count
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return self.places[row].placeName
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        // get a reference to our storyboard cell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlaceCell", for: indexPath as IndexPath) as! PlaceCollectionCell
+        
+        cell.PlaceName.text = self.places[indexPath.row].placeName
+        
+        //cell.myLabel.text = self.items[indexPath.item]
+        //cell.backgroundColor = UIColor.cyan // make cell more visible in our example project
+        
+        return cell
     }
-    // picker view
+    
+    // MARK: - UICollectionViewDelegate protocol
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // handle tap events
+        print("You selected cell #\(indexPath.item)!")
+    }
+    
+    
+    
+    // collection view
     
     // -------------------------------------------
     
@@ -115,14 +128,16 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UIPickerView
                         if (response > 0 && response < 200) {
                             self.places.append(Place(placeID: place.placeID!, placeName: place.name!, likelihood: "\(likelihood.likelihood)"))
                         }
-                        self.messageLocation.reloadAllComponents()
+                        self.placesView.reloadData()
+                        // self.messageLocation.reloadAllComponents()
                     })
                 }
             }
 
             self.places.append(Place(placeID: "-1", placeName: "Other", likelihood: "-1"))
 
-            self.messageLocation.reloadAllComponents()
+            self.placesView.reloadData()
+            // self.messageLocation.reloadAllComponents()
             self.startGettingLocation()
         })
         
@@ -140,44 +155,54 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UIPickerView
         
         if let location = locations.first {
             
-            let selectedPlaceID = places[messageLocation.selectedRow(inComponent: 0)].placeID
+            // let selectedPlaceID = places[placesView.selectedRow(inComponent: 0)].placeID
             
-            if (selectedPlaceID != "") {
+            print("index paths for selected items: \(placesView.indexPathsForSelectedItems!)")
+            
+            let this = placesView.indexPathsForSelectedItems?.first?.row
+            
+            if (this != nil) {
+                print("this: \(this!)")
                 
-                let urlString = "http://34.73.109.229:80/message"
+                let selectedPlaceID = places[this!].placeID
                 
-                let parameters: [String: Any] = [
-                    "location": [
-                        "latitude": location.coordinate.latitude,
-                        "longitude": location.coordinate.longitude,
-                    ],
-                    "expireTime": "2019-04-20 22:59:45",
-                    "username": AuthenticationHelper.sharedInstance.current_user.username!,
-                    "message": message.text!,
-                    "placeId": selectedPlaceID
-                ]
-                
-                if (self.dropMessage) {
-                    self.dropMessage = false
+                if (selectedPlaceID != "") {
                     
-                    Alamofire.request(urlString, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseString { response in
+                    let urlString = "http://34.73.109.229:80/message"
+                    
+                    let parameters: [String: Any] = [
+                        "location": [
+                            "latitude": location.coordinate.latitude,
+                            "longitude": location.coordinate.longitude,
+                        ],
+                        "expireTime": "2019-04-20 22:59:45",
+                        "username": AuthenticationHelper.sharedInstance.current_user.username!,
+                        "message": message.text!,
+                        "placeId": selectedPlaceID
+                    ]
+                    
+                    if (self.dropMessage) {
+                        self.dropMessage = false
                         
-                        switch response.result {
-                        case .success:
+                        Alamofire.request(urlString, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseString { response in
                             
-                            self.message.text = ""
-                            
-                            let animationView:AnimationView = AnimationView(name: "message-success")
-                            animationView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
-                            animationView.center = self.view.center
-                            animationView.contentMode = .scaleAspectFill
-                            self.view.addSubview(animationView)
-                            animationView.play{ (finished) in animationView.removeFromSuperview() }
-                            
+                            switch response.result {
+                            case .success:
+                                
+                                self.message.text = ""
+                                
+                                let animationView:AnimationView = AnimationView(name: "message-success")
+                                animationView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+                                animationView.center = self.view.center
+                                animationView.contentMode = .scaleAspectFill
+                                self.view.addSubview(animationView)
+                                animationView.play{ (finished) in animationView.removeFromSuperview() }
+                                
                             // break
-                        case .failure(let error):
-                            print("error: \(error)")
-                            self.message.text = ""
+                            case .failure(let error):
+                                print("error: \(error)")
+                                self.message.text = ""
+                            }
                         }
                     }
                 }

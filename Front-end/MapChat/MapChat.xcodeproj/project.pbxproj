@@ -27,6 +27,7 @@
 		EB414CEA2214F298007C3FE4 /* MapChat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EB414CE82214F298007C3FE4 /* MapChat.xcdatamodeld */; };
 		EB414CEC2214F29A007C3FE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB414CEB2214F29A007C3FE4 /* Assets.xcassets */; };
 		EB414CEF2214F29A007C3FE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB414CED2214F29A007C3FE4 /* LaunchScreen.storyboard */; };
+		EB464C59225EB7F900F246F2 /* PlaceCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB464C58225EB7F900F246F2 /* PlaceCollectionCell.swift */; };
 		EBA2AF68223AC83A009B8962 /* location_a.json in Resources */ = {isa = PBXBuildFile; fileRef = EBA2AF67223AC839009B8962 /* location_a.json */; };
 		EBA2AF6A223AC83F009B8962 /* location_b.json in Resources */ = {isa = PBXBuildFile; fileRef = EBA2AF69223AC83F009B8962 /* location_b.json */; };
 		EBA2AF6C223AC844009B8962 /* location_c.json in Resources */ = {isa = PBXBuildFile; fileRef = EBA2AF6B223AC844009B8962 /* location_c.json */; };
@@ -98,6 +99,7 @@
 		EB414CF02214F29A007C3FE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB414CF52214F29A007C3FE4 /* MapChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB414D002214F29A007C3FE4 /* MapChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB464C58225EB7F900F246F2 /* PlaceCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCollectionCell.swift; sourceTree = "<group>"; };
 		EBA2AF67223AC839009B8962 /* location_a.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = location_a.json; sourceTree = "<group>"; };
 		EBA2AF69223AC83F009B8962 /* location_b.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = location_b.json; sourceTree = "<group>"; };
 		EBA2AF6B223AC844009B8962 /* location_c.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = location_c.json; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				EBEB9301222F4BFA003DAD1E /* DropMessageView.swift */,
+				EB464C58225EB7F900F246F2 /* PlaceCollectionCell.swift */,
 			);
 			path = Add;
 			sourceTree = "<group>";
@@ -638,6 +641,7 @@
 				EB414CE22214F298007C3FE4 /* AppDelegate.swift in Sources */,
 				EB086E9F2253F23A00F9D2D3 /* GroupPostManager.swift in Sources */,
 				EB414CEA2214F298007C3FE4 /* MapChat.xcdatamodeld in Sources */,
+				EB464C59225EB7F900F246F2 /* PlaceCollectionCell.swift in Sources */,
 				EBAA2FF1222322CD003A7FD5 /* SPageThree.swift in Sources */,
 				EB2FB3E9225D25EA00151C80 /* SettingsCell.swift in Sources */,
 				EBEB9302222F4BFA003DAD1E /* DropMessageView.swift in Sources */,
