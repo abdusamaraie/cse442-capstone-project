@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Classes</key>
+	<dict>
+		<key>FBApplication</key>
+		<dict>
+			<key>Attributes</key>
+			<dict>
+				<key>appleScriptInstallFontDestination</key>
+				<dict>
+					<key>Description</key>
+					<string>Where to install fonts.</string>
+					<key>Name</key>
+					<string>installation target</string>
+				</dict>
+				<key>appleScriptModel</key>
+				<dict>
+					<key>Description</key>
+					<string>The All Fonts library.</string>
+					<key>Name</key>
+					<string>fonts library</string>
+				</dict>
+				<key>appleScriptSelectedCollections</key>
+				<dict>
+					<key>Description</key>
+					<string>selected collections.</string>
+					<key>Name</key>
+					<string>selected collections</string>
+				</dict>
+				<key>appleScriptSelectedFamilies</key>
+				<dict>
+					<key>Description</key>
+					<string>selected font families.</string>
+					<key>Name</key>
+					<string>selected font families</string>
+				</dict>
+				<key>appleScriptSelection</key>
+				<dict>
+					<key>Description</key>
+					<string>current selection.</string>
+					<key>Name</key>
+					<string>selection</string>
+				</dict>
+				<key>appleScriptValidateFontsBeforeInstalling</key>
+				<dict>
+					<key>Description</key>
+					<string>Whether validating fonts before installing or not.</string>
+					<key>Name</key>
+					<string>validate fonts before installing</string>
+				</dict>
+			</dict>
+			<key>Description</key>
+			<string>Font Book's top level scripting object.</string>
+			<key>Name</key>
+			<string>application</string>
+			<key>PluralName</key>
+			<string>applications</string>
+		</dict>
+		<key>FBCollection</key>
+		<dict>
+			<key>Attributes</key>
+			<dict>
+				<key>appleScriptEnabled</key>
+				<dict>
+					<key>Description</key>
+					<string>Whether the collection is enabled or disabled.</string>
+					<key>Name</key>
+					<string>enabled</string>
+				</dict>
+				<key>appleScriptLocalizedName</key>
+				<dict>
+					<key>Description</key>
+					<string>Display name of the domain</string>
+					<key>Name</key>
+					<string>displayed name</string>
+				</dict>
+				<key>appleScriptName</key>
+				<dict>
+					<key>Description</key>
+					<string>The name of the collection</string>
+					<key>Name</key>
+					<string>name</string>
+				</dict>
+			</dict>
+			<key>Description</key>
+			<string>A font collection.</string>
+			<key>Name</key>
+			<string>font collection</string>
+			<key>PluralName</key>
+			<string>font collections</string>
+		</dict>
+		<key>FBFile</key>
+		<dict>
+			<key>Attributes</key>
+			<dict>
+				<key>appleScriptDomains</key>
+				<dict>
+					<key>Description</key>
+					<string>Font Domain for the container</string>
+					<key>Name</key>
+					<string>domain</string>
+				</dict>
+				<key>appleScriptFiles</key>
+				<dict>
+					<key>Description</key>
+					<string>Files for the container</string>
+					<key>Name</key>
+					<string>files</string>
+				</dict>
+				<key>appleScriptID</key>
+				<dict>
+					<key>Description</key>
+					<string>The unique identifier of the container</string>
+					<key>Name</key>
+					<string>ID</string>
+				</dict>
+				<key>appleScriptName</key>
+				<dict>
+					<key>Description</key>
+					<string>The name of the container</string>
+					<key>Name</key>
+					<string>name</string>
+				</dict>
+				<key>path</key>
+				<dict>
+					<key>Description</key>
+					<string>The path to the main container</string>
+					<key>Name</key>
+					<string>path</string>
+				</dict>
+			</dict>
+			<key>Description</key>
+			<string>An abstact object representing font files</string>
+			<key>Name</key>
+			<string>font container</string>
+			<key>PluralName</key>
+			<string>font containers</string>
+		</dict>
+		<key>FBDomain</key>
+		<dict>
+			<key>Attributes</key>
+			<dict>
+				<key>appleScriptID</key>
+				<dict>
+					<key>Description</key>
+					<string>The unique identifier of the domain</string>
+					<key>Name</key>
+					<string>ID</string>
+				</dict>
+			</dict>
+			<key>Description</key>
+			<string>A font domain</string>
+			<key>Name</key>
+			<string>font domain</string>
+			<key>PluralName</key>
+			<string>font domains</string>
+		</dict>
+		<key>FBFace</key>
+		<dict>
+			<key>Attributes</key>
+			<dict>
+				<key>appleScriptContainers</key>
+				<dict>
+					<key>Description</key>
+					<string>Font container</string>
+					<key>Name</key>
+					<string>font container</string>
+				</dict>
+				<key>appleScriptEnabled</key>
+				<dict>
+					<key>Description</key>
+					<string>A font family</string>
+					<key>Name</key>
+					<string>enabled</string>
+				</dict>
+				<key>appleScriptFamily</key>
+				<dict>
+					<key>Description</key>
+					<string>Font family</string>
+					<key>Name</key>
+					<string>font family</string>
+				</dict>
+				<key>appleScriptFiles</key>
+				<dict>
+					<key>Description</key>
+					<string>Font files for the face</string>
+					<key>Name</key>
+					<string>files</string>
+				</dict>
+				<key>appleScriptID</key>
+				<dict>
+					<key>Description</key>
+					<string>The unique identifier of the typeface</string>
+					<key>Name</key>
+					<string>ID</string>
+				</dict>
+				<key>appleScriptLocalizedName</key>
+				<dict>
+					<key>Description</key>
+					<string>Typeface display name</string>
+					<key>Name</key>
+					<string>displayed name</string>
+				</dict>
+				<key>appleScriptName</key>
+				<dict>
+					<key>Description</key>
+					<string>The name of the family</string>
+					<key>Name</key>
+					<string>name</string>
+				</dict>
+				<key>copyright</key>
+				<dict>
+					<key>Description</key>
+					<string>Copyright</string>
+					<key>Name</key>
+					<string>copyright</string>
+				</dict>
+				<key>familyName</key>
+				<dict>
+					<key>Description</key>
+					<string>Font family name</string>
+					<key>Name</key>
+					<string>family name</string>
+				</dict>
+				<key>isDuplicate</key>
+				<dict>
+					<key>Description</key>
+					<string>Whether the typeface is duplicated or not duplicated faces</string>
+					<key>Name</key>
+					<string>duplicated</string>
+				</dict>
+				<key>kind</key>
+				<dict>
+					<key>Description</key>
+					<string>Font format</string>
+					<key>Name</key>
+					<string>font type</string>
+				</dict>
+				<key>postscriptName</key>
+				<dict>
+					<key>Description</key>
+					<string>PostScript font name</string>
+					<key>Name</key>
+					<string>PostScript name</string>
+				</dict>
+				<key>styleName</key>
+				<dict>
+					<key>Description</key>
+					<string>Style name</string>
+					<key>Name</key>
+					<string>style name</string>
+				</dict>
+			</dict>
+			<key>Description</key>
+			<string>A typeface</string>
+			<key>Name</key>
+			<string>typeface</string>
+			<key>PluralName</key>
+			<string>typefaces</string>
+		</dict>
+		<key>FBFamily</key>
+		<dict>
+			<key>Attributes</key>
+			<dict>
+				<key>appleScriptEnabled</key>
+				<dict>
+					<key>Description</key>
+					<string>A font family</string>
+					<key>Name</key>
+					<string>enabled</string>
+				</dict>
+				<key>appleScriptFiles</key>
+				<dict>
+					<key>Description</key>
+					<string>Font files for the family</string>
+					<key>Name</key>
+					<string>files</string>
+				</dict>
+				<key>appleScriptLocalizedName</key>
+				<dict>
+					<key>Description</key>
+					<string>Font family display name</string>
+					<key>Name</key>
+					<string>displayed name</string>
+				</dict>
+				<key>isDuplicate</key>
+				<dict>
+					<key>Description</key>
+					<string>Whether the family contains duplicated faces</string>
+					<key>Name</key>
+					<string>duplicated</string>
+				</dict>
+				<key>name</key>
+				<dict>
+					<key>Description</key>
+					<string>The name of the family</string>
+					<key>Name</key>
+					<string>name</string>
+				</dict>
+			</dict>
+			<key>Description</key>
+			<string>A font family</string>
+			<key>Name</key>
+			<string>font family</string>
+			<key>PluralName</key>
+			<string>font families</string>
+		</dict>
+		<key>FBLibrary</key>
+		<dict>
+			<key>Description</key>
+			<string>A font library</string>
+			<key>Name</key>
+			<string>font library</string>
+			<key>PluralName</key>
+			<string>font libraries</string>
+		</dict>
+		<key>FBLocaleFontGroup</key>
+		<dict>
+			<key>Description</key>
+			<string>MyFonts font library</string>
+			<key>Name</key>
+			<string>MyFonts font library</string>
+			<key>PluralName</key>
+			<string>MyFonts font libraries</string>
+		</dict>
+		<key>FBModel</key>
+		<dict>
+			<key>Description</key>
+			<string>All Fonts library object</string>
+			<key>Name</key>
+			<string>All Fonts library object</string>
+			<key>PluralName</key>
+			<string>All Fonts library objects</string>
+		</dict>
+	</dict>
+	<key>Commands</key>
+	<dict>
+		<key>Add</key>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>Destination</key>
+				<dict>
+					<key>Description</key>
+					<string>The container to which to add the object</string>
+					<key>Name</key>
+					<string>to</string>
+				</dict>
+			</dict>
+			<key>Description</key>
+			<string>Add the given object to the container.</string>
+			<key>Name</key>
+			<string>add</string>
+		</dict>
+		<key>Export</key>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>Destination</key>
+				<dict>
+					<key>Description</key>
+					<string>The path to which to export the objeccts</string>
+					<key>Name</key>
+					<string>to</string>
+				</dict>
+			</dict>
+			<key>Description</key>
+			<string>Export the given objects to the specified location.</string>
+			<key>Name</key>
+			<string>export</string>
+		</dict>
+		<key>Remove</key>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>Source</key>
+				<dict>
+					<key>Description</key>
+					<string>The container from which to remove the object</string>
+					<key>Name</key>
+					<string>from</string>
+				</dict>
+			</dict>
+			<key>Description</key>
+			<string>Remove the given object from the container.</string>
+			<key>Name</key>
+			<string>remove</string>
+		</dict>
+	</dict>
+	<key>Description</key>
+	<string>Classes and commands for the Font Book application</string>
+	<key>Name</key>
+	<string>Font Book</string>
+</dict>
+</plist>

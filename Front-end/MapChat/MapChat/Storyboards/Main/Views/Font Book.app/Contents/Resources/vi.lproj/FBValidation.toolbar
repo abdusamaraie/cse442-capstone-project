@@ -1,0 +1,22 @@
+{
+    "default set" =     (
+        FBDetail,
+        NSToolbarFlexibleSpaceItem,
+        FBRuleFilter
+    );
+    "toolbar array" =     (
+                (
+                        {
+                identifier = FBDetail;
+                tag = 100;
+                title = "FBRULEDETAIL_TOOLBAR_TITLE";
+            },
+                        {
+                identifier = FBRuleFilter;
+                tag = 101;
+                title = "FBRULEFILTER_TOOLBAR_TITLE";
+            }
+        )
+    );
+    "toolbar name" = FBValidation;
+}

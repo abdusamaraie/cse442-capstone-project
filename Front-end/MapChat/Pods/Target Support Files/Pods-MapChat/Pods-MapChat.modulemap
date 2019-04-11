@@ -1,0 +1,6 @@
+framework module Pods_MapChat {
+  umbrella header "Pods-MapChat-umbrella.h"
+
+  export *
+  module * { export * }
+}
