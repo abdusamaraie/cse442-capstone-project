@@ -136,8 +136,8 @@ class TestSocketHandler(unittest.TestCase):
         # make sure the server rejected the connection
         assert not self.socketio_test_client.is_connected()
         #for login
-        payload = {'username': 'admin',
-                   'password': 'admin'}
+        payload = {'username': 'admin2',
+                   'password': 'admin2'}
 
         # log in via HTTP
         r = self.flask_test_client.get('/auth', query_string=payload)
@@ -153,7 +153,7 @@ class TestSocketHandler(unittest.TestCase):
         exp_time = str((datetime.now().astimezone(es) + timedelta(days=7)))
 
         #for message
-        payload = {'username': 'admin',
+        payload = {'username': 'admin2',
                    'location':{'latitude': 43.0100431,
                                 'longitude': -78.8012356},
                    'message': 'hello',

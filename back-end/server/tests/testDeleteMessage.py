@@ -3,7 +3,8 @@ import json
 from pytz import timezone
 from datetime import datetime
 from datetime import timedelta
-from helpers import neo4j
+from helpers import authenticate, neo4j
+from objects.user import User
 
 
 class TestDeleteMessage(unittest.TestCase):
@@ -15,8 +16,25 @@ class TestDeleteMessage(unittest.TestCase):
         es = timezone("US/Eastern")
         time = str(datetime.now().astimezone(es) + timedelta(days=7))
         placeId = 'ChIJwe_oGNJz04kRDxhd61f1WiQ'
+
+        # add username and password to database to signup
+        uname = "admin"
+        pwd = "admin"
+        email = "admin@admin.com"
+        fn = "Darren"
+        ln = "Matthew"
+        password_hash = authenticate.generate_hash(uname, pwd)
+
+        # delete user if already exists
+        neo4j.delete_user(uname, password_hash)
+
+        user = User(uname, fn, ln, email, password_hash)
+        # test adding user
+        self.assertTrue(neo4j.add_user(user))
+
+
         # add a post to the database
-        remove_id = neo4j.post_message('admin', location, "unit test post to be removed", time, placeId)
+        remove_id = neo4j.post_message(uname, location, "unit test post to be removed", time, placeId)
         print(remove_id)
 
         # get total number of posts
@@ -31,7 +49,8 @@ class TestDeleteMessage(unittest.TestCase):
         after_num = len(json.loads(messages_json))
 
         self.assertLess(after_num, before_num)
-
+        # delete user
+        neo4j.delete_user(uname, password_hash)
 
 if __name__ == '__main__':
         unittest.main()
