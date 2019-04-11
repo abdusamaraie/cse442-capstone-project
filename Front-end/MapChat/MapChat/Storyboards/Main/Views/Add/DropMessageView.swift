@@ -44,6 +44,7 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         self.message.delegate = self
         
         locManager.distanceFilter = 10
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
