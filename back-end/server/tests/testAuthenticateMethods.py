@@ -1,5 +1,6 @@
 import unittest
-from helpers import authenticate
+from helpers import authenticate, neo4j
+from objects.user import User
 
 
 class TestAuthenticateMethods(unittest.TestCase):
@@ -24,16 +25,30 @@ class TestAuthenticateMethods(unittest.TestCase):
     '''
 
     #    Verify that user is able to login with valid username and password
+    def setUp(self):
+        self.tempUserName = "admin"
+        self.tempPassword = "admin"
+        self.password_hash = authenticate.generate_hash(self.tempUserName, self.tempPassword)
+
     def test_verify_user(self):
-        #get username and password from database
-        tempUserName = "admin"
-        tempPassword = "admin"
+        #regester user first
+        email = "admin@admin.com"
+        fn = "Darren"
+        ln = "Matthew"
+        # delete user if already exists
+        neo4j.delete_user(self.tempUserName, self.password_hash)
+
+        user = User(self.tempUserName, fn, ln, email, self.password_hash)
+        # test adding user
+        self.assertTrue(neo4j.add_user(user))
         #code here
-        self.assertTrue(authenticate.verify_user(tempUserName,tempPassword))
+        self.assertTrue(authenticate.verify_user(self.tempUserName,self.tempPassword))
+        # delete user
+        self.assertEqual(neo4j.delete_user(self.tempUserName, self.tempPassword),'False')
     #Verify that the password is in encrypted form when entered
     def test_generate_hash(self):
-        tempUserPassword = "admin"
-        self.assertTrue(authenticate.generate_hash(tempUserPassword))
+
+        self.assertTrue(authenticate.generate_hash(self.tempUserName,self.tempPassword))
     #    Verify the timeout of the login session
     def test_user_session(self):
         self.assertEqual(1,1)
