@@ -60,7 +60,7 @@
         <!--Add-->
         <scene sceneID="Iha-fa-rW0">
             <objects>
-                <navigationController id="iOr-bs-yWx" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="DropMessageNavVC" id="iOr-bs-yWx" customClass="DropMessageNavVC" customModule="MapChat" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Add" image="add" id="wl4-ZS-aLG"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YeY-Na-BIF">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -398,80 +398,105 @@
             </objects>
             <point key="canvasLocation" x="434" y="1023"/>
         </scene>
-        <!--Drop Message View-->
+        <!--Drop Message-->
         <scene sceneID="JaA-zh-6wF">
             <objects>
-                <viewController id="TLI-jR-wA3" customClass="DropMessageView" customModule="MapChat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DropMessageVC" id="TLI-jR-wA3" customClass="DropMessageView" customModule="MapChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HI6-uO-1Fw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GRD-pa-2nb">
-                                <rect key="frame" x="16" y="110" width="343" height="33"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="AirbnbCerealApp-Book" family="Airbnb Cereal App" pointSize="25"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
-                                        <real key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidthV">
-                                        <real key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColorV">
-                                        <color key="value" white="0.69008795820000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xbE-th-Mae">
-                                <rect key="frame" x="16" y="489" width="343" height="216"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
-                                        <real key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidthV">
-                                        <real key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColorV">
-                                        <color key="value" white="0.69008795820000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </pickerView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fHd-lL-Kgy">
-                                <rect key="frame" x="16" y="151" width="343" height="330"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="AirbnbCerealApp-Light" family="Airbnb Cereal App" pointSize="20"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter a message" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fHd-lL-Kgy">
+                                <rect key="frame" x="0.0" y="88" width="375" height="165"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="0Fo-ab-C3g"/>
+                                    <constraint firstAttribute="height" constant="165" id="i46-7Y-DPK"/>
+                                </constraints>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="AirbnbCerealApp-Book" family="Airbnb Cereal App" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
-                                        <real key="value" value="15"/>
+                                        <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidthV">
-                                        <real key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColorV">
-                                        <color key="value" white="0.69008795820000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PlQ-ic-2ov">
+                                <rect key="frame" x="0.0" y="261" width="375" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="hg7-Zd-nKX"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="os2-aF-aq2">
+                                    <size key="itemSize" width="156" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PlaceCell" id="7tQ-fy-t2z" customClass="PlaceCollectionCell" customModule="MapChat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="156" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="156" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OKO-pW-AIT">
+                                                    <rect key="frame" x="4" y="0.0" width="149" height="85"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vDE-JC-Iku">
+                                                    <rect key="frame" x="4" y="87" width="149" height="41"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="41" id="MCa-mw-0TQ"/>
+                                                        <constraint firstAttribute="width" constant="149" id="rDL-sN-cb9"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AirbnbCerealApp-Medium" family="Airbnb Cereal App" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="vDE-JC-Iku" secondAttribute="trailing" constant="3" id="4nF-iI-yTq"/>
+                                            <constraint firstItem="vDE-JC-Iku" firstAttribute="top" secondItem="OKO-pW-AIT" secondAttribute="bottom" constant="2" id="6mc-64-QnX"/>
+                                            <constraint firstAttribute="bottom" secondItem="vDE-JC-Iku" secondAttribute="bottom" id="RHN-Om-k0C"/>
+                                            <constraint firstItem="vDE-JC-Iku" firstAttribute="leading" secondItem="7tQ-fy-t2z" secondAttribute="leading" constant="4" id="Vh1-Gf-biV"/>
+                                            <constraint firstAttribute="trailing" secondItem="OKO-pW-AIT" secondAttribute="trailing" constant="3" id="a0c-o7-B7w"/>
+                                            <constraint firstItem="OKO-pW-AIT" firstAttribute="top" secondItem="7tQ-fy-t2z" secondAttribute="top" id="oE7-s5-7CV"/>
+                                            <constraint firstItem="OKO-pW-AIT" firstAttribute="leading" secondItem="7tQ-fy-t2z" secondAttribute="leading" constant="4" id="x2T-D9-vbH"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="PlaceImage" destination="OKO-pW-AIT" id="C8S-2l-BOx"/>
+                                            <outlet property="PlaceName" destination="vDE-JC-Iku" id="cif-08-Kom"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="xbE-th-Mae" firstAttribute="top" secondItem="fHd-lL-Kgy" secondAttribute="bottom" constant="8" id="1KS-1a-hsy"/>
-                            <constraint firstItem="oh5-fg-URa" firstAttribute="trailing" secondItem="fHd-lL-Kgy" secondAttribute="trailing" constant="16" id="DJG-fv-tbf"/>
-                            <constraint firstItem="oh5-fg-URa" firstAttribute="trailing" secondItem="xbE-th-Mae" secondAttribute="trailing" constant="16" id="GkR-4l-Gx8"/>
-                            <constraint firstItem="oh5-fg-URa" firstAttribute="trailing" secondItem="GRD-pa-2nb" secondAttribute="trailing" constant="16" id="Mrd-qO-l7u"/>
-                            <constraint firstItem="fHd-lL-Kgy" firstAttribute="top" secondItem="GRD-pa-2nb" secondAttribute="bottom" constant="8" id="VX3-s5-Pme"/>
-                            <constraint firstItem="GRD-pa-2nb" firstAttribute="top" secondItem="oh5-fg-URa" secondAttribute="top" constant="22" id="WQg-XT-0S4"/>
-                            <constraint firstItem="xbE-th-Mae" firstAttribute="leading" secondItem="oh5-fg-URa" secondAttribute="leading" constant="16" id="but-BW-JGV"/>
-                            <constraint firstItem="GRD-pa-2nb" firstAttribute="leading" secondItem="oh5-fg-URa" secondAttribute="leading" constant="16" id="mtr-aa-35U"/>
-                            <constraint firstItem="oh5-fg-URa" firstAttribute="bottom" secondItem="xbE-th-Mae" secondAttribute="bottom" constant="24" id="pfk-uy-uqq"/>
-                            <constraint firstItem="fHd-lL-Kgy" firstAttribute="leading" secondItem="oh5-fg-URa" secondAttribute="leading" constant="16" id="wMr-ID-Cb2"/>
+                            <constraint firstItem="oh5-fg-URa" firstAttribute="trailing" secondItem="fHd-lL-Kgy" secondAttribute="trailing" id="0xw-1s-La7"/>
+                            <constraint firstItem="fHd-lL-Kgy" firstAttribute="top" secondItem="oh5-fg-URa" secondAttribute="top" id="INb-Rr-zgR"/>
+                            <constraint firstItem="oh5-fg-URa" firstAttribute="bottom" secondItem="PlQ-ic-2ov" secondAttribute="bottom" constant="340" id="P7E-cJ-KzR"/>
+                            <constraint firstItem="PlQ-ic-2ov" firstAttribute="top" secondItem="fHd-lL-Kgy" secondAttribute="bottom" constant="8" id="SxL-ZF-aG4"/>
+                            <constraint firstItem="PlQ-ic-2ov" firstAttribute="leading" secondItem="oh5-fg-URa" secondAttribute="leading" id="fdB-3E-eBX"/>
+                            <constraint firstItem="fHd-lL-Kgy" firstAttribute="leading" secondItem="oh5-fg-URa" secondAttribute="leading" id="iSr-kZ-3C1"/>
+                            <constraint firstItem="oh5-fg-URa" firstAttribute="trailing" secondItem="PlQ-ic-2ov" secondAttribute="trailing" id="m4B-nT-kbs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oh5-fg-URa"/>
                     </view>
-                    <navigationItem key="navigationItem" id="EMZ-SX-0dM">
-                        <barButtonItem key="rightBarButtonItem" image="add" id="HNX-XF-r8T">
+                    <navigationItem key="navigationItem" title="Drop Message" id="EMZ-SX-0dM">
+                        <barButtonItem key="leftBarButtonItem" image="close" id="btL-ov-nVA">
+                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="goBack:" destination="TLI-jR-wA3" id="cNQ-zi-Dw6"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Post" id="HNX-XF-r8T">
                             <connections>
                                 <action selector="dropMessage:" destination="TLI-jR-wA3" id="ZKr-cg-6LD"/>
                             </connections>
@@ -479,8 +504,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="message" destination="fHd-lL-Kgy" id="KJh-Xc-9Nu"/>
-                        <outlet property="messageLocation" destination="xbE-th-Mae" id="EPJ-AO-tI8"/>
-                        <outlet property="messageTitle" destination="GRD-pa-2nb" id="XdB-Oc-Jef"/>
+                        <outlet property="placesView" destination="PlQ-ic-2ov" id="LVI-mz-a4V"/>
+                        <outlet property="postMessageButton" destination="HNX-XF-r8T" id="WB1-NY-EOq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bJT-gf-eP3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -491,6 +516,7 @@
     <resources>
         <image name="add" width="24" height="24"/>
         <image name="camera" width="36" height="36"/>
+        <image name="close" width="24" height="24"/>
         <image name="davis_hall.jpg" width="1200" height="795"/>
         <image name="feed" width="24" height="24"/>
         <image name="profile" width="24" height="24"/>
