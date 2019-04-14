@@ -270,7 +270,7 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Davis Hall" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbm-e7-ZoV">
-                                                    <rect key="frame" x="139.66666666666666" y="61" width="96" height="28"/>
+                                                    <rect key="frame" x="140" y="60.999999999999993" width="95.333333333333314" height="27.666666666666664"/>
                                                     <fontDescription key="fontDescription" name="AirbnbCerealApp-Medium" family="Airbnb Cereal App" pointSize="21"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -289,6 +289,11 @@
                                                 <constraint firstItem="wLC-1m-c60" firstAttribute="leading" secondItem="WeF-KY-nFt" secondAttribute="leading" id="tup-80-ECQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="buildingName" destination="dbm-e7-ZoV" id="PuR-qA-0HU"/>
                                             <outlet property="groupImage" destination="nI9-1c-alI" id="Ul0-4x-DPi"/>

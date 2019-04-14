@@ -36,6 +36,7 @@
 		EBAA2FF1222322CD003A7FD5 /* SPageThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAA2FF0222322CD003A7FD5 /* SPageThree.swift */; };
 		EBAA2FF32223236E003A7FD5 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAA2FF22223236E003A7FD5 /* PageViewController.swift */; };
 		EBD4809E2263D08D0045399B /* DropMessageNavVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD4809D2263D08D0045399B /* DropMessageNavVC.swift */; };
+		EBD480A02263F1990045399B /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD4809F2263F1990045399B /* LoadingView.swift */; };
 		EBEA938A222DFACD0097251A /* AirbnbCereal-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EBEA9389222DFACD0097251A /* AirbnbCereal-Light.ttf */; };
 		EBEB9302222F4BFA003DAD1E /* DropMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB9301222F4BFA003DAD1E /* DropMessageView.swift */; };
 		EBEB9304223092BA003DAD1E /* message-success.json in Resources */ = {isa = PBXBuildFile; fileRef = EBEB9303223092BA003DAD1E /* message-success.json */; };
@@ -87,6 +88,7 @@
 		EB303FD52252954F00161BC8 /* davis_hall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = davis_hall.jpg; sourceTree = "<group>"; };
 		EB303FD922529CB700161BC8 /* GroupViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewCell.swift; sourceTree = "<group>"; };
 		EB303FDB22529F9C00161BC8 /* GroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupView.swift; sourceTree = "<group>"; };
+		EB31C6502263F42E00086DB3 /* AirbnbCereal-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AirbnbCereal-Bold.ttf"; sourceTree = "<group>"; };
 		EB33C25622388E9D0012630B /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		EB33C25A223AA9BF0012630B /* NameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameView.swift; sourceTree = "<group>"; };
 		EB33C25C223AAB880012630B /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 		EBAA2FF0222322CD003A7FD5 /* SPageThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPageThree.swift; sourceTree = "<group>"; };
 		EBAA2FF22223236E003A7FD5 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		EBD4809D2263D08D0045399B /* DropMessageNavVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropMessageNavVC.swift; sourceTree = "<group>"; };
+		EBD4809F2263F1990045399B /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		EBEA9389222DFACD0097251A /* AirbnbCereal-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AirbnbCereal-Light.ttf"; sourceTree = "<group>"; };
 		EBEA938B222DFB090097251A /* AirbnbCereal-Book.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AirbnbCereal-Book.ttf"; sourceTree = "<group>"; };
 		EBEA938C222DFE960097251A /* AirbnbCereal-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AirbnbCereal-Medium.ttf"; sourceTree = "<group>"; };
@@ -276,6 +279,7 @@
 				EB414CED2214F29A007C3FE4 /* LaunchScreen.storyboard */,
 				EB414CF02214F29A007C3FE4 /* Info.plist */,
 				EB414CE82214F298007C3FE4 /* MapChat.xcdatamodeld */,
+				EBD4809F2263F1990045399B /* LoadingView.swift */,
 			);
 			path = MapChat;
 			sourceTree = "<group>";
@@ -324,6 +328,7 @@
 		EBEA9388222DFAC30097251A /* fonts */ = {
 			isa = PBXGroup;
 			children = (
+				EB31C6502263F42E00086DB3 /* AirbnbCereal-Bold.ttf */,
 				EBEA9389222DFACD0097251A /* AirbnbCereal-Light.ttf */,
 				EBEA938B222DFB090097251A /* AirbnbCereal-Book.ttf */,
 				EBEA938C222DFE960097251A /* AirbnbCereal-Medium.ttf */,
@@ -648,6 +653,7 @@
 				EB464C59225EB7F900F246F2 /* PlaceCollectionCell.swift in Sources */,
 				EBAA2FF1222322CD003A7FD5 /* SPageThree.swift in Sources */,
 				EB2FB3E9225D25EA00151C80 /* SettingsCell.swift in Sources */,
+				EBD480A02263F1990045399B /* LoadingView.swift in Sources */,
 				EBEB9302222F4BFA003DAD1E /* DropMessageView.swift in Sources */,
 				EBAA2FEF222322C3003A7FD5 /* SPageTwo.swift in Sources */,
 				056A378C2223308C005A49CB /* SignInView.swift in Sources */,

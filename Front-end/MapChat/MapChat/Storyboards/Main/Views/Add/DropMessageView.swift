@@ -133,8 +133,11 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // handle tap events
         print("You selected cell #\(indexPath.item)!")
+        
+        let cell = placesView.cellForItem(at: indexPath)
+        cell?.layer.borderWidth = 2.0
+        cell?.layer.borderColor = UIColor.gray.cgColor
     }
-    
     
     // collection view
     
@@ -263,6 +266,7 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
     @IBAction func dropMessage(_ sender: Any) {
         
         if (message.text != "") {
+            print("message text: \(message.text)")
             message.resignFirstResponder()
             self.dropMessage = true
         }
