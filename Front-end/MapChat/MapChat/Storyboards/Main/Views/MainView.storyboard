@@ -412,6 +412,7 @@
                                     <constraint firstAttribute="width" constant="375" id="0Fo-ab-C3g"/>
                                     <constraint firstAttribute="height" constant="165" id="i46-7Y-DPK"/>
                                 </constraints>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="AirbnbCerealApp-Book" family="Airbnb Cereal App" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <userDefinedRuntimeAttributes>
@@ -490,6 +491,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Drop Message" id="EMZ-SX-0dM">
                         <barButtonItem key="leftBarButtonItem" image="close" id="btL-ov-nVA">
+                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="goBack:" destination="TLI-jR-wA3" id="cNQ-zi-Dw6"/>
                             </connections>

@@ -53,6 +53,9 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         message.becomeFirstResponder()
         
         message.selectedTextRange = message.textRange(from: message.beginningOfDocument, to: message.beginningOfDocument)
+        
+        message.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 2, right: 10)
+        
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
