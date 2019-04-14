@@ -196,6 +196,7 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
     func startGettingLocation() {
         locManager.requestWhenInUseAuthorization()
         if((CLLocationManager.authorizationStatus() == .authorizedWhenInUse) || (CLLocationManager.authorizationStatus() ==  .authorizedAlways)) {
+            print("starting to update LOCATION")
             locManager.startUpdatingLocation()
         }
     }
