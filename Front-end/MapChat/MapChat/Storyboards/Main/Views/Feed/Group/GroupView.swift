@@ -43,6 +43,9 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
         refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: UIControl.Event.valueChanged)
         groupTableView.addSubview(refreshControl)
         
+        // drop view modal
+        self.tabBarController?.delegate = UIApplication.shared.delegate as? UITabBarControllerDelegate
+        
     }
     
     @objc func refresh(sender:AnyObject) {

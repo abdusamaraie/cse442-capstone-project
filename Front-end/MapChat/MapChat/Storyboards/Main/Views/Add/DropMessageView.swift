@@ -24,6 +24,7 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
     
     @IBOutlet weak var message: UITextView!
     @IBOutlet weak var placesView: UICollectionView!
+    @IBOutlet weak var postMessageButton: UIBarButtonItem!
     
     var locManager = CLLocationManager()
     
@@ -45,10 +46,61 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         
         locManager.distanceFilter = 10
         
+        // place holder for text view
+        message.text = "Enter a message"
+        message.textColor = UIColor.lightGray
+        
+        message.becomeFirstResponder()
+        
+        message.selectedTextRange = message.textRange(from: message.beginningOfDocument, to: message.beginningOfDocument)
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
+        // Combine the textView text and the replacement text to
+        // create the updated text string
+        let currentText:String = textView.text
+        let updatedText = (currentText as NSString).replacingCharacters(in: range, with: text)
+        
+        // If updated text view will be empty, add the placeholder
+        // and set the cursor to the beginning of the text view
+        if updatedText.isEmpty {
+            
+            textView.text = "Placeholder"
+            textView.textColor = UIColor.lightGray
+            
+            textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
+        }
+            
+            // Else if the text view's placeholder is showing and the
+            // length of the replacement string is greater than 0, set
+            // the text color to black then set its text to the
+            // replacement string
+        else if textView.textColor == UIColor.lightGray && !text.isEmpty {
+            textView.textColor = UIColor.black
+            textView.text = text
+        }
+            
+            // For every other case, the text should change with the usual
+            // behavior...
+        else {
+            return true
+        }
+        
+        // ...otherwise return false since the updates have already
+        // been made
+        return false
+    }
+    
+    func textViewDidChangeSelection(_ textView: UITextView) {
+        if self.view.window != nil {
+            if textView.textColor == UIColor.lightGray {
+                textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.message.becomeFirstResponder()
         getPlace()
     }
     
@@ -81,7 +133,6 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
     }
     
     
-    
     // collection view
     
     // -------------------------------------------
@@ -94,15 +145,6 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         }
         return true
     }
-    
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if(text == "\n") {
-            textView.resignFirstResponder()
-            return false
-        }
-        return true
-    }
-    // text field changes
     
     // -------------------------------------------
     
@@ -220,6 +262,23 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         if (message.text != "") {
             message.resignFirstResponder()
             self.dropMessage = true
+        }
+    }
+    
+    @IBAction func goBack(_ sender: Any) {
+        print("going back")
+        self.dismiss(animated: true, completion: nil)
+        // performSegueToReturnBack()
+    }
+}
+
+
+extension UIViewController {
+    func performSegueToReturnBack()  {
+        if let nav = self.navigationController {
+            nav.popViewController(animated: true)
+        } else {
+            self.dismiss(animated: true, completion: nil)
         }
     }
 }
