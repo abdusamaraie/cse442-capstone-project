@@ -18,6 +18,10 @@
 		EB303FD62252954F00161BC8 /* davis_hall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB303FD52252954F00161BC8 /* davis_hall.jpg */; };
 		EB303FDA22529CB700161BC8 /* GroupViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB303FD922529CB700161BC8 /* GroupViewCell.swift */; };
 		EB303FDC22529F9C00161BC8 /* GroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB303FDB22529F9C00161BC8 /* GroupView.swift */; };
+		EB31C6512263F70B00086DB3 /* AirbnbCereal-Book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EBEA938B222DFB090097251A /* AirbnbCereal-Book.ttf */; };
+		EB31C6522263F71000086DB3 /* AirbnbCereal-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EBEA938C222DFE960097251A /* AirbnbCereal-Medium.ttf */; };
+		EB31C6582263F84400086DB3 /* AirbnbCereal-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB31C6572263F84400086DB3 /* AirbnbCereal-Bold.ttf */; };
+		EB31C6622264258E00086DB3 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB31C6612264258E00086DB3 /* CardCell.swift */; };
 		EB33C25722388E9D0012630B /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB33C25622388E9D0012630B /* AuthenticationManager.swift */; };
 		EB33C25B223AA9BF0012630B /* NameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB33C25A223AA9BF0012630B /* NameView.swift */; };
 		EB33C25D223AAB880012630B /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB33C25C223AAB880012630B /* PasswordView.swift */; };
@@ -36,10 +40,12 @@
 		EBAA2FF1222322CD003A7FD5 /* SPageThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAA2FF0222322CD003A7FD5 /* SPageThree.swift */; };
 		EBAA2FF32223236E003A7FD5 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAA2FF22223236E003A7FD5 /* PageViewController.swift */; };
 		EBD4809E2263D08D0045399B /* DropMessageNavVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD4809D2263D08D0045399B /* DropMessageNavVC.swift */; };
+		EBD480A02263F1990045399B /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD4809F2263F1990045399B /* LoadingView.swift */; };
 		EBEA938A222DFACD0097251A /* AirbnbCereal-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EBEA9389222DFACD0097251A /* AirbnbCereal-Light.ttf */; };
 		EBEB9302222F4BFA003DAD1E /* DropMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB9301222F4BFA003DAD1E /* DropMessageView.swift */; };
 		EBEB9304223092BA003DAD1E /* message-success.json in Resources */ = {isa = PBXBuildFile; fileRef = EBEB9303223092BA003DAD1E /* message-success.json */; };
 		EBF327632248293000F47456 /* ErrorPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF327622248293000F47456 /* ErrorPopUpView.swift */; };
+		EBF5502222654DC10012EA31 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF5502122654DC10012EA31 /* ShadowView.swift */; };
 		EBFAC67022261B05004B5074 /* MainView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBFAC66F22261B05004B5074 /* MainView.storyboard */; };
 		EBFAC67622261C08004B5074 /* FeedViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFAC67522261C08004B5074 /* FeedViewCell.swift */; };
 		EBFAC67822261F89004B5074 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFAC67722261F89004B5074 /* FeedView.swift */; };
@@ -87,6 +93,8 @@
 		EB303FD52252954F00161BC8 /* davis_hall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = davis_hall.jpg; sourceTree = "<group>"; };
 		EB303FD922529CB700161BC8 /* GroupViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewCell.swift; sourceTree = "<group>"; };
 		EB303FDB22529F9C00161BC8 /* GroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupView.swift; sourceTree = "<group>"; };
+		EB31C6572263F84400086DB3 /* AirbnbCereal-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AirbnbCereal-Bold.ttf"; sourceTree = "<group>"; };
+		EB31C6612264258E00086DB3 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		EB33C25622388E9D0012630B /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		EB33C25A223AA9BF0012630B /* NameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameView.swift; sourceTree = "<group>"; };
 		EB33C25C223AAB880012630B /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
@@ -109,12 +117,14 @@
 		EBAA2FF0222322CD003A7FD5 /* SPageThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPageThree.swift; sourceTree = "<group>"; };
 		EBAA2FF22223236E003A7FD5 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		EBD4809D2263D08D0045399B /* DropMessageNavVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropMessageNavVC.swift; sourceTree = "<group>"; };
+		EBD4809F2263F1990045399B /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		EBEA9389222DFACD0097251A /* AirbnbCereal-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AirbnbCereal-Light.ttf"; sourceTree = "<group>"; };
 		EBEA938B222DFB090097251A /* AirbnbCereal-Book.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AirbnbCereal-Book.ttf"; sourceTree = "<group>"; };
 		EBEA938C222DFE960097251A /* AirbnbCereal-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AirbnbCereal-Medium.ttf"; sourceTree = "<group>"; };
 		EBEB9301222F4BFA003DAD1E /* DropMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropMessageView.swift; sourceTree = "<group>"; };
 		EBEB9303223092BA003DAD1E /* message-success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "message-success.json"; sourceTree = "<group>"; };
 		EBF327622248293000F47456 /* ErrorPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPopUpView.swift; sourceTree = "<group>"; };
+		EBF5502122654DC10012EA31 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		EBFAC66F22261B05004B5074 /* MainView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainView.storyboard; sourceTree = "<group>"; };
 		EBFAC67522261C08004B5074 /* FeedViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewCell.swift; sourceTree = "<group>"; };
 		EBFAC67722261F89004B5074 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
@@ -198,9 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				EB2FB3E7225D25B400151C80 /* Group */,
-				EBFAC67522261C08004B5074 /* FeedViewCell.swift */,
-				EBFAC67722261F89004B5074 /* FeedView.swift */,
-				EBFAC68222275DA0004B5074 /* PopUpView.swift */,
+				EBF5503122655A420012EA31 /* Legacy */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -217,8 +225,6 @@
 		EB2FB3E7225D25B400151C80 /* Group */ = {
 			isa = PBXGroup;
 			children = (
-				EB303FDB22529F9C00161BC8 /* GroupView.swift */,
-				EB303FD922529CB700161BC8 /* GroupViewCell.swift */,
 			);
 			path = Group;
 			sourceTree = "<group>";
@@ -276,6 +282,7 @@
 				EB414CED2214F29A007C3FE4 /* LaunchScreen.storyboard */,
 				EB414CF02214F29A007C3FE4 /* Info.plist */,
 				EB414CE82214F298007C3FE4 /* MapChat.xcdatamodeld */,
+				EBD4809F2263F1990045399B /* LoadingView.swift */,
 			);
 			path = MapChat;
 			sourceTree = "<group>";
@@ -324,11 +331,25 @@
 		EBEA9388222DFAC30097251A /* fonts */ = {
 			isa = PBXGroup;
 			children = (
+				EB31C6572263F84400086DB3 /* AirbnbCereal-Bold.ttf */,
 				EBEA9389222DFACD0097251A /* AirbnbCereal-Light.ttf */,
 				EBEA938B222DFB090097251A /* AirbnbCereal-Book.ttf */,
 				EBEA938C222DFE960097251A /* AirbnbCereal-Medium.ttf */,
 			);
 			path = fonts;
+			sourceTree = "<group>";
+		};
+		EBF5503122655A420012EA31 /* Legacy */ = {
+			isa = PBXGroup;
+			children = (
+				EB31C6612264258E00086DB3 /* CardCell.swift */,
+				EB303FD922529CB700161BC8 /* GroupViewCell.swift */,
+				EB303FDB22529F9C00161BC8 /* GroupView.swift */,
+				EBFAC67722261F89004B5074 /* FeedView.swift */,
+				EBFAC68222275DA0004B5074 /* PopUpView.swift */,
+				EBFAC67522261C08004B5074 /* FeedViewCell.swift */,
+			);
+			path = Legacy;
 			sourceTree = "<group>";
 		};
 		EBFAC66D22261AE1004B5074 /* Main */ = {
@@ -361,6 +382,7 @@
 				EBFAC67C2226278A004B5074 /* LocationServicesManager.swift */,
 				EBFAC68022272906004B5074 /* AppState.swift */,
 				EB086E9E2253F23A00F9D2D3 /* GroupPostManager.swift */,
+				EBF5502122654DC10012EA31 /* ShadowView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -474,12 +496,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB31C6522263F71000086DB3 /* AirbnbCereal-Medium.ttf in Resources */,
+				EB31C6512263F70B00086DB3 /* AirbnbCereal-Book.ttf in Resources */,
 				056A379422233FC1005A49CB /* Sign-in.storyboard in Resources */,
 				EBA2AF6C223AC844009B8962 /* location_c.json in Resources */,
 				056A378A2223301A005A49CB /* Auth.storyboard in Resources */,
 				EB414CEF2214F29A007C3FE4 /* LaunchScreen.storyboard in Resources */,
 				EB414CEC2214F29A007C3FE4 /* Assets.xcassets in Resources */,
 				EBEB9304223092BA003DAD1E /* message-success.json in Resources */,
+				EB31C6582263F84400086DB3 /* AirbnbCereal-Bold.ttf in Resources */,
 				EB303FD62252954F00161BC8 /* davis_hall.jpg in Resources */,
 				EBFAC67022261B05004B5074 /* MainView.storyboard in Resources */,
 				EB414CE72214F298007C3FE4 /* Main.storyboard in Resources */,
@@ -515,6 +540,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-MapChat/Pods-MapChat-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Cards/Cards.framework",
 				"${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
@@ -522,6 +548,7 @@
 				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookShare/FacebookShare.framework",
+				"${BUILT_PRODUCTS_DIR}/Player/Player.framework",
 				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
@@ -530,6 +557,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cards.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicBlurView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
@@ -537,6 +565,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookShare.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Player.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
@@ -648,12 +677,15 @@
 				EB464C59225EB7F900F246F2 /* PlaceCollectionCell.swift in Sources */,
 				EBAA2FF1222322CD003A7FD5 /* SPageThree.swift in Sources */,
 				EB2FB3E9225D25EA00151C80 /* SettingsCell.swift in Sources */,
+				EBD480A02263F1990045399B /* LoadingView.swift in Sources */,
 				EBEB9302222F4BFA003DAD1E /* DropMessageView.swift in Sources */,
 				EBAA2FEF222322C3003A7FD5 /* SPageTwo.swift in Sources */,
+				EBF5502222654DC10012EA31 /* ShadowView.swift in Sources */,
 				056A378C2223308C005A49CB /* SignInView.swift in Sources */,
 				EB33C25B223AA9BF0012630B /* NameView.swift in Sources */,
 				056A378E222330A7005A49CB /* UsernameView.swift in Sources */,
 				EBAA2FED222322B8003A7FD5 /* SPageOne.swift in Sources */,
+				EB31C6622264258E00086DB3 /* CardCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

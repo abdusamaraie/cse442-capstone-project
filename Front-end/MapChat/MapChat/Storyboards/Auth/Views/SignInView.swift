@@ -55,11 +55,13 @@ class SignInView: UIViewController, UITextFieldDelegate {
         // button text "sign in"
         sign_in_button.setTitle("Continue", for: .normal)
         
+        sign_in_button.setTitleColor(.black, for: .normal)
+        
         // add button target
         sign_in_button.addTarget(self, action: #selector(next_view), for: .touchUpInside)
         
         // button color white
-        sign_in_button.backgroundColor = UIColor.blue
+        sign_in_button.backgroundColor = UIColor.white
         
         // center within view
         sign_in_button.center.x = self.view.frame.midX
