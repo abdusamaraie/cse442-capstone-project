@@ -71,7 +71,7 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(150)
+        return CGFloat(231)
     }
     
     func loadFeed() {
@@ -130,29 +130,39 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("count: \(group_list.count)")
-        return group_list.count
+        // return group_list.count
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let group_item = group_list[indexPath.row]
+//        let group_item = group_list[indexPath.row]
+//
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "GroupViewCell", for: indexPath as IndexPath) as! GroupViewCell
+//
+//        // cell.groupImage.image = #imageLiteral(resourceName: "davis_hall")
+//
+//        let url = URL(string: group_item.URL!)
+//
+//        DispatchQueue.global().async {
+//            let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+//            DispatchQueue.main.async {
+//                cell.groupImage.image = UIImage(data: data!)
+//                cell.groupImage.contentMode = .scaleToFill
+//                // cell.groupImage.alpha = 0.35
+//            }
+//        }
+//
+//        cell.buildingName.text = group_list[indexPath.row].name
+//
+//        return cell
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "GroupViewCell", for: indexPath as IndexPath) as! GroupViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TestCard", for: indexPath as IndexPath) as! CardCell
         
-        // cell.groupImage.image = #imageLiteral(resourceName: "davis_hall")
-        
-        let url = URL(string: group_item.URL!)
-        
-        DispatchQueue.global().async {
-            let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
-            DispatchQueue.main.async {
-                cell.groupImage.image = UIImage(data: data!)
-                cell.groupImage.contentMode = .scaleToFill
-                // cell.groupImage.alpha = 0.35
-            }
-        }
-        
-        cell.buildingName.text = group_list[indexPath.row].name
+        let detailVC = storyboard?.instantiateViewController(withIdentifier: "CardContent")
+    
+        cell.card.shouldPresent(detailVC, from: self, fullscreen: true)
+        //cell.card.detailView = detailVC?.view
         
         return cell
     }

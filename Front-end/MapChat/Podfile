@@ -26,4 +26,5 @@ target 'MapChat' do
   pod 'GooglePlaces'
   pod 'lottie-ios'
   pod 'SwiftyJSON'
+  pod 'Cards'
 end
