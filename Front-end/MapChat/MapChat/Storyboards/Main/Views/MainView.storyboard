@@ -91,7 +91,22 @@
             </objects>
             <point key="canvasLocation" x="-175" y="233"/>
         </scene>
-        <!--Profile View-->
+        <!--View Controller-->
+        <scene sceneID="wtq-WK-wqi">
+            <objects>
+                <viewController id="Vxj-mi-03u" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WMC-hM-4Gu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="XSg-67-AfX"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j02-dY-SG9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1655" y="233"/>
+        </scene>
+        <!--Account-->
         <scene sceneID="x93-E7-dHL">
             <objects>
                 <viewController id="vNL-4U-srH" customClass="ProfileView" customModule="MapChat" customModuleProvider="target" sceneMemberID="viewController">
@@ -143,7 +158,7 @@
                                             <outlet property="settingName" destination="StK-RV-DS2" id="NjM-SY-jRR"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="VersionCell" id="Loh-Eu-yDX" customClass="AppVersionCell" customModule="MapChat" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="VersionCell" id="Loh-Eu-yDX" customClass="AppVersionCell" customModule="MapChat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Loh-Eu-yDX" id="MI9-fp-Ay3">
@@ -157,7 +172,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7.2.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrA-X2-jxw">
-                                                    <rect key="frame" x="323.33333333333331" y="10" width="36.666666666666686" height="24"/>
+                                                    <rect key="frame" x="323" y="10" width="37" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="37" id="ntv-6E-2pE"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="AirbnbCerealApp-Light" family="Airbnb Cereal App" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -199,9 +217,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dmP-zX-d9z"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Cco-1g-dqr"/>
+                    <navigationItem key="navigationItem" title="Account" id="Cco-1g-dqr"/>
                     <connections>
                         <outlet property="settingsView" destination="SBk-Vs-7B0" id="mSK-aO-kEw"/>
+                        <segue destination="Vxj-mi-03u" kind="show" id="c6i-fJ-brx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eYf-Al-bGP" userLabel="First Responder" sceneMemberID="firstResponder"/>
