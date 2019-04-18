@@ -225,6 +225,19 @@ def distance():
         return str(False)
 
 
+@app.route('/profile', methods=['GET', 'POST'])
+def profile():
+    # RETURN THE DISTANCE BETWEEN A USER AND A PLACE
+    if request.method == 'GET':
+        username = request.args.get('username')
+        return neo4j.get_profile(username)
+
+    # UPDATE A USER'S PROFILE SETTINGS
+    else:
+        # Get all possible settings
+        return str(False)
+
+
 '''
 THIS IS DONE ON THE FRONT END NOW
 @app.route('/nearby', methods=['GET'])

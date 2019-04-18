@@ -445,3 +445,11 @@ def get_posts_at_place(place_id):
     except Exception as e:
         print(e)
         return str(False)
+
+
+def get_profile(username):
+    return 0
+
+
+def update_profile():
+    return 0
