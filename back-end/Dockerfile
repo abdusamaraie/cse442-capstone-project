@@ -1,8 +1,9 @@
-FROM centos:centos7
+FROM python:3
 
-WORKDIR /
-ADD dev-install.sh .
-RUN ./dev-install.sh --docker-build
-
-WORKDIR /server
 ADD server .
+ADD requirements.txt .
+RUN pip3 install -r requirements.txt
+
+RUN pip3 install -r requirements.txt
+
+CMD ["python3", "./server.py"]
