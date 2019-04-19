@@ -1,6 +1,6 @@
 UPLOAD_PATH = 'database/uploads/'
 
-NEO4J_CLUSTER_IP = "34.66.158.94"
+NEO4J_CLUSTER_IP = "35.232.24.4"
 
 # temporary api key for testing
 PLACES_API_KEY = 'AIzaSyAYDeO-TqsstxXzmZqCes-J3exBDQgD5cY'

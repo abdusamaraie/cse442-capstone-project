@@ -11,7 +11,7 @@
     - kubectl proxy
 
 3. cd into "/kubernetes-neo4j"
-    - Run kubectl apply -f cores
+    - Run: kubectl apply -f cores
 
 4. After the pods are done being created (this may take a few minutes), go to GKE/Services and go to <load-balancer-ip:80> in your browser.
 
@@ -19,7 +19,7 @@
     Host: bolt://<load-balancer-ip>:7687
     Username: neo4j
     Password: neo4j
-    - You will be asked for a new password. IT MUST BE "password"
+    - You will be asked for a new password. * IT MUST BE "password" *
       New Password: password
 
 6. Change the neo4j IP in our back-end server.
