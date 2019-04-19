@@ -37,6 +37,11 @@ class ProfileView: UIViewController, UITableViewDelegate, UITableViewDataSource 
         self.settingsView.reloadData()
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "to_advanced_settings", sender: self)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return settings_list.count
     }
