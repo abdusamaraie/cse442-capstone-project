@@ -3,7 +3,7 @@
 # THESE INSTRUCTIONS ARE FOR THE INITIAL SETUP AND DEPLOYMENT OF THE NEO4J GKE CLUSTER
 
 
-1. Manually create GKE cluster with 3 nodes. 
+1. Manually create GKE cluster named "neo4j-cluster" with 3 nodes. 
     Following: https://medium.com/google-cloud/running-neo4j-with-hosted-kubernetes-in-google-cloud-b479e87b74c0
 
 2. Connect to the cluster with: 

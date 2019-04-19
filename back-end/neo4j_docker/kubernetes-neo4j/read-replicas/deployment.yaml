@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: neo4j
-        image: "neo4j:3.5.4-enterprise"
+        image: gcr.io/cse442/neo4j:enterprise
         imagePullPolicy: "IfNotPresent"
         env:
           - name: NEO4J_dbms_mode
