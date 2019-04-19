@@ -39,9 +39,12 @@ class ProfileView: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if (indexPath.row != (settings_list.count/2)) {
+        if (settings_list[indexPath.row].name == "Settings") {
             self.performSegue(withIdentifier: "to_advanced_settings", sender: self)
             tableView.deselectRow(at: indexPath, animated: true)
+        } else if (settings_list[indexPath.row].name == "Log out") {
+            print("logging out")
+            self.view.window?.rootViewController?.presentedViewController!.dismiss(animated: true, completion: nil)
         }
     }
     
