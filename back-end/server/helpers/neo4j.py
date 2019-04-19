@@ -8,7 +8,7 @@ import uuid
 import json
 from helpers import places
 
-GRAPH = Graph(host=NEO4J_CLUSTER_IP, auth=("neo4j", "password"))  # assumes neo4j is running locally on port 7474 (default)
+GRAPH = Graph(host=NEO4J_CLUSTER_IP, auth=("neo4j", "password"))
 
 
 def get_time(time_zone="US/Eastern"):
