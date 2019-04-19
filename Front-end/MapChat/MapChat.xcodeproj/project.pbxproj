@@ -37,6 +37,8 @@
 		EB786F85226A679E001CF54F /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB786F84226A679E001CF54F /* MapView.swift */; };
 		EB786F87226A6FE4001CF54F /* AdvancedSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB786F86226A6FE4001CF54F /* AdvancedSettingsView.swift */; };
 		EB786F89226A7134001CF54F /* AdvancedSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB786F88226A7134001CF54F /* AdvancedSettingsCell.swift */; };
+		EB786F8B226A93F0001CF54F /* LoadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB786F8A226A93F0001CF54F /* LoadView.swift */; };
+		EB786F8D226A94C8001CF54F /* confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = EB786F8C226A94C8001CF54F /* confetti.json */; };
 		EBA2AF68223AC83A009B8962 /* location_a.json in Resources */ = {isa = PBXBuildFile; fileRef = EBA2AF67223AC839009B8962 /* location_a.json */; };
 		EBA2AF6A223AC83F009B8962 /* location_b.json in Resources */ = {isa = PBXBuildFile; fileRef = EBA2AF69223AC83F009B8962 /* location_b.json */; };
 		EBA2AF6C223AC844009B8962 /* location_c.json in Resources */ = {isa = PBXBuildFile; fileRef = EBA2AF6B223AC844009B8962 /* location_c.json */; };
@@ -119,6 +121,8 @@
 		EB786F84226A679E001CF54F /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		EB786F86226A6FE4001CF54F /* AdvancedSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedSettingsView.swift; sourceTree = "<group>"; };
 		EB786F88226A7134001CF54F /* AdvancedSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedSettingsCell.swift; sourceTree = "<group>"; };
+		EB786F8A226A93F0001CF54F /* LoadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadView.swift; sourceTree = "<group>"; };
+		EB786F8C226A94C8001CF54F /* confetti.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = confetti.json; sourceTree = "<group>"; };
 		EBA2AF67223AC839009B8962 /* location_a.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = location_a.json; sourceTree = "<group>"; };
 		EBA2AF69223AC83F009B8962 /* location_b.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = location_b.json; sourceTree = "<group>"; };
 		EBA2AF6B223AC844009B8962 /* location_c.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = location_c.json; sourceTree = "<group>"; };
@@ -312,6 +316,7 @@
 		EBA2AF66223AC820009B8962 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				EB786F8C226A94C8001CF54F /* confetti.json */,
 				EBA2AF67223AC839009B8962 /* location_a.json */,
 				EBA2AF69223AC83F009B8962 /* location_b.json */,
 				EBA2AF6B223AC844009B8962 /* location_c.json */,
@@ -346,6 +351,7 @@
 				EBAA2FEE222322C3003A7FD5 /* SPageTwo.swift */,
 				EBAA2FF0222322CD003A7FD5 /* SPageThree.swift */,
 				EBAA2FF22223236E003A7FD5 /* PageViewController.swift */,
+				EB786F8A226A93F0001CF54F /* LoadView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -533,6 +539,7 @@
 				EB414CE72214F298007C3FE4 /* Main.storyboard in Resources */,
 				EBEA938A222DFACD0097251A /* AirbnbCereal-Light.ttf in Resources */,
 				EBA2AF68223AC83A009B8962 /* location_a.json in Resources */,
+				EB786F8D226A94C8001CF54F /* confetti.json in Resources */,
 				EBA2AF6A223AC83F009B8962 /* location_b.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -699,6 +706,7 @@
 				EB414CE22214F298007C3FE4 /* AppDelegate.swift in Sources */,
 				EB086E9F2253F23A00F9D2D3 /* GroupPostManager.swift in Sources */,
 				EB414CEA2214F298007C3FE4 /* MapChat.xcdatamodeld in Sources */,
+				EB786F8B226A93F0001CF54F /* LoadView.swift in Sources */,
 				EB464C59225EB7F900F246F2 /* PlaceCollectionCell.swift in Sources */,
 				EBAA2FF1222322CD003A7FD5 /* SPageThree.swift in Sources */,
 				EB2FB3E9225D25EA00151C80 /* SettingsCell.swift in Sources */,
