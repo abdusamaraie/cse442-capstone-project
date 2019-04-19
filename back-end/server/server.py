@@ -1,5 +1,4 @@
 # Local Helpers
-from constants.constants import UPLOAD_PATH
 from helpers import authenticate, neo4j, places
 from objects.user import User
 from objects.filestream import Filestream
