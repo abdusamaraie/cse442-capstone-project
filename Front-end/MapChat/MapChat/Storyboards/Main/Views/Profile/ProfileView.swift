@@ -38,8 +38,11 @@ class ProfileView: UIViewController, UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "to_advanced_settings", sender: self)
-        tableView.deselectRow(at: indexPath, animated: true)
+        
+        if (indexPath.row != (settings_list.count/2)) {
+            self.performSegue(withIdentifier: "to_advanced_settings", sender: self)
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -48,7 +51,7 @@ class ProfileView: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if (indexPath.row == (settings_list.count/2) - 1) {
+        if (indexPath.row == (settings_list.count/2)) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SpacerCell", for: indexPath) as! SpacerCell
             
             return cell

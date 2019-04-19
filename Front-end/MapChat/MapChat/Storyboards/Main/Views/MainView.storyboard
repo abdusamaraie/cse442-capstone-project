@@ -142,7 +142,7 @@
                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdvancedSpacerCell" id="Jl1-vv-Sec" customClass="SpacerCell" customModule="MapChat" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="AdvancedSpacerCell" id="Jl1-vv-Sec" customClass="SpacerCell" customModule="MapChat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jl1-vv-Sec" id="mAi-Ox-yJ1">
@@ -282,7 +282,7 @@
                                 <rect key="frame" x="0.0" y="88" width="375" height="641"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="YsH-Qh-4fD">
-                                    <rect key="frame" x="0.0" y="136" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="126" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </view>
@@ -359,11 +359,11 @@
                                             <outlet property="versionNumber" destination="nrA-X2-jxw" id="FW1-Nv-TRc"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SpacerCell" rowHeight="20" id="w19-No-crG" customClass="SpacerCell" customModule="MapChat" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="116" width="375" height="20"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SpacerCell" rowHeight="10" id="w19-No-crG" customClass="SpacerCell" customModule="MapChat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="116" width="375" height="10"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w19-No-crG" id="vpU-OY-E78" customClass="SpacerCell" customModule="MapChat" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="19.666666666666668"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="9.6666666666666661"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         </tableViewCellContentView>
