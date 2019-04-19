@@ -1,8 +1,6 @@
-test = 'test'
-DATABASE_PATH = 'database/main.db'
-HASH_PASSWORD_PATH = 'database/user_hash_passwords.txt'
-EARTH_RADIUS_METERS = 6371000
 UPLOAD_PATH = 'database/uploads/'
+
+NEO4J_CLUSTER_IP = "34.66.158.94"
 
 # temporary api key for testing
 PLACES_API_KEY = 'AIzaSyAYDeO-TqsstxXzmZqCes-J3exBDQgD5cY'

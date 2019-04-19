@@ -1,4 +1,5 @@
 from py2neo import Graph, Node, Relationship, NodeMatcher, RelationshipMatcher
+from constants.constants import NEO4J_CLUSTER_IP
 from passlib.hash import argon2
 from datetime import datetime
 import pytz
@@ -7,7 +8,7 @@ import uuid
 import json
 from helpers import places
 
-GRAPH = Graph(auth=("neo4j", "neo4j"))  # assumes neo4j is running locally on port 7474 (default)
+GRAPH = Graph(host=NEO4J_CLUSTER_IP, auth=("neo4j", "password"))  # assumes neo4j is running locally on port 7474 (default)
 
 
 def get_time(time_zone="US/Eastern"):
