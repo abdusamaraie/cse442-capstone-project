@@ -37,13 +37,24 @@ class ProfileView: UIViewController, UITableViewDelegate, UITableViewDataSource 
         self.settingsView.reloadData()
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if (settings_list[indexPath.row].name == "Settings") {
+            self.performSegue(withIdentifier: "to_advanced_settings", sender: self)
+            tableView.deselectRow(at: indexPath, animated: true)
+        } else if (settings_list[indexPath.row].name == "Log out") {
+            print("logging out")
+            self.view.window?.rootViewController?.presentedViewController!.dismiss(animated: true, completion: nil)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return settings_list.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if (indexPath.row == (settings_list.count/2) - 1) {
+        if (indexPath.row == (settings_list.count/2)) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SpacerCell", for: indexPath) as! SpacerCell
             
             return cell
