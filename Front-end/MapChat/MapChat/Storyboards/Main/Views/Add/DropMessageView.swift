@@ -24,7 +24,6 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
     
     @IBOutlet weak var message: UITextView!
     @IBOutlet weak var placesView: UICollectionView!
-    @IBOutlet weak var postMessageButton: UIBarButtonItem!
     
     var locManager = CLLocationManager()
     
@@ -34,6 +33,9 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
         
         locManager.delegate = self
         
@@ -103,8 +105,21 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         }
     }
     
+    @IBOutlet weak var containerView: UIView!
+    let animationView = AnimationView(name: "waiting")
+    
     override func viewDidAppear(_ animated: Bool) {
         getPlace()
+        animate()
+    }
+    
+    func animate() {
+        animationView.frame = containerView.bounds
+        animationView.contentMode = .scaleAspectFill
+        animationView.animationSpeed = 0.5
+        self.containerView.addSubview(animationView)
+        animationView.play()
+        animationView.loopMode = .loop
     }
     
     //

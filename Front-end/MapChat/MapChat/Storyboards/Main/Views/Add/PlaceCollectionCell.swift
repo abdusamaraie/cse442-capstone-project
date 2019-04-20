@@ -9,7 +9,7 @@
 import UIKit
 
 class PlaceCollectionCell: UICollectionViewCell {
-    @IBOutlet weak var PlaceImage: UIImageView!
+    
     @IBOutlet weak var PlaceName: UILabel!
     
 }

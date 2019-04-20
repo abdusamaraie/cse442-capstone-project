@@ -31,6 +31,8 @@
 		EB414CEC2214F29A007C3FE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB414CEB2214F29A007C3FE4 /* Assets.xcassets */; };
 		EB414CEF2214F29A007C3FE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB414CED2214F29A007C3FE4 /* LaunchScreen.storyboard */; };
 		EB464C59225EB7F900F246F2 /* PlaceCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB464C58225EB7F900F246F2 /* PlaceCollectionCell.swift */; };
+		EB616CA3226B758000335BF7 /* organic.json in Resources */ = {isa = PBXBuildFile; fileRef = EB616CA2226B758000335BF7 /* organic.json */; };
+		EB616CA5226B77B000335BF7 /* waiting.json in Resources */ = {isa = PBXBuildFile; fileRef = EB616CA4226B77B000335BF7 /* waiting.json */; };
 		EB786F80226915FA001CF54F /* SpacerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB786F7F226915FA001CF54F /* SpacerCell.swift */; };
 		EB786F822269160F001CF54F /* AppVersionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB786F812269160F001CF54F /* AppVersionCell.swift */; };
 		EB786F85226A679E001CF54F /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB786F84226A679E001CF54F /* MapView.swift */; };
@@ -39,6 +41,7 @@
 		EB786F8B226A93F0001CF54F /* LoadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB786F8A226A93F0001CF54F /* LoadView.swift */; };
 		EB786F8D226A94C8001CF54F /* confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = EB786F8C226A94C8001CF54F /* confetti.json */; };
 		EB786F90226A98AF001CF54F /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB786F8F226A98AF001CF54F /* MessageCell.swift */; };
+		EB786F92226AA329001CF54F /* load-drop.json in Resources */ = {isa = PBXBuildFile; fileRef = EB786F91226AA329001CF54F /* load-drop.json */; };
 		EBA2AF68223AC83A009B8962 /* location_a.json in Resources */ = {isa = PBXBuildFile; fileRef = EBA2AF67223AC839009B8962 /* location_a.json */; };
 		EBA2AF6A223AC83F009B8962 /* location_b.json in Resources */ = {isa = PBXBuildFile; fileRef = EBA2AF69223AC83F009B8962 /* location_b.json */; };
 		EBA2AF6C223AC844009B8962 /* location_c.json in Resources */ = {isa = PBXBuildFile; fileRef = EBA2AF6B223AC844009B8962 /* location_c.json */; };
@@ -114,6 +117,8 @@
 		EB414CF52214F29A007C3FE4 /* MapChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB414D002214F29A007C3FE4 /* MapChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB464C58225EB7F900F246F2 /* PlaceCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCollectionCell.swift; sourceTree = "<group>"; };
+		EB616CA2226B758000335BF7 /* organic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = organic.json; sourceTree = "<group>"; };
+		EB616CA4226B77B000335BF7 /* waiting.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = waiting.json; sourceTree = "<group>"; };
 		EB786F7F226915FA001CF54F /* SpacerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacerCell.swift; sourceTree = "<group>"; };
 		EB786F812269160F001CF54F /* AppVersionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionCell.swift; sourceTree = "<group>"; };
 		EB786F84226A679E001CF54F /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -122,6 +127,7 @@
 		EB786F8A226A93F0001CF54F /* LoadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadView.swift; sourceTree = "<group>"; };
 		EB786F8C226A94C8001CF54F /* confetti.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = confetti.json; sourceTree = "<group>"; };
 		EB786F8F226A98AF001CF54F /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		EB786F91226AA329001CF54F /* load-drop.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "load-drop.json"; sourceTree = "<group>"; };
 		EBA2AF67223AC839009B8962 /* location_a.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = location_a.json; sourceTree = "<group>"; };
 		EBA2AF69223AC83F009B8962 /* location_b.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = location_b.json; sourceTree = "<group>"; };
 		EBA2AF6B223AC844009B8962 /* location_c.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = location_c.json; sourceTree = "<group>"; };
@@ -235,6 +241,9 @@
 		EB2FB3E6225D258F00151C80 /* Add */ = {
 			isa = PBXGroup;
 			children = (
+				EB616CA4226B77B000335BF7 /* waiting.json */,
+				EB616CA2226B758000335BF7 /* organic.json */,
+				EB786F91226AA329001CF54F /* load-drop.json */,
 				EBEB9301222F4BFA003DAD1E /* DropMessageView.swift */,
 				EB464C58225EB7F900F246F2 /* PlaceCollectionCell.swift */,
 			);
@@ -508,14 +517,17 @@
 			files = (
 				EB31C6522263F71000086DB3 /* AirbnbCereal-Medium.ttf in Resources */,
 				EB31C6512263F70B00086DB3 /* AirbnbCereal-Book.ttf in Resources */,
+				EB786F92226AA329001CF54F /* load-drop.json in Resources */,
 				056A379422233FC1005A49CB /* Sign-in.storyboard in Resources */,
 				EBA2AF6C223AC844009B8962 /* location_c.json in Resources */,
+				EB616CA5226B77B000335BF7 /* waiting.json in Resources */,
 				056A378A2223301A005A49CB /* Auth.storyboard in Resources */,
 				EB414CEF2214F29A007C3FE4 /* LaunchScreen.storyboard in Resources */,
 				EB414CEC2214F29A007C3FE4 /* Assets.xcassets in Resources */,
 				EBEB9304223092BA003DAD1E /* message-success.json in Resources */,
 				EB31C6582263F84400086DB3 /* AirbnbCereal-Bold.ttf in Resources */,
 				EB303FD62252954F00161BC8 /* davis_hall.jpg in Resources */,
+				EB616CA3226B758000335BF7 /* organic.json in Resources */,
 				EBFAC67022261B05004B5074 /* MainView.storyboard in Resources */,
 				EB414CE72214F298007C3FE4 /* Main.storyboard in Resources */,
 				EBEA938A222DFACD0097251A /* AirbnbCereal-Light.ttf in Resources */,
