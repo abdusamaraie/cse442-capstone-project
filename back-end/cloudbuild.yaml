@@ -20,7 +20,7 @@ steps:
   entrypoint: /bin/sh
   args:
   - -c
-  - 'pip install flask && pwd && ls' #python -m unittest discover ./back-end/server/tests'
+  - 'pip install flask && cd back-end' #python -m unittest discover ./back-end/server/tests'
 
 # This step builds the container image.
 - name: 'gcr.io/cloud-builders/docker'
