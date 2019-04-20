@@ -15,12 +15,12 @@
 # [START cloudbuild]
 steps:
 # This step runs the unit tests on the app
-#- name: 'python:3.7-slim'
-#  id: Test
-#  entrypoint: /bin/sh
-#  args:
-#  - -c
-#  - 'pip install flask && python -m unittest discover ./back-end/server/tests'
+- name: 'python:3.7-slim'
+  id: Test
+  entrypoint: /bin/sh
+  args:
+  - -c
+  - 'pip install flask && pwd && ls' #python -m unittest discover ./back-end/server/tests'
 
 # This step builds the container image.
 - name: 'gcr.io/cloud-builders/docker'
