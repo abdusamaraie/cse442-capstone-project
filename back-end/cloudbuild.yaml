@@ -30,6 +30,7 @@ steps:
   - '-t'
   - 'gcr.io/$PROJECT_ID/flask:$SHORT_SHA'
   - '.'
+  dir: './back-end'
 
 # This step pushes the image to Container Registry
 # The PROJECT_ID and SHORT_SHA variables are automatically
@@ -39,6 +40,7 @@ steps:
   args:
   - 'push'
   - 'gcr.io/$PROJECT_ID/flask:$SHORT_SHA'
+  dir: './back-end'
 # [END cloudbuild]
 
 # Deploy to GKE
