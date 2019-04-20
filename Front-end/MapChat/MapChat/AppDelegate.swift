@@ -32,10 +32,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     // modal tb view for drop message
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         
-        print("vc is DropMessageView: \(viewController is DropMessageNavVC)")
+        print("vc is DropMessageView: \(viewController is DropMessageView)")
         
-        if viewController is DropMessageNavVC {
-            if let newVC = tabBarController.storyboard?.instantiateViewController(withIdentifier: "DropMessageNavVC") {
+        if viewController is DropMessageView {
+            if let newVC = tabBarController.storyboard?.instantiateViewController(withIdentifier: "DropMessageVC") {
                 tabBarController.present(newVC, animated: true)
                 return false
             }

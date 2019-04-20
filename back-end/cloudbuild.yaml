@@ -13,6 +13,7 @@
 # limitations under the License.
 
 # [START cloudbuild]
+
 steps:
 # This step runs the unit tests on the app
 #- name: 'python:3.7-slim'
@@ -22,7 +23,8 @@ steps:
 #  - -c
 #  - 'pip install flask && cd back-end' #python -m unittest discover ./back-end/server/tests'
 
-# This step builds the container image.
+
+# This step builds the Flask container image.
 - name: 'gcr.io/cloud-builders/docker'
   id: Build
   args:
@@ -41,7 +43,7 @@ steps:
   - 'push'
   - 'gcr.io/$PROJECT_ID/flask:$SHORT_SHA'
   dir: './back-end'
-# [END cloudbuild]
+
 
 # Deploy to GKE
 - name: 'gcr.io/cloud-builders/kubectl'
@@ -55,3 +57,5 @@ steps:
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=flask-cluster-1'
+
+# [END cloudbuild]
