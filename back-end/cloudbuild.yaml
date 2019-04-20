@@ -20,12 +20,10 @@ steps:
   entrypoint: /bin/sh
   args:
   - -c
-  - 'pip install flask && pwd && ls'
-
-# python -m unittest discover /cse442/back-end/tests -v
+  - 'pip install flask && python -m unittest discover /back-end/server/tests -v
 
 # This step builds the Flask container image.
-- name: 'gcr.io/cse442/flask:$SHORT_SHA'
+- name: 'gcr.io/cse442/flask'
   id: Build
   args:
   - 'build'
