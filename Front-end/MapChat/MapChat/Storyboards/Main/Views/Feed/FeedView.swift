@@ -15,7 +15,8 @@ import SwiftyJSON
 
 struct Message {
     var message: String
-    var username: String
+    var tag: String
+    var numberLikes: Int
 }
 
 class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
@@ -40,7 +41,18 @@ class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource, CL
     
     override func viewDidAppear(_ animated: Bool) {
         self.navigationItem.title = place_name
-        loadFeed()
+        
+        messages = [Message(message: "this is a test message that I am currently testing right now.", tag: "#hatemylife", numberLikes: 5),
+                    Message(message: "this is a test that might be getting tested as we currently speak", tag: "#wtf", numberLikes: 8),
+                    Message(message: "Did anyone else hear that firealarm? I'm skipping class right now", tag: "#UBISSHIT", numberLikes: 20),
+                    Message(message: "I really hate my job what do I do now? I have nothing else to do in my life??", tag: "#JesseSucks", numberLikes: 11),
+                    Message(message: "this is a test message that I am currently testing right now.", tag: "#hatemylife", numberLikes: 5),
+                    Message(message: "this is a test that might be getting tested as we currently speak", tag: "#wtf", numberLikes: 8),
+                    Message(message: "Did anyone else hear that firealarm? I'm skipping class right now", tag: "#UBISSHIT", numberLikes: 20),
+                    Message(message: "I really hate my job what do I do now? I have nothing else to do in my life??", tag: "#JesseSucks", numberLikes: 11)]
+        
+        self.feedView.reloadData()
+        // loadFeed()
     }
     
     func loadFeed() {
@@ -68,7 +80,7 @@ class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource, CL
                 print("posts: \(posts)")
                 
                 for (_, post) in posts {
-                    self.messages.append(Message(message: post["content"].string!, username: "_"))
+                    //self.messages.append(Message(message: post["content"].string!, num: "_"))
                 }
             
                 self.feedView.reloadData()
@@ -86,20 +98,22 @@ class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource, CL
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath) as! FeedViewCell
-        
-        print("messages: \(self.messages)")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath) as! MessageCell
         
         let messageContent = self.messages[indexPath.row].message
+        let numberLikes = self.messages[indexPath.row].numberLikes
+        let hashTag = self.messages[indexPath.row].tag
         
-        cell.messageTitle.text = messageContent
+        cell.messageTag.text = hashTag
+        cell.messageBody.text = messageContent
+        cell.numberLikes.text = numberLikes as? String
         
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(100)
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return CGFloat(100)
+//    }
 }
 
 extension UIViewController {
