@@ -1,0 +1,19 @@
+
+
+# THESE INSTRUCTIONS ARE FOR THE INITIAL SETUP OF THE FLASK GKE CLUSTER
+# IF THE "flask" GKE CLUSTER ALREADY EXISTS, SKIP THESE STEPS
+
+
+1. Manually create GKE cluster named "flask-cluster" with 3 nodes.
+
+2. After the cluster is created in GKE, click it, and click "Deploy"
+    - Existing container image
+    - Image path: Select the most recent flask build
+    - Click Continue
+    - Application name: flask-server
+    - Click "Deploy"
+  
+3. Go to: Kubernetes Engine -> Workloads -> flask-server. Then click "Edit"
+    - In the YAML find: spec > template > spec > containers
+    - Change imagePullPolicy from "IfNotPresent" to "Always"
+    - * SAVE *
