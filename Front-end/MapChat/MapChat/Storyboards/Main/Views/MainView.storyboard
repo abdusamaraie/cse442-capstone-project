@@ -638,6 +638,9 @@
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" red="0.2071822676" green="0.42178231579999997" blue="0.56248662240000002" alpha="0.82900025929999999" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="cancel:" destination="TLI-jR-wA3" eventType="touchUpInside" id="7LQ-7o-HsH"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZb-EQ-XX0" customClass="DesignableButton" customModule="MapChat" customModuleProvider="target">
                                 <rect key="frame" x="290" y="49" width="69" height="34"/>
@@ -655,6 +658,9 @@
                                         <real key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="cache:" destination="TLI-jR-wA3" eventType="touchUpInside" id="d3M-4a-sWl"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="baF-md-Q8x" customClass="DesignableView" customModule="MapChat" customModuleProvider="target">
                                 <rect key="frame" x="13" y="99" width="50" height="50"/>

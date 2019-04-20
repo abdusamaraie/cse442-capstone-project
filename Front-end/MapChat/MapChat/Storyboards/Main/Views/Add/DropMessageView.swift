@@ -83,6 +83,7 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        // return self.places.count
         return 10
     }
     
@@ -100,6 +101,15 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 100, height: 100)
     }
+    
+        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            // handle tap events
+            print("You selected cell #\(indexPath.item)!")
+    
+            let cell = placesView.cellForItem(at: indexPath)
+            cell?.layer.borderWidth = 1.0
+            cell?.layer.borderColor = UIColor.gray.cgColor
+        }
     
     override func viewDidAppear(_ animated: Bool) {
         // getPlace()
@@ -161,36 +171,18 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         animationView.loopMode = .loop
     }
     
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        print("number items: \(self.places.count)")
-//        return self.places.count
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//
-//        // get a reference to our storyboard cell
-//        let cell = placesView.dequeueReusableCell(withReuseIdentifier: "PlaceCell", for: indexPath as IndexPath) as! PlaceCollectionCell
-//
-//        cell.PlaceName.text = self.places[indexPath.row].placeName
-//
-//        //cell.myLabel.text = self.items[indexPath.item]
-//        //cell.backgroundColor = UIColor.cyan // make cell more visible in our example project
-//
-//        return cell
-//    }
-//
-//    // MARK: - UICollectionViewDelegate protocol
-//
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        // handle tap events
-//        print("You selected cell #\(indexPath.item)!")
-//
-//        let cell = collectionView.cellForItem(at: indexPath)
-//        cell?.layer.borderWidth = 2.0
-//        cell?.layer.borderColor = UIColor.gray.cgColor
-//    }
+    @IBAction func cancel(_ sender: Any) {
+        print("going back")
+        self.dismiss(animated: true, completion: nil)
+    }
     
-    // collection view
+    @IBAction func cache(_ sender: Any) {
+//        if (message.text != "") {
+//            print("message text: \(message.text)")
+//            message.resignFirstResponder()
+//            self.dropMessage = true
+//        }
+    }
     
     // text field changes
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -310,21 +302,7 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
 //    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
 //        print("Failed to find user's location: \(error.localizedDescription)")
 //    }
-    
-//    @IBAction func dropMessage(_ sender: Any) {
-//
-//        if (message.text != "") {
-//            print("message text: \(message.text)")
-//            message.resignFirstResponder()
-//            self.dropMessage = true
-//        }
-//    }
-    
-//    @IBAction func goBack(_ sender: Any) {
-//        print("going back")
-//        self.dismiss(animated: true, completion: nil)
-//        // performSegueToReturnBack()
-//    }
+
 }
 
 
