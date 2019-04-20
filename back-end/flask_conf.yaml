@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: flask
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: flask
+    spec:
+      terminationGracePeriodSeconds: 30
+      containers:
+      - name: flask
+        image: 'gcr.io/$PROJECT_ID/flask:$SHORT_SHA'
+        imagePullPolicy: "Always"
+        ports:
+        - containerPort: 5000

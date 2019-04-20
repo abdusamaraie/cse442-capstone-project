@@ -15,12 +15,12 @@
 # [START cloudbuild]
 steps:
 # This step runs the unit tests on the app
-- name: 'python:3.7-slim'
-  id: Test
-  entrypoint: /bin/sh
-  args:
-  - -c
-  - 'pip install flask && cd back-end' #python -m unittest discover ./back-end/server/tests'
+#- name: 'python:3.7-slim'
+#  id: Test
+#  entrypoint: /bin/sh
+#  args:
+#  - -c
+#  - 'pip install flask && cd back-end' #python -m unittest discover ./back-end/server/tests'
 
 # This step builds the container image.
 - name: 'gcr.io/cloud-builders/docker'
@@ -44,13 +44,13 @@ steps:
 # [END cloudbuild]
 
 # Deploy to GKE
-#- name: 'gcr.io/cloud-builders/kubectl'
-#  args:
-#  - set
-#  - image
-#  - deployment
-#  - [DEPLOYMENT-NAME]
-#  - [CONTAINER]=gcr.io/[PROJECT-ID]/[IMAGE]:[TAG]
-#  env:
-#  - 'CLOUDSDK_COMPUTE_ZONE=[COMPUTE-ZONE]'
-#  - 'CLOUDSDK_CONTAINER_CLUSTER=[CLUSTER]'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args:
+  - set
+  - image
+  - deployment
+  - flask-server
+  - flask-server=gcr.io/$PROJECT_ID/flask:$SHORT_SHA
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=[us-central-1a]'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=[flask-cluster-1]'
