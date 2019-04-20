@@ -22,15 +22,24 @@ steps:
 #  - -c
 #  - 'pip install flask && python -m unittest discover ./back-end/server/tests'
 
-# This step builds the Flask container image.
+# This step builds the container image.
 - name: 'gcr.io/cloud-builders/docker'
   id: Build
-  args: ["build", "-t", "gcr.io/cse442/flask:$SHORT_SHA", "."]
+  args:
+  - 'build'
+  - '-t'
+  - 'gcr.io/$PROJECT_ID/flask:$SHORT_SHA'
+  - '.'
 
-# Push updated image
+# This step pushes the image to Container Registry
+# The PROJECT_ID and SHORT_SHA variables are automatically
+# replaced by Cloud Build.
 - name: 'gcr.io/cloud-builders/docker'
   id: Push
-  args: ["push", "gcr.io/cse442/flask:$SHORT_SHA"]
+  args:
+  - 'push'
+  - 'gcr.io/$PROJECT_ID/flask:$SHORT_SHA'
+# [END cloudbuild]
 
 # Deploy to GKE
 #- name: 'gcr.io/cloud-builders/kubectl'
