@@ -16,9 +16,6 @@
         <array key="AirbnbCereal-Light.ttf">
             <string>AirbnbCerealApp-Light</string>
         </array>
-        <array key="AirbnbCereal-Medium.ttf">
-            <string>AirbnbCerealApp-Medium</string>
-        </array>
     </customFonts>
     <scenes>
         <!--Tab Bar Controller-->
@@ -32,7 +29,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="jWe-tb-kLv" kind="relationship" relationship="viewControllers" id="BKV-d7-x4T"/>
-                        <segue destination="iOr-bs-yWx" kind="relationship" relationship="viewControllers" id="oqM-IO-ROh"/>
+                        <segue destination="TLI-jR-wA3" kind="relationship" relationship="viewControllers" id="iEJ-Fk-LTf"/>
                         <segue destination="FlT-LQ-KK9" kind="relationship" relationship="viewControllers" id="CKS-Ak-ay7"/>
                         <segue destination="dLE-La-Ixl" kind="relationship" relationship="viewControllers" id="s7L-ER-40n"/>
                     </connections>
@@ -57,23 +54,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xh3-hn-iDQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1284" y="233"/>
-        </scene>
-        <!--Add-->
-        <scene sceneID="Iha-fa-rW0">
-            <objects>
-                <navigationController storyboardIdentifier="DropMessageNavVC" id="iOr-bs-yWx" customClass="DropMessageNavVC" customModule="MapChat" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Add" image="add" id="wl4-ZS-aLG"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YeY-Na-BIF">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="TLI-jR-wA3" kind="relationship" relationship="rootViewController" id="Ye8-Dv-YRN"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zQr-Au-Tty" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2025" y="233"/>
         </scene>
         <!--Map View-->
         <scene sceneID="rnN-lo-Gg5">
@@ -632,10 +612,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter a message" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fHd-lL-Kgy">
-                                <rect key="frame" x="0.0" y="88" width="375" height="165"/>
+                                <rect key="frame" x="63" y="92" width="312" height="166"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="375" id="0Fo-ab-C3g"/>
-                                    <constraint firstAttribute="height" constant="165" id="i46-7Y-DPK"/>
+                                    <constraint firstAttribute="height" constant="166" id="LmW-aV-6Ce"/>
                                 </constraints>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="AirbnbCerealApp-Book" family="Airbnb Cereal App" pointSize="20"/>
@@ -649,98 +628,90 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PlQ-ic-2ov">
-                                <rect key="frame" x="0.0" y="261" width="375" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fmp-20-BpW" customClass="DesignableButton" customModule="MapChat" customModuleProvider="target">
+                                <rect key="frame" x="16" y="49" width="75" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="hg7-Zd-nKX"/>
+                                    <constraint firstAttribute="width" constant="75" id="JfX-xq-Yvv"/>
+                                    <constraint firstAttribute="height" constant="35" id="tmi-sf-P7F"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="os2-aF-aq2">
-                                    <size key="itemSize" width="156" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PlaceCell" id="7tQ-fy-t2z" customClass="PlaceCollectionCell" customModule="MapChat" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="156" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="156" height="128"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OKO-pW-AIT">
-                                                    <rect key="frame" x="4" y="0.0" width="149" height="85"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vDE-JC-Iku">
-                                                    <rect key="frame" x="4" y="87" width="149" height="41"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="41" id="MCa-mw-0TQ"/>
-                                                        <constraint firstAttribute="width" constant="149" id="rDL-sN-cb9"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="AirbnbCerealApp-Medium" family="Airbnb Cereal App" pointSize="15"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </view>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="vDE-JC-Iku" secondAttribute="trailing" constant="3" id="4nF-iI-yTq"/>
-                                            <constraint firstItem="vDE-JC-Iku" firstAttribute="top" secondItem="OKO-pW-AIT" secondAttribute="bottom" constant="2" id="6mc-64-QnX"/>
-                                            <constraint firstAttribute="bottom" secondItem="vDE-JC-Iku" secondAttribute="bottom" id="RHN-Om-k0C"/>
-                                            <constraint firstItem="vDE-JC-Iku" firstAttribute="leading" secondItem="7tQ-fy-t2z" secondAttribute="leading" constant="4" id="Vh1-Gf-biV"/>
-                                            <constraint firstAttribute="trailing" secondItem="OKO-pW-AIT" secondAttribute="trailing" constant="3" id="a0c-o7-B7w"/>
-                                            <constraint firstItem="OKO-pW-AIT" firstAttribute="top" secondItem="7tQ-fy-t2z" secondAttribute="top" id="oE7-s5-7CV"/>
-                                            <constraint firstItem="OKO-pW-AIT" firstAttribute="leading" secondItem="7tQ-fy-t2z" secondAttribute="leading" constant="4" id="x2T-D9-vbH"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="PlaceImage" destination="OKO-pW-AIT" id="C8S-2l-BOx"/>
-                                            <outlet property="PlaceName" destination="vDE-JC-Iku" id="cif-08-Kom"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="0.2071822676" green="0.42178231579999997" blue="0.56248662240000002" alpha="0.82900025929999999" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancel:" destination="TLI-jR-wA3" eventType="touchUpInside" id="7LQ-7o-HsH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZb-EQ-XX0" customClass="DesignableButton" customModule="MapChat" customModuleProvider="target">
+                                <rect key="frame" x="290" y="49" width="69" height="34"/>
+                                <color key="backgroundColor" red="0.207182267570654" green="0.42178231577542519" blue="0.56248662243150682" alpha="0.82900025933609955" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="69" id="Atl-Kg-Lbe"/>
+                                    <constraint firstAttribute="height" constant="34" id="ava-DZ-CIy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <state key="normal" title="Cache">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="cache:" destination="TLI-jR-wA3" eventType="touchUpInside" id="d3M-4a-sWl"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="baF-md-Q8x" customClass="DesignableView" customModule="MapChat" customModuleProvider="target">
+                                <rect key="frame" x="13" y="99" width="50" height="50"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Jgt-t2-A5T"/>
+                                    <constraint firstAttribute="width" constant="50" id="kKz-9P-6Sr"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="oh5-fg-URa" firstAttribute="trailing" secondItem="fHd-lL-Kgy" secondAttribute="trailing" id="0xw-1s-La7"/>
-                            <constraint firstItem="fHd-lL-Kgy" firstAttribute="top" secondItem="oh5-fg-URa" secondAttribute="top" id="INb-Rr-zgR"/>
-                            <constraint firstItem="oh5-fg-URa" firstAttribute="bottom" secondItem="PlQ-ic-2ov" secondAttribute="bottom" constant="340" id="P7E-cJ-KzR"/>
-                            <constraint firstItem="PlQ-ic-2ov" firstAttribute="top" secondItem="fHd-lL-Kgy" secondAttribute="bottom" constant="8" id="SxL-ZF-aG4"/>
-                            <constraint firstItem="PlQ-ic-2ov" firstAttribute="leading" secondItem="oh5-fg-URa" secondAttribute="leading" id="fdB-3E-eBX"/>
-                            <constraint firstItem="fHd-lL-Kgy" firstAttribute="leading" secondItem="oh5-fg-URa" secondAttribute="leading" id="iSr-kZ-3C1"/>
-                            <constraint firstItem="oh5-fg-URa" firstAttribute="trailing" secondItem="PlQ-ic-2ov" secondAttribute="trailing" id="m4B-nT-kbs"/>
+                            <constraint firstItem="oh5-fg-URa" firstAttribute="trailing" secondItem="lZb-EQ-XX0" secondAttribute="trailing" constant="16" id="9Yd-2k-5NK"/>
+                            <constraint firstItem="lZb-EQ-XX0" firstAttribute="top" secondItem="oh5-fg-URa" secondAttribute="top" constant="5" id="D5M-Op-xYP"/>
+                            <constraint firstItem="fHd-lL-Kgy" firstAttribute="top" secondItem="lZb-EQ-XX0" secondAttribute="bottom" constant="9" id="WAb-YL-wac"/>
+                            <constraint firstItem="Fmp-20-BpW" firstAttribute="top" secondItem="oh5-fg-URa" secondAttribute="top" constant="5" id="dm2-rB-GwW"/>
+                            <constraint firstItem="baF-md-Q8x" firstAttribute="leading" secondItem="oh5-fg-URa" secondAttribute="leading" constant="13" id="fw8-Bs-RFp"/>
+                            <constraint firstItem="baF-md-Q8x" firstAttribute="top" secondItem="Fmp-20-BpW" secondAttribute="bottom" constant="15" id="m7X-xb-VPa"/>
+                            <constraint firstItem="fHd-lL-Kgy" firstAttribute="leading" secondItem="baF-md-Q8x" secondAttribute="trailing" id="r4L-95-pxu"/>
+                            <constraint firstItem="Fmp-20-BpW" firstAttribute="leading" secondItem="oh5-fg-URa" secondAttribute="leading" constant="16" id="ypT-4l-HLH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oh5-fg-URa"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Drop" image="add" id="NiL-KK-3wu"/>
                     <navigationItem key="navigationItem" title="Drop Message" id="EMZ-SX-0dM">
-                        <barButtonItem key="leftBarButtonItem" image="close" id="btL-ov-nVA">
-                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="goBack:" destination="TLI-jR-wA3" id="cNQ-zi-Dw6"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Post" id="HNX-XF-r8T">
-                            <connections>
-                                <action selector="dropMessage:" destination="TLI-jR-wA3" id="ZKr-cg-6LD"/>
-                            </connections>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="Lll-Aw-dfy" customClass="Des">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vjf-Xf-kD7">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="containerView" destination="baF-md-Q8x" id="EcQ-bq-WOp"/>
                         <outlet property="message" destination="fHd-lL-Kgy" id="KJh-Xc-9Nu"/>
-                        <outlet property="placesView" destination="PlQ-ic-2ov" id="LVI-mz-a4V"/>
-                        <outlet property="postMessageButton" destination="HNX-XF-r8T" id="WB1-NY-EOq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bJT-gf-eP3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2024.8" y="892.61083743842369"/>
+            <point key="canvasLocation" x="2069.5999999999999" y="232.75862068965517"/>
         </scene>
     </scenes>
     <resources>
         <image name="add" width="24" height="24"/>
-        <image name="close" width="24" height="24"/>
         <image name="feed" width="24" height="24"/>
         <image name="pin" width="24" height="24"/>
         <image name="profile" width="24" height="24"/>
