@@ -45,6 +45,7 @@ steps:
 
 # Deploy to GKE
 - name: 'gcr.io/cloud-builders/kubectl'
+  id: Deploy
   args:
   - set
   - image
