@@ -22,10 +22,7 @@ struct Place {
 
 class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDelegate, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    // UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
-    
     @IBOutlet weak var message: UITextView!
-    // @IBOutlet weak var placesView: UICollectionView!
     @IBOutlet weak var containerView: UIView!
     
     let animationView = AnimationView(name: "waiting")
@@ -35,7 +32,11 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
     var places: [Place] = []
     var dropMessage: Bool = false
     
+    var selectedPlace: Place!
+    
     var placesView: UICollectionView!
+    
+    var currentLocation:CLLocation!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,7 +92,7 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         // placesView.reloadData()
         animate()
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.places.count
     }
@@ -115,15 +116,78 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // handle tap events
         print("You selected cell #\(indexPath.item)!")
 
+        // update UI
         let cell = placesView.cellForItem(at: indexPath)
         cell?.layer.borderWidth = 1.0
         cell?.layer.borderColor = UIColor.gray.cgColor
+        
+        // update selected group object
+        self.selectedPlace = places[indexPath.row]
+    }
+    
+    func cacheMessage() {
+        
+        print("inside cache message")
+        
+        let this = placesView.indexPathsForSelectedItems?.first?.row
+        print("THIS: \(this!)")
+        if (this != nil) {
+            print("this: \(this!)")
+            
+            let selectedPlaceID = places[this!].placeID
+            
+            if (selectedPlaceID != "") {
+                
+                let urlString = "http://35.238.74.200:80/message"
+                
+                let parameters: [String: Any] = [
+                    "location": [
+                        "latitude": currentLocation.coordinate.latitude,
+                        "longitude": currentLocation.coordinate.longitude,
+                    ],
+                    "expireTime": "2019-05-20 22:59:45",
+                    "username": AuthenticationHelper.sharedInstance.current_user.username!,
+                    "message": message.text!,
+                    "placeId": selectedPlaceID
+                ]
+                
+                if (self.dropMessage) {
+                    print("=====drop message is true=====")
+                    self.dropMessage = false
+                    
+                    Alamofire.request(urlString, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseString { response in
+                        
+                        switch response.result {
+                        case .success:
+                            
+                            self.message.text = ""
+                            
+                            let animationView:AnimationView = AnimationView(name: "message-success")
+                            animationView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+                            animationView.center = self.view.center
+                            animationView.contentMode = .scaleAspectFill
+                            self.view.addSubview(animationView)
+                            animationView.play{ (finished) in
+                                animationView.removeFromSuperview()
+                                print("going back")
+                                self.dismiss(animated: true, completion: nil)
+                            }
+                            
+                        // break
+                        case .failure(let error):
+                            print("error: \(error)")
+                            self.message.text = ""
+                        }
+                    }
+                }
+            }
+        }
     }
     
     func getPlace() {
+        
         print("inside get place")
         // Specify the place data types to return.
         let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.name.rawValue) |
@@ -178,11 +242,48 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
             
             print("reloading data")
             self.placesView.reloadData()
-            // self.messageLocation.reloadAllComponents()
+
             self.startGettingLocation()
         })
         
         
+    }
+    
+    func startGettingLocation() {
+        locManager.requestWhenInUseAuthorization()
+        if((CLLocationManager.authorizationStatus() == .authorizedWhenInUse) || (CLLocationManager.authorizationStatus() ==  .authorizedAlways)) {
+            locManager.startUpdatingLocation()
+        }
+    }
+    
+    @IBAction func cancel(_ sender: Any) {
+        print("going back")
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func cache(_ sender: Any) {
+        if (message.text != "" && selectedPlace != nil) {
+            print("message text: \(message.text!)")
+            // message.resignFirstResponder()
+            self.dropMessage = true
+            self.cacheMessage()
+        } else {
+            print("didn't select place")
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+
+        print("inside location manager!")
+        
+        if let location = locations.first {
+
+            self.currentLocation = location
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Failed to find user's location: \(error.localizedDescription)")
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -221,13 +322,22 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         // been made
         return false
     }
-    
+
     func textViewDidChangeSelection(_ textView: UITextView) {
         if self.view.window != nil {
             if textView.textColor == UIColor.lightGray {
                 textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
             }
         }
+    }
+    
+    // text field changes
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if(string == "\n") {
+            textField.resignFirstResponder()
+            return false
+        }
+        return true
     }
     
     func animate() {
@@ -239,136 +349,6 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         animationView.loopMode = .loop
     }
     
-    @IBAction func cancel(_ sender: Any) {
-        print("going back")
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func cache(_ sender: Any) {
-//        if (message.text != "") {
-//            print("message text: \(message.text)")
-//            message.resignFirstResponder()
-//            self.dropMessage = true
-//        }
-    }
-    
-    // text field changes
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if(string == "\n") {
-            textField.resignFirstResponder()
-            return false
-        }
-        return true
-    }
-
-    func startGettingLocation() {
-        locManager.requestWhenInUseAuthorization()
-        if((CLLocationManager.authorizationStatus() == .authorizedWhenInUse) || (CLLocationManager.authorizationStatus() ==  .authorizedAlways)) {
-            print("starting to update LOCATION")
-            locManager.startUpdatingLocation()
-        }
-    }
-    // -------------------------------------------
-    
-//    func getPlace() {
-//        // Specify the place data types to return.
-//        let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.name.rawValue) |
-//            UInt(GMSPlaceField.placeID.rawValue))!
-//        placesClient?.findPlaceLikelihoodsFromCurrentLocation(withPlaceFields: fields, callback: {
-//            (placeLikelihoodList: Array<GMSPlaceLikelihood>?, error: Error?) in
-//            if let error = error {
-//                print("An error occurred: \(error.localizedDescription)")
-//                return
-//            }
-//
-//            self.places = []
-//
-//            if let placeLikelihoodList = placeLikelihoodList {
-//                for likelihood in placeLikelihoodList {
-//                    let place = likelihood.place
-//
-//                    GroupPostManager.sharedInstance.placeId = place.placeID!
-//
-//                    GroupPostManager.sharedInstance.placeDistance(completion: {(response) in
-//                        if (response > 0 && response < 200) {
-//                            self.places.append(Place(placeID: place.placeID!, placeName: place.name!, likelihood: "\(likelihood.likelihood)"))
-//                        }
-//                        //self.placesView.reloadData()
-//                    })
-//                }
-//            }
-//
-//            self.places.append(Place(placeID: "-1", placeName: "Other", likelihood: "-1"))
-//
-//            //self.placesView.reloadData()
-//            self.startGettingLocation()
-//        })
-//
-//    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-
-        if let location = locations.first {
-
-            // let selectedPlaceID = places[placesView.selectedRow(inComponent: 0)].placeID
-
-            //print("index paths for selected items: \(placesView.indexPathsForSelectedItems!)")
-
-            let this = placesView.indexPathsForSelectedItems?.first?.row
-
-            if (this != nil) {
-                print("this: \(this!)")
-
-                let selectedPlaceID = places[this!].placeID
-
-                if (selectedPlaceID != "") {
-
-                    let urlString = "http://34.73.109.229:80/message"
-
-                    let parameters: [String: Any] = [
-                        "location": [
-                            "latitude": location.coordinate.latitude,
-                            "longitude": location.coordinate.longitude,
-                        ],
-                        "expireTime": "2019-04-20 22:59:45",
-                        "username": AuthenticationHelper.sharedInstance.current_user.username!,
-                        "message": message.text!,
-                        "placeId": selectedPlaceID
-                    ]
-
-                    if (self.dropMessage) {
-                        self.dropMessage = false
-
-                        Alamofire.request(urlString, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseString { response in
-
-                            switch response.result {
-                            case .success:
-
-                                self.message.text = ""
-
-                                let animationView:AnimationView = AnimationView(name: "message-success")
-                                animationView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
-                                animationView.center = self.view.center
-                                animationView.contentMode = .scaleAspectFill
-                                self.view.addSubview(animationView)
-                                animationView.play{ (finished) in animationView.removeFromSuperview() }
-
-                            // break
-                            case .failure(let error):
-                                print("error: \(error)")
-                                self.message.text = ""
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Failed to find user's location: \(error.localizedDescription)")
-    }
-
 }
 
 

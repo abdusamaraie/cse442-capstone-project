@@ -22,6 +22,7 @@ struct Message {
 class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
     
     @IBOutlet weak var feedView: UITableView!
+    var selectedLocation:CLLocation!
     
     var locManager = CLLocationManager()
     
@@ -40,25 +41,17 @@ class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource, CL
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        print("view did appear")
         self.navigationItem.title = place_name
-        
-        messages = [Message(message: "this is a test message that I am currently testing right now.", tag: "#hatemylife", numberLikes: 5),
-                    Message(message: "this is a test that might be getting tested as we currently speak", tag: "#wtf", numberLikes: 8),
-                    Message(message: "Did anyone else hear that firealarm? I'm skipping class right now", tag: "#UBISSHIT", numberLikes: 20),
-                    Message(message: "I really hate my job what do I do now? I have nothing else to do in my life??", tag: "#JesseSucks", numberLikes: 11),
-                    Message(message: "this is a test message that I am currently testing right now.", tag: "#hatemylife", numberLikes: 5),
-                    Message(message: "this is a test that might be getting tested as we currently speak", tag: "#wtf", numberLikes: 8),
-                    Message(message: "Did anyone else hear that firealarm? I'm skipping class right now", tag: "#UBISSHIT", numberLikes: 20),
-                    Message(message: "I really hate my job what do I do now? I have nothing else to do in my life??", tag: "#JesseSucks", numberLikes: 11)]
-        
         self.feedView.reloadData()
-        // loadFeed()
+        loadFeed()
     }
     
     func loadFeed() {
         
         locManager.requestWhenInUseAuthorization()
         if((CLLocationManager.authorizationStatus() == .authorizedWhenInUse) || (CLLocationManager.authorizationStatus() ==  .authorizedAlways)) {
+            
             locManager.startUpdatingLocation()
             // locManager.requestLocation()
         }
@@ -71,21 +64,34 @@ class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource, CL
         
         if let location = locations.first {
             
-            GroupPostManager.sharedInstance.assignLatLong(latitde: "\(location.coordinate.latitude)", longitude: "\(location.coordinate.longitude)")
-            
-            GroupPostManager.sharedInstance.getPostData(completion: {(response) in
-                
-                let posts: JSON = response
-                
-                print("posts: \(posts)")
-                
-                for (_, post) in posts {
-                    //self.messages.append(Message(message: post["content"].string!, num: "_"))
-                }
-            
-                self.feedView.reloadData()
-            })
+            print("LOADING DATA")
+            self.selectedLocation = location
+            loadData()
         }
+    }
+    
+    func loadData() {
+        
+        // assign current group id
+        
+        print("placeID: \(place_id)")
+        
+        GroupPostManager.sharedInstance.current_group.ID = place_id
+        
+        GroupPostManager.sharedInstance.assignLatLong(latitde: "\(selectedLocation.coordinate.latitude)", longitude: "\(selectedLocation.coordinate.longitude)")
+        
+        GroupPostManager.sharedInstance.getPostData(completion: {(response) in
+            
+            let posts: JSON = response
+            
+            print("posts: \(posts)")
+            
+            for (_, post) in posts {
+                self.messages.append(Message(message: post["content"].string!, tag: "#UBISSHIT", numberLikes: 20))
+            }
+            
+            self.feedView.reloadData()
+        })
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
