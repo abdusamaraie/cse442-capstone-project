@@ -6,14 +6,13 @@
 
 1. Manually create GKE cluster named "flask-cluster" with 3 nodes.
 
-2. After the cluster is created in GKE, click it, and click "Deploy"
-    - Existing container image
-    - Image path: Select the most recent flask build
-    - Click Continue
-    - Application name: flask-server
-    - Click "Deploy"
-  
-3. Go to: Kubernetes Engine -> Workloads -> flask-server. Then click "Edit"
-    - In the YAML find: spec > template > spec > containers
-    - Change imagePullPolicy from "IfNotPresent" to "Always"
-    - * SAVE *
+2. Connect to the cluster with: 
+    - gcloud container clusters get-credentials flask-cluster-1 --zone us-central1-a --project cse442
+    - kubectl proxy
+
+3. From "cse442/back-end"
+    - Run: kubectl apply -f flask-cluster.yaml
+
+4. After the pods are done being created (this may take a few minutes), go to GKE/Services and go to <flaskapp-ip:80> in your browser to verify.
+
+5. TO UPDATE THE FLASK IMAGE THAT'S BEING USED, YOU WILL NEED TO PUSH TO MASTER/DEVELOP
