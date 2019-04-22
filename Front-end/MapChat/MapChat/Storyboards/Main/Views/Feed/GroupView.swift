@@ -35,6 +35,8 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.title = "Feed"
+        
         locManager.delegate = self
         groupTableView.dataSource = self
         groupTableView.delegate = self
@@ -95,7 +97,7 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
         
         if let location = locations.first {
             
-            self.navigationItem.title = "\(location.coordinate.latitude), \(location.coordinate.longitude)"
+            // self.navigationItem.title = "\(location.coordinate.latitude), \(location.coordinate.longitude)"
             
             GroupPostManager.sharedInstance.latitude = "\(location.coordinate.latitude)"
             GroupPostManager.sharedInstance.longitude = "\(location.coordinate.longitude)"

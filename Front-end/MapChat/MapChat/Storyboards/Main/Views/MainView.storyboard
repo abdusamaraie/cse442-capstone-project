@@ -62,10 +62,25 @@
                     <view key="view" contentMode="scaleToFill" id="JsN-yf-Ytf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jeg-YE-L0M" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="boc-B9-dnw" firstAttribute="trailing" secondItem="jeg-YE-L0M" secondAttribute="trailing" id="NLP-7p-pvJ"/>
+                            <constraint firstItem="jeg-YE-L0M" firstAttribute="top" secondItem="boc-B9-dnw" secondAttribute="top" id="NaH-cY-eoE"/>
+                            <constraint firstItem="jeg-YE-L0M" firstAttribute="leading" secondItem="boc-B9-dnw" secondAttribute="leading" id="Wua-J8-leZ"/>
+                            <constraint firstItem="boc-B9-dnw" firstAttribute="bottom" secondItem="jeg-YE-L0M" secondAttribute="bottom" id="woY-qx-R2X"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="boc-B9-dnw"/>
                     </view>
                     <navigationItem key="navigationItem" id="gZy-ul-MU7"/>
+                    <connections>
+                        <outlet property="mapView" destination="jeg-YE-L0M" id="TxU-Q0-1vH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Aa-Qy-xgk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -310,7 +325,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App version" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dpp-Rd-FQk">
-                                                    <rect key="frame" x="15" y="11" width="98" height="21"/>
+                                                    <rect key="frame" x="15" y="11" width="97.333333333333329" height="21"/>
                                                     <fontDescription key="fontDescription" name="AirbnbCerealApp-Light" family="Airbnb Cereal App" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>

@@ -19,8 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
-        GMSPlacesClient.provideAPIKey("AIzaSyC_z-SXgI4uTCJl-tYrSVqBFUxSytIp5dY")
-        GMSServices.provideAPIKey("AIzaSyC_z-SXgI4uTCJl-tYrSVqBFUxSytIp5dY")
+        // GMSPlacesClient.provideAPIKey("AIzaSyC_z-SXgI4uTCJl-tYrSVqBFUxSytIp5dY")
+        // GMSServices.provideAPIKey("AIzaSyC_z-SXgI4uTCJl-tYrSVqBFUxSytIp5dY")
+        GMSServices.provideAPIKey("AIzaSyDdfTiOfHPpUzAppxNgyJ0P98rvSrlyw-8")
+        GMSPlacesClient.provideAPIKey("AIzaSyDdfTiOfHPpUzAppxNgyJ0P98rvSrlyw-8")
         return true
     }
     
