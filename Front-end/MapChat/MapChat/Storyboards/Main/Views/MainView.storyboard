@@ -407,7 +407,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageCell" rowHeight="150" id="Rg5-KJ-sdE" customClass="MessageCell" customModule="MapChat" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MessageCell" rowHeight="150" id="Rg5-KJ-sdE" customClass="MessageCell" customModule="MapChat" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="375" height="150"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Rg5-KJ-sdE" id="BSh-fI-Xjp">
@@ -522,9 +522,11 @@
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                 <connections>
+                                                    <outlet property="downvoteIcon" destination="Q2F-zQ-BaB" id="arx-BT-Z8W"/>
                                                     <outlet property="messageBody" destination="cNk-kF-eIZ" id="UTp-Pz-JID"/>
                                                     <outlet property="messageTag" destination="XH0-ZL-Ykc" id="fZo-K5-bEq"/>
                                                     <outlet property="numberLikes" destination="weO-cD-2Mi" id="WfH-N6-dJx"/>
+                                                    <outlet property="upvoteIcon" destination="mfu-41-pgB" id="6N2-pE-iW9"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -568,7 +570,7 @@
                                 <rect key="frame" x="0.0" y="88" width="375" height="675"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TestCard" rowHeight="231" id="rKg-9L-VCR" customClass="CardCell" customModule="MapChat" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TestCard" rowHeight="231" id="rKg-9L-VCR" customClass="CardCell" customModule="MapChat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="231"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rKg-9L-VCR" id="T51-Cg-e7M">
@@ -625,13 +627,12 @@
                     <navigationItem key="navigationItem" id="5WS-gE-wdy">
                         <barButtonItem key="leftBarButtonItem" image="settings" id="AmZ-yv-lml">
                             <connections>
-                                <action selector="showSettings:" destination="S6S-uA-EwQ" id="SWF-Tt-isx"/>
                                 <segue destination="Pwk-78-Sel" kind="show" id="yNQ-kY-r2P"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="groupTableView" destination="a61-a6-thS" id="3IR-SJ-YBG"/>
+                        <outlet property="groupTableView" destination="a61-a6-thS" id="qBd-ch-B6g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bs1-D2-h2n" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -942,6 +943,6 @@
         <image name="ubacm" width="623" height="477"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YxA-xp-S9N"/>
+        <segue reference="yNQ-kY-r2P"/>
     </inferredMetricsTieBreakers>
 </document>
