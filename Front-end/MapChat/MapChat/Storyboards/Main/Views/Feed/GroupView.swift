@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import CoreLocation
+import Cards
 import MapKit
 import Alamofire
 
@@ -54,6 +55,7 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
         // Code to refresh table view
         loadFeed()
         refreshControl.endRefreshing()
+        // cardView.card.backgroundImage
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -161,6 +163,11 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "TestCard", for: indexPath as IndexPath) as! CardCell
         
+        cell.card.backgroundImage = #imageLiteral(resourceName: "davis_hall")
+        // cell.card.backgroundImage = cell.card.backgroundImage?.tint(with: #colorLiteral(red: 0.5749713182, green: 0.596922338, blue: 0.5967071056, alpha: 0.1506580654))
+        cell.card.backgroundImage = cell.card.backgroundImage?.alpha(0.75)
+        cell.card.backgroundImage = cell.card.backgroundImage?.darkened()
+        
         let detailVC = storyboard?.instantiateViewController(withIdentifier: "CardContent")
     
         cell.card.shouldPresent(detailVC, from: self, fullscreen: true)
@@ -195,7 +202,57 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
 
 extension UIImageView {
     func tintImageColor(color : UIColor) {
-        self.image = self.image!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        self.image = self.image!.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
         self.tintColor = color
+    }
+}
+
+extension UIImage {
+    
+    func tint(with color: UIColor) -> UIImage
+    {
+        UIGraphicsBeginImageContext(self.size)
+        guard let context = UIGraphicsGetCurrentContext() else { return self }
+        
+        // flip the image
+        context.scaleBy(x: 1.0, y: -1.0)
+        context.translateBy(x: 0.0, y: -self.size.height)
+        
+        // multiply blend mode
+        context.setBlendMode(.multiply)
+        
+        let rect = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height)
+        context.clip(to: rect, mask: self.cgImage!)
+        color.setFill()
+        context.fill(rect)
+        
+        // create UIImage
+        guard let newImage = UIGraphicsGetImageFromCurrentImageContext() else { return self }
+        UIGraphicsEndImageContext()
+        
+        return newImage
+    }
+    
+}
+
+extension UIImage {
+    func darkened() -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        defer { UIGraphicsEndImageContext() }
+        
+        guard let ctx = UIGraphicsGetCurrentContext(), let cgImage = cgImage else {
+            return nil
+        }
+        
+        // flip the image, or result appears flipped
+        ctx.scaleBy(x: 1.0, y: -1.0)
+        ctx.translateBy(x: 0, y: -size.height)
+        
+        let rect = CGRect(origin: .zero, size: size)
+        ctx.draw(cgImage, in: rect)
+        UIColor(white: 0, alpha: 0.5).setFill()
+        ctx.fill(rect)
+        
+        return UIGraphicsGetImageFromCurrentImageContext()
     }
 }
