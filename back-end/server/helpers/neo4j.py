@@ -405,10 +405,10 @@ def change_user_password(username, new_password):
         return str(False)
 
 
-def get_wide_place_nodes(lat, lon):
+def get_wide_place_nodes(lat, lon, radius):
 
     # convert distance im meters to km
-    radius_km = .25
+    radius_km = radius/1000
 
     # get current time for time of post
     time = get_time()

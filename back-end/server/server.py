@@ -193,13 +193,13 @@ def change_password():
 
 @app.route('/place', methods=['GET'])
 def place():
-    # GET ALL THE PLACES WITH POSTS IN .25 KM RADIUS
+    # GET ALL THE PLACES WITH POSTS IN GIVEN RADIUS
     if request.method == 'GET':
         lat = request.args.get('lat')
         long = request.args.get('long')
-        distance = request.args.get('distance')
+        radius = request.args.get('distance', default=250)
 
-        return neo4j.get_wide_place_nodes(lat, long, distance)
+        return neo4j.get_wide_place_nodes(lat, long, radius)
     else:
         return str(False)
 
@@ -214,6 +214,8 @@ def place_message():
         return str(False)
 
 
+'''
+DEPRECATED
 @app.route('/distance', methods=['GET'])
 def distance():
     # RETURN THE DISTANCE BETWEEN A USER AND A PLACE
@@ -226,7 +228,6 @@ def distance():
         return str(False)
 
 
-'''
 THIS IS DONE ON THE FRONT END NOW
 @app.route('/nearby', methods=['GET'])
 def nearby():
