@@ -192,3 +192,10 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
     }
     
 }
+
+extension UIImageView {
+    func tintImageColor(color : UIColor) {
+        self.image = self.image!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        self.tintColor = color
+    }
+}

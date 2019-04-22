@@ -91,7 +91,7 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         // placesView.reloadData()
         animate()
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.places.count
     }

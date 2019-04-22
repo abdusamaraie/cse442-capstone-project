@@ -583,6 +583,10 @@
                                                             <real key="value" value="1"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="image" keyPath="icon" value="ubacm"/>
+                                                        <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="davis_hall"/>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
@@ -625,10 +629,10 @@
             </objects>
             <point key="canvasLocation" x="-295.19999999999999" y="1022.6600985221676"/>
         </scene>
-        <!--Feed Settings View-->
+        <!--Feed Settings-->
         <scene sceneID="gaW-m0-D4a">
             <objects>
-                <viewController id="Pwk-78-Sel" customClass="FeedSettingsView" customModule="MapChat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Feed Settings" id="Pwk-78-Sel" customClass="FeedSettingsView" customModule="MapChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tmr-wk-nlK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -916,6 +920,7 @@
     </scenes>
     <resources>
         <image name="add" width="24" height="24"/>
+        <image name="davis_hall" width="1200" height="795"/>
         <image name="feed" width="24" height="24"/>
         <image name="location_2" width="24" height="24"/>
         <image name="pin" width="24" height="24"/>
