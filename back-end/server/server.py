@@ -40,7 +40,7 @@ def on_connect():
 
 @app.route('/', methods=['GET'])
 def hello_world():
-    return 'Hello, World!'
+    return 'Hello, Kubernetes!'
 
 
 @app.route('/uploadPhoto', methods=['GET', 'POST'])
