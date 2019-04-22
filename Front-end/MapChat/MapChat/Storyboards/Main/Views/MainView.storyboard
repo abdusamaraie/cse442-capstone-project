@@ -55,7 +55,7 @@
             </objects>
             <point key="canvasLocation" x="1284" y="233"/>
         </scene>
-        <!--Map View-->
+        <!--Map-->
         <scene sceneID="rnN-lo-Gg5">
             <objects>
                 <viewController id="xXQ-HG-Djz" customClass="MapView" customModule="MapChat" customModuleProvider="target" sceneMemberID="viewController">
@@ -77,7 +77,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="boc-B9-dnw"/>
                     </view>
-                    <navigationItem key="navigationItem" id="gZy-ul-MU7"/>
+                    <navigationItem key="navigationItem" title="Map" id="gZy-ul-MU7">
+                        <barButtonItem key="leftBarButtonItem" image="settings" id="2xK-rh-TvZ">
+                            <connections>
+                                <segue destination="Pwk-78-Sel" kind="show" id="YxA-xp-S9N"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="jeg-YE-L0M" id="TxU-Q0-1vH"/>
                     </connections>
@@ -548,7 +554,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fnq-Rx-Lvv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1071.2" y="1022.6600985221676"/>
+            <point key="canvasLocation" x="609" y="958"/>
         </scene>
         <!--Group View-->
         <scene sceneID="Ign-gK-K6i">
@@ -630,7 +636,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bs1-D2-h2n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-295.19999999999999" y="1022.6600985221676"/>
+            <point key="canvasLocation" x="1284" y="958"/>
         </scene>
         <!--Feed Settings-->
         <scene sceneID="gaW-m0-D4a">
@@ -812,7 +818,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rVk-Oa-LwA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="413.60000000000002" y="1030.0492610837439"/>
+            <point key="canvasLocation" x="2070" y="958"/>
         </scene>
         <!--Drop Message-->
         <scene sceneID="JaA-zh-6wF">
@@ -935,4 +941,7 @@
         <image name="thumbUp" width="24" height="24"/>
         <image name="ubacm" width="623" height="477"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="YxA-xp-S9N"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -27,7 +27,7 @@ class GroupPostManager {
         }
     }
     
-    let urlString = "http://34.73.109.229:80"
+    let urlString = "http://35.238.74.200:80"
     
     static var sharedInstance = GroupPostManager()
     
