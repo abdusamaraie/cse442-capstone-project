@@ -136,6 +136,11 @@ class MapView: UIViewController, CLLocationManagerDelegate {
         
         showMarker(position: locations[0].coordinate)
         
+        // update radius custom
+        let update = GMSCameraUpdate.fit(GMSCircle(position: locations[0].coordinate, radius: CLLocationDistance(50)).bounds())
+        mapView.animate(with: update)
+        //
+        
         manager.stopUpdatingLocation()
     }
     
@@ -150,4 +155,19 @@ class MapView: UIViewController, CLLocationManagerDelegate {
 
 extension MapView: GMSMapViewDelegate{
 
+}
+
+extension GMSCircle {
+    func bounds () -> GMSCoordinateBounds {
+        func locationMinMax(_ positive : Bool) -> CLLocationCoordinate2D {
+            let sign: Double = positive ? 1 : -1
+            let dx = sign * self.radius  / 6378000 * (180 / .pi)
+            let lat = position.latitude + dx
+            let lon = position.longitude + dx / cos(position.latitude * .pi / 180)
+            return CLLocationCoordinate2D(latitude: lat, longitude: lon)
+        }
+        
+        return GMSCoordinateBounds(coordinate: locationMinMax(true),
+                                   coordinate: locationMinMax(false))
+    }
 }
