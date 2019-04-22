@@ -197,7 +197,7 @@ def place():
     if request.method == 'GET':
         lat = request.args.get('lat')
         long = request.args.get('long')
-        radius = request.args.get('distance', default=250)
+        radius = request.args.get('radius', default=250)
 
         return neo4j.get_wide_place_nodes(lat, long, radius)
     else:
