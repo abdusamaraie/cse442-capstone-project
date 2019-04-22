@@ -1,5 +1,5 @@
 from py2neo import Graph, Node, Relationship, NodeMatcher, RelationshipMatcher
-from constants.constants import NEO4J_CLUSTER_IP
+from constants.constants import NEO4J_CLUSTER_IP, OTHER_PHOTO_URL
 from passlib.hash import argon2
 from datetime import datetime
 import pytz
@@ -442,6 +442,26 @@ def get_posts_at_place(place_id):
         # loop through results and create json
         posts_json = json.dumps([dict(ix)['p'] for ix in result.data()])
         return posts_json
+
+    except Exception as e:
+        print(e)
+        return str(False)
+
+
+def wipe_database():
+
+    try:
+        # Wipe database of all nodes and relationships
+        GRAPH.run("MATCH (n) DETACH DELETE n")
+
+        # Recreate spatial layers
+        GRAPH.run("CALL spatial.addPointLayer('posts')")
+        GRAPH.run("CALL spatial.addPointLayer('places')")
+
+        # create 'Other' Place node if doesn't exist
+        GRAPH.merge(Node("Place", place_id='Other', name='Other', photo_url=OTHER_PHOTO_URL), 'Place', 'place_id')
+
+        return str(True)
 
     except Exception as e:
         print(e)

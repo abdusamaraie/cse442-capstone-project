@@ -1,6 +1,8 @@
 UPLOAD_PATH = 'database/uploads/'
 
-NEO4J_CLUSTER_IP = "34.66.225.189"
+NEO4J_CLUSTER_IP = "localhost"
+# NEO4J_CLUSTER_IP = "34.66.225.189"
+
 EARTH_RADIUS_METERS = 6371000
 
 # temporary api key for testing
