@@ -214,6 +214,21 @@ def place_message():
         return str(False)
 
 
+@app.route('/history/posts', methods=['GET'])
+def post_history():
+    return neo4j.wipe_database()
+
+
+@app.route('/history/ratings', methods=['GET'])
+def rating_history():
+    return neo4j.wipe_database()
+
+
+@app.route('/history/replies', methods=['GET'])
+def reply_history():
+    return neo4j.wipe_database()
+
+
 @app.route('/neo4j', methods=['DELETE'])
 def wipe():
     return neo4j.wipe_database()
