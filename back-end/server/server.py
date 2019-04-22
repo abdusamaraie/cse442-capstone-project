@@ -197,7 +197,7 @@ def place():
     if request.method == 'GET':
         lat = request.args.get('lat')
         long = request.args.get('long')
-        radius = request.args.get('radius', default=250)
+        radius = request.args.get('radius', default=250, type=int)
 
         return neo4j.get_wide_place_nodes(lat, long, radius)
     else:
@@ -306,8 +306,8 @@ def on_place_message(data):
 
 def start_server():
     # app.run(host='0.0.0.0', port=80, debug=True)
-    socketio.run(app, host='127.0.0.1', port=5000, debug=True)
-    # socketio.run(app, host='0.0.0.0', port=80, debug=True)
+    # socketio.run(app, host='127.0.0.1', port=5000, debug=True)
+    socketio.run(app, host='0.0.0.0', port=80, debug=True)
 
 
 def signal_handler(sig, frame):
