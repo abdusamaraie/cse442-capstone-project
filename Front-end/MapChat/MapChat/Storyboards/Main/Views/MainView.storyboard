@@ -609,7 +609,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="t6P-Gw-uw3"/>
                     </view>
-                    <navigationItem key="navigationItem" id="5WS-gE-wdy"/>
+                    <navigationItem key="navigationItem" id="5WS-gE-wdy">
+                        <barButtonItem key="leftBarButtonItem" image="settings" id="AmZ-yv-lml">
+                            <connections>
+                                <action selector="showSettings:" destination="S6S-uA-EwQ" id="SWF-Tt-isx"/>
+                                <segue destination="Pwk-78-Sel" kind="show" id="yNQ-kY-r2P"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="groupTableView" destination="a61-a6-thS" id="3IR-SJ-YBG"/>
                     </connections>
@@ -617,6 +624,188 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bs1-D2-h2n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-295.19999999999999" y="1022.6600985221676"/>
+        </scene>
+        <!--Feed Settings View-->
+        <scene sceneID="gaW-m0-D4a">
+            <objects>
+                <viewController id="Pwk-78-Sel" customClass="FeedSettingsView" customModule="MapChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Tmr-wk-nlK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nC0-fb-VJ4">
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="br7-03-FEh">
+                                    <rect key="frame" x="0.0" y="204" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedSettingsSpacerCell" id="NkP-bi-6z1" customClass="FeedSpacerCell" customModule="MapChat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NkP-bi-6z1" id="mbX-VZ-99p" customClass="SpacerCell" customModule="MapChat" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="RadiusCell" id="JBk-dD-svR" customClass="RadiusCell" customModule="MapChat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JBk-dD-svR" id="38y-2T-PlY">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="JDA-Vl-lgN">
+                                                    <rect key="frame" x="171" y="6" width="189" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="29" id="JRn-dl-3tj"/>
+                                                        <constraint firstAttribute="width" constant="185" id="kMC-7k-sTG"/>
+                                                    </constraints>
+                                                </slider>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feed Radius" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jag-FE-mKB">
+                                                    <rect key="frame" x="51" y="7" width="114" height="27"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="114" id="XGd-5y-V8a"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AirbnbCerealApp-Book" family="Airbnb Cereal App" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="radius" translatesAutoresizingMaskIntoConstraints="NO" id="CKL-Oy-kAM">
+                                                    <rect key="frame" x="15" y="7" width="28" height="28"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="28" id="1jQ-ap-fdP"/>
+                                                        <constraint firstAttribute="height" constant="28" id="mtK-wV-xzc"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="Jag-FE-mKB" secondAttribute="bottom" constant="9.6666666666666643" id="1QC-Hg-nNC"/>
+                                                <constraint firstAttribute="bottom" secondItem="CKL-Oy-kAM" secondAttribute="bottom" constant="8.6666666666666643" id="CRa-ot-duJ"/>
+                                                <constraint firstItem="CKL-Oy-kAM" firstAttribute="top" secondItem="38y-2T-PlY" secondAttribute="top" constant="7" id="CZ6-Pm-uB1"/>
+                                                <constraint firstItem="Jag-FE-mKB" firstAttribute="top" secondItem="38y-2T-PlY" secondAttribute="top" constant="7" id="KQ0-iM-5q3"/>
+                                                <constraint firstItem="JDA-Vl-lgN" firstAttribute="top" secondItem="38y-2T-PlY" secondAttribute="top" constant="6" id="Ou5-hm-Qt4"/>
+                                                <constraint firstItem="Jag-FE-mKB" firstAttribute="leading" secondItem="CKL-Oy-kAM" secondAttribute="trailing" constant="8" id="S9q-gq-loH"/>
+                                                <constraint firstItem="CKL-Oy-kAM" firstAttribute="leading" secondItem="38y-2T-PlY" secondAttribute="leading" constant="15" id="mnx-AB-U4c"/>
+                                                <constraint firstAttribute="trailing" secondItem="JDA-Vl-lgN" secondAttribute="trailing" constant="17" id="xzM-Za-oCe"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="LocationCell" id="M8q-e0-1VY" customClass="LocationCell" customModule="MapChat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="116" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="M8q-e0-1VY" id="96Q-hg-HgZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location_2" translatesAutoresizingMaskIntoConstraints="NO" id="qbV-LC-13y">
+                                                    <rect key="frame" x="15" y="7" width="28" height="28"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="28" id="Lff-2l-kns"/>
+                                                        <constraint firstAttribute="height" constant="28" id="N3t-mp-htQ"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right" translatesAutoresizingMaskIntoConstraints="NO" id="H6o-hH-mqg">
+                                                    <rect key="frame" x="341" y="7" width="28" height="28"/>
+                                                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="28" id="pfK-Jz-wQG"/>
+                                                        <constraint firstAttribute="height" constant="28" id="ud2-9F-lXf"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Services" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KxF-uQ-EBW">
+                                                    <rect key="frame" x="51" y="7" width="161" height="27"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="161" id="wOQ-3V-Zmg"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AirbnbCerealApp-Book" family="Airbnb Cereal App" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Always" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLB-zD-9Rw">
+                                                    <rect key="frame" x="289" y="10" width="54" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="KxF-uQ-EBW" firstAttribute="leading" secondItem="qbV-LC-13y" secondAttribute="trailing" constant="8" id="BXu-M2-fW7"/>
+                                                <constraint firstAttribute="trailing" secondItem="H6o-hH-mqg" secondAttribute="trailing" constant="6" id="GT5-df-G1B"/>
+                                                <constraint firstItem="H6o-hH-mqg" firstAttribute="leading" secondItem="QLB-zD-9Rw" secondAttribute="trailing" constant="-2" id="IF4-g1-9Mc"/>
+                                                <constraint firstItem="KxF-uQ-EBW" firstAttribute="top" secondItem="96Q-hg-HgZ" secondAttribute="top" constant="7" id="LIu-At-3ph"/>
+                                                <constraint firstAttribute="bottom" secondItem="H6o-hH-mqg" secondAttribute="bottom" constant="8.6666666666666643" id="PVb-tr-cc2"/>
+                                                <constraint firstItem="qbV-LC-13y" firstAttribute="top" secondItem="96Q-hg-HgZ" secondAttribute="top" constant="7" id="XZH-gp-2sW"/>
+                                                <constraint firstAttribute="bottom" secondItem="QLB-zD-9Rw" secondAttribute="bottom" constant="12.666666666666664" id="Zh8-kw-cbx"/>
+                                                <constraint firstAttribute="bottom" secondItem="KxF-uQ-EBW" secondAttribute="bottom" constant="9.6666666666666643" id="d49-GN-KqC"/>
+                                                <constraint firstItem="qbV-LC-13y" firstAttribute="leading" secondItem="96Q-hg-HgZ" secondAttribute="leading" constant="15" id="jch-Ag-jbt"/>
+                                                <constraint firstAttribute="bottom" secondItem="qbV-LC-13y" secondAttribute="bottom" constant="8.6666666666666643" id="mf1-Ax-wFy"/>
+                                                <constraint firstItem="H6o-hH-mqg" firstAttribute="top" secondItem="96Q-hg-HgZ" secondAttribute="top" constant="7" id="tcD-3u-ZtA"/>
+                                                <constraint firstItem="QLB-zD-9Rw" firstAttribute="top" secondItem="96Q-hg-HgZ" secondAttribute="top" constant="10" id="vAh-Ob-BPl"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="NotificationCell" id="BPL-fW-VRQ" customClass="NotificationCell" customModule="MapChat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="160" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BPL-fW-VRQ" id="deP-ht-5VS">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i7f-lP-45q">
+                                                    <rect key="frame" x="309" y="6" width="51" height="31"/>
+                                                </switch>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settings" translatesAutoresizingMaskIntoConstraints="NO" id="Ut7-YU-02R">
+                                                    <rect key="frame" x="15" y="7" width="28" height="28"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="28" id="12I-Gk-UCp"/>
+                                                        <constraint firstAttribute="height" constant="28" id="c5B-dA-vxz"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Push Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8n7-I8-8uM">
+                                                    <rect key="frame" x="51" y="7" width="165" height="27"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="165" id="GJK-UW-St7"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AirbnbCerealApp-Book" family="Airbnb Cereal App" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="Ut7-YU-02R" secondAttribute="bottom" constant="8.6666666666666643" id="GyN-sy-mDY"/>
+                                                <constraint firstItem="i7f-lP-45q" firstAttribute="top" secondItem="deP-ht-5VS" secondAttribute="top" constant="6" id="LF3-LG-m3X"/>
+                                                <constraint firstItem="8n7-I8-8uM" firstAttribute="leading" secondItem="Ut7-YU-02R" secondAttribute="trailing" constant="8" id="M0l-2B-Fee"/>
+                                                <constraint firstItem="Ut7-YU-02R" firstAttribute="leading" secondItem="deP-ht-5VS" secondAttribute="leading" constant="15" id="OoN-ns-Zgl"/>
+                                                <constraint firstItem="8n7-I8-8uM" firstAttribute="top" secondItem="deP-ht-5VS" secondAttribute="top" constant="7" id="Wyz-V3-4Oh"/>
+                                                <constraint firstAttribute="trailing" secondItem="i7f-lP-45q" secondAttribute="trailing" constant="17" id="Yo3-JB-bWi"/>
+                                                <constraint firstItem="Ut7-YU-02R" firstAttribute="top" secondItem="deP-ht-5VS" secondAttribute="top" constant="7" id="k67-6e-6gm"/>
+                                                <constraint firstAttribute="bottom" secondItem="8n7-I8-8uM" secondAttribute="bottom" constant="9.6666666666666643" id="zKt-W3-27P"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="S2x-RX-BvJ" firstAttribute="trailing" secondItem="nC0-fb-VJ4" secondAttribute="trailing" id="9yj-w7-d09"/>
+                            <constraint firstItem="nC0-fb-VJ4" firstAttribute="top" secondItem="S2x-RX-BvJ" secondAttribute="top" id="IHh-q1-kq0"/>
+                            <constraint firstItem="S2x-RX-BvJ" firstAttribute="bottom" secondItem="nC0-fb-VJ4" secondAttribute="bottom" id="mQT-Ta-anq"/>
+                            <constraint firstItem="nC0-fb-VJ4" firstAttribute="leading" secondItem="S2x-RX-BvJ" secondAttribute="leading" id="wp7-NL-o7r"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="S2x-RX-BvJ"/>
+                    </view>
+                    <connections>
+                        <outlet property="settingsView" destination="nC0-fb-VJ4" id="1aB-gm-8EA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rVk-Oa-LwA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="413.60000000000002" y="1030.0492610837439"/>
         </scene>
         <!--Drop Message-->
         <scene sceneID="JaA-zh-6wF">
@@ -728,9 +917,12 @@
     <resources>
         <image name="add" width="24" height="24"/>
         <image name="feed" width="24" height="24"/>
+        <image name="location_2" width="24" height="24"/>
         <image name="pin" width="24" height="24"/>
         <image name="profile" width="24" height="24"/>
+        <image name="radius" width="24" height="24"/>
         <image name="right" width="36" height="36"/>
+        <image name="settings" width="24" height="24"/>
         <image name="thumbDown" width="24" height="24"/>
         <image name="thumbUp" width="24" height="24"/>
         <image name="ubacm" width="623" height="477"/>
