@@ -52,7 +52,7 @@ steps:
   - set
   - image
   - deployment
-  - flask-server
+  - flaskapp
   - flask-sha256=gcr.io/$PROJECT_ID/flask:$SHORT_SHA
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
