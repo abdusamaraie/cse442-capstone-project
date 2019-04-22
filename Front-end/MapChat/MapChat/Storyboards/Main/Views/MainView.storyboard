@@ -325,7 +325,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App version" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dpp-Rd-FQk">
-                                                    <rect key="frame" x="15" y="11" width="96.333333333333329" height="21"/>
+                                                    <rect key="frame" x="15" y="11" width="97.333333333333329" height="21"/>
                                                     <fontDescription key="fontDescription" name="AirbnbCerealApp-Light" family="Airbnb Cereal App" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
