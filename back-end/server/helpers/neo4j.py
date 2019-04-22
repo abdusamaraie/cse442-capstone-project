@@ -238,6 +238,10 @@ def get_posts(location, distance):
 
 
 def rate_post(post_id, relation, username):
+
+    # get current time for time of rating
+    time = get_time()
+
     try:
         # get user node
         matcher = NodeMatcher(GRAPH)
@@ -268,7 +272,7 @@ def rate_post(post_id, relation, username):
                 GRAPH.separate(already_disliked)
 
             # create relationship between user and post
-            GRAPH.merge(Relationship(user_node, relation, post_node), relation, '')
+            GRAPH.merge(Relationship(user_node, relation, post_node, rate_time=time), relation)
             return str(True)
 
         else:
@@ -341,21 +345,6 @@ def delete_post(post_id):
                   "OPTIONAL MATCH (p)<-[:REPLY_TO]-(r:Reply) "
                   "DETACH DELETE r, p".format(post_id))
         return str(True)
-    except Exception as e:
-        print(e)
-        return str(False)
-
-
-def get_user_post_history(username):
-    try:
-        # delete post node and all replies
-        results = GRAPH.run("MATCH (u:User {{username: '{}'}})-[:POSTED]->(p:Post) "
-                            "RETURN p".format(username))
-
-        # loop through results and create json
-        post_history_json = json.dumps([dict(ix)['p'] for ix in results.data()])
-        return post_history_json
-
     except Exception as e:
         print(e)
         return str(False)
@@ -462,6 +451,55 @@ def wipe_database():
         GRAPH.merge(Node("Place", place_id='Other', name='Other', photo_url=OTHER_PHOTO_URL), 'Place', 'place_id')
 
         return str(True)
+
+    except Exception as e:
+        print(e)
+        return str(False)
+
+
+def get_user_post_history(username):
+    try:
+        # delete post node and all replies
+        results = GRAPH.run("MATCH (u:User {{username: '{}'}})-[:POSTED]->(p:Post) "
+                            "RETURN p ORDER BY p.post_time DESC".format(username))
+
+        # loop through results and create json
+        post_history_json = json.dumps([dict(ix)['p'] for ix in results.data()])
+        return post_history_json
+
+    except Exception as e:
+        print(e)
+        return str(False)
+
+
+def get_user_reply_history(username):
+    try:
+        # delete post node and all replies
+        results = GRAPH.run("MATCH (u:User {{username: '{}'}})-[:REPLIED]->(r:Reply)-[:REPLY_TO]->(p:Post) "
+                            "RETURN r{{.*, parent_post_id: p.post_id}} ORDER BY r.post_time DESC".format(username))
+
+        # loop through results and create json
+        post_history_json = json.dumps([dict(ix)['r'] for ix in results.data()])
+        return post_history_json
+
+    except Exception as e:
+        print(e)
+        return str(False)
+
+
+def get_user_rating_history(username):
+    try:
+        # delete post node and all replies
+        likes_result = GRAPH.run("MATCH (u:User {{username: '{}'}})-[l:LIKED]->(likes:Post) "
+                                 "RETURN likes{{.*, rate_time: l.rate_time}} ORDER BY l.rate_time DESC".format(username))
+        dislikes_result = GRAPH.run("MATCH (u:User {{username: '{}'}})-[d:DISLIKED]->(dislikes:Post) "
+                                    "RETURN dislikes{{.*, rate_time: d.rate_time}} ORDER BY d.rate_time DESC".format(username))
+
+        # loop through results and create json
+        likes = json.dumps([dict(ix)['likes'] for ix in likes_result.data()])
+        dislikes = json.dumps([dict(ix)['dislikes'] for ix in dislikes_result.data()])
+
+        return json.dumps({"likes": likes, "dislikes": dislikes})
 
     except Exception as e:
         print(e)
