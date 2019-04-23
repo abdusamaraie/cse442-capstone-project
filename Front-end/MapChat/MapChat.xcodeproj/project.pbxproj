@@ -13,6 +13,8 @@
 		056A379422233FC1005A49CB /* Sign-in.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 056A379322233FC1005A49CB /* Sign-in.storyboard */; };
 		40D5A00C4EDA5CB66FAE5139 /* Pods_MapChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEEF9F98D541554EEAD87DA7 /* Pods_MapChatTests.framework */; };
 		43100785EC0B2D92AC929817 /* Pods_MapChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F40FC9B6A3AF41E2EA0585 /* Pods_MapChat.framework */; };
+		4D094463226E7F0F004995D0 /* ProfilePicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D094462226E7F0F004995D0 /* ProfilePicView.swift */; };
+		4D094465226E924A004995D0 /* pickerViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D094464226E924A004995D0 /* pickerViewExtensions.swift */; };
 		EB086E9F2253F23A00F9D2D3 /* GroupPostManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB086E9E2253F23A00F9D2D3 /* GroupPostManager.swift */; };
 		EB2FB3E9225D25EA00151C80 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2FB3E8225D25EA00151C80 /* SettingsCell.swift */; };
 		EB303FD62252954F00161BC8 /* davis_hall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB303FD52252954F00161BC8 /* davis_hall.jpg */; };
@@ -97,6 +99,8 @@
 		056A379322233FC1005A49CB /* Sign-in.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Sign-in.storyboard"; sourceTree = "<group>"; };
 		1DE61570E901C6844CC5F675 /* Pods-MapChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapChatTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapChatTests/Pods-MapChatTests.release.xcconfig"; sourceTree = "<group>"; };
 		4527A64964C100488AE037C9 /* Pods-MapChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapChat/Pods-MapChat.release.xcconfig"; sourceTree = "<group>"; };
+		4D094462226E7F0F004995D0 /* ProfilePicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePicView.swift; sourceTree = "<group>"; };
+		4D094464226E924A004995D0 /* pickerViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = pickerViewExtensions.swift; path = ../../../../../../../../../Downloads/pickerViewExtensions.swift; sourceTree = "<group>"; };
 		503386CE2733449CC61C1E2A /* Pods_MapChatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapChatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DA7418D44CF80E978ED32F0 /* Pods-MapChatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapChatUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapChatUITests/Pods-MapChatUITests.release.xcconfig"; sourceTree = "<group>"; };
 		892CF372E268F02FF32724B5 /* Pods-MapChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MapChat/Pods-MapChat.debug.xcconfig"; sourceTree = "<group>"; };
@@ -236,6 +240,8 @@
 				EB786F812269160F001CF54F /* AppVersionCell.swift */,
 				EB786F86226A6FE4001CF54F /* AdvancedSettingsView.swift */,
 				EB786F88226A7134001CF54F /* AdvancedSettingsCell.swift */,
+				4D094462226E7F0F004995D0 /* ProfilePicView.swift */,
+				4D094464226E924A004995D0 /* pickerViewExtensions.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -728,6 +734,7 @@
 				EB33C25722388E9D0012630B /* AuthenticationManager.swift in Sources */,
 				EB786F89226A7134001CF54F /* AdvancedSettingsCell.swift in Sources */,
 				EBFAC67F22272862004B5074 /* ProfileView.swift in Sources */,
+				4D094463226E7F0F004995D0 /* ProfilePicView.swift in Sources */,
 				EB786F80226915FA001CF54F /* SpacerCell.swift in Sources */,
 				EBFAC67D2226278A004B5074 /* LocationServicesManager.swift in Sources */,
 				EBFE06E3226E8FF000676799 /* TagCell.swift in Sources */,
@@ -735,6 +742,7 @@
 				EBFAC68322275DA0004B5074 /* PopUpView.swift in Sources */,
 				EBD4809E2263D08D0045399B /* DropMessageNavVC.swift in Sources */,
 				EBAA2FF32223236E003A7FD5 /* PageViewController.swift in Sources */,
+				4D094465226E924A004995D0 /* pickerViewExtensions.swift in Sources */,
 				EB414CE22214F298007C3FE4 /* AppDelegate.swift in Sources */,
 				EB086E9F2253F23A00F9D2D3 /* GroupPostManager.swift in Sources */,
 				EB414CEA2214F298007C3FE4 /* MapChat.xcdatamodeld in Sources */,
