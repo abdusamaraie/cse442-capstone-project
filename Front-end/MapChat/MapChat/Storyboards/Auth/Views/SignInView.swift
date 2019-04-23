@@ -128,8 +128,8 @@ class SignInView: UIViewController, UITextFieldDelegate {
     }
     
     @objc func next_view() {
-        self.performSegue(withIdentifier: "toMain", sender: self)
-        // validate()
+        // self.performSegue(withIdentifier: "toMain", sender: self)
+        validate()
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
