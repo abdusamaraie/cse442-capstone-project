@@ -197,20 +197,6 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
         return cell
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print("index path: \(indexPath.row)")
-//        print("group list: \(group_list)")
-//        if (group_list.count > 0) {
-//            self.selectedGroup = group_list[indexPath.row]
-//            GroupPostManager.sharedInstance.current_group = self.selectedGroup
-//            self.performSegue(withIdentifier: "toGroup", sender: self)
-//            groupTableView.deselectRow(at: indexPath, animated: true)
-//        } else {
-//            print("not yet")
-//        }
-//    }
-    
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "toGroup") {
             let feedView = segue.destination as! FeedView
