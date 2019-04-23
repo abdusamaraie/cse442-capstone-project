@@ -20,6 +20,7 @@ class SignInView: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var sunny: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,8 @@ class SignInView: UIViewController, UITextFieldDelegate {
         
         username.delegate = self
         password.delegate = self
+        
+        self.sunny.tintColor = #colorLiteral(red: 0, green: 0.7694169879, blue: 0.9316933751, alpha: 1)
         
     }
     
@@ -55,13 +58,13 @@ class SignInView: UIViewController, UITextFieldDelegate {
         // button text "sign in"
         sign_in_button.setTitle("Continue", for: .normal)
         
-        sign_in_button.setTitleColor(.black, for: .normal)
+        sign_in_button.setTitleColor(.white, for: .normal)
         
         // add button target
         sign_in_button.addTarget(self, action: #selector(next_view), for: .touchUpInside)
         
         // button color white
-        sign_in_button.backgroundColor = UIColor.white
+        sign_in_button.backgroundColor = #colorLiteral(red: 0, green: 0.7694169879, blue: 0.9316933751, alpha: 1)
         
         // center within view
         sign_in_button.center.x = self.view.frame.midX

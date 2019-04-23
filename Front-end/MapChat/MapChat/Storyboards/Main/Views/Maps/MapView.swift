@@ -103,7 +103,8 @@ class MapView: UIViewController, CLLocationManagerDelegate {
         
         print(locations)
         //let currentLocation =     CLLocationCoordinate2D(latitude:CLLocationDegrees(locations[0].coordinate.latitude), longitude:CLLocationDegrees(locations[0].coordinate.longitude))
-        self.mapView.camera = GMSCameraPosition.camera(withTarget:locations[0].coordinate, zoom: 10.0)
+        // self.mapView.camera = GMSCameraPosition.camera(withTarget:locations[0].coordinate, zoom: 10.0, viewingAngle: 45)
+        self.mapView.camera = GMSCameraPosition.camera(withTarget: locations[0].coordinate, zoom: 18, bearing: 0, viewingAngle: 60)
         do {
             // Set the map style by passing a valid JSON string.
             mapView.mapStyle = try GMSMapStyle(jsonString: kMapStyle)
@@ -111,14 +112,15 @@ class MapView: UIViewController, CLLocationManagerDelegate {
             NSLog("One or more of the map styles failed to load. \(error)")
         }
         print("zooming")
-        self.mapView.animate(toZoom: 18)
+        
+        //self.mapView.animate(toZoom: 18)
         self.mapView.isMyLocationEnabled = true
         
         // showMarker(position: locations[0].coordinate, message: <#String#>)
         
         // update radius custom
-        let update = GMSCameraUpdate.fit(GMSCircle(position: locations[0].coordinate, radius: CLLocationDistance(50)).bounds())
-        mapView.animate(with: update)
+        //let update = GMSCameraUpdate.fit(GMSCircle(position: locations[0].coordinate, radius: CLLocationDistance(50)).bounds())
+        //mapView.animate(with: update)
         //
         
         manager.stopUpdatingLocation()

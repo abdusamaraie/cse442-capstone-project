@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Alamofire
 
 class MessageCell: UITableViewCell {
     
@@ -17,8 +18,11 @@ class MessageCell: UITableViewCell {
     @IBOutlet weak var upvoteIcon: UIButton!
     @IBOutlet weak var downvoteIcon: UIButton!
     
-    var vote: Int!
+    let urlString = "http://35.238.74.200:80/rating"
+    
+    var vote: Bool!
     var defaultColor: UIColor!
+    var postId: String!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,33 +35,78 @@ class MessageCell: UITableViewCell {
     }
     
     @IBAction func upVote(_ sender: Any) {
-        print("action")
-        if (vote == nil) {
-            print("upvote")
-            self.upvoteIcon.tintColor = UIColor.blue
-            vote=1
-        } else if (vote == 0) {
-            self.downvoteIcon.tintColor = defaultColor
-            self.upvoteIcon.tintColor = UIColor.blue
-            vote=1
-        } else {
-            vote=1
+        if postId != nil {
+            print("action: \(postId!)")
+            if (vote == nil) {
+                print("upvote")
+                self.upvoteIcon.tintColor = UIColor.blue
+                vote=true
+            } else if (vote == false) {
+                self.downvoteIcon.tintColor = defaultColor
+                self.upvoteIcon.tintColor = UIColor.blue
+                vote=true
+            } else {
+                vote=true
+            }
+            
+            performVote(completion: {(result) in
+                
+                if result {
+                    print("all good")
+                } else {
+                    print("error")
+                }
+            })
         }
         
     }
     
     @IBAction func downVote(_ sender: Any) {
-        print("action")
-        if (vote == nil) {
-            print("downvote")
-            self.downvoteIcon.tintColor = UIColor.blue
-            vote=0
-        } else if (vote == 1) {
-            self.upvoteIcon.tintColor = defaultColor
-            self.downvoteIcon.tintColor = UIColor.blue
-            vote=0
-        } else {
-            vote=0
+        if postId != nil {
+            print("action: \(postId!)")
+            if (vote == nil) {
+                print("downvote")
+                self.downvoteIcon.tintColor = UIColor.blue
+                vote=false
+            } else if (vote == true) {
+                self.upvoteIcon.tintColor = defaultColor
+                self.downvoteIcon.tintColor = UIColor.blue
+                vote=false
+            } else {
+                vote=false
+            }
+            
+            performVote(completion: {(result) in
+                
+                if result {
+                    print("all good")
+                } else {
+                    print("error")
+                }
+            })
+        }
+    }
+    
+    func performVote(completion: @escaping (_ response_:Bool) -> ()) {
+        
+        let parameters: [String: Any] = ["username": AuthenticationHelper.sharedInstance.current_user.username!,
+                                         "rating": vote,
+                                         "postId": postId]
+        
+        // /rating takes username postId and rating: bool
+        
+        Alamofire.request(urlString, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseString { response in
+            
+            switch response.result {
+            case .success:
+                
+                completion(true)
+                
+            // break
+            case .failure(let error):
+                print("error: \(error)")
+                completion(false)
+            }
         }
     }
 }

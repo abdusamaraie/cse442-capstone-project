@@ -13,6 +13,7 @@ import Alamofire
 import UIKit
 import GooglePlaces
 import Lottie
+import VSTwitterTextCounter
 
 struct Place {
     var placeID: String
@@ -24,6 +25,7 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
     
     @IBOutlet weak var message: UITextView!
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var counterView: VSTwitterTextCounter!
     
     let animationView = AnimationView(name: "waiting")
     var locManager = CLLocationManager()
@@ -33,17 +35,20 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
     var dropMessage: Bool = false
     
     var selectedPlace: Place!
-    
     var placesView: UICollectionView!
-    
     var currentLocation:CLLocation!
-    
     var selectedTag:Tag!
-    
     var lengthLabel: UILabel!
+    
+    var postTime:Int!
+    
+    let dateFormatterGet = DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // update date format for cacheMessage
+        dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -97,9 +102,10 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         
         // let mySlider = UISlider(x: 0, y: 0, width: UIScreen.main.bounds.width/4, height: 50)
         let mySlider = UISlider(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width/2, height: 50))
-        mySlider.minimumValue = 0
-        mySlider.maximumValue = 100
-        mySlider.setValue(0, animated: false)
+        mySlider.minimumValue = 30
+        mySlider.maximumValue = 240
+        mySlider.setValue(60, animated: false)
+        self.postTime = 60
         mySlider.isContinuous = true
         mySlider.tintColor = UIColor.blue
         mySlider.addTarget(self, action: #selector(DropMessageView.changeVlaue(_:)), for: .valueChanged)
@@ -117,18 +123,24 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         
         // length label
         self.lengthLabel = UILabel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width/4, height: 50))
-        self.lengthLabel.text = "0m"
+        self.lengthLabel.text = "1h"
         let labelBarButton1 = UIBarButtonItem(customView: self.lengthLabel)
         
         toolbar.items = [tagItem, sliderItem, labelBarButton1, spacer, labelBarButton, timeItem]
         toolbar.sizeToFit()
         message.inputAccessoryView = toolbar
+
+        
+        self.counterView.maxCount = 120
     }
     
     @objc func changeVlaue(_ sender: UISlider) {
         print("====sender====: \(sender.value)")
+        
         // self.lengthLabel.text = "\(Int(sender.value))"
         let tuple = minutesToHoursMinutes(minutes: Int(sender.value))
+        
+        self.postTime = Int(sender.value)
         
         if (Int(sender.value) > 60) {
             self.lengthLabel.text = "\(tuple.hours)h\(tuple.leftMinutes)m"
@@ -208,12 +220,15 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
                 
                 let urlString = "http://35.238.74.200:80/message"
                 
+                // get current date adding the slider effect
+                let date = Calendar.current.date(byAdding: .minute, value: postTime, to: Date())
+                
                 let parameters: [String: Any] = [
                     "location": [
                         "latitude": currentLocation.coordinate.latitude,
                         "longitude": currentLocation.coordinate.longitude,
                     ],
-                    "expireTime": "2019-05-20 22:59:45",
+                    "expireTime": dateFormatterGet.string(from: date!),
                     "username": AuthenticationHelper.sharedInstance.current_user.username!,
                     "message": message.text!,
                     "placeId": selectedPlaceID
@@ -231,8 +246,11 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
                             self.message.text = ""
                             
                             let animationView:AnimationView = AnimationView(name: "message-success")
-                            animationView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
-                            animationView.center = self.view.center
+                            animationView.frame = CGRect(x: 0, y: 0, width: 150, height: 150)
+                            
+                            animationView.center.x = self.view.center.x
+                            animationView.center.y = self.view.center.y - self.view.frame.maxY/5
+                            // animationView.center = self.view.center
                             animationView.contentMode = .scaleAspectFill
                             self.view.addSubview(animationView)
                             animationView.play{ (finished) in
@@ -357,6 +375,11 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         // Combine the textView text and the replacement text to
         // create the updated text string
         let currentText:String = textView.text
+        
+        if (currentText.count > 120) {
+            return false
+        }
+        
         let updatedText = (currentText as NSString).replacingCharacters(in: range, with: text)
         
         // If updated text view will be empty, add the placeholder
@@ -376,11 +399,15 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         else if textView.textColor == UIColor.lightGray && !text.isEmpty {
             textView.textColor = UIColor.black
             textView.text = text
+            
         }
             
             // For every other case, the text should change with the usual
             // behavior...
         else {
+            print("hey")
+            let weightedLength = NSString(string: textView.text).length
+            counterView.update(with: textView, textWeightedLength: weightedLength)
             return true
         }
         
