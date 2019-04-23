@@ -11,6 +11,8 @@ import UIKit
 
 class RadiusCell: UITableViewCell {
     
+    @IBOutlet weak var iconImage: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

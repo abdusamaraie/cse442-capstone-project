@@ -38,6 +38,10 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
     
     var currentLocation:CLLocation!
     
+    var selectedTag:Tag!
+    
+    var lengthLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,8 +59,6 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         // place holder for text view
         message.text = "Enter a message"
         message.textColor = UIColor.lightGray
-        
-        message.becomeFirstResponder()
         
         message.selectedTextRange = message.textRange(from: message.beginningOfDocument, to: message.beginningOfDocument)
         
@@ -81,15 +83,79 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         self.view.addSubview(placesView)
         placesView.bindToKeyboard()
         
+        // keyboard toolbar
+        let toolbar = UIToolbar(frame:CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+        toolbar.barStyle = .default
+        
+        let tagItem = UIBarButtonItem(title: "Tags", style: .plain, target: self, action: #selector(tags))
+        tagItem.image = #imageLiteral(resourceName: "feed")
+        
+        let timeItem = UIBarButtonItem(title: "Time", style: .plain, target: self, action: #selector(setTime))
+        timeItem.image = #imageLiteral(resourceName: "timer")
+        
+        // slider
+        
+        // let mySlider = UISlider(x: 0, y: 0, width: UIScreen.main.bounds.width/4, height: 50)
+        let mySlider = UISlider(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width/2, height: 50))
+        mySlider.minimumValue = 0
+        mySlider.maximumValue = 100
+        mySlider.setValue(0, animated: false)
+        mySlider.isContinuous = true
+        mySlider.tintColor = UIColor.blue
+        mySlider.addTarget(self, action: #selector(DropMessageView.changeVlaue(_:)), for: .valueChanged)
+        
+        let sliderItem = UIBarButtonItem(customView: mySlider)
+        
+        // --> mySlider.addTarget(self, action: #selector(slide), for: .valueChanged)
+        //
+        
+        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        
+        let timeLabel = UILabel()
+        timeLabel.text = "----"
+        let labelBarButton = UIBarButtonItem(customView: timeLabel)
+        
+        // length label
+        self.lengthLabel = UILabel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width/4, height: 50))
+        self.lengthLabel.text = "0m"
+        let labelBarButton1 = UIBarButtonItem(customView: self.lengthLabel)
+        
+        toolbar.items = [tagItem, sliderItem, labelBarButton1, spacer, labelBarButton, timeItem]
+        toolbar.sizeToFit()
+        message.inputAccessoryView = toolbar
+    }
+    
+    @objc func changeVlaue(_ sender: UISlider) {
+        print("====sender====: \(sender.value)")
+        // self.lengthLabel.text = "\(Int(sender.value))"
+        let tuple = minutesToHoursMinutes(minutes: Int(sender.value))
+        
+        if (Int(sender.value) > 60) {
+            self.lengthLabel.text = "\(tuple.hours)h\(tuple.leftMinutes)m"
+        } else {
+            self.lengthLabel.text = "\(tuple.leftMinutes)m"
+        }
+    }
+    
+    func minutesToHoursMinutes (minutes : Int) -> (hours : Int , leftMinutes : Int) {
+        return (minutes / 60, (minutes % 60))
+    }
+    
+    @objc func tags() {
+        print("show tags")
+        self.performSegue(withIdentifier: "viewTags", sender: self)
+    }
+    
+    @objc func setTime() {
+        print("set time")
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.message.becomeFirstResponder()
         getPlace()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        // getPlace()
-        // placesView.reloadData()
         animate()
     }
 
