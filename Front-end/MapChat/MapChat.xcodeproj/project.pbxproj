@@ -70,6 +70,7 @@
 		EBFAC68322275DA0004B5074 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFAC68222275DA0004B5074 /* PopUpView.swift */; };
 		EBFE06E1226E8FC200676799 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE06E0226E8FC200676799 /* TagView.swift */; };
 		EBFE06E3226E8FF000676799 /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE06E2226E8FF000676799 /* TagCell.swift */; };
+		EBFE06E5226FA0F400676799 /* 22-ThumbsUp.json in Resources */ = {isa = PBXBuildFile; fileRef = EBFE06E4226FA0F400676799 /* 22-ThumbsUp.json */; };
 		ECB1CE56496921CD49C35A6B /* Pods_MapChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 503386CE2733449CC61C1E2A /* Pods_MapChatUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -165,6 +166,7 @@
 		EBFAC68222275DA0004B5074 /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
 		EBFE06E0226E8FC200676799 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		EBFE06E2226E8FF000676799 /* TagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
+		EBFE06E4226FA0F400676799 /* 22-ThumbsUp.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "22-ThumbsUp.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +245,7 @@
 		EB2FB3E5225D258600151C80 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				EBFE06E4226FA0F400676799 /* 22-ThumbsUp.json */,
 				EB565E55226D4EC500366360 /* FeedSettings */,
 				EBFAC68222275DA0004B5074 /* PopUpView.swift */,
 				EBFAC67722261F89004B5074 /* FeedView.swift */,
@@ -553,6 +556,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB31C6522263F71000086DB3 /* AirbnbCereal-Medium.ttf in Resources */,
+				EBFE06E5226FA0F400676799 /* 22-ThumbsUp.json in Resources */,
 				EB31C6512263F70B00086DB3 /* AirbnbCereal-Book.ttf in Resources */,
 				EB786F92226AA329001CF54F /* load-drop.json in Resources */,
 				EB616CA7226B7E8700335BF7 /* PlaceCellNib.xib in Resources */,

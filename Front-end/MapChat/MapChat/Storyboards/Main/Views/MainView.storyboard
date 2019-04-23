@@ -460,10 +460,10 @@
                                                                     </connections>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#example-tag" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XH0-ZL-Ykc">
-                                                                    <rect key="frame" x="90" y="100" width="247" height="21.333333333333329"/>
+                                                                    <rect key="frame" x="184" y="100" width="153" height="21.333333333333329"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="21.333333333333329" id="BCd-Pd-hLh"/>
-                                                                        <constraint firstAttribute="width" constant="247" id="V1M-Bs-Fu0"/>
+                                                                        <constraint firstAttribute="width" constant="153" id="njV-Gz-oFZ"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -488,13 +488,13 @@
                                                                 <constraint firstAttribute="width" constant="345" id="MRc-Ye-dTm"/>
                                                                 <constraint firstAttribute="trailing" secondItem="cNk-kF-eIZ" secondAttribute="trailing" constant="8" id="QRJ-NL-mbR"/>
                                                                 <constraint firstAttribute="bottom" secondItem="weO-cD-2Mi" secondAttribute="bottom" constant="9" id="R2r-ry-0UN"/>
+                                                                <constraint firstItem="XH0-ZL-Ykc" firstAttribute="leading" secondItem="Q2F-zQ-BaB" secondAttribute="trailing" constant="102" id="RMI-NJ-hHc"/>
                                                                 <constraint firstItem="tE1-5R-xNv" firstAttribute="top" secondItem="cNk-kF-eIZ" secondAttribute="bottom" constant="-1" id="WHK-RJ-oK5"/>
                                                                 <constraint firstItem="weO-cD-2Mi" firstAttribute="leading" secondItem="mfu-41-pgB" secondAttribute="trailing" constant="4" id="XPY-2o-gwe"/>
                                                                 <constraint firstItem="XH0-ZL-Ykc" firstAttribute="top" secondItem="tE1-5R-xNv" secondAttribute="bottom" constant="8" id="h65-IW-ZaB"/>
                                                                 <constraint firstAttribute="bottom" secondItem="mfu-41-pgB" secondAttribute="bottom" constant="8" id="iFi-qk-ic4"/>
                                                                 <constraint firstItem="cNk-kF-eIZ" firstAttribute="top" secondItem="KQ1-VO-1N9" secondAttribute="top" constant="8" id="teS-uG-TME"/>
                                                                 <constraint firstItem="XH0-ZL-Ykc" firstAttribute="top" secondItem="cNk-kF-eIZ" secondAttribute="bottom" constant="8" id="xf0-wP-cBa"/>
-                                                                <constraint firstItem="XH0-ZL-Ykc" firstAttribute="leading" secondItem="Q2F-zQ-BaB" secondAttribute="trailing" constant="8" id="yYz-0e-05e"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
@@ -558,7 +558,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fnq-Rx-Lvv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="609" y="958"/>
+            <point key="canvasLocation" x="608.79999999999995" y="957.63546798029563"/>
         </scene>
         <!--Group View-->
         <scene sceneID="Ign-gK-K6i">
@@ -626,6 +626,7 @@
                         <viewLayoutGuide key="safeArea" id="t6P-Gw-uw3"/>
                     </view>
                     <navigationItem key="navigationItem" id="5WS-gE-wdy">
+                        <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" image="settings" id="AmZ-yv-lml">
                             <connections>
                                 <segue destination="Pwk-78-Sel" kind="show" id="yNQ-kY-r2P"/>

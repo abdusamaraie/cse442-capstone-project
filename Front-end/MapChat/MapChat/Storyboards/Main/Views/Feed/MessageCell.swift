@@ -48,6 +48,15 @@ class MessageCell: UITableViewCell {
             } else {
                 vote=true
             }
+            
+            performVote(completion: {(result) in
+                
+                if result {
+                    print("all good")
+                } else {
+                    print("error")
+                }
+            })
         }
         
     }
