@@ -124,41 +124,73 @@
         <!--Profile Pic View-->
         <scene sceneID="8GT-qP-Gth">
             <objects>
-                <viewController id="7go-Q2-PSR" customClass="ProfilePicView" sceneMemberID="viewController">
+                <viewController id="7go-Q2-PSR" customClass="ProfilePicView" customModule="MapChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MNc-vw-vnH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q9O-fb-0Qo">
-                                <rect key="frame" x="67" y="193" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hqj-KT-RdN">
+                                <rect key="frame" x="121.66666666666669" y="191" width="132" height="132"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="132" id="Riy-Zr-0pe"/>
+                                    <constraint firstAttribute="width" constant="132" id="kqH-v2-ZCJ"/>
+                                    <constraint firstAttribute="width" secondItem="hqj-KT-RdN" secondAttribute="height" multiplier="1:1" id="sbx-8S-e58"/>
+                                </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xBA-1d-VYw">
-                                <rect key="frame" x="261" y="329" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ccZ-oE-eP2">
-                                <rect key="frame" x="166" y="164" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p2p-ph-Dwl">
+                                <rect key="frame" x="128.66666666666666" y="109" width="118" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="26" id="SQO-ej-06P"/>
+                                    <constraint firstAttribute="width" secondItem="p2p-ph-Dwl" secondAttribute="height" multiplier="59:13" id="rh3-1W-9xq"/>
+                                    <constraint firstAttribute="width" constant="118" id="sks-vt-BGY"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7HO-o5-d41">
+                                <rect key="frame" x="227" y="296" width="46" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" staticText="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="1"/>
+                                <color key="tintColor" red="0.69139870029999995" green="0.46377436659999999" blue="0.8794024587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="camera"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="23"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="changeImage:" destination="7go-Q2-PSR" eventType="touchUpInside" id="vAk-ns-RDR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hqj-KT-RdN" firstAttribute="top" secondItem="vtO-uh-Wer" secondAttribute="top" constant="103" id="NfS-a4-58b"/>
+                            <constraint firstItem="p2p-ph-Dwl" firstAttribute="top" secondItem="vtO-uh-Wer" secondAttribute="top" constant="21" id="hpb-5N-xul"/>
+                            <constraint firstItem="hqj-KT-RdN" firstAttribute="centerX" secondItem="vtO-uh-Wer" secondAttribute="centerX" id="keA-vj-EcT"/>
+                            <constraint firstItem="p2p-ph-Dwl" firstAttribute="centerX" secondItem="vtO-uh-Wer" secondAttribute="centerX" id="kkY-9F-ngY"/>
+                            <constraint firstItem="vtO-uh-Wer" firstAttribute="bottom" secondItem="p2p-ph-Dwl" secondAttribute="bottom" constant="594" id="m8T-TX-3eK"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="vtO-uh-Wer"/>
                     </view>
-                    <navigationItem key="navigationItem" id="0n5-Zu-4xh"/>
+                    <navigationItem key="navigationItem" id="Ye9-dc-UwS"/>
                     <connections>
-                        <outlet property="changeImagrButton" destination="xBA-1d-VYw" id="AXt-lC-MPZ"/>
-                        <outlet property="profileImage" destination="Q9O-fb-0Qo" id="aXF-vJ-UwF"/>
-                        <outlet property="profileName" destination="ccZ-oE-eP2" id="eKa-Kp-9fC"/>
+                        <outlet property="changeImagrButton" destination="7HO-o5-d41" id="jBH-Hu-LNQ"/>
+                        <outlet property="profileImage" destination="hqj-KT-RdN" id="cM4-q4-o3H"/>
+                        <outlet property="profileName" destination="p2p-ph-Dwl" id="5g7-Cb-xEb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sGh-i2-qB2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3169" y="242"/>
+            <point key="canvasLocation" x="-3170.4000000000001" y="241.62561576354682"/>
         </scene>
         <!--Item-->
         <scene sceneID="MLt-6p-EMB">
@@ -785,6 +817,7 @@
     </scenes>
     <resources>
         <image name="add" width="24" height="24"/>
+        <image name="camera" width="36" height="36"/>
         <image name="feed" width="24" height="24"/>
         <image name="pin" width="24" height="24"/>
         <image name="profile" width="24" height="24"/>

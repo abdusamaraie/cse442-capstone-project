@@ -13,7 +13,6 @@ class ProfilePicView: UIViewController, UIImagePickerControllerDelegate {
     @IBOutlet weak var changeImagrButton: UIButton!
     @IBOutlet weak var profileName: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
-   
     
     
     var imagePicker = UIImagePickerController()
@@ -21,6 +20,13 @@ class ProfilePicView: UIViewController, UIImagePickerControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        profileImage.image = #imageLiteral(resourceName: "profile_1")
+        
+        
+        profileImage.layer.masksToBounds = false
+        profileImage.layer.borderColor = UIColor.black.cgColor
+        profileImage.layer.cornerRadius = profileImage.frame.height/2
+        profileImage.clipsToBounds = true
         
         imagePicker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
     }
