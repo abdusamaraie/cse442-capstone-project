@@ -43,6 +43,7 @@ class MapView: UIViewController, CLLocationManagerDelegate {
     var startDate: Date!
     var traveledDistance: Double = 0
     
+    
     // Set the status bar style to complement night-mode.
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent

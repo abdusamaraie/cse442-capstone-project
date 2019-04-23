@@ -21,17 +21,15 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
     
     var refreshControl = UIRefreshControl()
     
-    // var group_list:[GroupPostManager.GroupObject]!
-    
     var group_list:[GroupPostManager.GroupObject] = []
     
     var currentLocation:CLLocation!
     
-//    var group_list:[GroupPostManager.GroupObject]! {
-//        didSet{
-//            groupTableView.reloadData()
-//        }
-//    }
+    var startLocation: CLLocation!
+    var lastLocation: CLLocation!
+    var startDate: Date!
+    var traveledDistance: Double = 0
+    
     
     var selectedGroup: GroupPostManager.GroupObject = GroupPostManager.GroupObject()
     
@@ -50,6 +48,9 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
         
         // drop view modal
         self.tabBarController?.delegate = UIApplication.shared.delegate as? UITabBarControllerDelegate
+        
+        locManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+        locManager.distanceFilter = 10
         
     }
     
@@ -88,14 +89,38 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        print("location manager INSIDE")
         
-        // let sv = UIViewController.displaySpinner(onView: self.view)
-        
-        if let location = locations.first {
-            currentLocation = location
-            updateLocation()
+        if startDate == nil {
+            startDate = Date()
+        } else {
+            print("elapsedTime:", String(format: "%.0fs", Date().timeIntervalSince(startDate)))
         }
+        if startLocation == nil {
+            startLocation = locations.first
+            currentLocation = startLocation
+            updateLocation()
+            // updateMap(manager, locations)
+        } else if let location = locations.last {
+            traveledDistance += lastLocation.distance(from: location)
+            print("Traveled Distance:",  traveledDistance)
+            print("Straight Distance:", startLocation.distance(from: locations.last!))
+            
+            if (startLocation.distance(from: locations.last!) > 15) {
+                // updateMap(manager, locations)
+                currentLocation = location
+                updateLocation()
+            }
+        }
+        lastLocation = locations.last
+        
+//        print("location manager INSIDE")
+//
+//        // let sv = UIViewController.displaySpinner(onView: self.view)
+//
+//        if let location = locations.first {
+//            currentLocation = location
+//            updateLocation()
+//        }
     }
     
     func updateLocation() {
@@ -106,8 +131,8 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
         GroupPostManager.sharedInstance.latitude = "\(currentLocation.coordinate.latitude)"
         GroupPostManager.sharedInstance.longitude = "\(currentLocation.coordinate.longitude)"
         
-        // displau spinner
-        let sv = UIViewController.displaySpinner(onView: self.view)
+        // display spinner
+        //let sv = UIViewController.displaySpinner(onView: self.view)
         
         GroupPostManager.sharedInstance.getGroupData(completion: {(response) in
             
@@ -120,11 +145,11 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
                 print("response-------->: \(response_object)")
                 
                 self.group_list = response_object
-                UIViewController.removeSpinner(spinner: sv)
+                // UIViewController.removeSpinner(spinner: sv)
                 self.groupTableView.reloadData()
             } else {
                 print("RESPONSE WAS NIL")
-                UIViewController.removeSpinner(spinner: sv)
+                // UIViewController.removeSpinner(spinner: sv)
             }
         })
     }
