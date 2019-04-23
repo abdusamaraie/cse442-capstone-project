@@ -11,6 +11,7 @@ import UIKit
 
 class LocationCell: UITableViewCell {
     
+    @IBOutlet weak var iconImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
     }

@@ -38,6 +38,8 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
     
     var currentLocation:CLLocation!
     
+    var selectedTag:Tag!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,8 +57,6 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         // place holder for text view
         message.text = "Enter a message"
         message.textColor = UIColor.lightGray
-        
-        message.becomeFirstResponder()
         
         message.selectedTextRange = message.textRange(from: message.beginningOfDocument, to: message.beginningOfDocument)
         
@@ -81,15 +81,29 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         self.view.addSubview(placesView)
         placesView.bindToKeyboard()
         
+        // keyboard toolbar
+        let toolbar = UIToolbar(frame:CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+        toolbar.barStyle = .default
+        
+        let tagItem = UIBarButtonItem(title: "Tags", style: .plain, target: self, action: #selector(tags))
+        tagItem.image = #imageLiteral(resourceName: "feed")
+        
+        toolbar.items = [tagItem]
+        toolbar.sizeToFit()
+        message.inputAccessoryView = toolbar
+    }
+    
+    @objc func tags() {
+        print("show tags")
+        self.performSegue(withIdentifier: "viewTags", sender: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.message.becomeFirstResponder()
         getPlace()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        // getPlace()
-        // placesView.reloadData()
         animate()
     }
 

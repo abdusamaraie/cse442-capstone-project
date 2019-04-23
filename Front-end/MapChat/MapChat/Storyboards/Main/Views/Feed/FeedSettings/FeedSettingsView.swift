@@ -42,12 +42,15 @@ class FeedSettingsView: UIViewController, UITableViewDelegate, UITableViewDataSo
         } else {
             if (settingsList[indexPath.row].settingName == "radius") {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "RadiusCell", for: indexPath) as! RadiusCell
+                cell.iconImage.tintColor = UIColor.blue
                 return cell
             } else if (settingsList[indexPath.row].settingName == "location") {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell", for: indexPath) as! LocationCell
+                cell.iconImage.tintColor = UIColor.blue
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "NotificationCell", for: indexPath) as! NotificationCell
+                cell.iconImage.tintColor = UIColor.blue
                 return cell
             }
         }
