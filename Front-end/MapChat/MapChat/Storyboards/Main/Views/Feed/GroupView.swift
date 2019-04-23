@@ -173,15 +173,28 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
         DispatchQueue.global().async {
             let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
             DispatchQueue.main.async {
-                cell.card.backgroundImage = UIImage(data: data!)
+                cell.card.backgroundImage = UIImage(data: data!)?.alpha(0.6)
                 // cell.groupImage.alpha = 0.35
             }
         }
         
         
         // darken image of
-        cell.card.backgroundImage = cell.card.backgroundImage?.alpha(0.75)
-        cell.card.backgroundImage = cell.card.backgroundImage?.darkened()
+        // cell.card.backgroundImage = cell.card.backgroundImage?.alpha(0.1)
+        cell.card.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        // cell.card.backgroundImage = cell.card.backgroundImage?.darkened()
+        
+        //
+        let coverLayer = CALayer()
+        coverLayer.frame = cell.card.backgroundIV.bounds
+        coverLayer.backgroundColor = UIColor.black.cgColor
+        coverLayer.opacity = 0.9
+        cell.card.backgroundIV.layer.addSublayer(coverLayer)
+        
+        // when tapped
+        // coverLayer.opacity = 0.9
+        //
+        
         
         let detailVC = storyboard?.instantiateViewController(withIdentifier: "CardContent")
         let detailVC_type = detailVC as! FeedView
