@@ -33,17 +33,20 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
     var dropMessage: Bool = false
     
     var selectedPlace: Place!
-    
     var placesView: UICollectionView!
-    
     var currentLocation:CLLocation!
-    
     var selectedTag:Tag!
-    
     var lengthLabel: UILabel!
+    
+    var postTime:Int!
+    
+    let dateFormatterGet = DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // update date format for cacheMessage
+        dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -97,9 +100,10 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         
         // let mySlider = UISlider(x: 0, y: 0, width: UIScreen.main.bounds.width/4, height: 50)
         let mySlider = UISlider(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width/2, height: 50))
-        mySlider.minimumValue = 0
-        mySlider.maximumValue = 100
-        mySlider.setValue(0, animated: false)
+        mySlider.minimumValue = 30
+        mySlider.maximumValue = 240
+        mySlider.setValue(60, animated: false)
+        self.postTime = 60
         mySlider.isContinuous = true
         mySlider.tintColor = UIColor.blue
         mySlider.addTarget(self, action: #selector(DropMessageView.changeVlaue(_:)), for: .valueChanged)
@@ -117,7 +121,7 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         
         // length label
         self.lengthLabel = UILabel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width/4, height: 50))
-        self.lengthLabel.text = "0m"
+        self.lengthLabel.text = "1h"
         let labelBarButton1 = UIBarButtonItem(customView: self.lengthLabel)
         
         toolbar.items = [tagItem, sliderItem, labelBarButton1, spacer, labelBarButton, timeItem]
@@ -127,8 +131,11 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
     
     @objc func changeVlaue(_ sender: UISlider) {
         print("====sender====: \(sender.value)")
+        
         // self.lengthLabel.text = "\(Int(sender.value))"
         let tuple = minutesToHoursMinutes(minutes: Int(sender.value))
+        
+        self.postTime = Int(sender.value)
         
         if (Int(sender.value) > 60) {
             self.lengthLabel.text = "\(tuple.hours)h\(tuple.leftMinutes)m"
@@ -208,12 +215,15 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
                 
                 let urlString = "http://35.238.74.200:80/message"
                 
+                // get current date adding the slider effect
+                let date = Calendar.current.date(byAdding: .minute, value: postTime, to: Date())
+                
                 let parameters: [String: Any] = [
                     "location": [
                         "latitude": currentLocation.coordinate.latitude,
                         "longitude": currentLocation.coordinate.longitude,
                     ],
-                    "expireTime": "2019-05-20 22:59:45",
+                    "expireTime": dateFormatterGet.string(from: date!),
                     "username": AuthenticationHelper.sharedInstance.current_user.username!,
                     "message": message.text!,
                     "placeId": selectedPlaceID
