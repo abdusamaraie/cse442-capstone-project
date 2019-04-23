@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "19D38991F02E82DDD1A5D963FFA9A725"
-               BlueprintName = "PopupDialog"
+               BlueprintIdentifier = "90F537FA10C29A6D0C773966281FF764"
+               BlueprintName = "VSTwitterTextCounter"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "PopupDialog.framework">
+               BuildableName = "VSTwitterTextCounter.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

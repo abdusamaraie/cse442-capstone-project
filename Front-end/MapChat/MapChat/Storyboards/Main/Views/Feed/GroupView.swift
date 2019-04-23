@@ -60,21 +60,16 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
         refreshControl.endRefreshing()
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//
-//    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        if let indexPath = groupTableView.indexPathForSelectedRow {
-            groupTableView.deselectRow(at: indexPath, animated: true)
-        }
+    override func viewDidAppear(_ animated: Bool) {
+//        if let indexPath = groupTableView.indexPathForSelectedRow {
+//            groupTableView.deselectRow(at: indexPath, animated: true)
+//        }
         loadFeed()
     }
     
-    
-    
-    func wipe_feed() {
-        self.group_list = []
+
+    override func viewDidDisappear(_ animated: Bool) {
+        locManager.stopUpdatingLocation()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -82,8 +77,6 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
     }
     
     func loadFeed() {
-        
-        wipe_feed()
         
         locManager.requestWhenInUseAuthorization()
         if((CLLocationManager.authorizationStatus() == .authorizedWhenInUse) || (CLLocationManager.authorizationStatus() ==  .authorizedAlways)) {
@@ -130,6 +123,10 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
     }
     
     func updateLocation() {
+        
+        print("emptying group list")
+        self.group_list = []
+        
         print("locations first")
         
         // self.navigationItem.title = "\(location.coordinate.latitude), \(location.coordinate.longitude)"
@@ -138,7 +135,7 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
         GroupPostManager.sharedInstance.longitude = "\(currentLocation.coordinate.longitude)"
         
         // display spinner
-        //let sv = UIViewController.displaySpinner(onView: self.view)
+        let sv = UIViewController.displaySpinner(onView: self.view)
         
         GroupPostManager.sharedInstance.getGroupData(completion: {(response) in
             
@@ -148,14 +145,14 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
             // print("count_group view: \(response_object.count)")
             
             if (response_object.count != 0) {
-                print("response-------->: \(response_object)")
+                // print("response-------->: \(response_object)")
                 
                 self.group_list = response_object
-                // UIViewController.removeSpinner(spinner: sv)
                 self.groupTableView.reloadData()
+                UIViewController.removeSpinner(spinner: sv)
             } else {
                 print("RESPONSE WAS NIL")
-                // UIViewController.removeSpinner(spinner: sv)
+                UIViewController.removeSpinner(spinner: sv)
             }
         })
     }
@@ -173,34 +170,22 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "TestCard", for: indexPath as IndexPath) as! CardCell
         
+        print("index path: \(indexPath.row)")
+        print("list size: \(group_list.count)")
+        
         let group_item = group_list[indexPath.row]
         let url = URL(string: group_item.URL!)
-
+        
         DispatchQueue.global().async {
             let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
             DispatchQueue.main.async {
                 cell.card.backgroundImage = UIImage(data: data!)?.alpha(0.6)
-                // cell.groupImage.alpha = 0.35
             }
         }
         
-        
-        // darken image of
         // cell.card.backgroundImage = cell.card.backgroundImage?.alpha(0.1)
         cell.card.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         // cell.card.backgroundImage = cell.card.backgroundImage?.darkened()
-        
-        //
-        let coverLayer = CALayer()
-        coverLayer.frame = cell.card.backgroundIV.bounds
-        coverLayer.backgroundColor = UIColor.black.cgColor
-        coverLayer.opacity = 0.9
-        cell.card.backgroundIV.layer.addSublayer(coverLayer)
-        
-        // when tapped
-        // coverLayer.opacity = 0.9
-        //
-        
         
         let detailVC = storyboard?.instantiateViewController(withIdentifier: "CardContent")
         let detailVC_type = detailVC as! FeedView
@@ -210,7 +195,7 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
         cell.card.title = group_item.name!
         cell.card.itemTitle = "University at Buffalo"
         cell.card.itemSubtitle = "123 posts"
-    
+        
         cell.card.shouldPresent(detailVC, from: self, fullscreen: true)
         
         return cell

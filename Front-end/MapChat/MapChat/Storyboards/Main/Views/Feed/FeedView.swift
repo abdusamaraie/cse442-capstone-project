@@ -17,6 +17,7 @@ struct Message {
     var message: String
     var tag: String
     var numberLikes: Int
+    var ID: String
 }
 
 class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
@@ -45,6 +46,10 @@ class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource, CL
         self.navigationItem.title = place_name
         self.feedView.reloadData()
         loadFeed()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        locManager.stopUpdatingLocation()
     }
     
     func loadFeed() {
@@ -87,7 +92,11 @@ class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource, CL
             print("posts: \(posts)")
             
             for (_, post) in posts {
-                self.messages.append(Message(message: post["content"].string!, tag: "#UBISSHIT", numberLikes: 20))
+                
+                let content = post["content"].string!
+                let likes = post["likes"].int!
+                let postID = post["post_id"].string!
+                self.messages.append(Message(message: content, tag: "#UBISSHIT", numberLikes: likes, ID: postID))
             }
             
             self.feedView.reloadData()
@@ -110,16 +119,14 @@ class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource, CL
         let numberLikes = self.messages[indexPath.row].numberLikes
         let hashTag = self.messages[indexPath.row].tag
         
+        cell.postId = self.messages[indexPath.row].ID
+        
         cell.messageTag.text = hashTag
         cell.messageBody.text = messageContent
-        cell.numberLikes.text = numberLikes as? String
+        cell.numberLikes.text = "\(numberLikes)"
         
         return cell
     }
-    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return CGFloat(100)
-//    }
 }
 
 extension UIViewController {

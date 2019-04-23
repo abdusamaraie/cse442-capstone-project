@@ -417,10 +417,9 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KQ1-VO-1N9" customClass="DesignableView" customModule="MapChat" customModuleProvider="target">
                                                             <rect key="frame" x="15" y="11" width="345" height="128.33333333333334"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is an example message that was dropped and it is way too long but allowed" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNk-kF-eIZ">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum rutrum" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNk-kF-eIZ">
                                                                     <rect key="frame" x="8" y="8" width="329" height="84"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="84" id="78V-0z-hyL"/>
                                                                         <constraint firstAttribute="width" constant="329" id="HnG-ei-EiJ"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
@@ -463,6 +462,7 @@
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#example-tag" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XH0-ZL-Ykc">
                                                                     <rect key="frame" x="90" y="100" width="247" height="21.333333333333329"/>
                                                                     <constraints>
+                                                                        <constraint firstAttribute="height" constant="21.333333333333329" id="BCd-Pd-hLh"/>
                                                                         <constraint firstAttribute="width" constant="247" id="V1M-Bs-Fu0"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -479,6 +479,7 @@
                                                             <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="trailing" secondItem="tE1-5R-xNv" secondAttribute="trailing" id="7vy-V6-VuI"/>
+                                                                <constraint firstAttribute="bottom" secondItem="cNk-kF-eIZ" secondAttribute="bottom" constant="36.333333333333343" id="8Se-R1-z6C"/>
                                                                 <constraint firstAttribute="bottom" secondItem="Q2F-zQ-BaB" secondAttribute="bottom" constant="8" id="AED-Yl-DpX"/>
                                                                 <constraint firstAttribute="bottom" secondItem="XH0-ZL-Ykc" secondAttribute="bottom" constant="7" id="AN1-IJ-Gge"/>
                                                                 <constraint firstItem="mfu-41-pgB" firstAttribute="leading" secondItem="KQ1-VO-1N9" secondAttribute="leading" constant="8" id="AtS-5p-TWj"/>
@@ -489,6 +490,7 @@
                                                                 <constraint firstAttribute="bottom" secondItem="weO-cD-2Mi" secondAttribute="bottom" constant="9" id="R2r-ry-0UN"/>
                                                                 <constraint firstItem="tE1-5R-xNv" firstAttribute="top" secondItem="cNk-kF-eIZ" secondAttribute="bottom" constant="-1" id="WHK-RJ-oK5"/>
                                                                 <constraint firstItem="weO-cD-2Mi" firstAttribute="leading" secondItem="mfu-41-pgB" secondAttribute="trailing" constant="4" id="XPY-2o-gwe"/>
+                                                                <constraint firstItem="XH0-ZL-Ykc" firstAttribute="top" secondItem="tE1-5R-xNv" secondAttribute="bottom" constant="8" id="h65-IW-ZaB"/>
                                                                 <constraint firstAttribute="bottom" secondItem="mfu-41-pgB" secondAttribute="bottom" constant="8" id="iFi-qk-ic4"/>
                                                                 <constraint firstItem="cNk-kF-eIZ" firstAttribute="top" secondItem="KQ1-VO-1N9" secondAttribute="top" constant="8" id="teS-uG-TME"/>
                                                                 <constraint firstItem="XH0-ZL-Ykc" firstAttribute="top" secondItem="cNk-kF-eIZ" secondAttribute="bottom" constant="8" id="xf0-wP-cBa"/>
@@ -597,7 +599,6 @@
                                                         <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
                                                             <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="davis_hall"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
@@ -1012,15 +1013,25 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zmn-oS-YwG" customClass="VSTwitterTextCounter" customModule="VSTwitterTextCounter">
+                                <rect key="frame" x="314" y="266" width="45" height="45"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="Fy1-fU-kDv"/>
+                                    <constraint firstAttribute="width" constant="45" id="p7a-mG-hAX"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="oh5-fg-URa" firstAttribute="trailing" secondItem="fHd-lL-Kgy" secondAttribute="trailing" id="0xw-1s-La7"/>
                             <constraint firstItem="oh5-fg-URa" firstAttribute="trailing" secondItem="lZb-EQ-XX0" secondAttribute="trailing" constant="16" id="9Yd-2k-5NK"/>
                             <constraint firstItem="lZb-EQ-XX0" firstAttribute="top" secondItem="oh5-fg-URa" secondAttribute="top" constant="5" id="D5M-Op-xYP"/>
+                            <constraint firstItem="Zmn-oS-YwG" firstAttribute="top" secondItem="fHd-lL-Kgy" secondAttribute="bottom" constant="8" id="N3u-ga-Taq"/>
                             <constraint firstItem="fHd-lL-Kgy" firstAttribute="top" secondItem="lZb-EQ-XX0" secondAttribute="bottom" constant="9" id="WAb-YL-wac"/>
                             <constraint firstItem="Fmp-20-BpW" firstAttribute="top" secondItem="oh5-fg-URa" secondAttribute="top" constant="5" id="dm2-rB-GwW"/>
                             <constraint firstItem="baF-md-Q8x" firstAttribute="leading" secondItem="oh5-fg-URa" secondAttribute="leading" constant="13" id="fw8-Bs-RFp"/>
+                            <constraint firstItem="oh5-fg-URa" firstAttribute="trailing" secondItem="Zmn-oS-YwG" secondAttribute="trailing" constant="16" id="gr0-6t-UNR"/>
                             <constraint firstItem="baF-md-Q8x" firstAttribute="top" secondItem="Fmp-20-BpW" secondAttribute="bottom" constant="15" id="m7X-xb-VPa"/>
                             <constraint firstItem="fHd-lL-Kgy" firstAttribute="leading" secondItem="baF-md-Q8x" secondAttribute="trailing" id="r4L-95-pxu"/>
                             <constraint firstItem="Fmp-20-BpW" firstAttribute="leading" secondItem="oh5-fg-URa" secondAttribute="leading" constant="16" id="ypT-4l-HLH"/>
@@ -1039,6 +1050,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="containerView" destination="baF-md-Q8x" id="EcQ-bq-WOp"/>
+                        <outlet property="counterView" destination="Zmn-oS-YwG" id="bas-lj-0Xs"/>
                         <outlet property="message" destination="fHd-lL-Kgy" id="KJh-Xc-9Nu"/>
                         <segue destination="wel-SY-Fxu" kind="show" identifier="viewTags" id="He2-5U-FtX"/>
                     </connections>
@@ -1051,7 +1063,6 @@
     <resources>
         <image name="add" width="24" height="24"/>
         <image name="check" width="24" height="24"/>
-        <image name="davis_hall" width="1200" height="795"/>
         <image name="faces" width="24" height="24"/>
         <image name="feed" width="24" height="24"/>
         <image name="location_2" width="24" height="24"/>
@@ -1065,6 +1076,6 @@
         <image name="ubacm" width="623" height="477"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YxA-xp-S9N"/>
+        <segue reference="yNQ-kY-r2P"/>
     </inferredMetricsTieBreakers>
 </document>

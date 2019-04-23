@@ -13,6 +13,7 @@ import Alamofire
 import UIKit
 import GooglePlaces
 import Lottie
+import VSTwitterTextCounter
 
 struct Place {
     var placeID: String
@@ -24,6 +25,7 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
     
     @IBOutlet weak var message: UITextView!
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var counterView: VSTwitterTextCounter!
     
     let animationView = AnimationView(name: "waiting")
     var locManager = CLLocationManager()
@@ -127,6 +129,9 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         toolbar.items = [tagItem, sliderItem, labelBarButton1, spacer, labelBarButton, timeItem]
         toolbar.sizeToFit()
         message.inputAccessoryView = toolbar
+
+        
+        self.counterView.maxCount = 120
     }
     
     @objc func changeVlaue(_ sender: UISlider) {
@@ -370,6 +375,11 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         // Combine the textView text and the replacement text to
         // create the updated text string
         let currentText:String = textView.text
+        
+        if (currentText.count > 120) {
+            return false
+        }
+        
         let updatedText = (currentText as NSString).replacingCharacters(in: range, with: text)
         
         // If updated text view will be empty, add the placeholder
@@ -389,11 +399,15 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         else if textView.textColor == UIColor.lightGray && !text.isEmpty {
             textView.textColor = UIColor.black
             textView.text = text
+            
         }
             
             // For every other case, the text should change with the usual
             // behavior...
         else {
+            print("hey")
+            let weightedLength = NSString(string: textView.text).length
+            counterView.update(with: textView, textWeightedLength: weightedLength)
             return true
         }
         
