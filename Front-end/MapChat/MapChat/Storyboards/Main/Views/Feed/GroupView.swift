@@ -60,12 +60,18 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
         refreshControl.endRefreshing()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+//    override func viewDidAppear(_ animated: Bool) {
+//
+//    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         if let indexPath = groupTableView.indexPathForSelectedRow {
             groupTableView.deselectRow(at: indexPath, animated: true)
         }
         loadFeed()
     }
+    
+    
     
     func wipe_feed() {
         self.group_list = []

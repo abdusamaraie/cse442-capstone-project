@@ -241,8 +241,11 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
                             self.message.text = ""
                             
                             let animationView:AnimationView = AnimationView(name: "message-success")
-                            animationView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
-                            animationView.center = self.view.center
+                            animationView.frame = CGRect(x: 0, y: 0, width: 150, height: 150)
+                            
+                            animationView.center.x = self.view.center.x
+                            animationView.center.y = self.view.center.y - self.view.frame.maxY/5
+                            // animationView.center = self.view.center
                             animationView.contentMode = .scaleAspectFill
                             self.view.addSubview(animationView)
                             animationView.play{ (finished) in
