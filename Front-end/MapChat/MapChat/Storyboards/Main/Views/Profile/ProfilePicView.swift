@@ -7,21 +7,39 @@
 //
 
 import Foundation
+import Alamofire
+import SwiftyJSON
 import UIKit
 
-class ProfilePicView: UIViewController, UIImagePickerControllerDelegate {
+/*
+ struct Message {
+    var message: String
+    var tag: String
+    var numberLikes: Int
+    var ID: String
+ }
+ */
+
+class ProfilePicView: UIViewController, UIImagePickerControllerDelegate, UITableViewDelegate, UITableViewDataSource {
+    
     @IBOutlet weak var changeImagrButton: UIButton!
     @IBOutlet weak var profileName: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     
+    @IBOutlet weak var profileTableView: UITableView!
+    
+    let urlString = "http://35.238.74.200:80/history/posts"
     
     var imagePicker = UIImagePickerController()
 
+    var messages:[String]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         profileImage.image = #imageLiteral(resourceName: "profile_1")
         
+        profileTableView.delegate = self
+        profileTableView.dataSource = self
         
         profileImage.layer.masksToBounds = false
         profileImage.layer.borderColor = UIColor.black.cgColor
@@ -29,6 +47,62 @@ class ProfilePicView: UIViewController, UIImagePickerControllerDelegate {
         profileImage.clipsToBounds = true
         
         imagePicker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
+        
+//        messages = [Message(message: "this is a test message", tag: "#UB2020", numberLikes: 4, ID: "abc123"),
+//                    Message(message: "what's going on dude", tag: "#UB2019", numberLikes: 20, ID: "abc234"),
+//                    Message(message: "abc123 is the new me", tag: "#UB2020", numberLikes: 23, ID: "abc345"),
+//                    Message(message: "UB is a shitty school for dirt cheap", tag: "#UB2020", numberLikes: 1, ID: "abc456")]
+        
+        messages = []
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // return 0
+        return messages.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileMessageCell", for: indexPath) as! MessageCell
+        
+//        cell.messageBody.text = messages[indexPath.row].message
+//        cell.messageTag.text = messages[indexPath.row].tag
+//        cell.numberLikes.text = "\(messages[indexPath.row].numberLikes)"
+        
+        cell.messageBody.text = messages[indexPath.row]
+        cell.messageTag.text = "#TestTag"
+        cell.numberLikes.text = "5"
+        
+        return cell
+    }
+    
+    @IBAction func selectedPosts(_ sender: Any) {
+        print("selected posts")
+        
+        let parameters: [String: Any] = ["username": AuthenticationHelper.sharedInstance.current_user.username!]
+        
+        print("params: \(parameters)")
+        
+        // /rating takes username postId and rating: bool
+        
+        Alamofire.request(urlString, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { response in
+            
+            switch response.result {
+            case .success:
+                
+                let posts = JSON(response.result.value!)
+                
+                for (_, post) in posts {
+                    print("post: \(post)")
+                    self.messages.append(post["content"].string!)
+                }
+                
+                self.profileTableView.reloadData()
+            // break
+            case .failure(let error):
+                print("error: \(error)")
+            }
+        }
     }
     
     @IBAction func changeImage(_ sender: Any) {

@@ -234,6 +234,8 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
                     "placeId": selectedPlaceID
                 ]
                 
+                print("placeID: \(selectedPlaceID)")
+                
                 if (self.dropMessage) {
                     print("=====drop message is true=====")
                     self.dropMessage = false

@@ -96,7 +96,7 @@ class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource, CL
                 let content = post["content"].string!
                 let likes = post["likes"].int!
                 let postID = post["post_id"].string!
-                self.messages.append(Message(message: content, tag: "#UBISSHIT", numberLikes: likes, ID: postID))
+                self.messages.append(Message(message: content, tag: "#TestTag", numberLikes: likes, ID: postID))
             }
             
             self.feedView.reloadData()
