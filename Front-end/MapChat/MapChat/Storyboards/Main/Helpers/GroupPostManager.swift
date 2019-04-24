@@ -16,14 +16,17 @@ class GroupPostManager {
         var URL: String?
         var name: String?
         var ID: String?
+        var numberPosts: Int?
         
         init(URL: String? = nil, //👈
             name: String? = nil,
-            ID: String? = nil) {
+            ID: String? = nil,
+            numberPosts: Int? = nil) {
 
             self.URL = URL
             self.name = name
             self.ID = ID
+            self.numberPosts = numberPosts
         }
     }
     
@@ -62,7 +65,7 @@ class GroupPostManager {
                 
                 for (_,place) in places {
             
-                    self.group_list.append(GroupPostManager.GroupObject(URL: place["photo_url"].string!, name: place["name"].string!, ID: place["place_id"].string!))
+                    self.group_list.append(GroupPostManager.GroupObject(URL: place["photo_url"].string!, name: place["name"].string!, ID: place["place_id"].string!, numberPosts: place["number_of_posts"].int!))
                 }
                 
                 completion(self.group_list)

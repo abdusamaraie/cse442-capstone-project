@@ -64,6 +64,7 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
 //        if let indexPath = groupTableView.indexPathForSelectedRow {
 //            groupTableView.deselectRow(at: indexPath, animated: true)
 //        }
+        print("loading feed")
         loadFeed()
     }
     
@@ -194,7 +195,7 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
         // set values
         cell.card.title = group_item.name!
         cell.card.itemTitle = "University at Buffalo"
-        cell.card.itemSubtitle = "123 posts"
+        cell.card.itemSubtitle = "\(group_item.numberPosts!) Post(s)"
         
         cell.card.shouldPresent(detailVC, from: self, fullscreen: true)
         
