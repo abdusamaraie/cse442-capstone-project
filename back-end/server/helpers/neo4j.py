@@ -504,3 +504,18 @@ def get_user_rating_history(username):
     except Exception as e:
         print(e)
         return str(False)
+
+
+def check_if_user_rated_post(post_id, username):
+    try:
+        result = GRAPH.run("MATCH (:User {{username: '{}'}})-[r:LIKED|DISLIKED]->(:Post {{post_id: '{}'}}) RETURN type(r) as result".format(username, post_id)).data()
+
+        if len(result) == 0:
+            return str(False)
+        else:
+            return result[0]['result']
+
+    except Exception as e:
+        print(e)
+        return str(False)
+
