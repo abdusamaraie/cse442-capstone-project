@@ -24,41 +24,42 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y6R-og-Wuk">
-                                <rect key="frame" x="86" y="398" width="242" height="100"/>
+                                <rect key="frame" x="86" y="237" width="242" height="261"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sunny" translatesAutoresizingMaskIntoConstraints="NO" id="CNe-ps-ha2">
-                                        <rect key="frame" x="8" y="4" width="96" height="96"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="96" id="HqX-ji-Tge"/>
-                                            <constraint firstAttribute="height" constant="96" id="zPI-l2-d4U"/>
-                                        </constraints>
-                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cachr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AAH-aa-Lsy">
-                                        <rect key="frame" x="112" y="32" width="120" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="120" id="VLu-hK-WDw"/>
-                                        </constraints>
+                                        <rect key="frame" x="61" y="145" width="120" height="40"/>
                                         <fontDescription key="fontDescription" name="AirbnbCerealApp-Medium" family="Airbnb Cereal App" pointSize="40"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cachr Lines" translatesAutoresizingMaskIntoConstraints="NO" id="CNe-ps-ha2">
+                                        <rect key="frame" x="54" y="22" width="134" height="134"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="134" id="PHY-xJ-rSu"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="AAH-aa-Lsy" secondAttribute="bottom" constant="28" id="05v-HF-1hE"/>
-                                    <constraint firstAttribute="bottom" secondItem="CNe-ps-ha2" secondAttribute="bottom" id="C9u-dm-QD5"/>
-                                    <constraint firstAttribute="trailing" secondItem="AAH-aa-Lsy" secondAttribute="trailing" constant="10" id="H0q-QG-puW"/>
-                                    <constraint firstItem="CNe-ps-ha2" firstAttribute="top" secondItem="y6R-og-Wuk" secondAttribute="top" constant="4" id="J0A-ok-ztP"/>
-                                    <constraint firstItem="AAH-aa-Lsy" firstAttribute="top" secondItem="y6R-og-Wuk" secondAttribute="top" constant="32" id="mYy-NC-2L8"/>
-                                    <constraint firstItem="CNe-ps-ha2" firstAttribute="leading" secondItem="y6R-og-Wuk" secondAttribute="leading" constant="8" id="nyN-pl-zb3"/>
-                                    <constraint firstItem="AAH-aa-Lsy" firstAttribute="leading" secondItem="CNe-ps-ha2" secondAttribute="trailing" constant="8" id="thQ-ZT-Pkp"/>
+                                    <constraint firstItem="AAH-aa-Lsy" firstAttribute="leading" secondItem="y6R-og-Wuk" secondAttribute="leading" constant="61" id="3N9-oS-gWP"/>
+                                    <constraint firstItem="CNe-ps-ha2" firstAttribute="top" secondItem="y6R-og-Wuk" secondAttribute="top" constant="22" id="GQt-KB-vir"/>
+                                    <constraint firstAttribute="bottom" secondItem="AAH-aa-Lsy" secondAttribute="bottom" constant="76" id="MXK-Y5-OSD"/>
+                                    <constraint firstItem="CNe-ps-ha2" firstAttribute="centerX" secondItem="y6R-og-Wuk" secondAttribute="centerX" id="UuX-RY-eUG"/>
+                                    <constraint firstItem="CNe-ps-ha2" firstAttribute="leading" secondItem="y6R-og-Wuk" secondAttribute="leading" constant="54" id="uDG-3o-lLR"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="AAH-aa-Lsy"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.27058823529999998" green="0.75686274509999996" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="y6R-og-Wuk" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="FgL-oM-xCR"/>
-                            <constraint firstItem="y6R-og-Wuk" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="fnr-VQ-Z6u"/>
+                            <constraint firstItem="y6R-og-Wuk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="86" id="GzB-w0-vuW"/>
+                            <constraint firstItem="y6R-og-Wuk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="193" id="HdC-ja-246"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="y6R-og-Wuk" secondAttribute="trailing" constant="86" id="ws6-bM-btV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="y6R-og-Wuk" secondAttribute="bottom" constant="364" id="xbb-qG-psI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -69,6 +70,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="sunny" width="48" height="48"/>
+        <image name="Cachr Lines" width="512" height="512"/>
     </resources>
 </document>
