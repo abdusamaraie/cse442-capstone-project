@@ -237,6 +237,14 @@ def wipe():
     return neo4j.wipe_database()
 
 
+@app.route('/didrate', methods=['GET'])
+# Returns "LIKED", "DISLIKED", or "False"
+def check():
+    post_id = request.args.get('postId')
+    username = request.args.get('username')
+    return neo4j.check_if_user_rated_post(post_id, username)
+
+
 '''
 DEPRECATED
 @app.route('/distance', methods=['GET'])
