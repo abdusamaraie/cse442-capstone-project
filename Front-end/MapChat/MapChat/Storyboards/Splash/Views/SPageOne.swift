@@ -62,7 +62,7 @@ class SPageOne: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if let animationView:AnimationView = AnimationView(name: "location_c") {
+        if let animationView:AnimationView = AnimationView(name: "location_b") {
             animationView.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
             
             // label.center.y = view.center.y
