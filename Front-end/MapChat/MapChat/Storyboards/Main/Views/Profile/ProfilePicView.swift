@@ -56,6 +56,11 @@ class ProfilePicView: UIViewController, UIImagePickerControllerDelegate, UITable
         messages = []
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        self.messages = []
+        profileTableView.reloadData()
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // return 0
         return messages.count
@@ -77,6 +82,8 @@ class ProfilePicView: UIViewController, UIImagePickerControllerDelegate, UITable
     }
     
     @IBAction func selectedPosts(_ sender: Any) {
+        
+        messages = []
         print("selected posts")
         
         let parameters: [String: Any] = ["username": AuthenticationHelper.sharedInstance.current_user.username!]
