@@ -113,17 +113,23 @@ class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource, CL
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath) as! MessageCell
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath) as! MessageCell
+//
+//        let messageContent = self.messages[indexPath.row].message
+//        let numberLikes = self.messages[indexPath.row].numberLikes
+//        let hashTag = self.messages[indexPath.row].tag
+//
+//        cell.postId = self.messages[indexPath.row].ID
+//
+//        cell.messageTag.text = hashTag
+//        cell.messageBody.text = messageContent
+//        cell.numberLikes.text = "\(numberLikes)"
+//
+//        return cell
         
-        let messageContent = self.messages[indexPath.row].message
-        let numberLikes = self.messages[indexPath.row].numberLikes
-        let hashTag = self.messages[indexPath.row].tag
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AdvancedFeedCell", for: indexPath) as! AdvancedFeedCell
         
-        cell.postId = self.messages[indexPath.row].ID
-        
-        cell.messageTag.text = hashTag
-        cell.messageBody.text = messageContent
-        cell.numberLikes.text = "\(numberLikes)"
+        cell.message.text = self.messages[indexPath.row].message
         
         return cell
     }

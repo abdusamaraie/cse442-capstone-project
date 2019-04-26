@@ -19,6 +19,9 @@
 		4D54EBCB2272E7D900B7DE58 /* cachr_white_full.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D54EBCA2272E7D900B7DE58 /* cachr_white_full.json */; };
 		4D54EBCD22734C5900B7DE58 /* cachr_white_half_60.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D54EBCC22734C5900B7DE58 /* cachr_white_half_60.json */; };
 		EB086E9F2253F23A00F9D2D3 /* GroupPostManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB086E9E2253F23A00F9D2D3 /* GroupPostManager.swift */; };
+		EB2F3B4322738F2200D317D0 /* EmojiPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB2F3B4222738F2200D317D0 /* EmojiPicker.xib */; };
+		EB2F3B452273904E00D317D0 /* EmojiCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2F3B442273904E00D317D0 /* EmojiCollectionCell.swift */; };
+		EB2F3B472273907C00D317D0 /* AdvancedFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2F3B462273907C00D317D0 /* AdvancedFeedCell.swift */; };
 		EB2FB3E9225D25EA00151C80 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2FB3E8225D25EA00151C80 /* SettingsCell.swift */; };
 		EB303FD62252954F00161BC8 /* davis_hall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB303FD52252954F00161BC8 /* davis_hall.jpg */; };
 		EB303FDC22529F9C00161BC8 /* GroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB303FDB22529F9C00161BC8 /* GroupView.swift */; };
@@ -117,6 +120,9 @@
 		B172350A7A6338870397677A /* Pods-MapChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapChatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MapChatTests/Pods-MapChatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DEEF9F98D541554EEAD87DA7 /* Pods_MapChatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapChatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB086E9E2253F23A00F9D2D3 /* GroupPostManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupPostManager.swift; sourceTree = "<group>"; };
+		EB2F3B4222738F2200D317D0 /* EmojiPicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmojiPicker.xib; sourceTree = "<group>"; };
+		EB2F3B442273904E00D317D0 /* EmojiCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiCollectionCell.swift; sourceTree = "<group>"; };
+		EB2F3B462273907C00D317D0 /* AdvancedFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedFeedCell.swift; sourceTree = "<group>"; };
 		EB2FB3E8225D25EA00151C80 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		EB303FD52252954F00161BC8 /* davis_hall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = davis_hall.jpg; sourceTree = "<group>"; };
 		EB303FDB22529F9C00161BC8 /* GroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupView.swift; sourceTree = "<group>"; };
@@ -241,6 +247,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		EB2F3B4122738F1300D317D0 /* AdvanceFeed */ = {
+			isa = PBXGroup;
+			children = (
+				EB2F3B4222738F2200D317D0 /* EmojiPicker.xib */,
+				EB2F3B442273904E00D317D0 /* EmojiCollectionCell.swift */,
+				EB2F3B462273907C00D317D0 /* AdvancedFeedCell.swift */,
+			);
+			path = AdvanceFeed;
+			sourceTree = "<group>";
+		};
 		EB2FB3E4225D257C00151C80 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,6 +275,7 @@
 		EB2FB3E5225D258600151C80 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				EB2F3B4122738F1300D317D0 /* AdvanceFeed */,
 				EB565E55226D4EC500366360 /* FeedSettings */,
 				EBFE06E4226FA0F400676799 /* 22-ThumbsUp.json */,
 				EBFAC68222275DA0004B5074 /* PopUpView.swift */,
@@ -575,6 +592,7 @@
 			files = (
 				EB31C6522263F71000086DB3 /* AirbnbCereal-Medium.ttf in Resources */,
 				EBFE06E5226FA0F400676799 /* 22-ThumbsUp.json in Resources */,
+				EB2F3B4322738F2200D317D0 /* EmojiPicker.xib in Resources */,
 				4D54EBC72272DE7500B7DE58 /* cachr_blue_full.json in Resources */,
 				EB31C6512263F70B00086DB3 /* AirbnbCereal-Book.ttf in Resources */,
 				EB786F92226AA329001CF54F /* load-drop.json in Resources */,
@@ -757,6 +775,7 @@
 				EB786F89226A7134001CF54F /* AdvancedSettingsCell.swift in Sources */,
 				EBFAC67F22272862004B5074 /* ProfileView.swift in Sources */,
 				4D094463226E7F0F004995D0 /* ProfilePicView.swift in Sources */,
+				EB2F3B472273907C00D317D0 /* AdvancedFeedCell.swift in Sources */,
 				EB786F80226915FA001CF54F /* SpacerCell.swift in Sources */,
 				EBFAC67D2226278A004B5074 /* LocationServicesManager.swift in Sources */,
 				EBFE06E3226E8FF000676799 /* TagCell.swift in Sources */,
@@ -776,6 +795,7 @@
 				EB565E57226D4ED900366360 /* FeedSettingsView.swift in Sources */,
 				EBFE06E7226FDC9600676799 /* pickerViewExtensions.swift in Sources */,
 				EBEB9302222F4BFA003DAD1E /* DropMessageView.swift in Sources */,
+				EB2F3B452273904E00D317D0 /* EmojiCollectionCell.swift in Sources */,
 				EB786F87226A6FE4001CF54F /* AdvancedSettingsView.swift in Sources */,
 				EB786F85226A679E001CF54F /* MapView.swift in Sources */,
 				EBAA2FEF222322C3003A7FD5 /* SPageTwo.swift in Sources */,
