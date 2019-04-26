@@ -18,12 +18,12 @@ class LoadView: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         
-        if let animationView:AnimationView = AnimationView(name: "confetti") {
-            animationView.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
+        if let animationView:AnimationView = AnimationView(name: "cachr_white_half") {
+            animationView.frame = CGRect(x: 0, y: 0, width: 1000, height: 110)
             
             // label.center.y = view.center.y
             animationView.center.x = self.view.center.x
-            animationView.center.y = self.view.center.y - self.view.frame.maxY/6
+            animationView.center.y = self.view.center.y
             animationView.contentMode = .scaleAspectFill
             
             self.view.addSubview(animationView)
@@ -31,7 +31,6 @@ class LoadView: UIViewController {
             animationView.play { (finished) in
                 self.performSegue(withIdentifier: "to_splash", sender: self)
             }
-            
         }
     }
 }

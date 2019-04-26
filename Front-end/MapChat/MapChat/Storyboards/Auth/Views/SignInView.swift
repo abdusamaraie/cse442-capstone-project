@@ -12,6 +12,7 @@ import FacebookLogin
 import FBSDKCoreKit
 import FBSDKLoginKit
 import PopupDialog
+import Lottie
 
 class SignInView: UIViewController, UITextFieldDelegate {
     
@@ -38,6 +39,20 @@ class SignInView: UIViewController, UITextFieldDelegate {
         
         self.sunny.tintColor = #colorLiteral(red: 0, green: 0.7694169879, blue: 0.9316933751, alpha: 1)
         
+        
+        if let animationView:AnimationView = AnimationView(name: "cachr_blue_full") {
+            animationView.frame = CGRect(x: 0, y: 0, width: 480, height: 48)
+            
+            // label.center.y = view.center.y
+            animationView.center.x = self.view.center.x
+            animationView.center.y = self.view.frame.height/8
+            animationView.contentMode = .scaleAspectFill
+            animationView.loopMode = LottieLoopMode.loop
+            
+            self.view.addSubview(animationView)
+            
+            animationView.play()
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -79,6 +94,8 @@ class SignInView: UIViewController, UITextFieldDelegate {
         
         sign_in_button.bindToKeyboard()
         self.username.becomeFirstResponder()
+        
+
     }
     
     func validate() {
