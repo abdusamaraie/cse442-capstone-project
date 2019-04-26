@@ -14,9 +14,6 @@ class LoadView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
         
         if let animationView:AnimationView = AnimationView(name: "cachr_white_half") {
             animationView.frame = CGRect(x: 0, y: 0, width: 1000, height: 110)
