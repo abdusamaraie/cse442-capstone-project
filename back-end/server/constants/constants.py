@@ -3,7 +3,7 @@ UPLOAD_PATH = 'database/uploads/'
 NEO4J_CLUSTER_IP = "localhost"
 # NEO4J_CLUSTER_IP = "34.66.225.189"
 
-GCS_BUCKET_NAME = "cachr-media"
+GCS_BUCKET_NAME = "cachr-images"
 
 EARTH_RADIUS_METERS = 6371000
 

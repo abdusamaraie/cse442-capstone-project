@@ -67,7 +67,8 @@ def add_user(user):
                          hashed_password=user.password_hash,
                          first_name=user.firstname,
                          last_name=user.lastname,
-                         email=user.email)
+                         email=user.email,
+                         profile_image=user.image)
         GRAPH.create(user_node)
         return str(True)
     except Exception as e:

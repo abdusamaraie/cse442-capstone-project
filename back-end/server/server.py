@@ -77,11 +77,14 @@ def auth():
         first_name = request.json['firstname']
         last_name = request.json['lastname']
         email = request.json['email']
+        image = ''
+        if 'image' in request.json:
+            image = request.json['image']
 
         # generate new hash
         password_hash = authenticate.generate_hash(username, password)
 
-        user = User(username, first_name, last_name, email, password_hash)
+        user = User(username, first_name, last_name, email, password_hash, image)
 
         return str(neo4j.add_user(user))
 
@@ -223,11 +226,13 @@ def reply_history():
     username = request.args.get('username')
     return neo4j.get_user_reply_history(username)
 
+
 '''
 @app.route('/neo4j', methods=['DELETE'])
 def wipe():
     return neo4j.wipe_database()
 '''
+
 
 @app.route('/didrate', methods=['GET'])
 # Returns "LIKED", "DISLIKED", or "False"
