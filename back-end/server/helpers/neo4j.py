@@ -245,7 +245,9 @@ def get_posts(location, distance):
                         "WHERE p.expire_time > '{}' "
                         "MATCH(u:User)-[:POSTED]->(p)-[:LOCATED_AT]->(pl:Place) "
                         "WITH pl, u,"
-                        "collect(p{{.*, username: u.username, likes: size((p)<-[:LIKED]-()), dislikes: size((p)<-[:DISLIKED]-())}}) as posts "
+                        "collect(p{{.*, username: u.username, profile_image: u.profile_image, "
+                        "full_name: (u.first_name + ' ' + u.last_name),"
+                        "likes: size((p)<-[:LIKED]-()), dislikes: size((p)<-[:DISLIKED]-())}}) as posts "
                         "RETURN pl as place, posts".format(lat, lon, radius_km, time))
 
         # loop through results and create json
@@ -346,8 +348,9 @@ def reply_to_post(reply_text, post_id, username):
 def get_post_replies(post_id):
     try:
         # get replies under a post
-        results = GRAPH.run("MATCH(p:Post {{post_id: '{}'}})<-[:REPLY_TO]-(r:Reply) "
-                            "RETURN r".format(post_id))
+        results = GRAPH.run("MATCH(p:Post {{post_id: '{}'}})<-[:REPLY_TO]-(r:Reply)<-[:REPLIED]-(u:User) "
+                            "RETURN r{{.*, username: u.username, profile_image: u.profile_image, "
+                            "full_name: (u.first_name + ' ' + u.last_name)}}".format(post_id))
 
         # loop through results and create json
         replies_json = json.dumps([dict(ix)['r'] for ix in results.data()])
@@ -446,7 +449,9 @@ def get_posts_at_place(place_id):
         result = GRAPH.run("MATCH (u:User)-[:POSTED]->(p:Post)-[:LOCATED_AT]->(pl:Place {{place_id: '{}'}})"
                            "WHERE p.expire_time > '{}' "
                            "WITH u, p "
-                           "RETURN p{{.*, username: u.username, likes: size((p)<-[:LIKED]-()), dislikes: size((p)<-[:DISLIKED]-())}}".format(place_id, time))
+                           "RETURN p{{.*, username: u.username, profile_image: u.profile_image, "
+                           "full_name: (u.first_name + ' ' + u.last_name), likes: size((p)<-[:LIKED]-()), "
+                           "dislikes: size((p)<-[:DISLIKED]-())}}".format(place_id, time))
 
         # loop through results and create json
         posts_json = json.dumps([dict(ix)['p'] for ix in result.data()])
