@@ -330,8 +330,8 @@ def on_place_message(data):
 
 def start_server():
     # app.run(host='0.0.0.0', port=80, debug=True)
-    # socketio.run(app, host='127.0.0.1', port=5000, debug=True)
-    socketio.run(app, host='0.0.0.0', port=80, debug=True)
+    socketio.run(app, host='127.0.0.1', port=5000, debug=True)
+    # socketio.run(app, host='0.0.0.0', port=80, debug=True)
 
 
 def signal_handler(sig, frame):
