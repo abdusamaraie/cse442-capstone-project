@@ -7,6 +7,7 @@ from pytz import timezone
 import uuid
 import json
 from helpers import places
+from helpers import upload
 
 GRAPH = Graph(host=NEO4J_CLUSTER_IP, auth=("neo4j", "password"))
 
@@ -519,3 +520,23 @@ def check_if_user_rated_post(post_id, username):
         print(e)
         return str(False)
 
+
+def update_profile_image(image_file, username):
+    try:
+        # upload file to google cloud storage and get the url
+        photo_url = upload.upload_profile_image(image_file, username)
+
+        # get node of user changing their password
+        matcher = NodeMatcher(GRAPH)
+        user_node = matcher.match("User", username=username).first()
+
+        # update user's hashed password in database
+        user_node['profile_image'] = photo_url
+
+        # push updated node to graph
+        GRAPH.push(user_node)
+        return str(True)
+
+    except Exception as e:
+        print(e)
+        return str(False)

@@ -40,15 +40,20 @@ def hello_world():
     return 'Hello, Kubernetes!'
 
 
-@app.route('/profile/photo', methods=['POST'])
+@app.route('/profile/image', methods=['POST', 'GET'])
 def upload():
-    """Process the uploaded file and upload it to Google Cloud Storage."""
-    uploaded_file = request.files.get('file')
-    username = request.json['username']
+    if request.method == 'GET':
+        return 'False'
 
-    if not uploaded_file:
-        return 'No file uploaded.', 400
+    # For uploading a new profile image
+    else:
+        uploaded_file = request.files.get('file')
+        username = request.json['username']
 
+        if not uploaded_file:
+            return 'False', 400
+
+        return neo4j.update_profile_image(uploaded_file, username)
 
 
 @app.route('/auth', methods=['GET', 'POST'])
@@ -218,11 +223,11 @@ def reply_history():
     username = request.args.get('username')
     return neo4j.get_user_reply_history(username)
 
-
+'''
 @app.route('/neo4j', methods=['DELETE'])
 def wipe():
     return neo4j.wipe_database()
-
+'''
 
 @app.route('/didrate', methods=['GET'])
 # Returns "LIKED", "DISLIKED", or "False"
@@ -319,8 +324,8 @@ def on_place_message(data):
 
 def start_server():
     # app.run(host='0.0.0.0', port=80, debug=True)
-    # socketio.run(app, host='127.0.0.1', port=5000, debug=True)
-    socketio.run(app, host='0.0.0.0', port=80, debug=True)
+    socketio.run(app, host='127.0.0.1', port=5000, debug=True)
+    # socketio.run(app, host='0.0.0.0', port=80, debug=True)
 
 
 def signal_handler(sig, frame):
