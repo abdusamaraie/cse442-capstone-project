@@ -74,7 +74,8 @@ def add_user(user):
                          profile_image=DEFAULT_PROFILE_IMAGE,
                          biography='',
                          birthday=user.birthday,
-                         join_date=time)
+                         join_date=time,
+                         hometown=user.hometown)
         GRAPH.create(user_node)
 
         # create settings node for the user

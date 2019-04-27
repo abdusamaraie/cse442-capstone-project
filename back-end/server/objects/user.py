@@ -2,7 +2,7 @@ from helpers import authenticate
 
 
 class User:
-    def __init__(self, username, firstname, lastname, email, password_hash, birthday):
+    def __init__(self, username, firstname, lastname, email, password_hash, birthday, hometown):
 
         self.username = username
         self.password_hash = password_hash
@@ -10,3 +10,4 @@ class User:
         self.lastname = lastname
         self.email = email
         self.birthday = birthday
+        self.hometown = hometown

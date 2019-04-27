@@ -82,11 +82,12 @@ def auth():
         last_name = request.json['lastname']
         email = request.json['email']
         birthday = request.json['birthday']
+        hometown = request.json['hometown']
 
         # generate new hash
         password_hash = authenticate.generate_hash(username, password)
 
-        user = User(username, first_name, last_name, email, password_hash, birthday)
+        user = User(username, first_name, last_name, email, password_hash, birthday, hometown)
 
         return str(neo4j.add_user(user))
 
