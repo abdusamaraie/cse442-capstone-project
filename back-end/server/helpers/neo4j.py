@@ -641,3 +641,22 @@ def delete_profile_image(username):
     except Exception as e:
         print(e)
         return str(False)
+
+
+def get_profile_info(username):
+    try:
+        # get node of user who's profile we want to view
+        matcher = NodeMatcher(GRAPH)
+        user_node = matcher.match("User", username=username).first()
+
+        # create dictionary from node properties
+        profile_info = dict(user_node)
+
+        # remove hashed_password and email from response
+        del profile_info['hashed_password'], profile_info['email']
+
+        return profile_info
+
+    except Exception as e:
+        print(e)
+        return str(False)
