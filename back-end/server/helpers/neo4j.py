@@ -72,16 +72,16 @@ def add_user(user):
                          last_name=user.lastname,
                          email=user.email,
                          profile_image=user.image,
-                         biography=user.bio,
+                         biography='',
                          birthday=user.birthday,
                          join_date=time)
         GRAPH.create(user_node)
 
         # create settings node for the user
         settings_node = Node("Settings",
-                            place_feed_radius=250,
-                            map_feed_radius=50,
-                            dark_mode=False)
+                             place_feed_radius=250,
+                             map_feed_radius=50,
+                             dark_mode=False)
         GRAPH.create(settings_node)
 
         return str(True)
@@ -453,11 +453,18 @@ def get_posts_at_place(place_id):
         return str(False)
 
 
-def get_profile(username):
-    return 0
+def get_user_settings(username):
+    try:
+        result = GRAPH.run("MATCH (u:User {{username: '{}'}})-[:HAS_SETTINGS]->(s) RETURN s".format(username))
+        settings = json.dumps([dict(ix)['s'] for ix in result.data()])
+        return settings
+
+    except Exception as e:
+        print(e)
+        return str(False)
 
 
-def update_profile():
+def update_user_settings(username, settings):
     return 0
 
 
