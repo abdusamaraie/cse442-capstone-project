@@ -62,6 +62,8 @@ def get_place_node(place_id):
 # add user to the database
 def add_user(user):
     try:
+        time = get_time()
+
         # create user node
         user_node = Node("User",
                          username=user.username,
@@ -69,17 +71,18 @@ def add_user(user):
                          first_name=user.firstname,
                          last_name=user.lastname,
                          email=user.email,
-                         profile_image=DEFAULT_PROFILE_IMAGE)
+                         profile_image=user.image,
+                         biography=user.bio,
+                         birthday=user.birthday,
+                         join_date=time)
         GRAPH.create(user_node)
 
-        # create profile node for the user
-        profile_node = Node("Profile",
+        # create settings node for the user
+        settings_node = Node("Settings",
                             place_feed_radius=250,
                             map_feed_radius=50,
-                            dark_mode=False,
-                            profile_image=DEFAULT_PROFILE_IMAGE,
-                            biography='')
-        GRAPH.create(profile_node)
+                            dark_mode=False)
+        GRAPH.create(settings_node)
 
         return str(True)
     except Exception as e:
