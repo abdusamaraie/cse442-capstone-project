@@ -1,24 +1,21 @@
 # Local Helpers
-from helpers import authenticate, neo4j, places
+from helpers import authenticate, neo4j
 from objects.user import User
-from objects.filestream import Filestream
+
 # Flask
-from flask import Flask, request, json
+from flask import Flask, request
 from flask_socketio import SocketIO, emit, send
 from flask_login import LoginManager, login_user, current_user, UserMixin
 
 # Core Libraries
 import multiprocessing
 import signal
-import sys, os, uuid
+import sys
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'mykeyissecret'
 socketio = SocketIO(app)
 login = LoginManager(app)
-
-# app.config['UPLOAD_FOLDER'] = UPLOAD_PATH
-# app.wsgi_app = Filestream(app.wsgi_app)
 
 
 class UserSession(UserMixin):
@@ -43,25 +40,24 @@ def hello_world():
     return 'Hello, Kubernetes!'
 
 
-@app.route('/uploadPhoto', methods=['GET', 'POST'])
-def upload_photo():
-
+@app.route('/profile/image', methods=['POST', 'GET', 'DELETE'])
+def profile_image():
+    username = request.args.get('username')
     if request.method == 'GET':
-        username = request.args.get('username')
-        return str(neo4j.get_photo(username))
+        return neo4j.get_profile_image(username)
 
+    # For uploading a new profile image
+    elif request.method == 'POST':
+        uploaded_file = request.files.get('file')
+
+        if not uploaded_file:
+            return str(False)
+
+        return neo4j.update_profile_image(uploaded_file, username)
+
+    # For deleting a profile image, returns to the default image
     else:
-        username = request.json['username']
-        file = request.json['file']  # if request in json format from frontend clint
-        ''' 
-        #will implement from front end side where swift will ask user to upload a photo 
-        from file explorer and return a file path
-        file = request.files['file'] # open file browser to choose an image from user system
-        extension = os.path.splitext(file.filename)[1]
-        f_name = str(uuid.uuid4()) + extension
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], f_name))'''
-        # add photo path to database
-        return str(neo4j.add_photo(username, file))
+        return neo4j.delete_profile_image(username)
 
 
 @app.route('/auth', methods=['GET', 'POST'])
@@ -232,9 +228,11 @@ def reply_history():
     return neo4j.get_user_reply_history(username)
 
 
+'''
 @app.route('/neo4j', methods=['DELETE'])
 def wipe():
     return neo4j.wipe_database()
+'''
 
 
 @app.route('/didrate', methods=['GET'])

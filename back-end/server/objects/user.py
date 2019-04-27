@@ -12,12 +12,10 @@ class User:
         self.firstname = firstname
         self.lastname = lastname
         self.email = email
-        self.photo = ''
 
-    def setUser(self, firstname, lastname, photourl, username, password=None):
+    def setUser(self, firstname, lastname, username, password=None):
         self.firstname = firstname
         self.lastname = lastname
-        self.photo = photourl
         self.username = username
         self.password_hash = authenticate.generate_hash(password)
 

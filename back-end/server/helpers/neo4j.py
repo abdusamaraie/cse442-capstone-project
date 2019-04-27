@@ -1,5 +1,5 @@
 from py2neo import Graph, Node, Relationship, NodeMatcher, RelationshipMatcher
-from constants.constants import NEO4J_CLUSTER_IP, OTHER_PHOTO_URL
+from constants.constants import NEO4J_CLUSTER_IP, OTHER_PHOTO_URL, DEFAULT_PROFILE_IMAGE
 from passlib.hash import argon2
 from datetime import datetime
 import pytz
@@ -7,6 +7,7 @@ from pytz import timezone
 import uuid
 import json
 from helpers import places
+from helpers import cloud_storage
 
 GRAPH = Graph(host=NEO4J_CLUSTER_IP, auth=("neo4j", "password"))
 
@@ -66,7 +67,8 @@ def add_user(user):
                          hashed_password=user.password_hash,
                          first_name=user.firstname,
                          last_name=user.lastname,
-                         email=user.email)
+                         email=user.email,
+                         profile_image=DEFAULT_PROFILE_IMAGE)
         GRAPH.create(user_node)
         return str(True)
     except Exception as e:
@@ -519,3 +521,63 @@ def check_if_user_rated_post(post_id, username):
         print(e)
         return str(False)
 
+
+def update_profile_image(image_file, username):
+    try:
+        # upload file to google cloud storage and get the url
+        photo_url = cloud_storage.upload_profile_image(image_file, username)
+
+        # get node of user changing their profile pic
+        matcher = NodeMatcher(GRAPH)
+        user_node = matcher.match("User", username=username).first()
+
+        # update user's hashed password in database
+        user_node['profile_image'] = photo_url
+
+        # push updated node to graph
+        GRAPH.push(user_node)
+        return str(True)
+
+    except Exception as e:
+        print(e)
+        return str(False)
+
+
+def get_profile_image(username):
+    try:
+        # get node of user changing their password
+        matcher = NodeMatcher(GRAPH)
+        user_node = matcher.match("User", username=username).first()
+
+        if user_node is None:
+            return str(False)
+
+        return user_node['profile_image']
+
+    except Exception as e:
+        print(e)
+        return str(False)
+
+
+def delete_profile_image(username):
+    try:
+        # get node of user changing their password
+        matcher = NodeMatcher(GRAPH)
+        user_node = matcher.match("User", username=username).first()
+
+        if user_node is None:
+            return str(False)
+
+        # if the user's photo is already the default, do nothing
+        if user_node['profile_image'] == DEFAULT_PROFILE_IMAGE:
+            return str(True)
+        else:
+            cloud_storage.delete_profile_image(user_node['profile_image'])
+            user_node['profile_image'] = DEFAULT_PROFILE_IMAGE
+            GRAPH.push(user_node)
+
+        return str(True)
+
+    except Exception as e:
+        print(e)
+        return str(False)
