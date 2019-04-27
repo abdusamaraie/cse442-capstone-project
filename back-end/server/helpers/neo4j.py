@@ -71,7 +71,7 @@ def add_user(user):
                          first_name=user.firstname,
                          last_name=user.lastname,
                          email=user.email,
-                         profile_image=user.image,
+                         profile_image=DEFAULT_PROFILE_IMAGE,
                          biography='',
                          birthday=user.birthday,
                          join_date=time)
@@ -83,6 +83,9 @@ def add_user(user):
                              map_feed_radius=50,
                              dark_mode=False)
         GRAPH.create(settings_node)
+
+        # create relationship between user and post
+        GRAPH.create(Relationship(user_node, "HAS_SETTINGS", settings_node))
 
         return str(True)
     except Exception as e:
@@ -455,8 +458,11 @@ def get_posts_at_place(place_id):
 
 def get_user_settings(username):
     try:
-        result = GRAPH.run("MATCH (u:User {{username: '{}'}})-[:HAS_SETTINGS]->(s) RETURN s".format(username))
+        result = GRAPH.run("MATCH (:User {{username: '{}'}})-[:HAS_SETTINGS]->(s) RETURN s{{.*}}".format(username))
+
+        # print(result.data())
         settings = json.dumps([dict(ix)['s'] for ix in result.data()])
+
         return settings
 
     except Exception as e:
@@ -465,11 +471,30 @@ def get_user_settings(username):
 
 
 def update_user_settings(username, settings):
-    return 0
+    try:
+        # get node of user updating their settings
+        matcher = NodeMatcher(GRAPH)
+        user_node = matcher.match("User", username=username).first()
+
+        # get relationship matcher
+        rel_matcher = RelationshipMatcher(GRAPH)
+
+        # find user's settings node
+        rel = rel_matcher.match([user_node, None], 'HAS_SETTINGS').first()
+        settings_node = rel.end_node
+
+        for setting in settings:
+            settings_node[setting] = settings[setting]
+
+        GRAPH.push(settings_node)
+        return str(True)
+
+    except Exception as e:
+        print(e)
+        return str(False)
 
 
 def wipe_database():
-
     try:
         # Wipe database of all nodes and relationships
         GRAPH.run("MATCH (n) DETACH DELETE n")
