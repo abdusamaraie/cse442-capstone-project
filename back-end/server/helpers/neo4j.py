@@ -1,5 +1,5 @@
 from py2neo import Graph, Node, Relationship, NodeMatcher, RelationshipMatcher
-from constants.constants import NEO4J_CLUSTER_IP, OTHER_PHOTO_URL
+from constants.constants import NEO4J_CLUSTER_IP, OTHER_PHOTO_URL, DEFAULT_PROFILE_IMAGE
 from passlib.hash import argon2
 from datetime import datetime
 import pytz
@@ -67,7 +67,8 @@ def add_user(user):
                          hashed_password=user.password_hash,
                          first_name=user.firstname,
                          last_name=user.lastname,
-                         email=user.email)
+                         email=user.email,
+                         profile_image=DEFAULT_PROFILE_IMAGE)
         GRAPH.create(user_node)
         return str(True)
     except Exception as e:
