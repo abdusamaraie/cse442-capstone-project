@@ -77,14 +77,11 @@ def auth():
         first_name = request.json['firstname']
         last_name = request.json['lastname']
         email = request.json['email']
-        image = ''
-        if 'image' in request.json:
-            image = request.json['image']
 
         # generate new hash
         password_hash = authenticate.generate_hash(username, password)
 
-        user = User(username, first_name, last_name, email, password_hash, image)
+        user = User(username, first_name, last_name, email, password_hash)
 
         return str(neo4j.add_user(user))
 
