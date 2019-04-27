@@ -62,14 +62,31 @@ def get_place_node(place_id):
 # add user to the database
 def add_user(user):
     try:
+        time = get_time()
+
+        # create user node
         user_node = Node("User",
                          username=user.username,
                          hashed_password=user.password_hash,
                          first_name=user.firstname,
                          last_name=user.lastname,
                          email=user.email,
-                         profile_image=DEFAULT_PROFILE_IMAGE)
+                         profile_image=DEFAULT_PROFILE_IMAGE,
+                         biography='',
+                         birthday=user.birthday,
+                         join_date=time)
         GRAPH.create(user_node)
+
+        # create settings node for the user
+        settings_node = Node("Settings",
+                             place_feed_radius=250,
+                             map_feed_radius=50,
+                             dark_mode=False)
+        GRAPH.create(settings_node)
+
+        # create relationship between user and post
+        GRAPH.create(Relationship(user_node, "HAS_SETTINGS", settings_node))
+
         return str(True)
     except Exception as e:
         print(e)
@@ -439,8 +456,45 @@ def get_posts_at_place(place_id):
         return str(False)
 
 
-def wipe_database():
+def get_user_settings(username):
+    try:
+        result = GRAPH.run("MATCH (:User {{username: '{}'}})-[:HAS_SETTINGS]->(s) RETURN s{{.*}}".format(username))
 
+        # print(result.data())
+        settings = json.dumps([dict(ix)['s'] for ix in result.data()])
+
+        return settings
+
+    except Exception as e:
+        print(e)
+        return str(False)
+
+
+def update_user_settings(username, settings):
+    try:
+        # get node of user updating their settings
+        matcher = NodeMatcher(GRAPH)
+        user_node = matcher.match("User", username=username).first()
+
+        # get relationship matcher
+        rel_matcher = RelationshipMatcher(GRAPH)
+
+        # find user's settings node
+        rel = rel_matcher.match([user_node, None], 'HAS_SETTINGS').first()
+        settings_node = rel.end_node
+
+        for setting in settings:
+            settings_node[setting] = settings[setting]
+
+        GRAPH.push(settings_node)
+        return str(True)
+
+    except Exception as e:
+        print(e)
+        return str(False)
+
+
+def wipe_database():
     try:
         # Wipe database of all nodes and relationships
         GRAPH.run("MATCH (n) DETACH DELETE n")

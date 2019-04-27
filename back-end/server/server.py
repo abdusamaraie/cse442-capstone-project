@@ -81,11 +81,12 @@ def auth():
         first_name = request.json['firstname']
         last_name = request.json['lastname']
         email = request.json['email']
+        birthday = request.json['birthday']
 
         # generate new hash
         password_hash = authenticate.generate_hash(username, password)
 
-        user = User(username, first_name, last_name, email, password_hash)
+        user = User(username, first_name, last_name, email, password_hash, birthday)
 
         return str(neo4j.add_user(user))
 
@@ -241,6 +242,21 @@ def check():
     post_id = request.args.get('postId')
     username = request.args.get('username')
     return neo4j.check_if_user_rated_post(post_id, username)
+
+
+@app.route('/settings', methods=['GET', 'POST'])
+def profile():
+    # RETURN A USER'S SETTINGS
+    if request.method == 'GET':
+        username = request.args.get('username')
+        return neo4j.get_user_settings(username)
+
+    # UPDATE A USER'S PROFILE SETTINGS
+    else:
+        # Get all possible settings
+        username = request.json['username']
+        settings = request.json['settings']
+        return neo4j.update_user_settings(username, settings)
 
 
 '''
