@@ -7,7 +7,7 @@ from pytz import timezone
 import uuid
 import json
 from helpers import places
-from helpers import upload
+from helpers import cloud_storage
 
 GRAPH = Graph(host=NEO4J_CLUSTER_IP, auth=("neo4j", "password"))
 
@@ -525,9 +525,9 @@ def check_if_user_rated_post(post_id, username):
 def update_profile_image(image_file, username):
     try:
         # upload file to google cloud storage and get the url
-        photo_url = upload.upload_profile_image(image_file, username)
+        photo_url = cloud_storage.upload_profile_image(image_file, username)
 
-        # get node of user changing their password
+        # get node of user changing their profile pic
         matcher = NodeMatcher(GRAPH)
         user_node = matcher.match("User", username=username).first()
 
@@ -536,6 +536,46 @@ def update_profile_image(image_file, username):
 
         # push updated node to graph
         GRAPH.push(user_node)
+        return str(True)
+
+    except Exception as e:
+        print(e)
+        return str(False)
+
+
+def get_profile_image(username):
+    try:
+        # get node of user changing their password
+        matcher = NodeMatcher(GRAPH)
+        user_node = matcher.match("User", username=username).first()
+
+        if user_node is None:
+            return str(False)
+
+        return user_node['profile_image']
+
+    except Exception as e:
+        print(e)
+        return str(False)
+
+
+def delete_profile_image(username):
+    try:
+        # get node of user changing their password
+        matcher = NodeMatcher(GRAPH)
+        user_node = matcher.match("User", username=username).first()
+
+        if user_node is None:
+            return str(False)
+
+        # if the user's photo is already the default, do nothing
+        if user_node['profile_image'] == DEFAULT_PROFILE_IMAGE:
+            return str(True)
+        else:
+            cloud_storage.delete_profile_image(user_node['profile_image'])
+            user_node['profile_image'] = DEFAULT_PROFILE_IMAGE
+            GRAPH.push(user_node)
+
         return str(True)
 
     except Exception as e:

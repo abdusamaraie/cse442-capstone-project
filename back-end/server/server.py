@@ -40,20 +40,24 @@ def hello_world():
     return 'Hello, Kubernetes!'
 
 
-@app.route('/profile/image', methods=['POST', 'GET'])
+@app.route('/profile/image', methods=['POST', 'GET', 'DELETE'])
 def upload():
+    username = request.args.get('username')
     if request.method == 'GET':
-        return 'False'
+        return neo4j.get_profile_image(username)
 
     # For uploading a new profile image
-    else:
+    elif request.method == 'POST':
         uploaded_file = request.files.get('file')
-        username = request.json['username']
 
         if not uploaded_file:
-            return 'False', 400
+            return str(False)
 
         return neo4j.update_profile_image(uploaded_file, username)
+
+    # For deleting a profile image, returns to the default image
+    else:
+        return neo4j.delete_profile_image(username)
 
 
 @app.route('/auth', methods=['GET', 'POST'])

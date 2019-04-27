@@ -5,7 +5,7 @@ NEO4J_CLUSTER_IP = "localhost"
 
 GCS_BUCKET_NAME = "cachr-images"
 
-DEFAULT_PROFILE_IMAGE = "https://storage.googleapis.com/cachr-images/Cachr%20Icon%202.png"
+DEFAULT_PROFILE_IMAGE = "https://storage.googleapis.com/cachr-images/profile_images/DEFAULT.png"
 
 EARTH_RADIUS_METERS = 6371000
 

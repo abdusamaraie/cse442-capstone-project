@@ -1,24 +1,9 @@
 from constants.constants import GCS_BUCKET_NAME
 from google.cloud import storage
 
-'''
-def upload_blob(bucket_name, source_file_name, destination_blob_name):
-    """Uploads a file to the bucket."""
-    storage_client = storage.Client()
-    bucket = storage_client.get_bucket(bucket_name)
-    blob = bucket.blob(destination_blob_name)
-
-    blob.upload_from_filename(source_file_name)
-
-    print('File {} uploaded to {}.'.format(
-        source_file_name,
-        destination_blob_name))
-'''
-
 
 def upload_profile_image(image, username):
     extension = image.filename.rsplit('.', 1)[1].lower()
-
     # Create a Cloud Storage client.
     gcs = storage.Client()
 
@@ -26,12 +11,22 @@ def upload_profile_image(image, username):
     bucket = gcs.get_bucket(GCS_BUCKET_NAME)
 
     # Create a new blob and upload the file's content.
-    blob = bucket.blob(username + "_profile." + extension)
+    blob = bucket.blob("profile_images/{}_profile.{}".format(username, extension))
 
     blob.upload_from_string(image.read(), content_type=image.content_type)
 
     # The public URL can be used to directly access the uploaded file via HTTP.
     return blob.public_url
+
+
+def delete_profile_image(image_url):
+    """Deletes a blob from the bucket."""
+    blob_name = image_url.replace("https://storage.googleapis.com/cachr-images/", '', 1)
+    storage_client = storage.Client()
+    bucket = storage_client.get_bucket(GCS_BUCKET_NAME)
+    blob = bucket.blob(blob_name)
+
+    blob.delete()
 
 
 def upload_post_image():
