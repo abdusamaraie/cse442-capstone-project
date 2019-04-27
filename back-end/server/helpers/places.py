@@ -1,4 +1,4 @@
-from constants.constants import PLACES_API_KEY, DEFAULT_PLACE_PHOTO
+from constants.constants import PLACES_API_KEY, DEFAULT_PLACE_PHOTO, EARTH_RADIUS_METERS
 from math import pi, cos, sqrt, sin, atan2
 import requests
 import json
