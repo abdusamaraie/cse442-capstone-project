@@ -2,19 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIAppFonts</key>
-	<array>
-		<string>AirbnbCereal-Medium.ttf</string>
-		<string>AirbnbCereal-Bold.ttf</string>
-		<string>AirbnbCereal-Light.ttf</string>
-		<string>AirbnbCereal-Book.ttf</string>
-	</array>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>We need your library if you already took a good pic.. duh</string>
-	<key>NSCameraUsageDescription</key>
-	<string>We need your picture for your profile... duh</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>Cachr</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -27,10 +18,43 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb260828237962191</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>FacebookAppID</key>
+	<string>260828237962191</string>
+	<key>FacebookDisplayName</key>
+	<string>MapChat</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>googlechromes</string>
+		<string>comgooglemaps</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>We need your picture for your profile... duh</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>this is a test 2</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>this is a test 1</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>We need your library if you already took a good pic.. duh</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>AirbnbCereal-Medium.ttf</string>
+		<string>AirbnbCereal-Bold.ttf</string>
+		<string>AirbnbCereal-Light.ttf</string>
+		<string>AirbnbCereal-Book.ttf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -45,36 +69,12 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>this is a test 1</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>this is a test 2</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>fb260828237962191</string>
-			</array>
-		</dict>
-	</array>
-	<key>FacebookAppID</key>
-	<string>260828237962191</string>
-	<key>FacebookDisplayName</key>
-	<string>MapChat</string>
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>fbapi</string>
-		<string>fb-messenger-share-api</string>
-		<string>fbauth2</string>
-		<string>fbshareextension</string>
 	</array>
 </dict>
 </plist>

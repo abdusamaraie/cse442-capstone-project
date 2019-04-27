@@ -38,12 +38,16 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         
         // button text "sign in"
         sign_in_button.setTitle("Sign in", for: .normal)
+        sign_in_button.setTitleColor(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), for: .normal)
         
         // add button target
         sign_in_button.addTarget(self, action: #selector(sign_in), for: .touchUpInside)
         
         // button color white
-        sign_in_button.backgroundColor = UIColor.blue
+        sign_in_button.backgroundColor = UIColor.white
+        
+        // rounded
+        sign_in_button.layer.cornerRadius = 15
         
         // center within view
         sign_in_button.center.x = self.view.frame.midX
@@ -58,6 +62,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
 
         // button text "sign up"
         sign_up_button.setTitle("Sign up", for: .normal)
+        sign_up_button.setTitleColor(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), for: .normal)
         
         // add button target
         sign_up_button.addTarget(self, action: #selector(sign_up), for: .touchUpInside)

@@ -1,0 +1,65 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: flaskapp
+  name: flaskapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: flaskapp
+  template:
+    metadata:
+      labels:
+        app: flaskapp
+    spec:
+      volumes:
+      - name: google-cloud-key
+        secret:
+          secretName: cloud-storage-key
+      terminationGracePeriodSeconds: 30
+      containers:
+      - image: gcr.io/cse442/flask:latest
+        imagePullPolicy: Always
+        name: flaskapp
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: google-cloud-key
+          mountPath: /var/secrets/google
+        env:
+        - name: GOOGLE_APPLICATION_CREDENTIALS
+          value: /var/secrets/google/key.json
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: flaskapp
+  labels:
+    app: flaskapp
+spec:
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+  type: LoadBalancer
+  selector:
+    app: flaskapp
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: flask-ingress
+  annotations:
+    # Disables http redirect to https
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        backend:
+          serviceName: flaskapp
+          servicePort: 80

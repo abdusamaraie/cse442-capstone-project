@@ -1,0 +1,13 @@
+
+
+# INSTRUCTIONS ON BUILDING THE NEO4J DOCKER IMAGE. DO THIS FIRST
+
+
+1. Build the image with:
+    docker build -t neo4j:enterprise . --build-arg NEO4J_VERSION=enterprise
+
+2. Tag the Docker image with:
+    docker tag neo4j:enterprise gcr.io/cse442/neo4j:enterprise
+
+3. Push the Docker image to our container registry
+    docker push gcr.io/cse442/neo4j:enterprise

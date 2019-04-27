@@ -16,18 +16,21 @@ class GroupPostManager {
         var URL: String?
         var name: String?
         var ID: String?
+        var numberPosts: Int?
         
         init(URL: String? = nil, //👈
             name: String? = nil,
-            ID: String? = nil) {
+            ID: String? = nil,
+            numberPosts: Int? = nil) {
 
             self.URL = URL
             self.name = name
             self.ID = ID
+            self.numberPosts = numberPosts
         }
     }
     
-    let urlString = "http://34.73.109.229:80"
+    let urlString = "http://35.238.74.200:80"
     
     static var sharedInstance = GroupPostManager()
     
@@ -51,21 +54,25 @@ class GroupPostManager {
         
         let parameters: [String: Any] = ["lat": latitude,"long": longitude]
         
+        print("parameters: \(parameters)")
+        
         Alamofire.request("\(urlString)/place", method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { response in
             
             if((response.result.value) != nil) {
                 let places = JSON(response.result.value!)
                 
-                // print("places: \(places)")
+                print("places: \(places)")
                 
                 for (_,place) in places {
             
-                    self.group_list.append(GroupPostManager.GroupObject(URL: place["photo_url"].string!, name: place["name"].string!, ID: place["place_id"].string!))
+                    self.group_list.append(GroupPostManager.GroupObject(URL: place["photo_url"].string!, name: place["name"].string!, ID: place["place_id"].string!, numberPosts: place["number_of_posts"].int!))
                 }
                 
                 completion(self.group_list)
                 self.group_list = []
                 
+            } else {
+                print("places was nil")
             }
             completion([])
             self.group_list = []
@@ -77,6 +84,8 @@ class GroupPostManager {
         // /distance takes placeId, lat, long
         
         let parameters: [String: Any] = ["lat": latitude,"long": longitude, "placeId": placeId]
+        
+        print("parameters: \(parameters)")
         
         Alamofire.request("\(urlString)/distance", method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { response in
             
@@ -99,7 +108,7 @@ class GroupPostManager {
             "placeId": current_group.ID!
         ]
         
-        // print("parameters: \(parameters)")
+        print("parameters: \(parameters)")
         
         Alamofire.request("\(urlString)/place/message", method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { response in
             

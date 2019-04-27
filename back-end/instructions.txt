@@ -1,0 +1,21 @@
+
+
+# THESE INSTRUCTIONS ARE FOR THE INITIAL SETUP OF THE FLASK GKE CLUSTER
+# IF THE "flask" GKE CLUSTER ALREADY EXISTS, SKIP THESE STEPS
+
+
+1. Manually create GKE cluster named "flask-cluster" with 3 nodes.
+
+2. Connect to the cluster locally with: 
+    - gcloud container clusters get-credentials flask-cluster-1 --zone us-central1-a --project cse442
+    - kubectl proxy
+
+3. Follow these instructions for setting up a service account and secret in the cluster, Starting at step 3.: 
+	- https://cloud.google.com/kubernetes-engine/docs/tutorials/authenticating-to-cloud-platform#step_3_create_service_account_credentials
+
+3. From "cse442/back-end"
+    - Run: kubectl apply -f flask-cluster.yaml
+
+4. After the pods are done being created (this may take a few minutes), go to GKE/Services and go to <flaskapp-ip:80> in your browser to verify.
+
+5. TO UPDATE THE FLASK IMAGE THAT'S BEING USED, CHANGE THE HASH IN THE YAML FILE, OR YOU WILL NEED TO PUSH TO MASTER/DEVELOP

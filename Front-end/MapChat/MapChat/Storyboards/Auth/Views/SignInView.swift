@@ -12,6 +12,7 @@ import FacebookLogin
 import FBSDKCoreKit
 import FBSDKLoginKit
 import PopupDialog
+import Lottie
 
 class SignInView: UIViewController, UITextFieldDelegate {
     
@@ -20,6 +21,7 @@ class SignInView: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var sunny: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +37,22 @@ class SignInView: UIViewController, UITextFieldDelegate {
         username.delegate = self
         password.delegate = self
         
+        self.sunny.tintColor = #colorLiteral(red: 0, green: 0.7694169879, blue: 0.9316933751, alpha: 1)
+        
+        
+        if let animationView:AnimationView = AnimationView(name: "cachr_blue_full") {
+            animationView.frame = CGRect(x: 0, y: 0, width: 480, height: 48)
+            
+            // label.center.y = view.center.y
+            animationView.center.x = self.view.center.x
+            animationView.center.y = self.view.frame.height/8
+            animationView.contentMode = .scaleAspectFill
+            animationView.loopMode = LottieLoopMode.loop
+            
+            self.view.addSubview(animationView)
+            
+            animationView.play()
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -55,13 +73,13 @@ class SignInView: UIViewController, UITextFieldDelegate {
         // button text "sign in"
         sign_in_button.setTitle("Continue", for: .normal)
         
-        sign_in_button.setTitleColor(.black, for: .normal)
+        sign_in_button.setTitleColor(.white, for: .normal)
         
         // add button target
         sign_in_button.addTarget(self, action: #selector(next_view), for: .touchUpInside)
         
         // button color white
-        sign_in_button.backgroundColor = UIColor.white
+        sign_in_button.backgroundColor = #colorLiteral(red: 0, green: 0.7694169879, blue: 0.9316933751, alpha: 1)
         
         // center within view
         sign_in_button.center.x = self.view.frame.midX
@@ -76,6 +94,8 @@ class SignInView: UIViewController, UITextFieldDelegate {
         
         sign_in_button.bindToKeyboard()
         self.username.becomeFirstResponder()
+        
+
     }
     
     func validate() {
@@ -128,6 +148,7 @@ class SignInView: UIViewController, UITextFieldDelegate {
     }
     
     @objc func next_view() {
+        // self.performSegue(withIdentifier: "toMain", sender: self)
         validate()
     }
     

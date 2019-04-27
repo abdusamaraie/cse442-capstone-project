@@ -27,4 +27,5 @@ target 'MapChat' do
   pod 'lottie-ios'
   pod 'SwiftyJSON'
   pod 'Cards'
+  pod 'VSTwitterTextCounter'
 end

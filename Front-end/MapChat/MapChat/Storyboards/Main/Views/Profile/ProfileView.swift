@@ -13,19 +13,17 @@ struct Setting {
     var name: String
 }
 
-class ProfileView: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate {
-    
-    @IBOutlet weak var profileImage: UIImageView!
-    @IBOutlet weak var profileName: UILabel!
-    @IBOutlet weak var changeImagrButton: UIButton!
+class ProfileView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var settingsView: UITableView!
     
-    var imagePicker = UIImagePickerController()
-    
-    let settings_list: [Setting] = [Setting(name: "Dark Mode"),
-                                    Setting(name: "Private Posts"),
-                                    Setting(name: "Notify Friends")]
+    let settings_list: [Setting] = [Setting(name: "Profile"),
+                                    Setting(name: "Settings"),
+                                    Setting(name: "Log out"),
+                                    Setting(name: "Terms of Service"),
+                                    Setting(name: "Cookie Policy"),
+                                    Setting(name: "Privacy Policy"),
+                                    Setting(name: "App Version")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,82 +31,47 @@ class ProfileView: UIViewController, UITableViewDelegate, UITableViewDataSource,
         settingsView.dataSource = self
         settingsView.delegate = self
         
-        imagePicker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
     }
-    
-    @IBAction func changeImage(_ sender: Any) {
-        self.changeImagrButton.setTitleColor(UIColor.white, for: .normal)
-        self.changeImagrButton.isUserInteractionEnabled = true
-        
-        let alert = UIAlertController(title: "Choose Image", message: nil, preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
-            self.openCamera()
-        }))
-        
-        alert.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { _ in
-            self.openGallary()
-        }))
-        
-        alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
-        
-        /*If you want work actionsheet on ipad
-         then you have to use popoverPresentationController to present the actionsheet,
-         otherwise app will crash on iPad */
-        switch UIDevice.current.userInterfaceIdiom {
-        case .pad:
-            alert.popoverPresentationController?.sourceView = sender as? UIView
-            alert.popoverPresentationController?.sourceRect = (sender as AnyObject).bounds
-            alert.popoverPresentationController?.permittedArrowDirections = .up
-        default:
-            break
-        }
-        
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    func openCamera() {
-        if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerController.SourceType.camera)) {
-            imagePicker.sourceType = UIImagePickerController.SourceType.camera
-            imagePicker.allowsEditing = true
-            self.present(imagePicker, animated: true, completion: nil)
-        }
-        else {
-            let alert  = UIAlertController(title: "Warning", message: "You don't have camera", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
-    }
-    
-    func openGallary() {
-        imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
-        imagePicker.allowsEditing = true
-        self.present(imagePicker, animated: true, completion: nil)
-    }
-    
-    //
     
     override func viewDidAppear(_ animated: Bool) {
-        // print("DISPLAY NAME: \(AuthenticationHelper.sharedInstance.current_user.display_name)")
-        self.profileName.text = "Baily Troyer"
         self.settingsView.reloadData()
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if (settings_list[indexPath.row].name == "Settings") {
+            self.performSegue(withIdentifier: "to_advanced_settings", sender: self)
+            tableView.deselectRow(at: indexPath, animated: true)
+        } else if (settings_list[indexPath.row].name == "Log out") {
+            print("logging out")
+            self.view.window?.rootViewController?.presentedViewController!.dismiss(animated: true, completion: nil)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("count: \(settings_list.count)")
         return settings_list.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as! SettingsCell
-        
-        cell.settingsName.text = settings_list[indexPath.row].name
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(100)
+        if (indexPath.row == (settings_list.count/2)) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SpacerCell", for: indexPath) as! SpacerCell
+            
+            return cell
+        } else if (settings_list[indexPath.row].name == "App Version") {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "VersionCell", for: indexPath) as! AppVersionCell
+            
+            cell.versionName.text = settings_list[indexPath.row].name
+            cell.versionNumber.text = "7.2.0"
+            
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "BasicSettingCell", for: indexPath) as! SettingsCell
+            
+            cell.settingName.text = self.settings_list[indexPath.row].name
+            
+            return cell
+        }
     }
     
 }

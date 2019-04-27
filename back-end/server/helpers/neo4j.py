@@ -1,4 +1,5 @@
 from py2neo import Graph, Node, Relationship, NodeMatcher, RelationshipMatcher
+from constants.constants import NEO4J_CLUSTER_IP, OTHER_PHOTO_URL, DEFAULT_PROFILE_IMAGE
 from passlib.hash import argon2
 from datetime import datetime
 import pytz
@@ -6,8 +7,9 @@ from pytz import timezone
 import uuid
 import json
 from helpers import places
+from helpers import cloud_storage
 
-GRAPH = Graph(auth=("neo4j", "neo4j"))  # assumes neo4j is running locally on port 7474 (default)
+GRAPH = Graph(host=NEO4J_CLUSTER_IP, auth=("neo4j", "password"))
 
 
 def get_time(time_zone="US/Eastern"):
@@ -65,7 +67,8 @@ def add_user(user):
                          hashed_password=user.password_hash,
                          first_name=user.firstname,
                          last_name=user.lastname,
-                         email=user.email)
+                         email=user.email,
+                         profile_image=DEFAULT_PROFILE_IMAGE)
         GRAPH.create(user_node)
         return str(True)
     except Exception as e:
@@ -237,6 +240,10 @@ def get_posts(location, distance):
 
 
 def rate_post(post_id, relation, username):
+
+    # get current time for time of rating
+    time = get_time()
+
     try:
         # get user node
         matcher = NodeMatcher(GRAPH)
@@ -267,7 +274,7 @@ def rate_post(post_id, relation, username):
                 GRAPH.separate(already_disliked)
 
             # create relationship between user and post
-            GRAPH.merge(Relationship(user_node, relation, post_node), relation, '')
+            GRAPH.merge(Relationship(user_node, relation, post_node, rate_time=time), relation)
             return str(True)
 
         else:
@@ -345,21 +352,6 @@ def delete_post(post_id):
         return str(False)
 
 
-def get_user_post_history(username):
-    try:
-        # delete post node and all replies
-        results = GRAPH.run("MATCH (u:User {{username: '{}'}})-[:POSTED]->(p:Post) "
-                            "RETURN p".format(username))
-
-        # loop through results and create json
-        post_history_json = json.dumps([dict(ix)['p'] for ix in results.data()])
-        return post_history_json
-
-    except Exception as e:
-        print(e)
-        return str(False)
-
-
 def get_ratings(post_id):
     try:
         # get likes and dislikes from post
@@ -404,10 +396,10 @@ def change_user_password(username, new_password):
         return str(False)
 
 
-def get_wide_place_nodes(lat, lon):
+def get_wide_place_nodes(lat, lon, radius):
 
     # convert distance im meters to km
-    radius_km = .25
+    radius_km = radius/1000
 
     # get current time for time of post
     time = get_time()
@@ -453,3 +445,147 @@ def get_profile(username):
 
 def update_profile():
     return 0
+
+
+def wipe_database():
+
+    try:
+        # Wipe database of all nodes and relationships
+        GRAPH.run("MATCH (n) DETACH DELETE n")
+
+        # Recreate spatial layers
+        GRAPH.run("CALL spatial.addPointLayer('posts')")
+        GRAPH.run("CALL spatial.addPointLayer('places')")
+
+        # create 'Other' Place node if doesn't exist
+        GRAPH.merge(Node("Place", place_id='Other', name='Other', photo_url=OTHER_PHOTO_URL), 'Place', 'place_id')
+
+        return str(True)
+
+    except Exception as e:
+        print(e)
+        return str(False)
+
+
+def get_user_post_history(username):
+    try:
+        # delete post node and all replies
+        results = GRAPH.run("MATCH (u:User {{username: '{}'}})-[:POSTED]->(p:Post) "
+                            "RETURN p ORDER BY p.post_time DESC".format(username))
+
+        # loop through results and create json
+        post_history_json = json.dumps([dict(ix)['p'] for ix in results.data()])
+        return post_history_json
+
+    except Exception as e:
+        print(e)
+        return str(False)
+
+
+def get_user_reply_history(username):
+    try:
+        # delete post node and all replies
+        results = GRAPH.run("MATCH (u:User {{username: '{}'}})-[:REPLIED]->(r:Reply)-[:REPLY_TO]->(p:Post) "
+                            "RETURN r{{.*, parent_post_id: p.post_id}} ORDER BY r.post_time DESC".format(username))
+
+        # loop through results and create json
+        post_history_json = json.dumps([dict(ix)['r'] for ix in results.data()])
+        return post_history_json
+
+    except Exception as e:
+        print(e)
+        return str(False)
+
+
+def get_user_rating_history(username):
+    try:
+        # delete post node and all replies
+        likes_result = GRAPH.run("MATCH (u:User {{username: '{}'}})-[l:LIKED]->(likes:Post) "
+                                 "RETURN likes{{.*, rate_time: l.rate_time}} ORDER BY l.rate_time DESC".format(username))
+        dislikes_result = GRAPH.run("MATCH (u:User {{username: '{}'}})-[d:DISLIKED]->(dislikes:Post) "
+                                    "RETURN dislikes{{.*, rate_time: d.rate_time}} ORDER BY d.rate_time DESC".format(username))
+
+        # loop through results and create json
+        likes = json.dumps([dict(ix)['likes'] for ix in likes_result.data()])
+        dislikes = json.dumps([dict(ix)['dislikes'] for ix in dislikes_result.data()])
+
+        return json.dumps({"likes": likes, "dislikes": dislikes})
+
+    except Exception as e:
+        print(e)
+        return str(False)
+
+
+def check_if_user_rated_post(post_id, username):
+    try:
+        result = GRAPH.run("MATCH (:User {{username: '{}'}})-[r:LIKED|DISLIKED]->(:Post {{post_id: '{}'}}) RETURN type(r) as result".format(username, post_id)).data()
+
+        if len(result) == 0:
+            return str(False)
+        else:
+            return result[0]['result']
+
+    except Exception as e:
+        print(e)
+        return str(False)
+
+
+def update_profile_image(image_file, username):
+    try:
+        # upload file to google cloud storage and get the url
+        photo_url = cloud_storage.upload_profile_image(image_file, username)
+
+        # get node of user changing their profile pic
+        matcher = NodeMatcher(GRAPH)
+        user_node = matcher.match("User", username=username).first()
+
+        # update user's hashed password in database
+        user_node['profile_image'] = photo_url
+
+        # push updated node to graph
+        GRAPH.push(user_node)
+        return str(True)
+
+    except Exception as e:
+        print(e)
+        return str(False)
+
+
+def get_profile_image(username):
+    try:
+        # get node of user changing their password
+        matcher = NodeMatcher(GRAPH)
+        user_node = matcher.match("User", username=username).first()
+
+        if user_node is None:
+            return str(False)
+
+        return user_node['profile_image']
+
+    except Exception as e:
+        print(e)
+        return str(False)
+
+
+def delete_profile_image(username):
+    try:
+        # get node of user changing their password
+        matcher = NodeMatcher(GRAPH)
+        user_node = matcher.match("User", username=username).first()
+
+        if user_node is None:
+            return str(False)
+
+        # if the user's photo is already the default, do nothing
+        if user_node['profile_image'] == DEFAULT_PROFILE_IMAGE:
+            return str(True)
+        else:
+            cloud_storage.delete_profile_image(user_node['profile_image'])
+            user_node['profile_image'] = DEFAULT_PROFILE_IMAGE
+            GRAPH.push(user_node)
+
+        return str(True)
+
+    except Exception as e:
+        print(e)
+        return str(False)

@@ -56,7 +56,7 @@ class AuthenticationHelper {
     
     static var sharedInstance = AuthenticationHelper()
     
-    var url_string:String = "http://34.73.109.229:80"
+    var url_string:String = "http://35.238.74.200:80url"
     
     var current_user:user = user()
     

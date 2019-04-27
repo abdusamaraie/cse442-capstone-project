@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Lottie
 
 class NameView: UIViewController {
     
@@ -24,6 +25,20 @@ class NameView: UIViewController {
         
         first_last_name.addTarget(self, action: #selector(textFieldDidChange(_:)),
                            for: UIControl.Event.editingChanged)
+        
+        if let animationView:AnimationView = AnimationView(name: "cachr_white_full") {
+            animationView.frame = CGRect(x: 0, y: 0, width: 480, height: 48)
+            
+            // label.center.y = view.center.y
+            animationView.center.x = self.view.center.x
+            animationView.center.y = self.view.frame.height/8
+            animationView.contentMode = .scaleAspectFill
+            animationView.loopMode = LottieLoopMode.loop
+            
+            self.view.addSubview(animationView)
+            
+            animationView.play()
+        }
     }
     
     
@@ -41,7 +56,7 @@ class NameView: UIViewController {
         next_button.addTarget(self, action: #selector(next_view), for: .touchUpInside)
         
         // button color white
-        next_button.backgroundColor = UIColor.blue
+        next_button.backgroundColor = UIColor.white
         
         // center within view
         next_button.center.x = self.view.frame.midX
@@ -51,6 +66,8 @@ class NameView: UIViewController {
         // button.layer.borderWidth = 1
         // button.layer.borderColor = UIColor.black.cgColor
         
+        next_button.setTitleColor(UIColor.gray, for: .normal)
+        
         // add button to view
         self.view.addSubview(next_button)
         
@@ -58,6 +75,7 @@ class NameView: UIViewController {
         next_button.bindToKeyboard()
         
         self.first_last_name.becomeFirstResponder()
+        
     }
     
     @objc func next_view() {

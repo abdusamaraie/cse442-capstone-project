@@ -11,7 +11,7 @@ def generate_hash(username, password):
 
     # if the user already exists, we get their salt from the db
     if user_node is None:
-        hashed = argon2.encrypt(password)
+        hashed = argon2.hash(password)
     else:
         hashed = user_node['hashed_password']
 
@@ -23,8 +23,6 @@ def verify_user(username, password):
         # find user node in database
         matcher = NodeMatcher(GRAPH)
         user_node = matcher.match("User", username=username).first()
-
-        # print(user_node['hashed_password'])
 
         # if user is found, return user
         if user_node is not None:
