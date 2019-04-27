@@ -60,6 +60,15 @@ def profile_image():
         return neo4j.delete_profile_image(username)
 
 
+@app.route('/profile', methods=['GET'])
+def get_profile():
+    if request.method == 'GET':
+        username = request.args.get('username')
+        return neo4j.get_profile_info(username)
+    else:
+        return str(False)
+
+
 @app.route('/auth', methods=['GET', 'POST'])
 def auth():
 
