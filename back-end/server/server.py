@@ -41,7 +41,7 @@ def hello_world():
 
 
 @app.route('/profile/image', methods=['POST', 'GET', 'DELETE'])
-def upload():
+def profile_image():
     username = request.args.get('username')
     if request.method == 'GET':
         return neo4j.get_profile_image(username)
