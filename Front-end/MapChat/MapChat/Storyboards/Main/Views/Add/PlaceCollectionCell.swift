@@ -10,6 +10,5 @@ import UIKit
 
 class PlaceCollectionCell: UICollectionViewCell {
     
-    @IBOutlet weak var PlaceName: UILabel!
-    
+    @IBOutlet weak var PlaceName: DesignableLabel!
 }

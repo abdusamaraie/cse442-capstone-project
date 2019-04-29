@@ -11,4 +11,6 @@ import UIKit
 
 class EmojiCollectionCell: UICollectionViewCell {
     
+    @IBOutlet weak var emojiIcon: UILabel!
+    
 }

@@ -74,7 +74,7 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
         
-        self.placesView = UICollectionView(frame: CGRect(x: 0, y: (self.view.frame.maxY - self.view.frame.maxY/8), width: view.frame.width, height: 100), collectionViewLayout: flowLayout)
+        self.placesView = UICollectionView(frame: CGRect(x: 0, y: (self.view.frame.maxY - self.view.frame.maxY/8 - 5), width: view.frame.width, height: 100), collectionViewLayout: flowLayout)
 
         placesView.delegate = self
         placesView.dataSource = self
@@ -184,8 +184,9 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         
         print("indexPath row: \(indexPath.row)")
         
-        cell.PlaceName.text = places[indexPath.row].placeName
+        // cell.PlaceName.text = places[indexPath.row].placeName
         // cell.PlaceName.text = "THIS IS A TEST"
+        cell.PlaceName.text = places[indexPath.row].placeName
         return cell
     }
     

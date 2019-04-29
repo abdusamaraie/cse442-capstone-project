@@ -64,7 +64,9 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
 //        if let indexPath = groupTableView.indexPathForSelectedRow {
 //            groupTableView.deselectRow(at: indexPath, animated: true)
 //        }
-        print("loading feed")
+        
+        group_list = []
+        print("----loading feed-----")
         loadFeed()
     }
     
@@ -99,6 +101,7 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
             startLocation = locations.first
             currentLocation = startLocation
             updateLocation()
+            self.locManager.stopUpdatingLocation()
             // updateMap(manager, locations)
         } else if let location = locations.last {
             traveledDistance += lastLocation.distance(from: location)
@@ -109,6 +112,7 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
                 // updateMap(manager, locations)
                 currentLocation = location
                 updateLocation()
+                self.locManager.stopUpdatingLocation()
             }
         }
         lastLocation = locations.last
