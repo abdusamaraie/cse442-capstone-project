@@ -19,6 +19,9 @@
         <array key="AirbnbCereal-Light.ttf">
             <string>AirbnbCerealApp-Light</string>
         </array>
+        <array key="AirbnbCereal-Medium.ttf">
+            <string>AirbnbCerealApp-Medium</string>
+        </array>
     </customFonts>
     <scenes>
         <!--Tab Bar Controller-->
@@ -128,13 +131,13 @@
                                         <rect key="frame" x="-219.66666666666666" y="-146" width="814.33333333333337" height="648"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Replies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="diW-6p-WlX">
-                                                <rect key="frame" x="506.33333333333337" y="567.66666666666674" width="59" height="24.333333333333371"/>
+                                                <rect key="frame" x="506.33333333333337" y="570" width="59" height="22"/>
                                                 <fontDescription key="fontDescription" name="AirbnbCerealApp-Book" family="Airbnb Cereal App" pointSize="17"/>
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLY-yi-8Ys" userLabel="Replies">
-                                                <rect key="frame" x="509.33333333333337" y="510.00000000000006" width="53" height="53.666666666666686"/>
+                                                <rect key="frame" x="509.33333333333337" y="510" width="53" height="56"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" red="0.27046570180000001" green="0.75735306739999997" blue="0.91507363320000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" image="replies 48 white"/>
@@ -157,7 +160,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caA-QJ-3Ap" userLabel="Posts">
-                                                <rect key="frame" x="380.33333333333331" y="556.66666666666674" width="54" height="54"/>
+                                                <rect key="frame" x="380.33333333333331" y="554.66666666666674" width="54" height="54"/>
                                                 <color key="backgroundColor" red="0.27046570180000001" green="0.75735306739999997" blue="0.91507363320000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="54" id="fv4-qn-ORE"/>
@@ -187,7 +190,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gy8-hb-q3U" userLabel="Ratings">
-                                                <rect key="frame" x="252.33333333333331" y="510.00000000000006" width="54" height="53.666666666666686"/>
+                                                <rect key="frame" x="252.33333333333331" y="510" width="54" height="56"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" red="0.27046570181846619" green="0.75735306739807129" blue="0.91507363319396973" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" image="thumbUp"/>
@@ -210,7 +213,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ratings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eor-4M-B9Z">
-                                                <rect key="frame" x="250.33333333333331" y="567.66666666666674" width="58" height="22.333333333333371"/>
+                                                <rect key="frame" x="250.33333333333331" y="570" width="58" height="20"/>
                                                 <fontDescription key="fontDescription" name="AirbnbCerealApp-Book" family="Airbnb Cereal App" pointSize="17"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -240,7 +243,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7HO-o5-d41">
-                                                <rect key="frame" x="453.33333333333331" y="329" width="63.999999999999943" height="63.666666666666686"/>
+                                                <rect key="frame" x="453.33333333333331" y="329" width="63.999999999999943" height="68.333333333333314"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <accessibility key="accessibilityConfiguration">
                                                     <accessibilityTraits key="traits" button="YES" staticText="YES"/>
@@ -270,19 +273,19 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buffalo, NY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCh-zf-5E8" userLabel="Current Location">
-                                                <rect key="frame" x="366.33333333333331" y="473" width="80" height="19.666666666666686"/>
+                                                <rect key="frame" x="366.33333333333331" y="473" width="80" height="17.666666666666686"/>
                                                 <fontDescription key="fontDescription" name="AirbnbCerealApp-Book" family="Airbnb Cereal App" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p2p-ph-Dwl">
-                                                <rect key="frame" x="278.33333333333331" y="412.66666666666669" width="255.99999999999994" height="44.333333333333314"/>
+                                                <rect key="frame" x="278.33333333333331" y="417.33333333333331" width="255.99999999999994" height="39.666666666666686"/>
                                                 <fontDescription key="fontDescription" name="AirbnbCerealApp-Bold" family="Airbnb Cereal App" pointSize="34"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="96q-3K-RSe">
-                                                <rect key="frame" x="380.33333333333331" y="613.66666666666663" width="52" height="20"/>
+                                                <rect key="frame" x="380.33333333333331" y="611.66666666666663" width="52" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="zyy-qD-mH1"/>
                                                 </constraints>
@@ -590,7 +593,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="On" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="44h-Tl-pih">
-                                                    <rect key="frame" x="307" y="52" width="27" height="22"/>
+                                                    <rect key="frame" x="307" y="54" width="27" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="27" id="pdg-mk-R1Y"/>
                                                     </constraints>
@@ -809,6 +812,266 @@
             </objects>
             <point key="canvasLocation" x="-894" y="-446"/>
         </scene>
+        <!--Comment View-->
+        <scene sceneID="FZQ-Be-Aaj">
+            <objects>
+                <viewController id="hiL-h4-fgX" customClass="CommentView" customModule="MapChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LzG-0J-riv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hrj-FV-0SB">
+                                <rect key="frame" x="0.0" y="84" width="375" height="728"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="Gpc-7A-3kf">
+                                    <rect key="frame" x="0.0" y="279" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdvancedFeedCellDuplicate" rowHeight="131" id="WdR-IE-2ih" customClass="AdvancedFeedCell" customModule="MapChat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="131"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WdR-IE-2ih" id="RbC-hZ-WOv">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="130.66666666666666"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_1" translatesAutoresizingMaskIntoConstraints="NO" id="Wkg-dA-gG4">
+                                                    <rect key="frame" x="7" y="11.333333333333336" width="45" height="45"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="45" id="6gg-ff-yRE"/>
+                                                        <constraint firstAttribute="height" constant="45" id="abH-dq-jGz"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="22.5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a test tweet. I really think our demo went really well yesterday! " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJj-v4-247">
+                                                    <rect key="frame" x="63" y="40.333333333333343" width="292" height="36.666666666666657"/>
+                                                    <fontDescription key="fontDescription" name="AirbnbCerealApp-Book" family="Airbnb Cereal App" pointSize="14"/>
+                                                    <color key="textColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h1b-Wh-fS5">
+                                                    <rect key="frame" x="336" y="8.3333333333333357" width="24" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="24" id="T1n-Pn-4WL"/>
+                                                        <constraint firstAttribute="height" constant="24" id="nZY-QH-hD8"/>
+                                                    </constraints>
+                                                    <color key="tintColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <state key="normal" image="down"/>
+                                                    <connections>
+                                                        <action selector="dropDown:" destination="WdR-IE-2ih" eventType="touchUpInside" id="DXQ-XB-fyu"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Baily Troyer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEx-Wc-8dV">
+                                                    <rect key="frame" x="64" y="11.333333333333336" width="87.666666666666686" height="21"/>
+                                                    <fontDescription key="fontDescription" name="AirbnbCerealApp-Medium" family="Airbnb Cereal App" pointSize="16"/>
+                                                    <color key="textColor" red="0.2612329987" green="0.2612329987" blue="0.2612329987" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@bailyt • 1h" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZ1-YG-PDz">
+                                                    <rect key="frame" x="158" y="11.333333333333336" width="84" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="84" id="hdY-26-ifA"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AirbnbCerealApp-Book" family="Airbnb Cereal App" pointSize="16"/>
+                                                    <color key="textColor" red="0.2612329987" green="0.2612329987" blue="0.2612329987" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZlM-WT-pqn">
+                                                    <rect key="frame" x="15" y="90.333333333333329" width="345" height="35"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ak-Uh-Apa" customClass="DesignableButton" customModule="MapChat" customModuleProvider="target">
+                                                            <rect key="frame" x="47" y="0.0" width="62" height="30"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="30" id="HUg-D1-xBe"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                            <state key="normal" title="😐React">
+                                                                <color key="titleColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            </state>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                    <real key="value" value="0.5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                    <color key="value" red="0.89013670020000002" green="0.88874524399999999" blue="0.91305051810000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="react:" destination="WdR-IE-2ih" eventType="touchUpInside" id="J8q-zx-Wvt"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="5ak-Uh-Apa" secondAttribute="bottom" constant="5" id="AmK-NG-kIw"/>
+                                                        <constraint firstAttribute="height" constant="35" id="FcX-4T-wu4"/>
+                                                        <constraint firstItem="5ak-Uh-Apa" firstAttribute="leading" secondItem="ZlM-WT-pqn" secondAttribute="leading" constant="47" id="k93-f5-Lkl"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Wkg-dA-gG4" firstAttribute="top" secondItem="RbC-hZ-WOv" secondAttribute="topMargin" id="0qV-I1-nV3"/>
+                                                <constraint firstItem="h1b-Wh-fS5" firstAttribute="top" secondItem="RbC-hZ-WOv" secondAttribute="top" constant="8" id="3cL-AF-lFh"/>
+                                                <constraint firstItem="Wkg-dA-gG4" firstAttribute="top" secondItem="OZ1-YG-PDz" secondAttribute="top" id="6Tq-99-3mr"/>
+                                                <constraint firstItem="lJj-v4-247" firstAttribute="top" secondItem="bEx-Wc-8dV" secondAttribute="bottom" constant="8" id="769-dX-p8M"/>
+                                                <constraint firstItem="lJj-v4-247" firstAttribute="leading" secondItem="Wkg-dA-gG4" secondAttribute="trailing" constant="11" id="BcS-gR-7V0"/>
+                                                <constraint firstItem="lJj-v4-247" firstAttribute="top" secondItem="OZ1-YG-PDz" secondAttribute="bottom" constant="8" id="GOA-vu-bru"/>
+                                                <constraint firstAttribute="trailing" secondItem="h1b-Wh-fS5" secondAttribute="trailing" constant="15" id="KEh-Ss-ODl"/>
+                                                <constraint firstItem="Wkg-dA-gG4" firstAttribute="leading" secondItem="RbC-hZ-WOv" secondAttribute="leadingMargin" constant="-8" id="L4Q-lP-MAf"/>
+                                                <constraint firstAttribute="trailing" secondItem="lJj-v4-247" secondAttribute="trailing" constant="20" id="Msi-7s-16B"/>
+                                                <constraint firstAttribute="bottom" secondItem="ZlM-WT-pqn" secondAttribute="bottom" constant="6" id="MwY-SG-wd1"/>
+                                                <constraint firstItem="bEx-Wc-8dV" firstAttribute="leading" secondItem="Wkg-dA-gG4" secondAttribute="trailing" constant="12" id="QJ8-uq-QKt"/>
+                                                <constraint firstItem="OZ1-YG-PDz" firstAttribute="leading" secondItem="bEx-Wc-8dV" secondAttribute="trailing" constant="6.3333333333333144" id="VJF-RA-Z3C"/>
+                                                <constraint firstItem="bEx-Wc-8dV" firstAttribute="top" secondItem="RbC-hZ-WOv" secondAttribute="top" constant="11" id="ZD3-ly-jvi"/>
+                                                <constraint firstItem="Wkg-dA-gG4" firstAttribute="top" secondItem="bEx-Wc-8dV" secondAttribute="top" id="Zmq-zY-PR9"/>
+                                                <constraint firstItem="ZlM-WT-pqn" firstAttribute="top" secondItem="RbC-hZ-WOv" secondAttribute="top" constant="90" id="kZv-Tw-9sP"/>
+                                                <constraint firstItem="ZlM-WT-pqn" firstAttribute="centerX" secondItem="RbC-hZ-WOv" secondAttribute="centerX" id="lsG-7c-GyZ"/>
+                                                <constraint firstItem="ZlM-WT-pqn" firstAttribute="top" secondItem="lJj-v4-247" secondAttribute="bottom" constant="13.333333333333343" id="yDA-RK-baP"/>
+                                                <constraint firstItem="ZlM-WT-pqn" firstAttribute="trailing" secondItem="h1b-Wh-fS5" secondAttribute="trailing" id="ytU-87-Ssd"/>
+                                                <constraint firstItem="OZ1-YG-PDz" firstAttribute="top" secondItem="RbC-hZ-WOv" secondAttribute="top" constant="11" id="zPG-Uw-y7Q"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="displayName" destination="bEx-Wc-8dV" id="XEu-O3-uRn"/>
+                                            <outlet property="message" destination="lJj-v4-247" id="3T5-39-yMw"/>
+                                            <outlet property="profileImage" destination="Wkg-dA-gG4" id="D0w-Dl-04q"/>
+                                            <outlet property="reactButton" destination="5ak-Uh-Apa" id="UoV-aP-juZ"/>
+                                            <outlet property="username" destination="OZ1-YG-PDz" id="nSS-Ky-3Jz"/>
+                                            <outlet property="viewHolder" destination="ZlM-WT-pqn" id="K3m-qa-udJ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentCellObject" rowHeight="120" id="Xoz-0C-RE5" customClass="CommentCell" customModule="MapChat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="159" width="375" height="120"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Xoz-0C-RE5" id="x4y-3d-UIE">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="119.66666666666667"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_1" translatesAutoresizingMaskIntoConstraints="NO" id="vgb-Zx-8n1">
+                                                    <rect key="frame" x="7" y="11" width="45" height="45"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="45" id="5Us-2P-doD"/>
+                                                        <constraint firstAttribute="width" constant="45" id="Yii-hQ-4jd"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="22.5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Replying to @username and @username" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oxb-X4-3Z5">
+                                                    <rect key="frame" x="63" y="40" width="292" height="18.333333333333329"/>
+                                                    <fontDescription key="fontDescription" name="AirbnbCerealApp-Book" family="Airbnb Cereal App" pointSize="14"/>
+                                                    <color key="textColor" red="0.27058823529999998" green="0.75686274509999996" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pgz-OB-qHT">
+                                                    <rect key="frame" x="336" y="8" width="24" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="24" id="Igb-Kn-kBk"/>
+                                                        <constraint firstAttribute="width" constant="24" id="Xs4-VK-Nfi"/>
+                                                    </constraints>
+                                                    <color key="tintColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <state key="normal" image="down"/>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Baily Troyer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCq-kl-WFn">
+                                                    <rect key="frame" x="64" y="11" width="88" height="21"/>
+                                                    <fontDescription key="fontDescription" name="AirbnbCerealApp-Medium" family="Airbnb Cereal App" pointSize="16"/>
+                                                    <color key="textColor" red="0.2612329987" green="0.2612329987" blue="0.2612329987" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@bailyt • 1h" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oNN-UW-MOI">
+                                                    <rect key="frame" x="158.33333333333334" y="11" width="84" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="84" id="6zX-Iz-uGR"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AirbnbCerealApp-Book" family="Airbnb Cereal App" pointSize="16"/>
+                                                    <color key="textColor" red="0.2612329987" green="0.2612329987" blue="0.2612329987" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is my message reply and I think both usernames are wrong in what they said. " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNg-Ae-o1n">
+                                                    <rect key="frame" x="63" y="66" width="297" height="36.666666666666657"/>
+                                                    <fontDescription key="fontDescription" name="AirbnbCerealApp-Book" family="Airbnb Cereal App" pointSize="14"/>
+                                                    <color key="textColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="oxb-X4-3Z5" firstAttribute="leading" secondItem="vgb-Zx-8n1" secondAttribute="trailing" constant="11" id="0IH-HU-6LA"/>
+                                                <constraint firstAttribute="trailing" secondItem="TNg-Ae-o1n" secondAttribute="trailing" constant="15" id="3Hp-IZ-f45"/>
+                                                <constraint firstItem="vgb-Zx-8n1" firstAttribute="top" secondItem="x4y-3d-UIE" secondAttribute="topMargin" id="4vp-oe-VT8"/>
+                                                <constraint firstItem="vgb-Zx-8n1" firstAttribute="top" secondItem="oNN-UW-MOI" secondAttribute="top" id="Ay6-R1-Ik8"/>
+                                                <constraint firstItem="Pgz-OB-qHT" firstAttribute="top" secondItem="x4y-3d-UIE" secondAttribute="top" constant="8" id="JPn-4f-Pqg"/>
+                                                <constraint firstItem="oxb-X4-3Z5" firstAttribute="top" secondItem="oNN-UW-MOI" secondAttribute="bottom" constant="8" id="Ppu-tw-jqT"/>
+                                                <constraint firstAttribute="trailing" secondItem="oxb-X4-3Z5" secondAttribute="trailing" constant="20" id="VOz-pr-L7I"/>
+                                                <constraint firstItem="TNg-Ae-o1n" firstAttribute="top" secondItem="oxb-X4-3Z5" secondAttribute="bottom" constant="7.6666666666666714" id="amM-6M-TgU"/>
+                                                <constraint firstAttribute="bottom" secondItem="TNg-Ae-o1n" secondAttribute="bottom" constant="17.000000000000014" id="bGq-y0-mHk"/>
+                                                <constraint firstItem="vgb-Zx-8n1" firstAttribute="leading" secondItem="x4y-3d-UIE" secondAttribute="leadingMargin" constant="-8" id="bks-oy-igJ"/>
+                                                <constraint firstItem="vgb-Zx-8n1" firstAttribute="top" secondItem="uCq-kl-WFn" secondAttribute="top" id="bwJ-8n-Qeh"/>
+                                                <constraint firstAttribute="trailing" secondItem="Pgz-OB-qHT" secondAttribute="trailing" constant="15" id="cPm-ng-FnJ"/>
+                                                <constraint firstItem="uCq-kl-WFn" firstAttribute="leading" secondItem="vgb-Zx-8n1" secondAttribute="trailing" constant="12" id="cjJ-Bs-h3n"/>
+                                                <constraint firstItem="oNN-UW-MOI" firstAttribute="top" secondItem="x4y-3d-UIE" secondAttribute="top" constant="11" id="fPf-hS-gu8"/>
+                                                <constraint firstItem="TNg-Ae-o1n" firstAttribute="leading" secondItem="vgb-Zx-8n1" secondAttribute="trailing" constant="11" id="lRk-bZ-jft"/>
+                                                <constraint firstItem="TNg-Ae-o1n" firstAttribute="leading" secondItem="x4y-3d-UIE" secondAttribute="leading" constant="63" id="q4U-jQ-jk0"/>
+                                                <constraint firstItem="oxb-X4-3Z5" firstAttribute="top" secondItem="uCq-kl-WFn" secondAttribute="bottom" constant="8" id="rcb-MD-h6X"/>
+                                                <constraint firstItem="uCq-kl-WFn" firstAttribute="top" secondItem="x4y-3d-UIE" secondAttribute="top" constant="11" id="uc4-fv-Csv"/>
+                                                <constraint firstItem="oNN-UW-MOI" firstAttribute="leading" secondItem="uCq-kl-WFn" secondAttribute="trailing" constant="6.3333333333333144" id="x1b-n0-5rO"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="displayName" destination="uCq-kl-WFn" id="OcB-vN-k3X"/>
+                                            <outlet property="message" destination="TNg-Ae-o1n" id="tVk-rm-1Zl"/>
+                                            <outlet property="profilePicture" destination="vgb-Zx-8n1" id="bAf-yt-cbl"/>
+                                            <outlet property="replyingToMessage" destination="oxb-X4-3Z5" id="z7m-Rr-Z5w"/>
+                                            <outlet property="username" destination="oNN-UW-MOI" id="sAZ-7d-8Iu"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T2I-r8-cdn">
+                                <rect key="frame" x="16" y="44" width="36" height="36"/>
+                                <color key="tintColor" red="0.27058823529999998" green="0.75686274509999996" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="left"/>
+                                <connections>
+                                    <action selector="back:" destination="hiL-h4-fgX" eventType="touchUpInside" id="kNt-3P-T6u"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message Drop" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcK-hK-T7j">
+                                <rect key="frame" x="120" y="49" width="135" height="27"/>
+                                <fontDescription key="fontDescription" name="AirbnbCerealApp-Medium" family="Airbnb Cereal App" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hrj-FV-0SB" firstAttribute="top" secondItem="bcK-hK-T7j" secondAttribute="bottom" constant="8" id="1pn-Sf-LZl"/>
+                            <constraint firstItem="pcB-uG-84L" firstAttribute="trailing" secondItem="hrj-FV-0SB" secondAttribute="trailing" id="FAL-Jk-Uxq"/>
+                            <constraint firstItem="T2I-r8-cdn" firstAttribute="top" secondItem="pcB-uG-84L" secondAttribute="top" id="IV3-T1-IPN"/>
+                            <constraint firstItem="hrj-FV-0SB" firstAttribute="leading" secondItem="pcB-uG-84L" secondAttribute="leading" id="LAm-pN-oWf"/>
+                            <constraint firstItem="T2I-r8-cdn" firstAttribute="leading" secondItem="pcB-uG-84L" secondAttribute="leading" constant="16" id="lBT-HZ-rBp"/>
+                            <constraint firstItem="hrj-FV-0SB" firstAttribute="bottom" secondItem="pcB-uG-84L" secondAttribute="bottom" constant="34" id="oLa-0P-3DD"/>
+                            <constraint firstItem="bcK-hK-T7j" firstAttribute="top" secondItem="pcB-uG-84L" secondAttribute="top" constant="5" id="rFh-Yt-Idz"/>
+                            <constraint firstItem="bcK-hK-T7j" firstAttribute="centerX" secondItem="pcB-uG-84L" secondAttribute="centerX" id="t0k-ZM-fkU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pcB-uG-84L"/>
+                    </view>
+                    <connections>
+                        <outlet property="commentsView" destination="hrj-FV-0SB" id="eWx-se-JpC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JpA-Xm-rSa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-106.40000000000001" y="956.89655172413802"/>
+        </scene>
         <!--Feed View-->
         <scene sceneID="dtB-gP-fpw">
             <objects>
@@ -824,128 +1087,123 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MessageCell" rowHeight="150" id="Rg5-KJ-sdE" customClass="MessageCell" customModule="MapChat" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="375" height="150"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdvancedFeedCell" rowHeight="131" id="tG9-j2-9B8" customClass="AdvancedFeedCell" customModule="MapChat" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="375" height="131"/>
                                                 <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Rg5-KJ-sdE" id="BSh-fI-Xjp">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tG9-j2-9B8" id="ADb-mP-D21">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="131"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KQ1-VO-1N9" customClass="DesignableView" customModule="MapChat" customModuleProvider="target">
-                                                            <rect key="frame" x="15" y="11" width="345" height="128.33333333333334"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum rutrum" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNk-kF-eIZ">
-                                                                    <rect key="frame" x="8" y="8" width="329" height="84"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" constant="329" id="HnG-ei-EiJ"/>
-                                                                    </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
-                                                                    <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tE1-5R-xNv">
-                                                                    <rect key="frame" x="184" y="91" width="161" height="1"/>
-                                                                    <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="Ywb-S1-EEp"/>
-                                                                        <constraint firstAttribute="width" constant="161" id="f8N-YG-BqA"/>
-                                                                        <constraint firstAttribute="height" constant="1" id="n4X-N2-C7C"/>
-                                                                    </constraints>
-                                                                </view>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfu-41-pgB">
-                                                                    <rect key="frame" x="8" y="100.33333333333333" width="20" height="20"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="20" id="7mN-EL-uZ8"/>
-                                                                        <constraint firstAttribute="width" constant="20" id="I1g-Hc-i3w"/>
-                                                                    </constraints>
-                                                                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <state key="normal" image="thumbUp"/>
-                                                                    <connections>
-                                                                        <action selector="upVote:" destination="Rg5-KJ-sdE" eventType="touchUpInside" id="E2z-20-iEJ"/>
-                                                                    </connections>
-                                                                </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q2F-zQ-BaB">
-                                                                    <rect key="frame" x="62" y="100.33333333333333" width="20" height="20"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" constant="20" id="1ow-ux-byi"/>
-                                                                        <constraint firstAttribute="height" constant="20" id="RvT-DV-Siy"/>
-                                                                    </constraints>
-                                                                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <state key="normal" image="thumbDown"/>
-                                                                    <connections>
-                                                                        <action selector="downVote:" destination="Rg5-KJ-sdE" eventType="touchUpInside" id="hq6-um-706"/>
-                                                                    </connections>
-                                                                </button>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#example-tag" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XH0-ZL-Ykc">
-                                                                    <rect key="frame" x="184" y="100" width="153" height="21.333333333333329"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="21.333333333333329" id="BCd-Pd-hLh"/>
-                                                                        <constraint firstAttribute="width" constant="153" id="njV-Gz-oFZ"/>
-                                                                    </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="weO-cD-2Mi">
-                                                                    <rect key="frame" x="32" y="101.33333333333333" width="19" height="18"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                            <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_1" translatesAutoresizingMaskIntoConstraints="NO" id="Wsh-7n-zfA">
+                                                            <rect key="frame" x="7" y="11" width="45" height="45"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="trailing" secondItem="tE1-5R-xNv" secondAttribute="trailing" id="7vy-V6-VuI"/>
-                                                                <constraint firstAttribute="bottom" secondItem="cNk-kF-eIZ" secondAttribute="bottom" constant="36.333333333333343" id="8Se-R1-z6C"/>
-                                                                <constraint firstAttribute="bottom" secondItem="Q2F-zQ-BaB" secondAttribute="bottom" constant="8" id="AED-Yl-DpX"/>
-                                                                <constraint firstAttribute="bottom" secondItem="XH0-ZL-Ykc" secondAttribute="bottom" constant="7" id="AN1-IJ-Gge"/>
-                                                                <constraint firstItem="mfu-41-pgB" firstAttribute="leading" secondItem="KQ1-VO-1N9" secondAttribute="leading" constant="8" id="AtS-5p-TWj"/>
-                                                                <constraint firstItem="Q2F-zQ-BaB" firstAttribute="leading" secondItem="weO-cD-2Mi" secondAttribute="trailing" constant="11" id="HBC-Xb-iIM"/>
-                                                                <constraint firstItem="cNk-kF-eIZ" firstAttribute="leading" secondItem="KQ1-VO-1N9" secondAttribute="leading" constant="8" id="Hyl-iP-iYG"/>
-                                                                <constraint firstAttribute="width" constant="345" id="MRc-Ye-dTm"/>
-                                                                <constraint firstAttribute="trailing" secondItem="cNk-kF-eIZ" secondAttribute="trailing" constant="8" id="QRJ-NL-mbR"/>
-                                                                <constraint firstAttribute="bottom" secondItem="weO-cD-2Mi" secondAttribute="bottom" constant="9" id="R2r-ry-0UN"/>
-                                                                <constraint firstItem="XH0-ZL-Ykc" firstAttribute="leading" secondItem="Q2F-zQ-BaB" secondAttribute="trailing" constant="102" id="RMI-NJ-hHc"/>
-                                                                <constraint firstItem="tE1-5R-xNv" firstAttribute="top" secondItem="cNk-kF-eIZ" secondAttribute="bottom" constant="-1" id="WHK-RJ-oK5"/>
-                                                                <constraint firstItem="weO-cD-2Mi" firstAttribute="leading" secondItem="mfu-41-pgB" secondAttribute="trailing" constant="4" id="XPY-2o-gwe"/>
-                                                                <constraint firstItem="XH0-ZL-Ykc" firstAttribute="top" secondItem="tE1-5R-xNv" secondAttribute="bottom" constant="8" id="h65-IW-ZaB"/>
-                                                                <constraint firstAttribute="bottom" secondItem="mfu-41-pgB" secondAttribute="bottom" constant="8" id="iFi-qk-ic4"/>
-                                                                <constraint firstItem="cNk-kF-eIZ" firstAttribute="top" secondItem="KQ1-VO-1N9" secondAttribute="top" constant="8" id="teS-uG-TME"/>
-                                                                <constraint firstItem="XH0-ZL-Ykc" firstAttribute="top" secondItem="cNk-kF-eIZ" secondAttribute="bottom" constant="8" id="xf0-wP-cBa"/>
+                                                                <constraint firstAttribute="height" constant="45" id="5ZU-dA-qDn"/>
+                                                                <constraint firstAttribute="width" constant="45" id="PJN-kB-Foh"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                                    <real key="value" value="1"/>
-                                                                </userDefinedRuntimeAttribute>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <real key="value" value="10"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                                    <real key="value" value="1"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                                <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                                                    <size key="value" width="1" height="1"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                                <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                                                    <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <real key="value" value="22.5"/>
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a test tweet. I really think our demo went really well yesterday! " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="La6-9w-Jkb">
+                                                            <rect key="frame" x="63" y="40" width="292" height="36.666666666666657"/>
+                                                            <fontDescription key="fontDescription" name="AirbnbCerealApp-Book" family="Airbnb Cereal App" pointSize="14"/>
+                                                            <color key="textColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ibL-wl-cv4">
+                                                            <rect key="frame" x="336" y="8" width="24" height="24"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="24" id="WJb-y3-zAL"/>
+                                                                <constraint firstAttribute="height" constant="24" id="bQg-xf-aQa"/>
+                                                            </constraints>
+                                                            <color key="tintColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <state key="normal" image="down"/>
+                                                            <connections>
+                                                                <action selector="dropDown:" destination="tG9-j2-9B8" eventType="touchUpInside" id="avr-1F-HZt"/>
+                                                            </connections>
+                                                        </button>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Baily Troyer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qD-4G-O92">
+                                                            <rect key="frame" x="64" y="11" width="87.666666666666686" height="21"/>
+                                                            <fontDescription key="fontDescription" name="AirbnbCerealApp-Medium" family="Airbnb Cereal App" pointSize="16"/>
+                                                            <color key="textColor" red="0.2612329987" green="0.2612329987" blue="0.2612329987" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@bailyt • 1h" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5W-hd-O5P">
+                                                            <rect key="frame" x="158" y="11" width="84" height="21"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="84" id="2qc-jT-cbo"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="AirbnbCerealApp-Book" family="Airbnb Cereal App" pointSize="16"/>
+                                                            <color key="textColor" red="0.2612329987" green="0.2612329987" blue="0.2612329987" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BKx-7y-NjD">
+                                                            <rect key="frame" x="15" y="90" width="345" height="35"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWn-An-Otg" customClass="DesignableButton" customModule="MapChat" customModuleProvider="target">
+                                                                    <rect key="frame" x="47" y="0.0" width="62" height="30"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="30" id="ezR-JM-6iW"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                                    <state key="normal" title="😐React">
+                                                                        <color key="titleColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                    </state>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                            <real key="value" value="0.5"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                            <color key="value" red="0.89013670020000002" green="0.88874524399999999" blue="0.91305051810000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                            <real key="value" value="5"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                    <connections>
+                                                                        <action selector="react:" destination="tG9-j2-9B8" eventType="touchUpInside" id="7vv-eT-lQL"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstItem="RWn-An-Otg" firstAttribute="leading" secondItem="BKx-7y-NjD" secondAttribute="leading" constant="47" id="g9l-2B-V5a"/>
+                                                                <constraint firstAttribute="bottom" secondItem="RWn-An-Otg" secondAttribute="bottom" constant="5" id="gxe-Lh-Rdf"/>
+                                                                <constraint firstAttribute="height" constant="35" id="h7Z-vW-ihh"/>
+                                                            </constraints>
                                                         </view>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="KQ1-VO-1N9" secondAttribute="bottom" constant="10.666666666666671" id="3No-Is-hhT"/>
-                                                        <constraint firstItem="KQ1-VO-1N9" firstAttribute="top" secondItem="BSh-fI-Xjp" secondAttribute="top" constant="11" id="9gt-5i-x3q"/>
-                                                        <constraint firstAttribute="trailing" secondItem="KQ1-VO-1N9" secondAttribute="trailing" constant="15" id="YOS-8d-m91"/>
-                                                        <constraint firstItem="KQ1-VO-1N9" firstAttribute="leading" secondItem="BSh-fI-Xjp" secondAttribute="leading" constant="15" id="fi6-37-PX1"/>
+                                                        <constraint firstItem="0qD-4G-O92" firstAttribute="leading" secondItem="Wsh-7n-zfA" secondAttribute="trailing" constant="12" id="2N9-iL-Ks5"/>
+                                                        <constraint firstItem="Wsh-7n-zfA" firstAttribute="leading" secondItem="ADb-mP-D21" secondAttribute="leadingMargin" constant="-8" id="7Er-zJ-LH7"/>
+                                                        <constraint firstAttribute="trailing" secondItem="ibL-wl-cv4" secondAttribute="trailing" constant="15" id="9W2-F4-u0U"/>
+                                                        <constraint firstItem="BKx-7y-NjD" firstAttribute="trailing" secondItem="ibL-wl-cv4" secondAttribute="trailing" id="AQN-58-5ro"/>
+                                                        <constraint firstItem="Wsh-7n-zfA" firstAttribute="top" secondItem="ADb-mP-D21" secondAttribute="topMargin" id="CTT-Re-Xha"/>
+                                                        <constraint firstItem="BKx-7y-NjD" firstAttribute="top" secondItem="La6-9w-Jkb" secondAttribute="bottom" constant="13.333333333333343" id="E6i-Vb-z91"/>
+                                                        <constraint firstItem="0qD-4G-O92" firstAttribute="top" secondItem="ADb-mP-D21" secondAttribute="top" constant="11" id="GI1-Tz-jXB"/>
+                                                        <constraint firstItem="z5W-hd-O5P" firstAttribute="top" secondItem="ADb-mP-D21" secondAttribute="top" constant="11" id="cTj-Bj-f6k"/>
+                                                        <constraint firstItem="BKx-7y-NjD" firstAttribute="top" secondItem="ADb-mP-D21" secondAttribute="top" constant="90" id="ewo-95-ouS"/>
+                                                        <constraint firstItem="La6-9w-Jkb" firstAttribute="top" secondItem="0qD-4G-O92" secondAttribute="bottom" constant="8" id="f6B-IH-uH0"/>
+                                                        <constraint firstItem="Wsh-7n-zfA" firstAttribute="top" secondItem="z5W-hd-O5P" secondAttribute="top" id="gPH-u6-6L4"/>
+                                                        <constraint firstAttribute="bottom" secondItem="BKx-7y-NjD" secondAttribute="bottom" constant="6" id="ha2-Na-PTu"/>
+                                                        <constraint firstItem="Wsh-7n-zfA" firstAttribute="top" secondItem="0qD-4G-O92" secondAttribute="top" id="jPQ-ny-jvv"/>
+                                                        <constraint firstItem="BKx-7y-NjD" firstAttribute="centerX" secondItem="ADb-mP-D21" secondAttribute="centerX" id="qQ7-Vx-NQo"/>
+                                                        <constraint firstItem="La6-9w-Jkb" firstAttribute="top" secondItem="z5W-hd-O5P" secondAttribute="bottom" constant="8" id="tt3-iB-Eoc"/>
+                                                        <constraint firstItem="La6-9w-Jkb" firstAttribute="leading" secondItem="Wsh-7n-zfA" secondAttribute="trailing" constant="11" id="twi-G7-ytb"/>
+                                                        <constraint firstItem="z5W-hd-O5P" firstAttribute="leading" secondItem="0qD-4G-O92" secondAttribute="trailing" constant="6.3333333333333144" id="ufS-oF-U9g"/>
+                                                        <constraint firstItem="ibL-wl-cv4" firstAttribute="top" secondItem="ADb-mP-D21" secondAttribute="top" constant="8" id="zPS-VN-0sO"/>
+                                                        <constraint firstAttribute="trailing" secondItem="La6-9w-Jkb" secondAttribute="trailing" constant="20" id="zQc-vy-bKi"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
-                                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                 <connections>
-                                                    <outlet property="downvoteIcon" destination="Q2F-zQ-BaB" id="arx-BT-Z8W"/>
-                                                    <outlet property="messageBody" destination="cNk-kF-eIZ" id="UTp-Pz-JID"/>
-                                                    <outlet property="messageTag" destination="XH0-ZL-Ykc" id="fZo-K5-bEq"/>
-                                                    <outlet property="numberLikes" destination="weO-cD-2Mi" id="WfH-N6-dJx"/>
-                                                    <outlet property="upvoteIcon" destination="mfu-41-pgB" id="6N2-pE-iW9"/>
+                                                    <outlet property="displayName" destination="0qD-4G-O92" id="J6h-Gs-emO"/>
+                                                    <outlet property="message" destination="La6-9w-Jkb" id="pJ6-E6-REU"/>
+                                                    <outlet property="profileImage" destination="Wsh-7n-zfA" id="ntJ-kQ-KtF"/>
+                                                    <outlet property="reactButton" destination="RWn-An-Otg" id="xdg-BS-5jG"/>
+                                                    <outlet property="username" destination="z5W-hd-O5P" id="qnI-dp-Li7"/>
+                                                    <outlet property="viewHolder" destination="BKx-7y-NjD" id="c9o-jY-P5P"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -971,6 +1229,7 @@
                     </view>
                     <connections>
                         <outlet property="feedView" destination="pzK-Zm-Mn4" id="SKQ-1i-p66"/>
+                        <segue destination="hiL-h4-fgX" kind="show" identifier="viewComment" id="ule-17-F3N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fnq-Rx-Lvv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1484,11 +1743,14 @@
         <image name="add" width="24" height="24"/>
         <image name="camera" width="36" height="36"/>
         <image name="check" width="24" height="24"/>
+        <image name="down" width="24" height="24"/>
         <image name="faces" width="24" height="24"/>
         <image name="feed" width="24" height="24"/>
+        <image name="left" width="36" height="36"/>
         <image name="location_2" width="24" height="24"/>
         <image name="pin" width="24" height="24"/>
         <image name="profile" width="24" height="24"/>
+        <image name="profile_1" width="3840" height="5760"/>
         <image name="radius" width="24" height="24"/>
         <image name="replies 48 white" width="48" height="48"/>
         <image name="right" width="36" height="36"/>

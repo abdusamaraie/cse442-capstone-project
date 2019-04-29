@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 import UIKit
 
 /*
@@ -43,20 +44,28 @@ class AuthenticationHelper {
         var username: String?
         var password: String?
         var display_name: String?
+        var birthday: String?
+        var homeTown: String?
         
         init(username: String? = nil, //👈
             password: String? = nil,
-            display_name: String? = nil) {
+            display_name: String? = nil,
+            birthday: String? = nil,
+            homeTown: String? = nil) {
             
             self.username = username
             self.password = password
             self.display_name = display_name
+            self.birthday = birthday
+            self.homeTown = homeTown
         }
     }
     
     static var sharedInstance = AuthenticationHelper()
     
-    var url_string:String = "http://35.238.74.200:80url"
+    var profileImage:UIImage!
+    
+    var url_string:String = "http://35.238.74.200:80"
     
     var current_user:user = user()
     
@@ -108,6 +117,81 @@ class AuthenticationHelper {
         }
     }
     
+    // ---
+    func sendPhoto() {
+        let profileImage = #imageLiteral(resourceName: "profile_1")
+        let data:Data = profileImage.pngData()!
+        
+        print("sending photo")
+        
+        requestWith(endUrl: "\(url_string)/profile/image?username=\(AuthenticationHelper.sharedInstance.current_user.username!)", imageData: data, parameters: [:])
+        
+        print("done sending photo")
+    }
+    
+    func requestWith(endUrl: String, imageData: Data?, parameters: [String : Any], onCompletion: ((JSON?) -> Void)? = nil, onError: ((Error?) -> Void)? = nil){
+        
+        let url = endUrl /* your API url */
+        
+        let headers: HTTPHeaders = [
+            /* "Authorization": "your_access_token",  in case you need authorization header */
+            "Content-type": "multipart/form-data"
+        ]
+        
+        Alamofire.upload(multipartFormData: { (multipartFormData) in
+            for (key, value) in parameters {
+                multipartFormData.append("\(value)".data(using: String.Encoding.utf8)!, withName: key as String)
+            }
+            
+            if let data = imageData{
+                multipartFormData.append(data, withName: "file", fileName: "file.png", mimeType: "image/png")
+            }
+            
+        }, usingThreshold: UInt64.init(), to: url, method: .post, headers: headers) { (result) in
+            
+            print("inside image upload")
+            
+            switch result{
+            case .success(let upload, _, _):
+                upload.responseJSON { response in
+                    print("response: \(response.result.value!)")
+                    print("Succesfully uploaded")
+                    if let err = response.error{
+                        onError?(err)
+                        return
+                    }
+                    onCompletion?(nil)
+                }
+            case .failure(let error):
+                print("Error in upload: \(error.localizedDescription)")
+                onError?(error)
+            }
+        }
+    }
+    
+    func getImageURL(completion: @escaping (_ response_:String) -> ()) {
+        
+        // /distance takes placeId, lat, long
+        
+        print("inside getImageURL")
+        
+        let thing:String = "\(url_string)/profile/image?username=\(AuthenticationHelper.sharedInstance.current_user.username!)"
+        
+        Alamofire.request(thing, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil).responseString { response in
+            
+            print("response obj: \(response)")
+            
+            if ((response.result.value) != nil) {
+                let URLString = response.result.value! as? String
+                
+                completion(URLString!)
+            }
+            completion("")
+        }
+    }
+    
+    // ---
+    
     func sign_up(completion: @escaping (_ response_:String) -> ()) {
         
         let displayNameArray = AuthenticationHelper.sharedInstance.current_user.display_name!.components(separatedBy: " ")
@@ -117,14 +201,18 @@ class AuthenticationHelper {
         let emailArray = AuthenticationHelper.sharedInstance.current_user.username!.components(separatedBy: "@")
         let username = emailArray[0]
         
+        let birthday = AuthenticationHelper.sharedInstance.current_user.birthday!
         
+        let homeTown = AuthenticationHelper.sharedInstance.current_user.homeTown!
         
         let parameters: [String: Any] = [
             "email": AuthenticationHelper.sharedInstance.current_user.username!,
             "username": username,
             "password": AuthenticationHelper.sharedInstance.current_user.password!,
             "firstname": firstname,
-            "lastname": lastname
+            "lastname": lastname,
+            "birthday": birthday,
+            "hometown": homeTown
         ]
         
         print("sending request: \(parameters)")

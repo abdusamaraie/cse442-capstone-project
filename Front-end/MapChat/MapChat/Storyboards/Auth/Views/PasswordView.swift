@@ -100,6 +100,10 @@ class PasswordView: UIViewController {
                 if (response == "Error") {
                     print("User already signed in")
                 } else {
+                    
+                    // send photo
+                    print("calling send photo")
+                    // AuthenticationHelper.sharedInstance.sendPhoto()
                     self.performSegue(withIdentifier: "to_main", sender: self)
                 }
             })

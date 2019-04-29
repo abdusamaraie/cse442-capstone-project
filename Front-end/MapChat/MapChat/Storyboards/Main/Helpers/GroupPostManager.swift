@@ -121,6 +121,26 @@ class GroupPostManager {
             completion([])
         }
     }
-        
+    
+//    func getProfileInformation(completion: @escaping (_ response_:JSON) -> ()) {
+//
+//        let parameters: [String: Any] = [
+//            "username": AuthenticationHelper.sharedInstance.current_user.username
+//        ]
+//
+//        print("parameters: \(parameters)")
+//
+//        Alamofire.request("\(urlString)/settings", method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { response in
+//
+//
+//            if((response.result.value) != nil) {
+//                let posts = JSON(response.result.value!)
+//                completion(posts)
+//
+//            }
+//            completion([])
+//        }
+//    }
+    
 }
 

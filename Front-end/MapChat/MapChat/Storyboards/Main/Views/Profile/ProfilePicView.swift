@@ -166,6 +166,30 @@ class ProfilePicView: UIViewController, UIImagePickerControllerDelegate, UITable
     override func viewDidAppear(_ animated: Bool) {
         // print("DISPLAY NAME: \(AuthenticationHelper.sharedInstance.current_user.display_name)")
         self.profileName.text = "Baily Troyer"
+    
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        AuthenticationHelper.sharedInstance.getImageURL(completion: {(imageURL) in
+            print("image url: \(imageURL)")
+            if imageURL != "" {
+                
+                let url = URL(string: imageURL)
+                
+                print("loading image")
+                
+                // self.profileImage
+                
+                DispatchQueue.global().async {
+                    let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+                    DispatchQueue.main.async {
+                        self.profileImage.image = UIImage(data: data!)
+                    }
+                }
+            } else {
+                // print("error")
+            }
+        })
     }
 }
 

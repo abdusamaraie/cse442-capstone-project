@@ -32,6 +32,13 @@ class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource, CL
     var place_id: String = ""
     var place_name: String = ""
     
+    var currentLocation:CLLocation!
+    
+    var startLocation: CLLocation!
+    var lastLocation: CLLocation!
+    var startDate: Date!
+    var traveledDistance: Double = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,13 +46,16 @@ class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource, CL
         
         feedView.delegate = self
         feedView.dataSource = self
+        
+        locManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+        locManager.distanceFilter = 10
     }
     
     override func viewDidAppear(_ animated: Bool) {
         print("view did appear")
         self.navigationItem.title = place_name
-        self.feedView.reloadData()
         loadFeed()
+        // self.feedView.reloadData()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -65,19 +75,45 @@ class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource, CL
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        self.messages = []
         
-        if let location = locations.first {
-            
-            print("LOADING DATA")
-            self.selectedLocation = location
-            loadData()
+        if startDate == nil {
+            startDate = Date()
+        } else {
+            print("elapsedTime:", String(format: "%.0fs", Date().timeIntervalSince(startDate)))
         }
+        if startLocation == nil {
+            startLocation = locations.first
+            self.selectedLocation = startLocation
+            loadData()
+        } else if let location = locations.last {
+            traveledDistance += lastLocation.distance(from: location)
+            print("Traveled Distance:",  traveledDistance)
+            print("Straight Distance:", startLocation.distance(from: locations.last!))
+            
+            if (startLocation.distance(from: locations.last!) > 15) {
+                self.selectedLocation = lastLocation
+                loadData()
+            }
+        }
+        lastLocation = locations.last
+        
+        
+//        self.messages = []
+//
+//        if let location = locations.first {
+//
+//            print("LOADING DATA")
+//            self.selectedLocation = location
+//            self.locManager.stopUpdatingLocation()
+//            loadData()
+//        }
     }
     
     func loadData() {
         
         // assign current group id
+        
+        messages = []
         
         print("placeID: \(place_id)")
         
@@ -111,19 +147,15 @@ class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource, CL
         return messages.count
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "viewComment", sender: self)
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath) as! MessageCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AdvancedFeedCell", for: indexPath) as! AdvancedFeedCell
         
-        let messageContent = self.messages[indexPath.row].message
-        let numberLikes = self.messages[indexPath.row].numberLikes
-        let hashTag = self.messages[indexPath.row].tag
-        
-        cell.postId = self.messages[indexPath.row].ID
-        
-        cell.messageTag.text = hashTag
-        cell.messageBody.text = messageContent
-        cell.numberLikes.text = "\(numberLikes)"
+        cell.message.text = self.messages[indexPath.row].message
         
         return cell
     }

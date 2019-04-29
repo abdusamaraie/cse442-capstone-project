@@ -1,30 +1,24 @@
 //
-//  NameView.swift
+//  BirthdayView.swift
 //  MapChat
 //
-//  Created by Baily Troyer on 3/14/19.
+//  Created by Baily Troyer on 4/27/19.
 //  Copyright © 2019 CSE442Group. All rights reserved.
 //
 
 import Foundation
-import UIKit
 import Lottie
+import UIKit
 
-class NameView: UIViewController {
-    
-    var input_elements:[AuthenticationHelper.input_element] = []
-    
-    @IBOutlet weak var first_last_name: UITextField!
+class BirthdayView: UIViewController {
+
+    @IBOutlet weak var birthdayField: UITextField!
     
     var next_button: UIButton = UIButton()
+    let datePicker = UIDatePicker()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        input_elements.append(AuthenticationHelper.input_element(element_literal: first_last_name, element_name: "First and last name"))
-        
-        first_last_name.addTarget(self, action: #selector(textFieldDidChange(_:)),
-                           for: UIControl.Event.editingChanged)
         
         if let animationView:AnimationView = AnimationView(name: "cachr_white_full") {
             animationView.frame = CGRect(x: 0, y: 0, width: 480, height: 48)
@@ -39,12 +33,40 @@ class NameView: UIViewController {
             
             animationView.play()
         }
+        
+        showDatePicker()
     }
     
-    
-    @objc func textFieldDidChange(_ textField: UITextField) {
-        textField.backgroundColor = nil
+    func showDatePicker(){
+        //Formate Date
+        datePicker.datePickerMode = .date
+        
+        //ToolBar
+        let toolbar = UIToolbar();
+        toolbar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donedatePicker));
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelDatePicker));
+        
+        toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
+        
+        birthdayField.inputAccessoryView = toolbar
+        birthdayField.inputView = datePicker
+        
     }
+    
+    @objc func donedatePicker(){
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        birthdayField.text = formatter.string(from: datePicker.date)
+        self.view.endEditing(true)
+    }
+    
+    @objc func cancelDatePicker(){
+        self.view.endEditing(true)
+    }
+
     
     override func viewDidAppear(_ animated: Bool) {
         next_button = UIButton(frame: CGRect(x: 0, y: (self.view.frame.maxY - self.view.frame.maxY/12), width: (self.view.frame.maxX - self.view.frame.maxX/6), height: 50))
@@ -71,37 +93,21 @@ class NameView: UIViewController {
         // add button to view
         self.view.addSubview(next_button)
         
-        
         next_button.bindToKeyboard()
         
-        self.first_last_name.becomeFirstResponder()
+        self.birthdayField.becomeFirstResponder()
         
     }
     
     @objc func next_view() {
-        
-        if (AuthenticationHelper.check_input(input_elements: input_elements).count == 0) {
-            print("good")
-            AuthenticationHelper.sharedInstance.current_user.display_name = first_last_name.text!
-            self.performSegue(withIdentifier: "to_image", sender: self)
-        } else {
-            // there are errors
-            // get first element that cause issue
-            // print("first element issue: \(AuthenticationHelper.check_input(input_elements: input_elements)[0])")
-            
-            print("ELEMENTS: \(AuthenticationHelper.check_input(input_elements: input_elements))")
-            
-            for element in AuthenticationHelper.check_input(input_elements: input_elements) {
-                element.element_literal.backgroundColor = UIColor.red
-            }
+        if birthdayField.text != "" {
+            print("brithday: \(birthdayField.text!)")
+            AuthenticationHelper.sharedInstance.current_user.birthday = "\(birthdayField.text!)"
+            self.performSegue(withIdentifier: "to_location", sender: self)
         }
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        self.first_last_name.resignFirstResponder()
-    }
-    
-    @IBAction func go_back(_ sender: Any) {
+    @IBAction func back(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
 }
