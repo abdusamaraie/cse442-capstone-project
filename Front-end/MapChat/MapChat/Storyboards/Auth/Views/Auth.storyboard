@@ -50,8 +50,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is your email address?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LsO-Ne-SsS">
-                                <rect key="frame" x="86" y="162" width="203" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="What is your email address?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LsO-Ne-SsS">
+                                <rect key="frame" x="77" y="162" width="220" height="21"/>
                                 <fontDescription key="fontDescription" name="AirbnbCerealApp-Book" family="Airbnb Cereal App" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -62,7 +62,7 @@
                             <constraint firstItem="6WW-xd-ITC" firstAttribute="top" secondItem="N09-wN-COC" secondAttribute="top" id="2xp-cT-r92"/>
                             <constraint firstItem="AI3-UY-3tc" firstAttribute="centerX" secondItem="LsO-Ne-SsS" secondAttribute="centerX" id="3ck-IS-Ide"/>
                             <constraint firstItem="zqn-Qd-17a" firstAttribute="top" secondItem="LsO-Ne-SsS" secondAttribute="bottom" constant="46" id="5QI-wM-eIn"/>
-                            <constraint firstItem="LsO-Ne-SsS" firstAttribute="leading" secondItem="N09-wN-COC" secondAttribute="leading" constant="86" id="72N-pX-6ec"/>
+                            <constraint firstItem="LsO-Ne-SsS" firstAttribute="leading" secondItem="N09-wN-COC" secondAttribute="leading" constant="77" id="72N-pX-6ec"/>
                             <constraint firstItem="AI3-UY-3tc" firstAttribute="leading" secondItem="N09-wN-COC" secondAttribute="leading" constant="98" id="JLZ-gW-pxK"/>
                             <constraint firstItem="zqn-Qd-17a" firstAttribute="leading" secondItem="N09-wN-COC" secondAttribute="leading" constant="99" id="JwB-3U-LnK"/>
                             <constraint firstItem="AI3-UY-3tc" firstAttribute="top" secondItem="N09-wN-COC" secondAttribute="top" constant="95" id="NGr-XU-CxB"/>
@@ -98,7 +98,7 @@
                                     <action selector="go_back:" destination="iS8-pn-xNb" eventType="touchUpInside" id="zWv-2e-baS"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Enter your name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wor-BZ-85Z">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Who are you?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wor-BZ-85Z">
                                 <rect key="frame" x="98" y="115" width="180" height="29"/>
                                 <fontDescription key="fontDescription" name="AirbnbCerealApp-Light" family="Airbnb Cereal App" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -217,19 +217,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What do you look like?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sbv-d2-fcq">
-                                <rect key="frame" x="76.5" y="199" width="222" height="29"/>
+                                <rect key="frame" x="76.5" y="115" width="222" height="29"/>
                                 <fontDescription key="fontDescription" name="AirbnbCerealApp-Light" family="Airbnb Cereal App" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click on the face! (Optional)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0c-oU-enG">
-                                <rect key="frame" x="86" y="236" width="203" height="21"/>
-                                <fontDescription key="fontDescription" name="AirbnbCerealApp-Book" family="Airbnb Cereal App" pointSize="16"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uyY-wA-d7E">
-                                <rect key="frame" x="137.5" y="91" width="100" height="100"/>
+                                <rect key="frame" x="137.5" y="198" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="3cs-xg-Ib8"/>
                                     <constraint firstAttribute="height" constant="100" id="MJo-wx-2r4"/>
@@ -246,16 +240,22 @@
                                     <action selector="selectImage:" destination="6Dp-a0-eOy" eventType="touchUpInside" id="wgN-6R-k3T"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click on the face! (Optional)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0c-oU-enG">
+                                <rect key="frame" x="86" y="162" width="203" height="21"/>
+                                <fontDescription key="fontDescription" name="AirbnbCerealApp-Book" family="Airbnb Cereal App" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.27058823529999998" green="0.75686274509999996" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="uyY-wA-d7E" firstAttribute="top" secondItem="ixn-pa-bTL" secondAttribute="top" constant="71" id="1dB-du-shB"/>
+                            <constraint firstItem="uyY-wA-d7E" firstAttribute="top" secondItem="ixn-pa-bTL" secondAttribute="top" constant="178" id="1dB-du-shB"/>
                             <constraint firstItem="uyY-wA-d7E" firstAttribute="centerX" secondItem="ixn-pa-bTL" secondAttribute="centerX" id="7WR-eB-fOz"/>
-                            <constraint firstItem="Sbv-d2-fcq" firstAttribute="top" secondItem="uyY-wA-d7E" secondAttribute="bottom" constant="8" id="OT7-Vz-OD1"/>
+                            <constraint firstItem="Sbv-d2-fcq" firstAttribute="top" secondItem="uyY-wA-d7E" secondAttribute="bottom" constant="-183" id="OT7-Vz-OD1"/>
                             <constraint firstItem="Sbv-d2-fcq" firstAttribute="centerX" secondItem="ixn-pa-bTL" secondAttribute="centerX" id="Uoa-3J-Q1R"/>
                             <constraint firstItem="w0c-oU-enG" firstAttribute="centerX" secondItem="ixn-pa-bTL" secondAttribute="centerX" id="Z90-9p-bsl"/>
                             <constraint firstItem="SM2-6g-MwZ" firstAttribute="leading" secondItem="ixn-pa-bTL" secondAttribute="leading" constant="16" id="ZbB-SQ-iNj"/>
-                            <constraint firstItem="w0c-oU-enG" firstAttribute="top" secondItem="Sbv-d2-fcq" secondAttribute="bottom" constant="8" id="cNK-Er-MFp"/>
+                            <constraint firstItem="w0c-oU-enG" firstAttribute="top" secondItem="Sbv-d2-fcq" secondAttribute="bottom" constant="18" id="cNK-Er-MFp"/>
                             <constraint firstItem="SM2-6g-MwZ" firstAttribute="top" secondItem="ixn-pa-bTL" secondAttribute="top" id="fZW-1d-PwK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ixn-pa-bTL"/>
