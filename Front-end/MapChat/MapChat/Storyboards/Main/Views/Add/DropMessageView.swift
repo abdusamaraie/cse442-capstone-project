@@ -102,10 +102,10 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         
         // let mySlider = UISlider(x: 0, y: 0, width: UIScreen.main.bounds.width/4, height: 50)
         let mySlider = UISlider(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width/2, height: 50))
-        mySlider.minimumValue = 30
-        mySlider.maximumValue = 240
-        mySlider.setValue(60, animated: false)
-        self.postTime = 60
+        mySlider.minimumValue = 1
+        mySlider.maximumValue = 4.003461
+        mySlider.setValue(1.778, animated: false)
+        self.postTime = Int(powf(10.0, 1.778))
         mySlider.isContinuous = true
         mySlider.tintColor = UIColor.blue
         mySlider.addTarget(self, action: #selector(DropMessageView.changeVlaue(_:)), for: .valueChanged)
@@ -135,22 +135,31 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
     }
     
     @objc func changeVlaue(_ sender: UISlider) {
-        print("====sender====: \(sender.value)")
+        let logTime = Int(powf(10.0, sender.value))
+        print("====sender====: \(logTime)")
         
         // self.lengthLabel.text = "\(Int(sender.value))"
-        let tuple = minutesToHoursMinutes(minutes: Int(sender.value))
+        let tuple = minutesToHoursMinutes(minutes: logTime)
+        let dayTuple = minutesToDaysHours(minutes: logTime)
         
-        self.postTime = Int(sender.value)
+        self.postTime = logTime
         
-        if (Int(sender.value) > 60) {
+        if (logTime >= 60 && logTime < 1440) {
             self.lengthLabel.text = "\(tuple.hours)h\(tuple.leftMinutes)m"
+        } else if (logTime >= 1440){
+            self.lengthLabel.text = "\(dayTuple.days)d\(dayTuple.hours)h"
         } else {
-            self.lengthLabel.text = "\(tuple.leftMinutes)m"
+            self.lengthLabel.text = "\(logTime)m"
         }
+        
     }
     
     func minutesToHoursMinutes (minutes : Int) -> (hours : Int , leftMinutes : Int) {
         return (minutes / 60, (minutes % 60))
+    }
+    
+    func minutesToDaysHours (minutes : Int) -> (days: Int, hours: Int){
+        return (minutes / 1440, ((minutes / 60) % 24))
     }
     
     @objc func tags() {
@@ -222,7 +231,7 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
                 let urlString = "http://35.238.74.200:80/message"
                 
                 // get current date adding the slider effect
-                let date = Calendar.current.date(byAdding: .minute, value: postTime, to: Date())
+                let date = Calendar.current.date(byAdding: .minute, value: Int(postTime), to: Date())
                 
                 let parameters: [String: Any] = [
                     "location": [
@@ -313,7 +322,7 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
                     GroupPostManager.sharedInstance.placeId = place.placeID!
                     
                     //if the current place's likelihood is less than 70% of the most likely place, skip the rest
-                    if(likelihood.likelihood < maxLikelihood * 0.70){
+                    if(likelihood.likelihood < maxLikelihood * 0.75){
                         break
                     }
                     else{
@@ -439,7 +448,7 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
     func animate() {
         animationView.frame = containerView.bounds
         animationView.contentMode = .scaleAspectFill
-        animationView.animationSpeed = 0.5
+        animationView.animationSpeed = 1
         self.containerView.addSubview(animationView)
         animationView.play()
         animationView.loopMode = .loop
