@@ -131,16 +131,16 @@
                                         <rect key="frame" x="-219.5" y="-146" width="814" height="648"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Replies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="diW-6p-WlX">
-                                                <rect key="frame" x="506" y="570" width="59" height="22"/>
+                                                <rect key="frame" x="506" y="567.5" width="59" height="24.5"/>
                                                 <fontDescription key="fontDescription" name="AirbnbCerealApp-Book" family="Airbnb Cereal App" pointSize="17"/>
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLY-yi-8Ys" userLabel="Replies">
-                                                <rect key="frame" x="509" y="510" width="53" height="56"/>
+                                                <rect key="frame" x="509" y="510" width="53" height="53.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" red="0.27046570180000001" green="0.75735306739999997" blue="0.91507363320000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" image="replies 48 white"/>
+                                                <state key="normal" image="round_forum_black_24dp"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="27"/>
@@ -160,7 +160,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caA-QJ-3Ap" userLabel="Posts">
-                                                <rect key="frame" x="380" y="554.5" width="54" height="54"/>
+                                                <rect key="frame" x="380" y="557" width="54" height="54"/>
                                                 <color key="backgroundColor" red="0.27046570180000001" green="0.75735306739999997" blue="0.91507363320000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="54" id="fv4-qn-ORE"/>
@@ -190,7 +190,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gy8-hb-q3U" userLabel="Ratings">
-                                                <rect key="frame" x="252" y="510" width="54" height="56"/>
+                                                <rect key="frame" x="252" y="510" width="54" height="53.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" red="0.27046570181846619" green="0.75735306739807129" blue="0.91507363319396973" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" image="thumbUp"/>
@@ -213,7 +213,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ratings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eor-4M-B9Z">
-                                                <rect key="frame" x="250" y="570" width="58" height="20"/>
+                                                <rect key="frame" x="250" y="567.5" width="58" height="22.5"/>
                                                 <fontDescription key="fontDescription" name="AirbnbCerealApp-Book" family="Airbnb Cereal App" pointSize="17"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -243,7 +243,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7HO-o5-d41">
-                                                <rect key="frame" x="453" y="329" width="64" height="68"/>
+                                                <rect key="frame" x="453" y="329" width="64" height="63.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <accessibility key="accessibilityConfiguration">
                                                     <accessibilityTraits key="traits" button="YES" staticText="YES"/>
@@ -273,19 +273,19 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buffalo, NY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCh-zf-5E8" userLabel="Current Location">
-                                                <rect key="frame" x="366" y="473" width="80" height="17.5"/>
+                                                <rect key="frame" x="366" y="473" width="80" height="20"/>
                                                 <fontDescription key="fontDescription" name="AirbnbCerealApp-Book" family="Airbnb Cereal App" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p2p-ph-Dwl">
-                                                <rect key="frame" x="278" y="417" width="256" height="40"/>
+                                                <rect key="frame" x="278" y="412.5" width="256" height="44.5"/>
                                                 <fontDescription key="fontDescription" name="AirbnbCerealApp-Bold" family="Airbnb Cereal App" pointSize="34"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="96q-3K-RSe">
-                                                <rect key="frame" x="380" y="611.5" width="52" height="20"/>
+                                                <rect key="frame" x="380" y="614" width="52" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="zyy-qD-mH1"/>
                                                 </constraints>
@@ -1684,12 +1684,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zmn-oS-YwG" customClass="VSTwitterTextCounter" customModule="VSTwitterTextCounter">
-                                <rect key="frame" x="310" y="253" width="100" height="20"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                            </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="What's up?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fHd-lL-Kgy">
-                                <rect key="frame" x="8" y="102" width="359" height="166"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="What's up?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fHd-lL-Kgy">
+                                <rect key="frame" x="16" y="98" width="343" height="117"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="AirbnbCerealApp-Book" family="Airbnb Cereal App" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1702,20 +1698,26 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zmn-oS-YwG" customClass="VSTwitterTextCounter" customModule="VSTwitterTextCounter">
+                                <rect key="frame" x="317" y="181" width="42" height="34"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="fHd-lL-Kgy" firstAttribute="top" secondItem="baF-md-Q8x" secondAttribute="bottom" constant="8" symbolic="YES" id="EC0-kx-JAX"/>
+                            <constraint firstItem="Zmn-oS-YwG" firstAttribute="trailing" secondItem="fHd-lL-Kgy" secondAttribute="trailing" id="1sT-CT-7wg"/>
+                            <constraint firstItem="Zmn-oS-YwG" firstAttribute="bottom" secondItem="fHd-lL-Kgy" secondAttribute="bottom" id="33F-CJ-b0P"/>
                             <constraint firstItem="lZb-EQ-XX0" firstAttribute="leading" secondItem="baF-md-Q8x" secondAttribute="trailing" constant="57" id="IUx-id-unp"/>
-                            <constraint firstItem="oh5-fg-URa" firstAttribute="bottom" secondItem="fHd-lL-Kgy" secondAttribute="bottom" constant="350" id="IuK-JA-j7j"/>
                             <constraint firstItem="baF-md-Q8x" firstAttribute="centerY" secondItem="Fmp-20-BpW" secondAttribute="centerY" id="M1C-sn-rLj"/>
-                            <constraint firstItem="Zmn-oS-YwG" firstAttribute="top" secondItem="HI6-uO-1Fw" secondAttribute="top" constant="253" id="Nvd-yV-oar"/>
+                            <constraint firstItem="Zmn-oS-YwG" firstAttribute="leading" secondItem="oh5-fg-URa" secondAttribute="leading" constant="317" id="Q8J-mz-uSL"/>
                             <constraint firstItem="baF-md-Q8x" firstAttribute="centerY" secondItem="lZb-EQ-XX0" secondAttribute="centerY" id="Uxe-oY-9dt"/>
-                            <constraint firstItem="fHd-lL-Kgy" firstAttribute="centerX" secondItem="baF-md-Q8x" secondAttribute="centerX" id="WRl-rQ-EmG"/>
-                            <constraint firstItem="fHd-lL-Kgy" firstAttribute="leading" secondItem="oh5-fg-URa" secondAttribute="leading" constant="8" id="bXQ-gB-U3B"/>
+                            <constraint firstItem="oh5-fg-URa" firstAttribute="bottom" secondItem="fHd-lL-Kgy" secondAttribute="bottom" constant="403" id="Wfk-QW-aEN"/>
+                            <constraint firstItem="Zmn-oS-YwG" firstAttribute="top" secondItem="lZb-EQ-XX0" secondAttribute="bottom" constant="97" id="X9Y-74-GJN"/>
                             <constraint firstItem="baF-md-Q8x" firstAttribute="leading" secondItem="Fmp-20-BpW" secondAttribute="trailing" constant="57" id="gJh-77-jk1"/>
+                            <constraint firstItem="fHd-lL-Kgy" firstAttribute="centerX" secondItem="baF-md-Q8x" secondAttribute="centerX" id="hdP-6o-Jpf"/>
                             <constraint firstItem="baF-md-Q8x" firstAttribute="top" secondItem="oh5-fg-URa" secondAttribute="top" constant="24" id="n44-ar-6Mb"/>
-                            <constraint firstItem="Zmn-oS-YwG" firstAttribute="leading" secondItem="oh5-fg-URa" secondAttribute="leading" constant="310" id="snY-RB-4DV"/>
+                            <constraint firstItem="fHd-lL-Kgy" firstAttribute="top" secondItem="baF-md-Q8x" secondAttribute="bottom" constant="4" id="sGN-2E-BNa"/>
+                            <constraint firstItem="fHd-lL-Kgy" firstAttribute="leading" secondItem="HI6-uO-1Fw" secondAttribute="leadingMargin" id="toI-7f-kcb"/>
                             <constraint firstItem="baF-md-Q8x" firstAttribute="leading" secondItem="HI6-uO-1Fw" secondAttribute="leading" constant="162" id="ug0-Cr-mvZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oh5-fg-URa"/>
@@ -1755,8 +1757,8 @@
         <image name="profile" width="24" height="24"/>
         <image name="profile_1" width="3840" height="5760"/>
         <image name="radius" width="24" height="24"/>
-        <image name="replies 48 white" width="48" height="48"/>
         <image name="right" width="36" height="36"/>
+        <image name="round_forum_black_24dp" width="24" height="24"/>
         <image name="settings" width="24" height="24"/>
         <image name="thumbDown" width="24" height="24"/>
         <image name="thumbUp" width="24" height="24"/>

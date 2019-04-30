@@ -21,7 +21,7 @@ struct Place {
     var likelihood: String
 }
 
-class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDelegate, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDelegate, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
     
     @IBOutlet weak var message: UITextView!
     @IBOutlet weak var containerView: UIView!
@@ -47,6 +47,7 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         // update date format for cacheMessage
         dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
@@ -67,14 +68,14 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         
         message.selectedTextRange = message.textRange(from: message.beginningOfDocument, to: message.beginningOfDocument)
         
-        message.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 2, right: 10)
+        //message.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 2, right: 10)
         
         // collection view
         
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
         
-        self.placesView = UICollectionView(frame: CGRect(x: 0, y: (self.view.frame.maxY - self.view.frame.maxY/8 - 5), width: view.frame.width, height: 100), collectionViewLayout: flowLayout)
+        self.placesView = UICollectionView(frame: CGRect(x: 0, y: (self.view.frame.maxY - self.view.frame.maxY/8), width: view.frame.width, height: 80), collectionViewLayout: flowLayout)
 
         placesView.delegate = self
         placesView.dataSource = self
@@ -93,7 +94,7 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         toolbar.barStyle = .default
         
         let tagItem = UIBarButtonItem(title: "Tags", style: .plain, target: self, action: #selector(tags))
-        tagItem.image = #imageLiteral(resourceName: "feed")
+        tagItem.image = #imageLiteral(resourceName: "round_more_horiz_black_48pt")
         
         let timeItem = UIBarButtonItem(title: "Time", style: .plain, target: self, action: #selector(setTime))
         timeItem.image = #imageLiteral(resourceName: "timer")
@@ -126,7 +127,7 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         self.lengthLabel.text = "1h"
         let labelBarButton1 = UIBarButtonItem(customView: self.lengthLabel)
         
-        toolbar.items = [tagItem, sliderItem, labelBarButton1, spacer, labelBarButton, timeItem]
+        toolbar.items = [timeItem, sliderItem, labelBarButton1, spacer, labelBarButton, tagItem]
         toolbar.sizeToFit()
         message.inputAccessoryView = toolbar
 
@@ -145,11 +146,11 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         self.postTime = logTime
         
         if (logTime >= 60 && logTime < 1440) {
-            self.lengthLabel.text = "\(tuple.hours)h\(tuple.leftMinutes)m"
+            self.lengthLabel.text = " \(tuple.hours)h\(tuple.leftMinutes)m"
         } else if (logTime >= 1440){
-            self.lengthLabel.text = "\(dayTuple.days)d\(dayTuple.hours)h"
+            self.lengthLabel.text = " \(dayTuple.days)d\(dayTuple.hours)h"
         } else {
-            self.lengthLabel.text = "\(logTime)m"
+            self.lengthLabel.text = " \(logTime)m"
         }
         
     }
@@ -200,7 +201,7 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 100, height: 100)
+        return CGSize(width: 80, height: 80)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -213,6 +214,24 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         
         // update selected group object
         self.selectedPlace = places[indexPath.row]
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView){
+
+        
+        let allCells = scrollView as! UICollectionView
+        let visibleCells = allCells.visibleCells
+        for cell in visibleCells{
+            let realCenter = scrollView.convert(CGPoint(x: cell.frame.minX, y: cell.frame.midY), to: scrollView.superview)
+            let distFromLeft = self.view.frame.minX + realCenter.x
+            if(distFromLeft > 10){
+                let s = 10/distFromLeft
+                //let s = -0.00005 * pow(realCenter.x, 2) + 1.5
+                cell.transform = CGAffineTransform.init(scaleX: s, y: s)
+                let pCell = cell as! PlaceCollectionCell
+                pCell.PlaceName.text = "\(s)"
+            }
+        }
     }
     
     func cacheMessage() {
@@ -322,7 +341,7 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
                     GroupPostManager.sharedInstance.placeId = place.placeID!
                     
                     //if the current place's likelihood is less than 70% of the most likely place, skip the rest
-                    if(likelihood.likelihood < maxLikelihood * 0.75){
+                    if(likelihood.likelihood < maxLikelihood * 0.2){
                         break
                     }
                     else{
@@ -334,7 +353,7 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
                 }
             }
             
-            self.places.append(Place(placeID: "Other", placeName: "Other", likelihood: "-1"))
+            self.places.append(Place(placeID: "Other", placeName: "* Nowhere in particular *", likelihood: "-1"))
             
             print("reloading data")
             self.placesView.reloadData()
