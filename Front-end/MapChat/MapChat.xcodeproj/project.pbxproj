@@ -14,10 +14,10 @@
 		40D5A00C4EDA5CB66FAE5139 /* Pods_MapChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEEF9F98D541554EEAD87DA7 /* Pods_MapChatTests.framework */; };
 		43100785EC0B2D92AC929817 /* Pods_MapChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F40FC9B6A3AF41E2EA0585 /* Pods_MapChat.framework */; };
 		4D094463226E7F0F004995D0 /* ProfilePicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D094462226E7F0F004995D0 /* ProfilePicView.swift */; };
-		4D54EBC52272D77F00B7DE58 /* cachr_white_half.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D54EBC42272D77F00B7DE58 /* cachr_white_half.json */; };
 		4D54EBC72272DE7500B7DE58 /* cachr_blue_full.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D54EBC62272DE7500B7DE58 /* cachr_blue_full.json */; };
 		4D54EBCB2272E7D900B7DE58 /* cachr_white_full.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D54EBCA2272E7D900B7DE58 /* cachr_white_full.json */; };
 		4D54EBCD22734C5900B7DE58 /* cachr_white_half_60.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D54EBCC22734C5900B7DE58 /* cachr_white_half_60.json */; };
+		4D58B3DB2277AD660080FA21 /* radar_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D58B3DA2277AD660080FA21 /* radar_animation.json */; };
 		EB086E9F2253F23A00F9D2D3 /* GroupPostManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB086E9E2253F23A00F9D2D3 /* GroupPostManager.swift */; };
 		EB2F3B4322738F2200D317D0 /* EmojiPickerNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB2F3B4222738F2200D317D0 /* EmojiPickerNib.xib */; };
 		EB2F3B452273904E00D317D0 /* EmojiCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2F3B442273904E00D317D0 /* EmojiCollectionCell.swift */; };
@@ -113,10 +113,10 @@
 		1DE61570E901C6844CC5F675 /* Pods-MapChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapChatTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapChatTests/Pods-MapChatTests.release.xcconfig"; sourceTree = "<group>"; };
 		4527A64964C100488AE037C9 /* Pods-MapChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapChat/Pods-MapChat.release.xcconfig"; sourceTree = "<group>"; };
 		4D094462226E7F0F004995D0 /* ProfilePicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePicView.swift; sourceTree = "<group>"; };
-		4D54EBC42272D77F00B7DE58 /* cachr_white_half.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cachr_white_half.json; sourceTree = "<group>"; };
 		4D54EBC62272DE7500B7DE58 /* cachr_blue_full.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cachr_blue_full.json; sourceTree = "<group>"; };
 		4D54EBCA2272E7D900B7DE58 /* cachr_white_full.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cachr_white_full.json; sourceTree = "<group>"; };
 		4D54EBCC22734C5900B7DE58 /* cachr_white_half_60.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cachr_white_half_60.json; sourceTree = "<group>"; };
+		4D58B3DA2277AD660080FA21 /* radar_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = radar_animation.json; sourceTree = "<group>"; };
 		503386CE2733449CC61C1E2A /* Pods_MapChatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapChatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DA7418D44CF80E978ED32F0 /* Pods-MapChatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapChatUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapChatUITests/Pods-MapChatUITests.release.xcconfig"; sourceTree = "<group>"; };
 		892CF372E268F02FF32724B5 /* Pods-MapChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MapChat/Pods-MapChat.debug.xcconfig"; sourceTree = "<group>"; };
@@ -410,7 +410,7 @@
 				EBA2AF67223AC839009B8962 /* location_a.json */,
 				EBA2AF69223AC83F009B8962 /* location_b.json */,
 				EBA2AF6B223AC844009B8962 /* location_c.json */,
-				4D54EBC42272D77F00B7DE58 /* cachr_white_half.json */,
+				4D58B3DA2277AD660080FA21 /* radar_animation.json */,
 				4D54EBCC22734C5900B7DE58 /* cachr_white_half_60.json */,
 			);
 			path = Helpers;
@@ -625,6 +625,7 @@
 				4D54EBCD22734C5900B7DE58 /* cachr_white_half_60.json in Resources */,
 				EBA2AF6C223AC844009B8962 /* location_c.json in Resources */,
 				EB616CA5226B77B000335BF7 /* waiting.json in Resources */,
+				4D58B3DB2277AD660080FA21 /* radar_animation.json in Resources */,
 				056A378A2223301A005A49CB /* Auth.storyboard in Resources */,
 				EB414CEF2214F29A007C3FE4 /* LaunchScreen.storyboard in Resources */,
 				EB414CEC2214F29A007C3FE4 /* Assets.xcassets in Resources */,
@@ -632,7 +633,6 @@
 				EB31C6582263F84400086DB3 /* AirbnbCereal-Bold.ttf in Resources */,
 				EB303FD62252954F00161BC8 /* davis_hall.jpg in Resources */,
 				EBFAC67022261B05004B5074 /* MainView.storyboard in Resources */,
-				4D54EBC52272D77F00B7DE58 /* cachr_white_half.json in Resources */,
 				EB414CE72214F298007C3FE4 /* Main.storyboard in Resources */,
 				EBEA938A222DFACD0097251A /* AirbnbCereal-Light.ttf in Resources */,
 				EBA2AF68223AC83A009B8962 /* location_a.json in Resources */,

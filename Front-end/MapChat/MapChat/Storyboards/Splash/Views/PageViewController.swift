@@ -12,6 +12,7 @@ import UIKit
 class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     
     var pageControl = UIPageControl()
+    var sign_in_button = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +35,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
     override func viewDidAppear(_ animated: Bool) {
         
         // button frame (X,Y,width, height)
-        let sign_in_button = UIButton(frame: CGRect(x: 0, y: (self.view.frame.maxY - self.view.frame.maxY/5), width: (self.view.frame.maxX - self.view.frame.maxX/4), height: 50))
+        sign_in_button = UIButton(frame: CGRect(x: 0, y: (self.view.frame.maxY - self.view.frame.maxY/6), width: (self.view.frame.maxX - self.view.frame.maxX/4), height: 40))
         
         // button text "sign in"
         sign_in_button.setTitle("Sign in", for: .normal)
@@ -47,7 +48,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         sign_in_button.backgroundColor = UIColor.white
         
         // rounded
-        sign_in_button.layer.cornerRadius = 15
+        sign_in_button.layer.cornerRadius = 10
         
         // center within view
         sign_in_button.center.x = self.view.frame.midX
@@ -58,7 +59,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         self.view.addSubview(sign_in_button)
         
         // button frame (X,Y,width, height)
-        let sign_up_button = UIButton(frame: CGRect(x: 0, y: (self.view.frame.maxY - self.view.frame.maxY/5) + self.view.frame.maxY/15, width: 100, height: 50))
+        let sign_up_button = UIButton(frame: CGRect(x: 0, y: (self.view.frame.maxY - self.view.frame.maxY/6) + self.view.frame.maxY/16, width: (self.view.frame.maxX - self.view.frame.maxX/4), height: 40))
 
         // button text "sign up"
         sign_up_button.setTitle("Sign up", for: .normal)
@@ -71,6 +72,9 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         sign_up_button.center.x = self.view.frame.midX
         
         sign_up_button.addTarget(self, action: #selector(sign_up), for: .touchUpInside)
+        
+        //set color
+        //sign_up_button.backgroundColor = .white //UIColor(red: 69/255, green: 193/255, blue: 233/255, alpha: 1)
 
         // add button to view
         self.view.addSubview(sign_up_button)
@@ -94,7 +98,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
     
     func configurePageControl() {
         // The total number of pages that are available is based on how many available colors we have.
-        pageControl = UIPageControl(frame: CGRect(x: 0,y: UIScreen.main.bounds.maxY - 50,width: UIScreen.main.bounds.width,height: 50))
+        pageControl = UIPageControl(frame: CGRect(x: 0, y: (self.view.frame.maxY - self.view.frame.maxY/4.5), width: UIScreen.main.bounds.width, height: 40))
         self.pageControl.numberOfPages = orderedViewControllers.count
         self.pageControl.currentPage = 0
         self.pageControl.tintColor = UIColor.black
