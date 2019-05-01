@@ -398,7 +398,7 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
                     GroupPostManager.sharedInstance.placeId = place.placeID!
                     
                     //if the current place's likelihood is less than 75% of the most likely place, skip the rest
-                    if(likelihood.likelihood < maxLikelihood * 0.2){
+                    if(likelihood.likelihood < maxLikelihood * 0.7){
                         break
                     }
                     else{
