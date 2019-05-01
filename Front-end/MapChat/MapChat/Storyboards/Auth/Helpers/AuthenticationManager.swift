@@ -197,15 +197,23 @@ class AuthenticationHelper {
         let firstname = displayNameArray[0]
         let lastname = displayNameArray[1]
         
+        print("Email: \(AuthenticationHelper.sharedInstance.current_user.username!)")
+        
+        let email = AuthenticationHelper.sharedInstance.current_user.username!
+        
         let emailArray = AuthenticationHelper.sharedInstance.current_user.username!.components(separatedBy: "@")
         let username = emailArray[0]
+        
+        AuthenticationHelper.sharedInstance.current_user.username = username
+        
+        print("Username: \(AuthenticationHelper.sharedInstance.current_user.username!)")
         
         let birthday = AuthenticationHelper.sharedInstance.current_user.birthday!
         
         let homeTown = AuthenticationHelper.sharedInstance.current_user.homeTown!
         
         let parameters: [String: Any] = [
-            "email": AuthenticationHelper.sharedInstance.current_user.username!,
+            "email": email,
             "username": username,
             "password": AuthenticationHelper.sharedInstance.current_user.password!,
             "firstname": firstname,
