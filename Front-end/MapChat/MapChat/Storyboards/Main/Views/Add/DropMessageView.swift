@@ -49,13 +49,6 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        NotificationCenter.default.addObserver(
-//            self,
-//            selector: #selector(keyboardWillShow),
-//            name: UIResponder.keyboardWillShowNotification,
-//            object: nil
-//        )
-        
         // update date format for cacheMessage
         dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
@@ -75,39 +68,11 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         message.textColor = UIColor.lightGray
         
         message.selectedTextRange = message.textRange(from: message.beginningOfDocument, to: message.beginningOfDocument)
-        
-        //message.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 2, right: 10)
-        
-        // collection view
-        
-//        let flowLayout = UICollectionViewFlowLayout()
-//        flowLayout.scrollDirection = .horizontal
-        
-//        //self.placesView = UICollectionView(frame: CGRect(x: 0, y: (self.view.frame.maxY), width: view.frame.width, height: 80), collectionViewLayout: flowLayout)
-//
-//        print(self.view.frame.maxY)
-//
-//        placesView.delegate = self
-//        placesView.dataSource = self
-//
-//        self.placesView.register(UINib(nibName: "PlaceCellNib", bundle: nil), forCellWithReuseIdentifier: "PlaceCellObject")
-//        // placesView.register(PlaceCollectionCell.self, forCellWithReuseIdentifier: "PlaceCell")
-//        placesView.showsVerticalScrollIndicator = false
-//        placesView.showsHorizontalScrollIndicator = false
-//        placesView.backgroundColor = UIColor.clear
-//        // placesView.backgroundColor = UIColor.cyan
-//        self.view.addSubview(placesView)
-//        //placesView.bindToKeyboard()
-        
-        
+    
         
         // keyboard toolbar
         let toolbar = UIToolbar(frame:CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
         toolbar.barStyle = .default
-        
-        
-
-        
         
         let tagItem = UIBarButtonItem(title: "Tags", style: .plain, target: self, action: #selector(tags))
         tagItem.image = #imageLiteral(resourceName: "round_more_horiz_black_48pt")
@@ -115,8 +80,7 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         let timeItem = UIBarButtonItem(title: "Time", style: .plain, target: self, action: #selector(setTime))
         timeItem.image = #imageLiteral(resourceName: "timer")
         
-        // slider
-        
+        // Slider
         // let mySlider = UISlider(x: 0, y: 0, width: UIScreen.main.bounds.width/4, height: 50)
         let mySlider = UISlider(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width/2, height: 50))
         mySlider.minimumValue = 1
