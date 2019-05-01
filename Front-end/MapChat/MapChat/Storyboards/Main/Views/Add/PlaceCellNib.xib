@@ -28,26 +28,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="80" id="MA2-G4-Kyk"/>
-                            <constraint firstAttribute="width" constant="80" id="jcc-JU-MZZ"/>
-                            <constraint firstAttribute="width" secondItem="LWK-IP-T62" secondAttribute="height" multiplier="1:1" id="xkx-S1-fto"/>
+                            <constraint firstAttribute="width" secondItem="LWK-IP-T62" secondAttribute="height" multiplier="1:1" id="HXS-rg-tEc"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="AirbnbCerealApp-Medium" family="Airbnb Cereal App" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <real key="value" value="15"/>
+                                <real key="value" value="8"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </label>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="LWK-IP-T62" secondAttribute="trailing" id="1JJ-HA-Xdg"/>
-                <constraint firstItem="LWK-IP-T62" firstAttribute="top" secondItem="feK-8M-Rqg" secondAttribute="top" id="EDf-xx-ZiF"/>
-                <constraint firstAttribute="bottom" secondItem="LWK-IP-T62" secondAttribute="bottom" id="MsU-1J-kB0"/>
-                <constraint firstItem="LWK-IP-T62" firstAttribute="leading" secondItem="feK-8M-Rqg" secondAttribute="leading" id="w3B-u9-7Gp"/>
+                <constraint firstItem="LWK-IP-T62" firstAttribute="top" secondItem="feK-8M-Rqg" secondAttribute="top" id="G66-Qf-chq"/>
+                <constraint firstAttribute="bottom" secondItem="LWK-IP-T62" secondAttribute="bottom" id="NN7-Bb-aiu"/>
+                <constraint firstAttribute="trailing" secondItem="LWK-IP-T62" secondAttribute="trailing" id="jrY-nl-OMd"/>
+                <constraint firstItem="LWK-IP-T62" firstAttribute="leading" secondItem="feK-8M-Rqg" secondAttribute="leading" id="pZG-Ef-8kx"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="2DN-pS-Fph"/>
             <size key="customSize" width="369" height="297"/>
