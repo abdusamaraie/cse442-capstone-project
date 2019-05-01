@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,15 +18,20 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PlaceCellObject" id="feK-8M-Rqg" customClass="PlaceCollectionCell" customModule="MapChat" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hochstetter Hall" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWK-IP-T62" customClass="DesignableLabel" customModule="MapChat" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" insetsLayoutMarginsFromSafeArea="NO" text="Hochstetter Hall" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="80" translatesAutoresizingMaskIntoConstraints="NO" id="LWK-IP-T62" customClass="DesignableLabel" customModule="MapChat" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="80" id="MA2-G4-Kyk"/>
+                            <constraint firstAttribute="width" constant="80" id="jcc-JU-MZZ"/>
+                            <constraint firstAttribute="width" secondItem="LWK-IP-T62" secondAttribute="height" multiplier="1:1" id="xkx-S1-fto"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="AirbnbCerealApp-Medium" family="Airbnb Cereal App" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -39,13 +44,13 @@
                 </subviews>
             </view>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="LWK-IP-T62" secondAttribute="bottom" id="MOw-6x-MBe"/>
-                <constraint firstItem="LWK-IP-T62" firstAttribute="top" secondItem="feK-8M-Rqg" secondAttribute="top" id="RP9-GQ-65E"/>
-                <constraint firstAttribute="trailing" secondItem="LWK-IP-T62" secondAttribute="trailing" id="cfK-fg-HOR"/>
-                <constraint firstItem="LWK-IP-T62" firstAttribute="leading" secondItem="feK-8M-Rqg" secondAttribute="leading" id="s1X-bg-e1J"/>
+                <constraint firstAttribute="trailing" secondItem="LWK-IP-T62" secondAttribute="trailing" id="1JJ-HA-Xdg"/>
+                <constraint firstItem="LWK-IP-T62" firstAttribute="top" secondItem="feK-8M-Rqg" secondAttribute="top" id="EDf-xx-ZiF"/>
+                <constraint firstAttribute="bottom" secondItem="LWK-IP-T62" secondAttribute="bottom" id="MsU-1J-kB0"/>
+                <constraint firstItem="LWK-IP-T62" firstAttribute="leading" secondItem="feK-8M-Rqg" secondAttribute="leading" id="w3B-u9-7Gp"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="2DN-pS-Fph"/>
-            <size key="customSize" width="389" height="317"/>
+            <size key="customSize" width="369" height="297"/>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                     <real key="value" value="25"/>
@@ -54,7 +59,7 @@
             <connections>
                 <outlet property="PlaceName" destination="LWK-IP-T62" id="vWa-ft-gp8"/>
             </connections>
-            <point key="canvasLocation" x="-85.507246376811594" y="-22.767857142857142"/>
+            <point key="canvasLocation" x="-100.8" y="-29.685157421289357"/>
         </collectionViewCell>
     </objects>
 </document>

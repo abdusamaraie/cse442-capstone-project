@@ -83,20 +83,20 @@ class AuthenticationHelper {
     
     func sign_in(completion: @escaping (_ response_:String) -> ()) {
         
-        // 34.73.109.229:80/auth?username=bailytro&password=password
+         //34.73.109.229:80/auth?username=bailytro&password=password
         
         let emailArray = AuthenticationHelper.sharedInstance.current_user.username!.components(separatedBy: "@")
         let username = emailArray[0]
-        
+
         let sign_in_string = "\(url_string)/auth?username=\(username)&password=\(AuthenticationHelper.sharedInstance.current_user.password!)"
-        
+
         print("URL STRING: \(sign_in_string)")
-        
+
         Alamofire.request(sign_in_string, method: .get, parameters: nil, headers: nil).validate().responseString { response in
-            
+
             print("response: \(response.result.value!)")
             print("status code: \(response.response!.statusCode)")
-            
+
             switch(response.result) {
             case .success(_):
                 if (response.result.value! == "True") {
@@ -113,7 +113,6 @@ class AuthenticationHelper {
                 completion("Error")
                 break
             }
-
         }
     }
     

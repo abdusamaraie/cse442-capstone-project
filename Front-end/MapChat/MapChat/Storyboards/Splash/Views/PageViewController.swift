@@ -13,6 +13,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
     
     var pageControl = UIPageControl()
     var sign_in_button = UIButton()
+    var sign_up_button = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,11 +56,19 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         
         sign_in_button.addTarget(self, action: #selector(sign_in), for: .touchUpInside)
         
+        //set alpha for fade-in animation
+        sign_in_button.alpha = 0.0
+        
         // add button to view
         self.view.addSubview(sign_in_button)
         
+        //do fade-in animation
+        UIView.animate(withDuration: 0.8, animations: {
+            self.sign_in_button.alpha = 1.0
+        })
+        
         // button frame (X,Y,width, height)
-        let sign_up_button = UIButton(frame: CGRect(x: 0, y: (self.view.frame.maxY - self.view.frame.maxY/6) + self.view.frame.maxY/16, width: (self.view.frame.maxX - self.view.frame.maxX/4), height: 40))
+        sign_up_button = UIButton(frame: CGRect(x: 0, y: (self.view.frame.maxY - self.view.frame.maxY/6) + self.view.frame.maxY/16, width: (self.view.frame.maxX - self.view.frame.maxX/4), height: 40))
 
         // button text "sign up"
         sign_up_button.setTitle("Sign up", for: .normal)
@@ -75,9 +84,17 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         
         //set color
         //sign_up_button.backgroundColor = .white //UIColor(red: 69/255, green: 193/255, blue: 233/255, alpha: 1)
+        
+        //set alpha for fade animation
+        sign_up_button.alpha = 0.0
 
         // add button to view
         self.view.addSubview(sign_up_button)
+        
+        //do fade-in animation
+        UIView.animate(withDuration: 0.8, animations: {
+            self.sign_up_button.alpha = 1.0
+        })
     }
     
     @objc func sign_in() {
