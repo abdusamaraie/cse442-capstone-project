@@ -169,10 +169,11 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
     
     override func viewDidAppear(_ animated: Bool) {
         //load places view, this needs to be here for keyboard height to be available
-        let placeViewPosY = self.view.frame.maxY - keyboardHeight - 90
+        let placeViewPosY = self.view.frame.maxY - keyboardHeight - 85
         
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
+        flowLayout.minimumLineSpacing = 0
         
         //print("FRAME - KEYBOARD: \(placeViewPosY)")
         placesView = UICollectionView(frame: CGRect(x: 0, y: placeViewPosY, width: view.frame.width, height: 80), collectionViewLayout: flowLayout)
@@ -230,7 +231,7 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         
         
         //quadratic formula
-        let s = -0.06 * pow(distFromMiddle/60, 2) + 1
+        let s = -0.03 * pow(distFromMiddle/60, 2) + 1
         
         //scale cells
         cell.transform = CGAffineTransform.init(scaleX: s, y: s)
@@ -271,7 +272,7 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
             //print(distFromMiddle)
             
             //quadratic formula
-            s = -0.06 * pow(distFromMiddle/60, 2) + 1
+            s = -0.03 * pow(distFromMiddle/60, 2) + 1
             
             //cells dont get scaled smaller than .35
             if(s < 0.35){s = 0.35}
@@ -317,6 +318,7 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
                 ]
                 
                 print("placeID: \(selectedPlaceID)")
+                print(parameters)
                 
                 if (self.dropMessage) {
                     print("=====drop message is true=====")
@@ -396,7 +398,7 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
                     GroupPostManager.sharedInstance.placeId = place.placeID!
                     
                     //if the current place's likelihood is less than 75% of the most likely place, skip the rest
-                    if(likelihood.likelihood < maxLikelihood * 0.70){
+                    if(likelihood.likelihood < maxLikelihood * 0.7){
                         break
                     }
                     else{

@@ -370,7 +370,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TxH-Q7-BPr" customClass="DesignableView" customModule="MapChat" customModuleProvider="target">
-                                                            <rect key="frame" x="15" y="11" width="345" height="128.33333333333334"/>
+                                                            <rect key="frame" x="15" y="11" width="345" height="128.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is an example message that was dropped and it is way too long but allowed" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qec-AC-83y">
                                                                     <rect key="frame" x="8" y="8" width="329" height="84"/>
@@ -392,7 +392,7 @@
                                                                     </constraints>
                                                                 </view>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MGK-lH-G8A">
-                                                                    <rect key="frame" x="8" y="100.33333333333333" width="20" height="20"/>
+                                                                    <rect key="frame" x="8" y="100.5" width="20" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="20" id="L9l-hx-6Bp"/>
                                                                         <constraint firstAttribute="height" constant="20" id="kxc-OQ-tbv"/>
@@ -404,7 +404,7 @@
                                                                     </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BfC-zF-xqK">
-                                                                    <rect key="frame" x="62" y="100.33333333333333" width="20" height="20"/>
+                                                                    <rect key="frame" x="62" y="100.5" width="20" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="20" id="3Xj-7U-F0q"/>
                                                                         <constraint firstAttribute="height" constant="20" id="ra1-0Q-cGL"/>
@@ -416,7 +416,7 @@
                                                                     </connections>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#example-tag" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RSG-bL-lO5">
-                                                                    <rect key="frame" x="90" y="100" width="247" height="21.333333333333329"/>
+                                                                    <rect key="frame" x="90" y="100" width="247" height="21.5"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="247" id="rS6-Xw-KZk"/>
                                                                     </constraints>
@@ -425,7 +425,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qnQ-xv-dhI">
-                                                                    <rect key="frame" x="32" y="101.33333333333333" width="19" height="18"/>
+                                                                    <rect key="frame" x="32" y="101.5" width="19" height="18"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -837,7 +837,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_1" translatesAutoresizingMaskIntoConstraints="NO" id="Wkg-dA-gG4">
-                                                    <rect key="frame" x="7" y="11.333333333333336" width="45" height="45"/>
+                                                    <rect key="frame" x="7" y="11.5" width="45" height="45"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="45" id="6gg-ff-yRE"/>
                                                         <constraint firstAttribute="height" constant="45" id="abH-dq-jGz"/>
@@ -849,13 +849,13 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a test tweet. I really think our demo went really well yesterday! " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJj-v4-247">
-                                                    <rect key="frame" x="63" y="40.333333333333343" width="292" height="36.666666666666657"/>
+                                                    <rect key="frame" x="63" y="40.5" width="292" height="36.5"/>
                                                     <fontDescription key="fontDescription" name="AirbnbCerealApp-Book" family="Airbnb Cereal App" pointSize="14"/>
                                                     <color key="textColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h1b-Wh-fS5">
-                                                    <rect key="frame" x="336" y="8.3333333333333357" width="24" height="24"/>
+                                                    <rect key="frame" x="336" y="8.5" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="24" id="T1n-Pn-4WL"/>
                                                         <constraint firstAttribute="height" constant="24" id="nZY-QH-hD8"/>
@@ -867,13 +867,13 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Baily Troyer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEx-Wc-8dV">
-                                                    <rect key="frame" x="64" y="11.333333333333336" width="87.666666666666686" height="21"/>
+                                                    <rect key="frame" x="64" y="11.5" width="87.5" height="21"/>
                                                     <fontDescription key="fontDescription" name="AirbnbCerealApp-Medium" family="Airbnb Cereal App" pointSize="16"/>
                                                     <color key="textColor" red="0.2612329987" green="0.2612329987" blue="0.2612329987" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@bailyt • 1h" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZ1-YG-PDz">
-                                                    <rect key="frame" x="158" y="11.333333333333336" width="84" height="21"/>
+                                                    <rect key="frame" x="158" y="11.5" width="84" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="84" id="hdY-26-ifA"/>
                                                     </constraints>
@@ -882,7 +882,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZlM-WT-pqn">
-                                                    <rect key="frame" x="15" y="90.333333333333329" width="345" height="35"/>
+                                                    <rect key="frame" x="15" y="90.5" width="345" height="35"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ak-Uh-Apa" customClass="DesignableButton" customModule="MapChat" customModuleProvider="target">
                                                             <rect key="frame" x="47" y="0.0" width="62" height="30"/>
@@ -967,7 +967,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Replying to @username and @username" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oxb-X4-3Z5">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Replying to @username and @username" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oxb-X4-3Z5">
                                                     <rect key="frame" x="63" y="40" width="292" height="18.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="AirbnbCerealApp-Book" family="Airbnb Cereal App" pointSize="14"/>
                                                     <color key="textColor" red="0.27058823529999998" green="0.75686274509999996" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -989,7 +989,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@bailyt • 1h" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oNN-UW-MOI">
-                                                    <rect key="frame" x="158.33333333333334" y="11" width="84" height="21"/>
+                                                    <rect key="frame" x="158.5" y="11" width="84" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="84" id="6zX-Iz-uGR"/>
                                                     </constraints>
@@ -997,7 +997,7 @@
                                                     <color key="textColor" red="0.2612329987" green="0.2612329987" blue="0.2612329987" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is my message reply and I think both usernames are wrong in what they said. " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNg-Ae-o1n">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="This is my message reply and I think both usernames are wrong in what they said. " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNg-Ae-o1n">
                                                     <rect key="frame" x="63" y="66" width="297" height="36.666666666666657"/>
                                                     <fontDescription key="fontDescription" name="AirbnbCerealApp-Book" family="Airbnb Cereal App" pointSize="14"/>
                                                     <color key="textColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1081,10 +1081,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j8k-5c-SxC">
-                                <rect key="frame" x="0.0" y="-24" width="375" height="725"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pzK-Zm-Mn4">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="725"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdvancedFeedCell" rowHeight="131" id="tG9-j2-9B8" customClass="AdvancedFeedCell" customModule="MapChat" customModuleProvider="target">
@@ -1107,7 +1107,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a test tweet. I really think our demo went really well yesterday! " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="La6-9w-Jkb">
-                                                            <rect key="frame" x="63" y="40" width="292" height="36.666666666666657"/>
+                                                            <rect key="frame" x="63" y="40" width="293" height="37"/>
                                                             <fontDescription key="fontDescription" name="AirbnbCerealApp-Book" family="Airbnb Cereal App" pointSize="14"/>
                                                             <color key="textColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <nil key="highlightedColor"/>
@@ -1125,7 +1125,7 @@
                                                             </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Baily Troyer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qD-4G-O92">
-                                                            <rect key="frame" x="64" y="11" width="87.666666666666686" height="21"/>
+                                                            <rect key="frame" x="64" y="11" width="88" height="21"/>
                                                             <fontDescription key="fontDescription" name="AirbnbCerealApp-Medium" family="Airbnb Cereal App" pointSize="16"/>
                                                             <color key="textColor" red="0.2612329987" green="0.2612329987" blue="0.2612329987" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <nil key="highlightedColor"/>
@@ -1176,25 +1176,27 @@
                                                         </view>
                                                     </subviews>
                                                     <constraints>
+                                                        <constraint firstItem="ibL-wl-cv4" firstAttribute="leading" secondItem="z5W-hd-O5P" secondAttribute="trailing" constant="94" id="0XL-G5-ZNN"/>
+                                                        <constraint firstItem="La6-9w-Jkb" firstAttribute="leading" secondItem="Wsh-7n-zfA" secondAttribute="trailing" constant="11" id="1NR-az-wbI"/>
                                                         <constraint firstItem="0qD-4G-O92" firstAttribute="leading" secondItem="Wsh-7n-zfA" secondAttribute="trailing" constant="12" id="2N9-iL-Ks5"/>
                                                         <constraint firstItem="Wsh-7n-zfA" firstAttribute="leading" secondItem="ADb-mP-D21" secondAttribute="leadingMargin" constant="-8" id="7Er-zJ-LH7"/>
                                                         <constraint firstAttribute="trailing" secondItem="ibL-wl-cv4" secondAttribute="trailing" constant="15" id="9W2-F4-u0U"/>
                                                         <constraint firstItem="BKx-7y-NjD" firstAttribute="trailing" secondItem="ibL-wl-cv4" secondAttribute="trailing" id="AQN-58-5ro"/>
                                                         <constraint firstItem="Wsh-7n-zfA" firstAttribute="top" secondItem="ADb-mP-D21" secondAttribute="topMargin" id="CTT-Re-Xha"/>
-                                                        <constraint firstItem="BKx-7y-NjD" firstAttribute="top" secondItem="La6-9w-Jkb" secondAttribute="bottom" constant="13.333333333333343" id="E6i-Vb-z91"/>
                                                         <constraint firstItem="0qD-4G-O92" firstAttribute="top" secondItem="ADb-mP-D21" secondAttribute="top" constant="11" id="GI1-Tz-jXB"/>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="La6-9w-Jkb" secondAttribute="trailing" constant="4" id="H7n-9Z-QFm"/>
+                                                        <constraint firstItem="z5W-hd-O5P" firstAttribute="leading" secondItem="0qD-4G-O92" secondAttribute="trailing" constant="6" id="bH0-rC-RFk"/>
                                                         <constraint firstItem="z5W-hd-O5P" firstAttribute="top" secondItem="ADb-mP-D21" secondAttribute="top" constant="11" id="cTj-Bj-f6k"/>
+                                                        <constraint firstItem="BKx-7y-NjD" firstAttribute="top" secondItem="La6-9w-Jkb" secondAttribute="bottom" constant="13" id="dvh-l7-7Ln"/>
                                                         <constraint firstItem="BKx-7y-NjD" firstAttribute="top" secondItem="ADb-mP-D21" secondAttribute="top" constant="90" id="ewo-95-ouS"/>
-                                                        <constraint firstItem="La6-9w-Jkb" firstAttribute="top" secondItem="0qD-4G-O92" secondAttribute="bottom" constant="8" id="f6B-IH-uH0"/>
                                                         <constraint firstItem="Wsh-7n-zfA" firstAttribute="top" secondItem="z5W-hd-O5P" secondAttribute="top" id="gPH-u6-6L4"/>
                                                         <constraint firstAttribute="bottom" secondItem="BKx-7y-NjD" secondAttribute="bottom" constant="6" id="ha2-Na-PTu"/>
+                                                        <constraint firstItem="La6-9w-Jkb" firstAttribute="top" secondItem="0qD-4G-O92" secondAttribute="bottom" constant="8" symbolic="YES" id="hq2-lk-8b6"/>
                                                         <constraint firstItem="Wsh-7n-zfA" firstAttribute="top" secondItem="0qD-4G-O92" secondAttribute="top" id="jPQ-ny-jvv"/>
                                                         <constraint firstItem="BKx-7y-NjD" firstAttribute="centerX" secondItem="ADb-mP-D21" secondAttribute="centerX" id="qQ7-Vx-NQo"/>
-                                                        <constraint firstItem="La6-9w-Jkb" firstAttribute="top" secondItem="z5W-hd-O5P" secondAttribute="bottom" constant="8" id="tt3-iB-Eoc"/>
-                                                        <constraint firstItem="La6-9w-Jkb" firstAttribute="leading" secondItem="Wsh-7n-zfA" secondAttribute="trailing" constant="11" id="twi-G7-ytb"/>
+                                                        <constraint firstItem="La6-9w-Jkb" firstAttribute="top" secondItem="z5W-hd-O5P" secondAttribute="bottom" constant="8" symbolic="YES" id="tWI-xf-R7G"/>
                                                         <constraint firstItem="z5W-hd-O5P" firstAttribute="leading" secondItem="0qD-4G-O92" secondAttribute="trailing" constant="6.3333333333333144" id="ufS-oF-U9g"/>
                                                         <constraint firstItem="ibL-wl-cv4" firstAttribute="top" secondItem="ADb-mP-D21" secondAttribute="top" constant="8" id="zPS-VN-0sO"/>
-                                                        <constraint firstAttribute="trailing" secondItem="La6-9w-Jkb" secondAttribute="trailing" constant="20" id="zQc-vy-bKi"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
@@ -1211,19 +1213,19 @@
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="pzK-Zm-Mn4" firstAttribute="leading" secondItem="j8k-5c-SxC" secondAttribute="leading" id="6TX-1t-B5N"/>
-                                    <constraint firstAttribute="trailing" secondItem="pzK-Zm-Mn4" secondAttribute="trailing" id="bsD-dt-UWP"/>
-                                    <constraint firstItem="pzK-Zm-Mn4" firstAttribute="top" secondItem="j8k-5c-SxC" secondAttribute="top" id="dAr-gR-M4w"/>
-                                    <constraint firstAttribute="bottom" secondItem="pzK-Zm-Mn4" secondAttribute="bottom" id="kmW-bQ-SnE"/>
+                                    <constraint firstItem="pzK-Zm-Mn4" firstAttribute="top" secondItem="j8k-5c-SxC" secondAttribute="top" id="FMN-kz-y5S"/>
+                                    <constraint firstAttribute="bottom" secondItem="pzK-Zm-Mn4" secondAttribute="bottom" id="ey8-Dd-Wve"/>
+                                    <constraint firstItem="pzK-Zm-Mn4" firstAttribute="leading" secondItem="j8k-5c-SxC" secondAttribute="leading" id="pAR-4Q-WF2"/>
+                                    <constraint firstAttribute="trailing" secondItem="pzK-Zm-Mn4" secondAttribute="trailing" id="zpo-HY-Mew"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="j8k-5c-SxC" firstAttribute="leading" secondItem="rO0-JQ-gKG" secondAttribute="leading" id="GAT-OE-0RG"/>
-                            <constraint firstItem="j8k-5c-SxC" firstAttribute="bottom" secondItem="rO0-JQ-gKG" secondAttribute="bottom" constant="34" id="TGv-WZ-mNC"/>
-                            <constraint firstItem="rO0-JQ-gKG" firstAttribute="trailing" secondItem="j8k-5c-SxC" secondAttribute="trailing" id="aaj-3m-oOY"/>
-                            <constraint firstItem="rO0-JQ-gKG" firstAttribute="top" secondItem="j8k-5c-SxC" secondAttribute="top" constant="44" id="dNg-V3-a8g"/>
+                            <constraint firstAttribute="trailing" secondItem="j8k-5c-SxC" secondAttribute="trailing" id="DwC-uY-G3M"/>
+                            <constraint firstItem="j8k-5c-SxC" firstAttribute="leading" secondItem="lsB-h6-sFQ" secondAttribute="leading" id="EQV-EU-1yQ"/>
+                            <constraint firstItem="j8k-5c-SxC" firstAttribute="bottom" secondItem="rO0-JQ-gKG" secondAttribute="bottom" id="QmU-tw-hR2"/>
+                            <constraint firstItem="j8k-5c-SxC" firstAttribute="top" secondItem="rO0-JQ-gKG" secondAttribute="top" id="box-Eo-zp1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rO0-JQ-gKG"/>
                     </view>
@@ -1234,7 +1236,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fnq-Rx-Lvv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="608.79999999999995" y="957.63546798029563"/>
+            <point key="canvasLocation" x="608.79999999999995" y="957.57121439280365"/>
         </scene>
         <!--Group View-->
         <scene sceneID="Ign-gK-K6i">
