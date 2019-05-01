@@ -41,12 +41,20 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
     var lengthLabel: UILabel!
     
     var postTime:Int!
+    var keyboardHeight: CGFloat = 0.0
     
     let dateFormatterGet = DateFormatter()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        NotificationCenter.default.addObserver(
+//            self,
+//            selector: #selector(keyboardWillShow),
+//            name: UIResponder.keyboardWillShowNotification,
+//            object: nil
+//        )
         
         // update date format for cacheMessage
         dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -72,26 +80,34 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         
         // collection view
         
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.scrollDirection = .horizontal
+//        let flowLayout = UICollectionViewFlowLayout()
+//        flowLayout.scrollDirection = .horizontal
         
-        self.placesView = UICollectionView(frame: CGRect(x: 0, y: (self.view.frame.maxY - self.view.frame.maxY/8), width: view.frame.width, height: 80), collectionViewLayout: flowLayout)
-
-        placesView.delegate = self
-        placesView.dataSource = self
+//        //self.placesView = UICollectionView(frame: CGRect(x: 0, y: (self.view.frame.maxY), width: view.frame.width, height: 80), collectionViewLayout: flowLayout)
+//
+//        print(self.view.frame.maxY)
+//
+//        placesView.delegate = self
+//        placesView.dataSource = self
+//
+//        self.placesView.register(UINib(nibName: "PlaceCellNib", bundle: nil), forCellWithReuseIdentifier: "PlaceCellObject")
+//        // placesView.register(PlaceCollectionCell.self, forCellWithReuseIdentifier: "PlaceCell")
+//        placesView.showsVerticalScrollIndicator = false
+//        placesView.showsHorizontalScrollIndicator = false
+//        placesView.backgroundColor = UIColor.clear
+//        // placesView.backgroundColor = UIColor.cyan
+//        self.view.addSubview(placesView)
+//        //placesView.bindToKeyboard()
         
-        self.placesView.register(UINib(nibName: "PlaceCellNib", bundle: nil), forCellWithReuseIdentifier: "PlaceCellObject")
-        // placesView.register(PlaceCollectionCell.self, forCellWithReuseIdentifier: "PlaceCell")
-        placesView.showsVerticalScrollIndicator = false
-        placesView.showsHorizontalScrollIndicator = false
-        placesView.backgroundColor = UIColor.clear
-        // placesView.backgroundColor = UIColor.cyan
-        self.view.addSubview(placesView)
-        placesView.bindToKeyboard()
+        
         
         // keyboard toolbar
         let toolbar = UIToolbar(frame:CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
         toolbar.barStyle = .default
+        
+        
+
+        
         
         let tagItem = UIBarButtonItem(title: "Tags", style: .plain, target: self, action: #selector(tags))
         tagItem.image = #imageLiteral(resourceName: "round_more_horiz_black_48pt")
@@ -124,7 +140,7 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         
         // length label
         self.lengthLabel = UILabel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width/4, height: 50))
-        self.lengthLabel.text = "1h"
+        self.lengthLabel.text = "1h0m"
         let labelBarButton1 = UIBarButtonItem(customView: self.lengthLabel)
         
         toolbar.items = [timeItem, sliderItem, labelBarButton1, spacer, labelBarButton, tagItem]
@@ -152,7 +168,15 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         } else {
             self.lengthLabel.text = " \(logTime)m"
         }
-        
+    }
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        print("KEYBOARD WILL SHOW")
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            keyboardHeight = keyboardRectangle.height
+            print("KEYBOARD HEIGHT: \(keyboardHeight)")
+        }
     }
     
     func minutesToHoursMinutes (minutes : Int) -> (hours : Int , leftMinutes : Int) {
@@ -174,10 +198,44 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
     
     override func viewWillAppear(_ animated: Bool) {
         self.message.becomeFirstResponder()
-        getPlace()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        //load places view, this needs to be here for keyboard height to be available
+        let placeViewPosY = self.view.frame.maxY - keyboardHeight - 90
+        
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .horizontal
+        
+        //print("FRAME - KEYBOARD: \(placeViewPosY)")
+        placesView = UICollectionView(frame: CGRect(x: 0, y: placeViewPosY, width: view.frame.width, height: 80), collectionViewLayout: flowLayout)
+        
+        self.placesView.alpha = 0.0
+        
+        self.placesView.delegate = self
+        self.placesView.dataSource = self
+        
+        self.placesView.register(UINib(nibName: "PlaceCellNib", bundle: nil), forCellWithReuseIdentifier: "PlaceCellObject")
+        // placesView.register(PlaceCollectionCell.self, forCellWithReuseIdentifier: "PlaceCell")
+        self.placesView.showsVerticalScrollIndicator = false
+        self.placesView.showsHorizontalScrollIndicator = false
+        self.placesView.backgroundColor = UIColor.clear
+        // placesView.backgroundColor = UIColor.cyan
+        self.view.addSubview(placesView)
+        placesView.bindToKeyboard()
+        
+
+        
+        //fade cells in
+        UIView.animate(withDuration: 1.0, animations: {
+            self.placesView.alpha = 1.0
+        })
+        
+        getPlace()
+        
         animate()
     }
 
@@ -197,6 +255,23 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         // cell.PlaceName.text = places[indexPath.row].placeName
         // cell.PlaceName.text = "THIS IS A TEST"
         cell.PlaceName.text = places[indexPath.row].placeName
+        
+        
+        
+        //initialize carousel effect
+        let realMiddle = placesView.convert(CGPoint(x: cell.frame.midX, y: cell.frame.midY), to: placesView.superview)
+        
+        //screen left is 0
+        let distFromMiddle = abs(realMiddle.x - self.view.frame.midX)
+        
+        
+        //quadratic formula
+        let s = -0.06 * pow(distFromMiddle/60, 2) + 1
+        
+        //scale cells
+        cell.transform = CGAffineTransform.init(scaleX: s, y: s)
+    
+        
         return cell
     }
     
@@ -218,19 +293,33 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
     
     func scrollViewDidScroll(_ scrollView: UIScrollView){
 
+        // FOR CAROUSEL EFFTCT
+        let visibleCells = (scrollView as! UICollectionView).visibleCells
         
-        let allCells = scrollView as! UICollectionView
-        let visibleCells = allCells.visibleCells
         for cell in visibleCells{
-            let realCenter = scrollView.convert(CGPoint(x: cell.frame.minX, y: cell.frame.midY), to: scrollView.superview)
-            let distFromLeft = self.view.frame.minX + realCenter.x
-            if(distFromLeft > 10){
-                let s = 10/distFromLeft
-                //let s = -0.00005 * pow(realCenter.x, 2) + 1.5
-                cell.transform = CGAffineTransform.init(scaleX: s, y: s)
-                let pCell = cell as! PlaceCollectionCell
-                pCell.PlaceName.text = "\(s)"
-            }
+            var s: CGFloat = 1.0
+            
+            // find the middle of the cell relative to the screen
+            let realMiddle = scrollView.convert(CGPoint(x: cell.frame.midX, y: cell.frame.midY), to: scrollView.superview)
+            
+            //find distance from the middle of the screen
+            let distFromMiddle = abs(realMiddle.x - self.view.frame.midX)
+            //print(distFromMiddle)
+            
+            //quadratic formula
+            s = -0.06 * pow(distFromMiddle/60, 2) + 1
+            
+            //cells dont get scaled smaller than .35
+            if(s < 0.35){s = 0.35}
+            //fade on edges
+            cell.alpha = (s - 0.35)/(0.5 - 0.35)
+
+            let carousel = CGAffineTransform.init(scaleX: s, y: s)
+            
+            cell.transform = carousel//.concatenating(mover)
+            let pCell = cell as! PlaceCollectionCell
+            //pCell.PlaceName.text = "\(s)"
+            print("\(pCell.PlaceName.text!): \(s)")
         }
     }
     
@@ -317,6 +406,8 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
             self.places = []
             var maxLikelihood = 0.0
             
+            self.places.append(Place(placeID: "Other", placeName: "Other", likelihood: "-1"))
+            
             if let placeLikelihoodList = placeLikelihoodList {
                 
                 //first item has the highest likelihood
@@ -340,8 +431,8 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
                     
                     GroupPostManager.sharedInstance.placeId = place.placeID!
                     
-                    //if the current place's likelihood is less than 70% of the most likely place, skip the rest
-                    if(likelihood.likelihood < maxLikelihood * 0.2){
+                    //if the current place's likelihood is less than 75% of the most likely place, skip the rest
+                    if(likelihood.likelihood < maxLikelihood * 0.70){
                         break
                     }
                     else{
@@ -353,7 +444,6 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
                 }
             }
             
-            self.places.append(Place(placeID: "Other", placeName: "* Nowhere in particular *", likelihood: "-1"))
             
             print("reloading data")
             self.placesView.reloadData()
