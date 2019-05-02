@@ -35,7 +35,7 @@ class TestPostingMessages(unittest.TestCase):
         #delete user
         self.assertTrue(neo4j.delete_user(username, password_hash))
         # remove to post created for the test
-        neo4j.delete_post(post_id)
+        #neo4j.delete_post(post_id)
 
 
 

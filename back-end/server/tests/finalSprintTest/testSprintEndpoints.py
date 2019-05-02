@@ -19,7 +19,7 @@ class TestSprintEndpoints(unittest.TestCase):
         self.hometown = "buffalo"
         self.msg = "this is a neo4j test reply"
         self.place_id = "ChIJwe_oGNJz04kRDxhd61f1WiQ"
-        self.radius = 100
+        self.radius = 10000
         # get current time for time of post
         es = timezone("US/Eastern")
         self.location = {'latitude': 43.0100431, 'longitude': -78.8012356}
@@ -31,6 +31,7 @@ class TestSprintEndpoints(unittest.TestCase):
         user = neo4j.get_user(self.uname)
         if user == self.uname:
             #delete user if already exists
+            print("Deleting user: \n")
             neo4j.delete_user(self.uname, self.password_hash)
 
         user = User(self.uname, self.fn, self.ln,self.email,
@@ -46,13 +47,17 @@ class TestSprintEndpoints(unittest.TestCase):
         url = 'http://127.0.0.1:5000/profile'
         r = requests.get(url=url,params=payload)
         self.assertEqual(r.status_code, 200)
-        print(r.text)
+        print("Getting user profile : \n" + str(r.text) +"\n")
+
         self.assertTrue(r.text)
 
     def test_3_posting_messages(self):
+
+        print("Posting A message: \n")
+
         post_id = neo4j.post_message(self.uname, self.location,
                                      self.msg, self.exp_time, self.place_id)
-        print(post_id)
+        print("post id: " + str(post_id) + "\n")
         self.assertNotEqual(post_id, None)
 
     def test_4_get_place(self):
@@ -63,14 +68,16 @@ class TestSprintEndpoints(unittest.TestCase):
         url = 'http://127.0.0.1:5000/place'
         r = requests.get(url=url, params=payload)
         self.assertEqual(r.status_code, 200)
-        print(r.text)
+        print("Getting a place : \n" + str(r.text) + "\n")
         self.assertTrue(r.text)
+
     def test_5_get_message_at_place(self):
         payload = {'placeId':self.place_id}
         url = 'http://127.0.0.1:5000//place/message'
         r = requests.get(url=url, params=payload)
         self.assertEqual(r.status_code, 200)
-        print(r.text)
+        print("Getting a message at a place: \n" +str(r.text)+ "\n")
+
         self.assertTrue(r.text)
 
 
@@ -86,8 +93,10 @@ class TestSprintEndpoints(unittest.TestCase):
         # test ip. I can also test for neo4j cluster ip
         url = 'http://127.0.0.1:5000/neo4j'
         r = requests.delete(url=url)
-        print(r.text)
+
+        print("Whipping database: " + str(r.text) +"\n")
         self.assertTrue(r.text)
 
 if __name__ == '__main__':
         unittest.main()
+
