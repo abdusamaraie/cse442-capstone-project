@@ -61,7 +61,7 @@ class HomeTownView: UIViewController {
     @objc func next_view() {
         if (homeTownField.text != "") {
             AuthenticationHelper.sharedInstance.current_user.homeTown = "\(homeTownField.text!)"
-            self.performSegue(withIdentifier: "to_password", sender: self)
+            self.performSegue(withIdentifier: "to_username", sender: self)
         }
     }
     

@@ -14,6 +14,7 @@
 		40D5A00C4EDA5CB66FAE5139 /* Pods_MapChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEEF9F98D541554EEAD87DA7 /* Pods_MapChatTests.framework */; };
 		43100785EC0B2D92AC929817 /* Pods_MapChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F40FC9B6A3AF41E2EA0585 /* Pods_MapChat.framework */; };
 		4D094463226E7F0F004995D0 /* ProfilePicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D094462226E7F0F004995D0 /* ProfilePicView.swift */; };
+		4D3184DE227BA217008E376F /* EmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3184DD227BA217008E376F /* EmailView.swift */; };
 		4D54EBC72272DE7500B7DE58 /* cachr_blue_full.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D54EBC62272DE7500B7DE58 /* cachr_blue_full.json */; };
 		4D54EBCB2272E7D900B7DE58 /* cachr_white_full.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D54EBCA2272E7D900B7DE58 /* cachr_white_full.json */; };
 		4D54EBCD22734C5900B7DE58 /* cachr_white_half_60.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D54EBCC22734C5900B7DE58 /* cachr_white_half_60.json */; };
@@ -113,6 +114,7 @@
 		1DE61570E901C6844CC5F675 /* Pods-MapChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapChatTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapChatTests/Pods-MapChatTests.release.xcconfig"; sourceTree = "<group>"; };
 		4527A64964C100488AE037C9 /* Pods-MapChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapChat/Pods-MapChat.release.xcconfig"; sourceTree = "<group>"; };
 		4D094462226E7F0F004995D0 /* ProfilePicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePicView.swift; sourceTree = "<group>"; };
+		4D3184DD227BA217008E376F /* EmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailView.swift; sourceTree = "<group>"; };
 		4D54EBC62272DE7500B7DE58 /* cachr_blue_full.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cachr_blue_full.json; sourceTree = "<group>"; };
 		4D54EBCA2272E7D900B7DE58 /* cachr_white_full.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cachr_white_full.json; sourceTree = "<group>"; };
 		4D54EBCC22734C5900B7DE58 /* cachr_white_half_60.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cachr_white_half_60.json; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 				EB2F3B482274D0AE00D317D0 /* PictureView.swift */,
 				EB2F3B4A2274DBFA00D317D0 /* BirthdayView.swift */,
 				EB2F3B4C2274DF8300D317D0 /* HomeTownView.swift */,
+				4D3184DD227BA217008E376F /* EmailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -798,6 +801,7 @@
 				EB786F89226A7134001CF54F /* AdvancedSettingsCell.swift in Sources */,
 				EBFAC67F22272862004B5074 /* ProfileView.swift in Sources */,
 				4D094463226E7F0F004995D0 /* ProfilePicView.swift in Sources */,
+				4D3184DE227BA217008E376F /* EmailView.swift in Sources */,
 				EB2F3B472273907C00D317D0 /* AdvancedFeedCell.swift in Sources */,
 				EB786F80226915FA001CF54F /* SpacerCell.swift in Sources */,
 				EB2F3B4B2274DBFA00D317D0 /* BirthdayView.swift in Sources */,
@@ -1016,7 +1020,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = CSE442.MapChat;
+				PRODUCT_BUNDLE_IDENTIFIER = Daru.MapChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1035,7 +1039,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = CSE442.MapChat;
+				PRODUCT_BUNDLE_IDENTIFIER = Daru.MapChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
