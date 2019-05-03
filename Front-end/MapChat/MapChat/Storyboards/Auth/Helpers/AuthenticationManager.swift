@@ -108,6 +108,27 @@ class AuthenticationHelper {
             switch(response.result) {
             case .success(_):
                 if (response.result.value! == "True") {
+                    
+                    //retreive
+                    let get_info_string = "\(self.url_string)/profile?username=\(username)"
+                    print(get_info_string)
+                    
+                    var info: JSON? = nil
+                    
+                    Alamofire.request(get_info_string, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil).responseString { resp in
+                        
+                        if((resp.result.value) != nil){
+                            info = JSON(resp.result.value!)
+                            print(info!)
+                        }
+                        else{
+                            print("Profile response was nil")
+                        }
+                        
+                        
+                        
+                    }
+                    
                     print("Success")
                     completion("Success")
                     break
