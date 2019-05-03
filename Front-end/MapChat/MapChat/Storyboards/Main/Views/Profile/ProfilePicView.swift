@@ -25,6 +25,8 @@ class ProfilePicView: UIViewController, UIImagePickerControllerDelegate, UITable
     @IBOutlet weak var changeImagrButton: UIButton!
     @IBOutlet weak var profileName: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var fullName: UILabel!
+    @IBOutlet weak var hometown: UILabel!
     
     @IBOutlet weak var profileTableView: UITableView!
     
@@ -164,8 +166,10 @@ class ProfilePicView: UIViewController, UIImagePickerControllerDelegate, UITable
     //
     
     override func viewDidAppear(_ animated: Bool) {
-        // print("DISPLAY NAME: \(AuthenticationHelper.sharedInstance.current_user.display_name)")
-        self.profileName.text = "Baily Troyer"
+        print("DISPLAY NAME: \(AuthenticationHelper.sharedInstance.current_user.display_name!)")
+        self.profileName.text = AuthenticationHelper.sharedInstance.current_user.username!
+        self.hometown.text = AuthenticationHelper.sharedInstance.current_user.homeTown!
+        self.fullName.text = AuthenticationHelper.sharedInstance.current_user.first_last_name!
     
     }
     

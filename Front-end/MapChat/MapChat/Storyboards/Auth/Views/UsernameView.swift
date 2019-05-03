@@ -48,8 +48,8 @@ class UsernameView: UIViewController, UITextFieldDelegate {
     @objc func textFieldDidChange(_ textField: UITextField) {
         textField.backgroundColor = nil
         // put @ at beginning of string for visual queue
-        if(textField.text!.starts(with: "@")){
-            
+        if(textField.text!.starts(with: "@") || textField.text == nil){
+            //do nothing
         } else {
             textField.text = "@\(textField.text!)"
         }
