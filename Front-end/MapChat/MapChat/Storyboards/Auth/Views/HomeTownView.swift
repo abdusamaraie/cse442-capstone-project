@@ -62,6 +62,9 @@ class HomeTownView: UIViewController {
         if (homeTownField.text != "") {
             AuthenticationHelper.sharedInstance.current_user.homeTown = "\(homeTownField.text!)"
             self.performSegue(withIdentifier: "to_username", sender: self)
+        } else {
+            next_button.backgroundColor = UIColor.red
+            next_button.alpha = 0.8
         }
     }
     

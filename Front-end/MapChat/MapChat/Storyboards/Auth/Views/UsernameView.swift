@@ -10,11 +10,12 @@ import Foundation
 import UIKit
 import Lottie
 
-class UsernameView: UIViewController {
+class UsernameView: UIViewController, UITextFieldDelegate {
     
     var input_elements:[AuthenticationHelper.input_element] = []
     
     @IBOutlet weak var username: UITextField!
+    var handle: String?
     // @IBOutlet weak var display_name: UITextField!
     
     var sign_in_button: UIButton = UIButton()
@@ -46,6 +47,21 @@ class UsernameView: UIViewController {
 
     @objc func textFieldDidChange(_ textField: UITextField) {
         textField.backgroundColor = nil
+        // put @ at beginning of string for visual queue
+        if(textField.text!.starts(with: "@")){
+            
+        } else {
+            textField.text = "@\(textField.text!)"
+        }
+        // remove @ for when actually using the inputted text
+        handle = String(textField.text!.dropFirst())
+        
+        // live feedback when invalid characters are input
+        let handleCheck = handle!.range(of: #"^\w+$"#, options: .regularExpression)
+        if handleCheck == nil{
+            username.backgroundColor = UIColor.red
+            username.alpha = 0.8
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -79,8 +95,9 @@ class UsernameView: UIViewController {
     }
     
     @objc func next_view() {
+        let handleCheck = handle!.range(of: #"^\w+$"#, options: .regularExpression)
         
-        if (AuthenticationHelper.check_input(input_elements: input_elements).count == 0) {
+        if (AuthenticationHelper.check_input(input_elements: input_elements).count == 0 && handleCheck != nil) {
             print("good")
             AuthenticationHelper.sharedInstance.current_user.username = username.text!
             self.performSegue(withIdentifier: "to_password", sender: self)
@@ -92,7 +109,7 @@ class UsernameView: UIViewController {
             
             for element in AuthenticationHelper.check_input(input_elements: input_elements) {
                 element.element_literal.backgroundColor = UIColor.red
-                element.element_literal.alpha = 0.6
+                element.element_literal.alpha = 0.8
             }
         }
     }

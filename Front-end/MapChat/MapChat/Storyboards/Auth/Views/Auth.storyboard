@@ -109,8 +109,17 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First and Last name" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1jE-Zc-jbv">
-                                <rect key="frame" x="89" y="229" width="198" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="What is your full name?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flD-Xc-goo">
+                                <rect key="frame" x="96" y="162" width="184" height="21"/>
+                                <fontDescription key="fontDescription" name="AirbnbCerealApp-Book" family="Airbnb Cereal App" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First and Last name" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1jE-Zc-jbv">
+                                <rect key="frame" x="37.5" y="229" width="300" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="HQw-eN-05F"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="AirbnbCerealApp-Light" family="Airbnb Cereal App" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -120,12 +129,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="What is your full name?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flD-Xc-goo">
-                                <rect key="frame" x="96" y="162" width="184" height="21"/>
-                                <fontDescription key="fontDescription" name="AirbnbCerealApp-Book" family="Airbnb Cereal App" pointSize="16"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.27058823529999998" green="0.75686274509999996" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -133,12 +136,11 @@
                             <constraint firstItem="Wor-BZ-85Z" firstAttribute="leading" secondItem="gvb-EE-JRl" secondAttribute="leading" constant="98" id="4Bh-68-rzk"/>
                             <constraint firstItem="Wor-BZ-85Z" firstAttribute="top" secondItem="gvb-EE-JRl" secondAttribute="top" constant="95" id="4Hl-Wc-Mk2"/>
                             <constraint firstItem="Wor-BZ-85Z" firstAttribute="centerX" secondItem="flD-Xc-goo" secondAttribute="centerX" id="6vl-hw-bBP"/>
-                            <constraint firstItem="1jE-Zc-jbv" firstAttribute="leading" secondItem="gvb-EE-JRl" secondAttribute="leading" constant="89" id="9o4-XB-05d"/>
-                            <constraint firstItem="flD-Xc-goo" firstAttribute="centerX" secondItem="1jE-Zc-jbv" secondAttribute="centerX" id="AAE-LY-rcb"/>
                             <constraint firstItem="Wor-BZ-85Z" firstAttribute="centerX" secondItem="T3L-XD-bco" secondAttribute="centerX" id="ZRJ-8C-mid"/>
+                            <constraint firstItem="1jE-Zc-jbv" firstAttribute="centerX" secondItem="T3L-XD-bco" secondAttribute="centerX" id="col-6s-1A5"/>
                             <constraint firstItem="flD-Xc-goo" firstAttribute="leading" secondItem="gvb-EE-JRl" secondAttribute="leading" constant="96" id="fra-De-TSi"/>
                             <constraint firstItem="d3d-h0-KzB" firstAttribute="leading" secondItem="gvb-EE-JRl" secondAttribute="leading" constant="16" id="iMF-Qv-Bk3"/>
-                            <constraint firstItem="1jE-Zc-jbv" firstAttribute="top" secondItem="flD-Xc-goo" secondAttribute="bottom" constant="46" id="lGw-Rk-ekc"/>
+                            <constraint firstItem="1jE-Zc-jbv" firstAttribute="top" secondItem="flD-Xc-goo" secondAttribute="bottom" constant="46" id="q0r-3P-W81"/>
                             <constraint firstItem="d3d-h0-KzB" firstAttribute="top" secondItem="gvb-EE-JRl" secondAttribute="top" id="tWQ-dG-Y3o"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gvb-EE-JRl"/>
@@ -238,18 +240,31 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uyY-wA-d7E">
-                                <rect key="frame" x="137.5" y="198" width="100" height="100"/>
+                            <button opaque="NO" contentMode="scaleAspectFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uyY-wA-d7E">
+                                <rect key="frame" x="137.5" y="238" width="100" height="100"/>
+                                <color key="backgroundColor" red="0.27058823529999998" green="0.75686274509999996" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="3cs-xg-Ib8"/>
                                     <constraint firstAttribute="height" constant="100" id="MJo-wx-2r4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="tintColor" red="0.44232484899706725" green="0.44670430294753327" blue="0.44670430294753327" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" backgroundImage="face"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.0" height="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
