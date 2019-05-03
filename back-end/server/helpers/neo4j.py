@@ -655,7 +655,7 @@ def get_profile_info(username):
         # remove hashed_password and email from response
         del profile_info['hashed_password'], profile_info['email']
 
-        return profile_info
+        return json.dumps(profile_info)
 
     except Exception as e:
         print(e)
