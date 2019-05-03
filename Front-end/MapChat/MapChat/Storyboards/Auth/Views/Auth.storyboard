@@ -43,6 +43,11 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="AirbnbCerealApp-Light" family="Airbnb Cereal App" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="How do you want people to identify you?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LsO-Ne-SsS">
                                 <rect key="frame" x="37" y="162" width="300" height="21"/>
@@ -109,6 +114,11 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="AirbnbCerealApp-Light" family="Airbnb Cereal App" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="What is your full name?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flD-Xc-goo">
                                 <rect key="frame" x="96" y="162" width="184" height="21"/>
@@ -170,6 +180,11 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="AirbnbCerealApp-Light" family="Airbnb Cereal App" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.27058823529999998" green="0.75686274509999996" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -303,6 +318,11 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="AirbnbCerealApp-Light" family="Airbnb Cereal App" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.27058823529999998" green="0.75686274509999996" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -360,6 +380,11 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="AirbnbCerealApp-Light" family="Airbnb Cereal App" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.27058823529999998" green="0.75686274509999996" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -393,13 +418,16 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is your email address?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Cd-9x-gCB">
-                                <rect key="frame" x="72" y="162" width="231" height="21"/>
+                                <rect key="frame" x="72" y="162" width="231" height="19"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="19" id="53z-qe-WXd"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="AirbnbCerealApp-Book" family="Airbnb Cereal App" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Let's get started" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bM-bl-uSe">
-                                <rect key="frame" x="80" y="115" width="214" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's get started" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bM-bl-uSe">
+                                <rect key="frame" x="80" y="115" width="215" height="29"/>
                                 <fontDescription key="fontDescription" name="AirbnbCerealApp-Light" family="Airbnb Cereal App" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -407,14 +435,13 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P9g-ZB-4ph">
                                 <rect key="frame" x="16" y="20" width="40" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="P9g-ZB-4ph" secondAttribute="height" multiplier="1:1" id="GgK-AU-gwd"/>
-                                    <constraint firstAttribute="width" constant="40" id="trZ-KJ-6cL"/>
-                                    <constraint firstAttribute="height" constant="40" id="zRD-HD-Vx5"/>
+                                    <constraint firstAttribute="height" constant="40" id="ZjV-LA-Nwf"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="close"/>
                                 <connections>
                                     <action selector="goBack:" destination="K6k-Wf-1yE" eventType="touchUpInside" id="6rZ-2L-JLl"/>
+                                    <action selector="goBack:" destination="0j2-Ve-NoG" eventType="touchUpInside" id="MoC-6K-kgL"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email address" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mTp-qx-qul">
@@ -422,23 +449,28 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="AirbnbCerealApp-Light" family="Airbnb Cereal App" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.27058823529999998" green="0.75686274509999996" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="0bM-bl-uSe" firstAttribute="leading" secondItem="Vsg-ls-tW9" secondAttribute="leading" constant="80" id="71f-58-DQl"/>
-                            <constraint firstItem="0bM-bl-uSe" firstAttribute="top" secondItem="Vsg-ls-tW9" secondAttribute="top" constant="95" id="Dtw-fc-0qV"/>
-                            <constraint firstItem="mTp-qx-qul" firstAttribute="top" secondItem="1Cd-9x-gCB" secondAttribute="bottom" constant="46" id="ELP-NS-7c5"/>
-                            <constraint firstItem="P9g-ZB-4ph" firstAttribute="leading" secondItem="ovN-Rm-Juf" secondAttribute="leadingMargin" id="Fua-3g-4sC"/>
-                            <constraint firstItem="Vsg-ls-tW9" firstAttribute="bottom" secondItem="P9g-ZB-4ph" secondAttribute="bottom" constant="607" id="HiA-FA-uMS"/>
-                            <constraint firstItem="mTp-qx-qul" firstAttribute="leading" secondItem="Vsg-ls-tW9" secondAttribute="leading" constant="33" id="MhH-7F-NA3"/>
-                            <constraint firstItem="1Cd-9x-gCB" firstAttribute="leading" secondItem="Vsg-ls-tW9" secondAttribute="leading" constant="72" id="O8d-UH-ayJ"/>
-                            <constraint firstItem="Vsg-ls-tW9" firstAttribute="bottom" secondItem="mTp-qx-qul" secondAttribute="bottom" constant="409" id="fcf-l8-dD4"/>
-                            <constraint firstItem="mTp-qx-qul" firstAttribute="centerX" secondItem="ovN-Rm-Juf" secondAttribute="centerX" id="mvk-gM-qBl"/>
-                            <constraint firstItem="0bM-bl-uSe" firstAttribute="centerX" secondItem="1Cd-9x-gCB" secondAttribute="centerX" id="nvx-zN-Uc6"/>
-                            <constraint firstItem="P9g-ZB-4ph" firstAttribute="top" secondItem="Vsg-ls-tW9" secondAttribute="top" id="qP9-Xx-weT"/>
-                            <constraint firstItem="mTp-qx-qul" firstAttribute="centerX" secondItem="1Cd-9x-gCB" secondAttribute="centerX" id="tmv-SG-Mnq"/>
-                            <constraint firstItem="Vsg-ls-tW9" firstAttribute="trailing" secondItem="P9g-ZB-4ph" secondAttribute="trailing" constant="319" id="vDV-4o-Nb7"/>
+                            <constraint firstItem="0bM-bl-uSe" firstAttribute="centerX" secondItem="1Cd-9x-gCB" secondAttribute="centerX" id="5LD-cq-dcP"/>
+                            <constraint firstItem="mTp-qx-qul" firstAttribute="centerX" secondItem="ovN-Rm-Juf" secondAttribute="centerX" id="96m-XB-fAO"/>
+                            <constraint firstItem="P9g-ZB-4ph" firstAttribute="top" secondItem="Vsg-ls-tW9" secondAttribute="top" id="FvR-Eu-BmW"/>
+                            <constraint firstItem="1Cd-9x-gCB" firstAttribute="top" secondItem="0bM-bl-uSe" secondAttribute="bottom" constant="18" id="MdQ-a1-dSV"/>
+                            <constraint firstItem="0bM-bl-uSe" firstAttribute="centerX" secondItem="ovN-Rm-Juf" secondAttribute="centerX" id="RZq-Ab-IY1"/>
+                            <constraint firstItem="0bM-bl-uSe" firstAttribute="leading" secondItem="Vsg-ls-tW9" secondAttribute="leading" constant="80" id="SJj-sq-JDB"/>
+                            <constraint firstItem="P9g-ZB-4ph" firstAttribute="leading" secondItem="ovN-Rm-Juf" secondAttribute="leadingMargin" id="bBk-ph-c42"/>
+                            <constraint firstItem="mTp-qx-qul" firstAttribute="centerX" secondItem="1Cd-9x-gCB" secondAttribute="centerX" id="bba-Hv-LKf"/>
+                            <constraint firstItem="0bM-bl-uSe" firstAttribute="top" secondItem="Vsg-ls-tW9" secondAttribute="top" constant="95" id="cTa-hh-fkb"/>
+                            <constraint firstItem="mTp-qx-qul" firstAttribute="top" secondItem="1Cd-9x-gCB" secondAttribute="bottom" constant="48" id="dXC-Go-kbI"/>
+                            <constraint firstItem="1Cd-9x-gCB" firstAttribute="leading" secondItem="Vsg-ls-tW9" secondAttribute="leading" constant="72" id="jGO-nO-uqa"/>
+                            <constraint firstItem="Vsg-ls-tW9" firstAttribute="trailing" secondItem="P9g-ZB-4ph" secondAttribute="trailing" constant="319" id="pl3-LP-lTc"/>
+                            <constraint firstItem="mTp-qx-qul" firstAttribute="leading" secondItem="Vsg-ls-tW9" secondAttribute="leading" constant="33" id="ymK-5h-E1u"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Vsg-ls-tW9"/>
                     </view>

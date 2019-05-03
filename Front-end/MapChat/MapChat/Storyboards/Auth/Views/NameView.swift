@@ -79,10 +79,12 @@ class NameView: UIViewController {
     }
     
     @objc func next_view() {
-        
-        if (AuthenticationHelper.check_input(input_elements: input_elements).count == 0) {
+        //regex to confirm name is in "First Last" format
+        let nameCheck = first_last_name.text!.range(of: #"^\w+\s\w+$"#, options: .regularExpression)
+        if (AuthenticationHelper.check_input(input_elements: input_elements).count == 0) && (nameCheck != nil){
             print("good")
             AuthenticationHelper.sharedInstance.current_user.display_name = first_last_name.text!
+            AuthenticationHelper.sharedInstance.current_user.first_last_name = first_last_name.text!
             self.performSegue(withIdentifier: "to_image", sender: self)
         } else {
             // there are errors
@@ -91,8 +93,12 @@ class NameView: UIViewController {
             
             print("ELEMENTS: \(AuthenticationHelper.check_input(input_elements: input_elements))")
             
+            //first_last_name.backgroundColor = UIColor.red
+            //first_last_name.alpha = 0.8
+            
             for element in AuthenticationHelper.check_input(input_elements: input_elements) {
                 element.element_literal.backgroundColor = UIColor.red
+                element.element_literal.alpha = 0.6
             }
         }
     }

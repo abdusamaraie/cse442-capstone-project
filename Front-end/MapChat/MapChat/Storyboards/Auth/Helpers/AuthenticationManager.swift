@@ -47,13 +47,15 @@ class AuthenticationHelper {
         var birthday: String?
         var homeTown: String?
         var email: String?
+        var first_last_name: String?
         
         init(username: String? = nil, //👈
             password: String? = nil,
             display_name: String? = nil,
             birthday: String? = nil,
             homeTown: String? = nil,
-            email: String? = nil) {
+            email: String? = nil,
+            first_last_name: String? = nil) {
             
             self.username = username
             self.password = password
@@ -61,6 +63,7 @@ class AuthenticationHelper {
             self.birthday = birthday
             self.homeTown = homeTown
             self.email = email
+            self.first_last_name = first_last_name
         }
     }
     
@@ -198,7 +201,7 @@ class AuthenticationHelper {
     
     func sign_up(completion: @escaping (_ response_:String) -> ()) {
         
-        let displayNameArray = AuthenticationHelper.sharedInstance.current_user.display_name!.components(separatedBy: " ")
+        let displayNameArray = AuthenticationHelper.sharedInstance.current_user.first_last_name!.components(separatedBy: " ")
         let firstname = displayNameArray[0]
         let lastname = displayNameArray[1]
         
