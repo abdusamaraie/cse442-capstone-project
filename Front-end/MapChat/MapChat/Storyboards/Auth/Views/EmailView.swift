@@ -79,8 +79,9 @@ class EmailView: UIViewController {
     }
     
     @objc func next_view() {
+        let emailCheck = email.text!.range(of: #"^.+@[^\.].*\.[a-z]{2,}$"#, options: .regularExpression)
         
-        if (AuthenticationHelper.check_input(input_elements: input_elements).count == 0) {
+        if (AuthenticationHelper.check_input(input_elements: input_elements).count == 0 && emailCheck != nil) {
             print("good")
             AuthenticationHelper.sharedInstance.current_user.email = email.text!
             self.performSegue(withIdentifier: "to_name", sender: self)
@@ -90,10 +91,14 @@ class EmailView: UIViewController {
             //print("first element issue: \(AuthenticationHelper.check_input(input_elements: input_elements)[0])")
             print("ELEMENTS: \(AuthenticationHelper.check_input(input_elements: input_elements))")
             
-            for element in AuthenticationHelper.check_input(input_elements: input_elements) {
-                element.element_literal.backgroundColor = UIColor.red
-                element.element_literal.alpha = 0.8
-            }
+            email.backgroundColor = UIColor.red
+            email.alpha = 0.8
+            
+            
+//            for element in AuthenticationHelper.check_input(input_elements: input_elements) {
+//                element.element_literal.backgroundColor = UIColor.red
+//                element.element_literal.alpha = 0.8
+//            }
         }
     }
     

@@ -99,7 +99,7 @@ class UsernameView: UIViewController, UITextFieldDelegate {
         
         if (AuthenticationHelper.check_input(input_elements: input_elements).count == 0 && handleCheck != nil) {
             print("good")
-            AuthenticationHelper.sharedInstance.current_user.username = username.text!
+            AuthenticationHelper.sharedInstance.current_user.username = handle!
             self.performSegue(withIdentifier: "to_password", sender: self)
         } else {
             // there are errors
