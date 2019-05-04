@@ -115,6 +115,7 @@ class PasswordView: UIViewController {
             
             for element in AuthenticationHelper.check_input(input_elements: input_elements) {
                 element.element_literal.backgroundColor = UIColor.red
+                element.element_literal.alpha = 0.8
             }
         }
     }

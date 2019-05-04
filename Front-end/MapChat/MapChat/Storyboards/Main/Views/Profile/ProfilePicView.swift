@@ -20,11 +20,13 @@ import UIKit
  }
  */
 
-class ProfilePicView: UIViewController, UIImagePickerControllerDelegate, UITableViewDelegate, UITableViewDataSource {
+class ProfilePicView: UIViewController, UIImagePickerControllerDelegate, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate{
     
     @IBOutlet weak var changeImagrButton: UIButton!
     @IBOutlet weak var profileName: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var fullName: UILabel!
+    @IBOutlet weak var hometown: UILabel!
     
     @IBOutlet weak var profileTableView: UITableView!
     
@@ -46,7 +48,7 @@ class ProfilePicView: UIViewController, UIImagePickerControllerDelegate, UITable
         profileImage.layer.cornerRadius = profileImage.frame.height/2
         profileImage.clipsToBounds = true
         
-        imagePicker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
+        imagePicker.delegate = self// as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
         
 //        messages = [Message(message: "this is a test message", tag: "#UB2020", numberLikes: 4, ID: "abc123"),
 //                    Message(message: "what's going on dude", tag: "#UB2019", numberLikes: 20, ID: "abc234"),
@@ -161,13 +163,36 @@ class ProfilePicView: UIViewController, UIImagePickerControllerDelegate, UITable
         self.present(imagePicker, animated: true, completion: nil)
     }
     
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        
+        
+        print("selected image")
+        
+        guard let selectedImage = info[.originalImage] as? UIImage else {
+            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
+        }
+        
+        
+        self.profileImage.image = selectedImage
+        
+        dismiss(animated: true, completion: nil)
+        
+        //make post request to upload image to server
+    }
+    
     //
     
     override func viewDidAppear(_ animated: Bool) {
-        // print("DISPLAY NAME: \(AuthenticationHelper.sharedInstance.current_user.display_name)")
-        self.profileName.text = "Baily Troyer"
+        print("DISPLAY NAME: \(AuthenticationHelper.sharedInstance.current_user.display_name!)")
+        self.profileName.text = "@\(AuthenticationHelper.sharedInstance.current_user.username!)"
+        self.hometown.text = AuthenticationHelper.sharedInstance.current_user.homeTown!
+        self.fullName.text = AuthenticationHelper.sharedInstance.current_user.first_last_name!
     
     }
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         AuthenticationHelper.sharedInstance.getImageURL(completion: {(imageURL) in

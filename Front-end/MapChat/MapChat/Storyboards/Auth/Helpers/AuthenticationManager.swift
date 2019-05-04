@@ -46,18 +46,30 @@ class AuthenticationHelper {
         var display_name: String?
         var birthday: String?
         var homeTown: String?
+        var email: String?
+        var first_last_name: String?
+        var join_date: String?
+        var profile_image: String?
         
         init(username: String? = nil, //👈
             password: String? = nil,
             display_name: String? = nil,
             birthday: String? = nil,
-            homeTown: String? = nil) {
+            homeTown: String? = nil,
+            email: String? = nil,
+            first_last_name: String? = nil,
+            join_date: String? = nil,
+            profile_image: String? = nil) {
             
             self.username = username
             self.password = password
             self.display_name = display_name
             self.birthday = birthday
             self.homeTown = homeTown
+            self.email = email
+            self.first_last_name = first_last_name
+            self.join_date = join_date
+            self.profile_image = profile_image
         }
     }
     
@@ -85,8 +97,10 @@ class AuthenticationHelper {
         
          //34.73.109.229:80/auth?username=bailytro&password=password
         
-        let emailArray = AuthenticationHelper.sharedInstance.current_user.username!.components(separatedBy: "@")
-        let username = emailArray[0]
+        //let emailArray = AuthenticationHelper.sharedInstance.current_user.username!.components(separatedBy: "@")
+        //let username = emailArray[0]
+        
+        let username = AuthenticationHelper.sharedInstance.current_user.username!
 
         let sign_in_string = "\(url_string)/auth?username=\(username)&password=\(AuthenticationHelper.sharedInstance.current_user.password!)"
 
@@ -100,6 +114,29 @@ class AuthenticationHelper {
             switch(response.result) {
             case .success(_):
                 if (response.result.value! == "True") {
+                    
+                    //retrieve user profile information for shared instance
+                    let get_info_string = "\(self.url_string)/profile?username=\(username)"
+                    print(get_info_string)
+                    
+                    var info: JSON? = nil
+                    
+                    Alamofire.request(get_info_string, method: .get, parameters: nil, headers: nil).responseJSON { resp in
+                        
+                        
+                        if((resp.result.value) != nil){
+                            info = JSON(resp.result.value!)
+                            AuthenticationHelper.sharedInstance.current_user.birthday = info!["birthday"].stringValue
+                            AuthenticationHelper.sharedInstance.current_user.display_name = info!["username"].stringValue
+                            AuthenticationHelper.sharedInstance.current_user.first_last_name = "\(info!["first_name"].stringValue) \(info!["last_name"].stringValue)"
+                            AuthenticationHelper.sharedInstance.current_user.profile_image = info!["profile_image"].stringValue
+                            AuthenticationHelper.sharedInstance.current_user.homeTown = info!["hometown"].stringValue
+                        }
+                        else{
+                            print("Profile response was nil. Could not retrieve user profile info.")
+                        }
+                    }
+                    
                     print("Success")
                     completion("Success")
                     break
@@ -193,20 +230,22 @@ class AuthenticationHelper {
     
     func sign_up(completion: @escaping (_ response_:String) -> ()) {
         
-        let displayNameArray = AuthenticationHelper.sharedInstance.current_user.display_name!.components(separatedBy: " ")
+        let displayNameArray = AuthenticationHelper.sharedInstance.current_user.first_last_name!.components(separatedBy: " ")
         let firstname = displayNameArray[0]
         let lastname = displayNameArray[1]
         
-        print("Email: \(AuthenticationHelper.sharedInstance.current_user.username!)")
+        //print("Email: \(AuthenticationHelper.sharedInstance.current_user.username!)")
         
-        let email = AuthenticationHelper.sharedInstance.current_user.username!
+        let email = AuthenticationHelper.sharedInstance.current_user.email!
         
-        let emailArray = AuthenticationHelper.sharedInstance.current_user.username!.components(separatedBy: "@")
-        let username = emailArray[0]
+        let username = AuthenticationHelper.sharedInstance.current_user.username!
         
-        AuthenticationHelper.sharedInstance.current_user.username = username
+        //let emailArray = AuthenticationHelper.sharedInstance.current_user.username!.components(separatedBy: "@")
+        //let username = emailArray[0]
         
-        print("Username: \(AuthenticationHelper.sharedInstance.current_user.username!)")
+        //AuthenticationHelper.sharedInstance.current_user.username = username
+        
+        //print("Username: \(AuthenticationHelper.sharedInstance.current_user.username!)")
         
         let birthday = AuthenticationHelper.sharedInstance.current_user.birthday!
         

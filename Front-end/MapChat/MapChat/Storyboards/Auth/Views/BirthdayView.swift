@@ -104,6 +104,9 @@ class BirthdayView: UIViewController {
             print("brithday: \(birthdayField.text!)")
             AuthenticationHelper.sharedInstance.current_user.birthday = "\(birthdayField.text!)"
             self.performSegue(withIdentifier: "to_location", sender: self)
+        } else {
+            birthdayField.backgroundColor = UIColor.red
+            birthdayField.alpha = 0.8
         }
     }
     
