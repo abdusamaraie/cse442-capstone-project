@@ -480,7 +480,7 @@
                                         </prototypes>
                                     </tableView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buffalo, NY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCh-zf-5E8" userLabel="Current Location">
-                                        <rect key="frame" x="146.5" y="354" width="80" height="20"/>
+                                        <rect key="frame" x="108" y="354" width="157" height="20"/>
                                         <fontDescription key="fontDescription" name="AirbnbCerealApp-Book" family="Airbnb Cereal App" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -491,14 +491,14 @@
                                     <constraint firstItem="had-Sv-ObP" firstAttribute="width" secondItem="A9B-F7-stI" secondAttribute="width" id="BKc-he-ECx"/>
                                     <constraint firstItem="had-Sv-ObP" firstAttribute="top" secondItem="v8I-HK-hCo" secondAttribute="bottom" constant="22" id="GAo-RL-PXt"/>
                                     <constraint firstItem="uCh-zf-5E8" firstAttribute="top" secondItem="p2p-ph-Dwl" secondAttribute="bottom" constant="51" id="PL6-rM-eaF"/>
-                                    <constraint firstItem="sHc-c9-wEc" firstAttribute="trailing" secondItem="uCh-zf-5E8" secondAttribute="trailing" constant="368" id="Q5y-YL-HBM"/>
+                                    <constraint firstItem="sHc-c9-wEc" firstAttribute="trailing" secondItem="uCh-zf-5E8" secondAttribute="trailing" constant="329.5" id="Q5y-YL-HBM"/>
                                     <constraint firstItem="caA-QJ-3Ap" firstAttribute="top" secondItem="uCh-zf-5E8" secondAttribute="bottom" constant="37" id="bX9-MO-mEO"/>
                                     <constraint firstItem="96q-3K-RSe" firstAttribute="centerX" secondItem="uCh-zf-5E8" secondAttribute="centerX" id="nEu-Gm-PPl"/>
                                     <constraint firstAttribute="trailing" secondItem="had-Sv-ObP" secondAttribute="trailing" id="pWM-9g-usn"/>
                                     <constraint firstAttribute="bottom" secondItem="v8I-HK-hCo" secondAttribute="bottom" constant="827" id="qsw-qm-7Lf"/>
                                     <constraint firstItem="v8I-HK-hCo" firstAttribute="centerX" secondItem="A9B-F7-stI" secondAttribute="centerX" id="szv-Db-XPi"/>
                                     <constraint firstItem="uCh-zf-5E8" firstAttribute="centerX" secondItem="p2p-ph-Dwl" secondAttribute="centerX" id="tAq-90-asS"/>
-                                    <constraint firstItem="uCh-zf-5E8" firstAttribute="leading" secondItem="sHc-c9-wEc" secondAttribute="leading" constant="366" id="wmJ-dp-5VS"/>
+                                    <constraint firstItem="uCh-zf-5E8" firstAttribute="leading" secondItem="sHc-c9-wEc" secondAttribute="leading" constant="327.5" id="wmJ-dp-5VS"/>
                                     <constraint firstItem="had-Sv-ObP" firstAttribute="leading" secondItem="A9B-F7-stI" secondAttribute="leading" id="yxj-Cq-ate"/>
                                 </constraints>
                             </scrollView>
@@ -1712,7 +1712,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zmn-oS-YwG" customClass="VSTwitterTextCounter" customModule="VSTwitterTextCounter">
                                 <rect key="frame" x="335" y="256" width="20" height="20"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1wX-5W-2QS" customClass="VSTwitterTextCounter" customModule="VSTwitterTextCounter">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1wX-5W-2QS" customClass="VSTwitterTextCounter" customModule="VSTwitterTextCounter">
                                         <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                     </view>

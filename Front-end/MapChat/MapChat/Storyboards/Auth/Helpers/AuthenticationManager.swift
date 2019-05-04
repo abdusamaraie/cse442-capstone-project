@@ -48,6 +48,8 @@ class AuthenticationHelper {
         var homeTown: String?
         var email: String?
         var first_last_name: String?
+        var join_date: String?
+        var profile_image: String?
         
         init(username: String? = nil, //👈
             password: String? = nil,
@@ -55,7 +57,9 @@ class AuthenticationHelper {
             birthday: String? = nil,
             homeTown: String? = nil,
             email: String? = nil,
-            first_last_name: String? = nil) {
+            first_last_name: String? = nil,
+            join_date: String? = nil,
+            profile_image: String? = nil) {
             
             self.username = username
             self.password = password
@@ -64,6 +68,8 @@ class AuthenticationHelper {
             self.homeTown = homeTown
             self.email = email
             self.first_last_name = first_last_name
+            self.join_date = join_date
+            self.profile_image = profile_image
         }
     }
     
@@ -109,24 +115,26 @@ class AuthenticationHelper {
             case .success(_):
                 if (response.result.value! == "True") {
                     
-                    //retreive
+                    //retrieve user profile information for shared instance
                     let get_info_string = "\(self.url_string)/profile?username=\(username)"
                     print(get_info_string)
                     
                     var info: JSON? = nil
                     
-                    Alamofire.request(get_info_string, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil).responseString { resp in
+                    Alamofire.request(get_info_string, method: .get, parameters: nil, headers: nil).responseJSON { resp in
+                        
                         
                         if((resp.result.value) != nil){
                             info = JSON(resp.result.value!)
-                            print(info!)
+                            AuthenticationHelper.sharedInstance.current_user.birthday = info!["birthday"].stringValue
+                            AuthenticationHelper.sharedInstance.current_user.display_name = info!["username"].stringValue
+                            AuthenticationHelper.sharedInstance.current_user.first_last_name = "\(info!["first_name"].stringValue) \(info!["last_name"].stringValue)"
+                            AuthenticationHelper.sharedInstance.current_user.profile_image = info!["profile_image"].stringValue
+                            AuthenticationHelper.sharedInstance.current_user.homeTown = info!["hometown"].stringValue
                         }
                         else{
-                            print("Profile response was nil")
+                            print("Profile response was nil. Could not retrieve user profile info.")
                         }
-                        
-                        
-                        
                     }
                     
                     print("Success")
