@@ -239,11 +239,9 @@ def reply_history():
     return neo4j.get_user_reply_history(username)
 
 
-
 @app.route('/neo4j', methods=['DELETE'])
 def wipe():
     return neo4j.wipe_database()
-
 
 
 @app.route('/didrate', methods=['GET'])
@@ -356,8 +354,8 @@ def on_place_message(data):
 
 def start_server():
     # app.run(host='0.0.0.0', port=80, debug=True)
-    socketio.run(app, host='127.0.0.1', port=5000, debug=True)
-    # socketio.run(app, host='0.0.0.0', port=80, debug=True)
+    # socketio.run(app, host='127.0.0.1', port=5000, debug=True)
+    socketio.run(app, host='0.0.0.0', port=80, debug=True)
 
 
 def signal_handler(sig, frame):
