@@ -470,6 +470,10 @@ def get_posts_at_place(place_id):
         return str(False)
 
 
+def get_posts_at_other(lat, lon, radius):
+
+
+
 def get_user_settings(username):
     try:
         result = GRAPH.run("MATCH (:User {{username: '{}'}})-[:HAS_SETTINGS]->(s) RETURN s{{.*}}".format(username))
