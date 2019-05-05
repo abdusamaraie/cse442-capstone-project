@@ -104,21 +104,43 @@ class GroupPostManager {
     
     func getPostData(completion: @escaping (_ response_:JSON) -> ()) {
         
-        let parameters: [String: Any] = [
-            "placeId": current_group.ID!
-        ]
-        
-        print("parameters: \(parameters)")
-        
-        Alamofire.request("\(urlString)/place/message", method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { response in
+        //if the place ID is 'Other', we need to call a special endpoint to get the posts
+        if(current_group.ID! == "Other"){
+            let parameters: [String: Any] = [
+                "lat": latitude,
+                "long": longitude
+            ]
             
+            print("parameters: \(parameters)")
             
-            if((response.result.value) != nil) {
-                let posts = JSON(response.result.value!)
-                completion(posts)
+            Alamofire.request("\(urlString)/place/other", method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { response in
                 
+                
+                if((response.result.value) != nil) {
+                    let posts = JSON(response.result.value!)
+                    completion(posts)
+                }
+                
+                completion([])
             }
-            completion([])
+        //if the place ID is anything else, we get the posts just as before
+        } else {
+            let parameters: [String: Any] = [
+                "placeId": current_group.ID!
+            ]
+            
+            print("parameters: \(parameters)")
+            
+            Alamofire.request("\(urlString)/place/message", method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { response in
+                
+                
+                if((response.result.value) != nil) {
+                    let posts = JSON(response.result.value!)
+                    completion(posts)
+                }
+                
+                completion([])
+            }
         }
     }
     

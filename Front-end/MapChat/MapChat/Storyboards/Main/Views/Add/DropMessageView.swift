@@ -189,7 +189,7 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         //print("FRAME - KEYBOARD: \(placeViewPosY)")
         placesView = UICollectionView(frame: CGRect(x: 0, y: placeViewPosY, width: view.frame.width, height: 80), collectionViewLayout: flowLayout)
         
-        self.placesView.alpha = 0.0
+        //self.placesView.alpha = 0.0
         
         self.placesView.delegate = self
         self.placesView.dataSource = self
@@ -206,9 +206,9 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         getPlace()
         
         //fade cells in
-        UIView.animate(withDuration: 1.0, animations: {
-            self.placesView.alpha = 1.0
-        })
+//        UIView.animate(withDuration: 1.0, animations: {
+//            self.placesView.alpha = 1.0
+//        })
         
         animate()
     }
@@ -244,9 +244,16 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         
         //scale cells
         cell.transform = CGAffineTransform.init(scaleX: s, y: s)
-    
+        
+        // face cell in
+        cell.alpha = 0
+        UIView.animate(withDuration: 0.5, animations: {
+            cell.alpha = 1.0
+        })
         
         return cell
+        
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -255,9 +262,24 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("You selected cell #\(indexPath.item)!")
+        
+        //remove border from any previous choice
+        if(selectedPlace != nil){
+            for place in places.enumerated() {
+                if(self.selectedPlace.placeName == place.element.placeName){
+                    print("deselected \(place.element.placeName)")
+                    let cell = placesView.cellForItem(at: IndexPath.init(row: place.offset, section: 0))
+                    
+                        cell?.layer.borderWidth = 0
+                }
+            }
+        }
+
 
         // update UI
         let cell = placesView.cellForItem(at: indexPath)
+        
+        
         cell?.layer.borderWidth = 1.0
         cell?.layer.borderColor = UIColor.gray.cgColor
         
@@ -460,7 +482,9 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
     
     @IBAction func cancel(_ sender: Any) {
         print("going back")
+        self.view.endEditing(true)
         self.dismiss(animated: true, completion: nil)
+        
     }
     
     @IBAction func cache(_ sender: Any) {
