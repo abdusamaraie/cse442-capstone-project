@@ -211,6 +211,19 @@ def place():
         return str(False)
 
 
+@app.route('/place/other', methods=['GET'])
+def other_messages():
+    # GET ALL THE PLACES WITH POSTS IN GIVEN RADIUS
+    if request.method == 'GET':
+        lat = request.args.get('lat')
+        long = request.args.get('long')
+        radius = request.args.get('radius', default=250, type=int)
+
+        return neo4j.get_posts_at_other(lat, long, radius)
+    else:
+        return str(False)
+
+
 @app.route('/place/message', methods=['GET'])
 def place_message():
     # GET ALL THE MESSAGES LOCATED AT A PLACE

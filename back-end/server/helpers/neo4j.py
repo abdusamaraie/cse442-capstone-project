@@ -470,6 +470,30 @@ def get_posts_at_place(place_id):
         return str(False)
 
 
+def get_posts_at_other(lat, lon, radius):
+    time = get_time()
+
+    # convert distance im meters to km
+    radius_km = radius/1000
+
+    try:
+        result = GRAPH.run("CALL spatial.withinDistance('posts', {{latitude: {},longitude: {}}}, {}) "
+                           "YIELD node AS p "
+                           "MATCH(u:User)-[:POSTED]->(p)-[:LOCATED_AT]->(:Place {{place_id: 'Other'}}) "
+                           "WHERE p.expire_time > '{}' "
+                           "RETURN p{{.*, username: u.username, profile_image: u.profile_image, "
+                           "full_name: (u.first_name + ' ' + u.last_name), likes: size((p)<-[:LIKED]-()), "
+                           "dislikes: size((p)<-[:DISLIKED]-())}} as posts ORDER BY p.post_time DESC".format(lat, lon, radius_km, time))
+
+        # loop through results and create json
+        posts_json = json.dumps([dict(ix)['posts'] for ix in result.data()])
+        return posts_json
+
+    except Exception as e:
+        print(e)
+        return str(False)
+
+
 def get_user_settings(username):
     try:
         result = GRAPH.run("MATCH (:User {{username: '{}'}})-[:HAS_SETTINGS]->(s) RETURN s{{.*}}".format(username))
