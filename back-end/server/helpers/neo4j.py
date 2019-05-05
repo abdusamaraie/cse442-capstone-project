@@ -351,7 +351,8 @@ def get_post_replies(post_id):
         # get replies under a post
         results = GRAPH.run("MATCH(p:Post {{post_id: '{}'}})<-[:REPLY_TO]-(r:Reply)<-[:REPLIED]-(u:User) "
                             "RETURN r{{.*, username: u.username, profile_image: u.profile_image, "
-                            "full_name: (u.first_name + ' ' + u.last_name)}}".format(post_id))
+                            "full_name: (u.first_name + ' ' + u.last_name)}} "
+                            "ORDER BY r.post_time DESC".format(post_id))
 
         # loop through results and create json
         replies_json = json.dumps([dict(ix)['r'] for ix in results.data()])
@@ -388,7 +389,7 @@ def get_ratings(post_id):
 
 def delete_reply(reply_id):
     try:
-        # delete post node and all replies
+        # delete a reply
         GRAPH.run("MATCH (r:Reply {{reply_id: '{}'}}) "
                   "DETACH DELETE r".format(reply_id))
         return str(True)
@@ -432,7 +433,12 @@ def get_wide_place_nodes(lat, lon, radius):
         res = GRAPH.run("CALL spatial.withinDistance('places', {{latitude: {},longitude: {}}}, {}) "
                         "YIELD node AS places "
                         "MATCH (p:Post)-[:LOCATED_AT]->(places) WHERE p.expire_time > '{}' "
-                        "RETURN places{{.*, number_of_posts: count(p)}} LIMIT 10".format(lat, lon, radius_km, time))
+                        "RETURN places{{.*, number_of_posts: count(p)}} "
+                        "UNION MATCH (other:Place {{place_id: 'Other'}}) "
+                        "CALL spatial.withinDistance('posts', {{latitude: {},longitude: {}}}, {}) "
+                        "YIELD node AS p "
+                        "MATCH (p)-[:LOCATED_AT]->(other) WHERE p.expire_time > '{}' " 
+                        "RETURN other{{.*, number_of_posts: count(p)}} AS places".format(lat, lon, radius_km, time, lat, lon, radius_km, time,))
 
         # loop through results and create json
         places_json = json.dumps([dict(ix)['places'] for ix in res.data()])
@@ -450,6 +456,7 @@ def get_posts_at_place(place_id):
         result = GRAPH.run("MATCH (u:User)-[:POSTED]->(p:Post)-[:LOCATED_AT]->(pl:Place {{place_id: '{}'}})"
                            "WHERE p.expire_time > '{}' "
                            "WITH u, p "
+                           "ORDER BY p.post_time DESC "
                            "RETURN p{{.*, username: u.username, profile_image: u.profile_image, "
                            "full_name: (u.first_name + ' ' + u.last_name), likes: size((p)<-[:LIKED]-()), "
                            "dislikes: size((p)<-[:DISLIKED]-())}}".format(place_id, time))
