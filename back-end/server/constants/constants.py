@@ -14,4 +14,4 @@ PLACES_API_KEY = 'AIzaSyAYDeO-TqsstxXzmZqCes-J3exBDQgD5cY'
 DEFAULT_PLACE_PHOTO = 'https://www.htmlcsscolor.com/preview/gallery/005BBB.png'
 
 # for places tagged with the place 'Other'
-OTHER_PHOTO_URL = ''
+OTHER_PHOTO_URL = 'https://www.htmlcsscolor.com/preview/gallery/005BBB.png'
