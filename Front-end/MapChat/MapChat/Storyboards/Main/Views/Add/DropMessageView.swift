@@ -460,7 +460,9 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
     
     @IBAction func cancel(_ sender: Any) {
         print("going back")
+        self.view.endEditing(true)
         self.dismiss(animated: true, completion: nil)
+        
     }
     
     @IBAction func cache(_ sender: Any) {

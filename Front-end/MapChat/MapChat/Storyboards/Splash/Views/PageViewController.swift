@@ -63,7 +63,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         self.view.addSubview(sign_in_button)
         
         //do fade-in animation
-        UIView.animate(withDuration: 0.8, animations: {
+        UIView.animate(withDuration: 0.4, animations: {
             self.sign_in_button.alpha = 1.0
         })
         
@@ -92,7 +92,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         self.view.addSubview(sign_up_button)
         
         //do fade-in animation
-        UIView.animate(withDuration: 0.8, animations: {
+        UIView.animate(withDuration: 0.4, animations: {
             self.sign_up_button.alpha = 1.0
         })
     }

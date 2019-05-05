@@ -178,6 +178,10 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
         print("index path: \(indexPath.row)")
         print("list size: \(group_list.count)")
         
+        if(group_list.count == 0){
+            return cell
+        }
+        
         let group_item = group_list[indexPath.row]
         let url = URL(string: group_item.URL!)
         
