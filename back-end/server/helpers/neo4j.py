@@ -126,7 +126,8 @@ def delete_user(username, password):
                       "OPTIONAL MATCH (u)-[:POSTED]->(p:Post) "
                       "OPTIONAL MATCH (p)<-[:REPLY_TO]-(r:Reply) "
                       "OPTIONAL MATCH (u)-[:REPLIED]->(ur:Reply) "
-                      "DETACH DELETE u, p, r, ur".format(username))
+                      "OPTIONAL MATCH (u)-[:HAS_SETTINGS]->(s:Settings) "
+                      "DETACH DELETE u, p, r, ur, s".format(username))
             return str(True)
         else:
             print("Couldn't find user")
