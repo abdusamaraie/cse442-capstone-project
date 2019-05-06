@@ -395,6 +395,7 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
                             animationView.play{ (finished) in
                                 animationView.removeFromSuperview()
                                 print("going back")
+                                self.view.endEditing(true)
                                 self.dismiss(animated: true, completion: nil)
                             }
                             
