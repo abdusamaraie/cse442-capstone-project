@@ -379,6 +379,8 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
                     
                     Alamofire.request(urlString, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseString { response in
                         
+                        
+                        print(response.result.value!)
                         switch response.result {
                         case .success:
                             
