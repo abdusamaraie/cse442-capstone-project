@@ -274,6 +274,10 @@ class AuthenticationHelper {
             
             switch(response.result) {
                 case .success(_):
+                    
+                    UserDefaults.standard.set(username, forKey: "username")
+                    UserDefaults.standard.set(AuthenticationHelper.sharedInstance.current_user.password!, forKey: "password")
+                    
                     print("Success")
                     completion("Success")
                     break

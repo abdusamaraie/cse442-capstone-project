@@ -44,6 +44,8 @@ class ProfileView: UIViewController, UITableViewDelegate, UITableViewDataSource 
             tableView.deselectRow(at: indexPath, animated: true)
         } else if (settings_list[indexPath.row].name == "Log out") {
             print("logging out")
+            
+            //find new way to load auth view
             self.view.window?.rootViewController?.presentedViewController!.dismiss(animated: true, completion: nil)
         }
     }

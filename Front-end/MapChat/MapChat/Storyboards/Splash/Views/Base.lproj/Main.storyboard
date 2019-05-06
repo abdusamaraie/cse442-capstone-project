@@ -21,7 +21,7 @@
         <!--Load View-->
         <scene sceneID="eI2-ou-1UZ">
             <objects>
-                <viewController id="3OQ-kB-qT1" customClass="LoadView" customModule="MapChat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoadAnimationID" id="3OQ-kB-qT1" customClass="LoadView" customModule="MapChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u7b-9T-Hid">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -47,7 +47,7 @@
         <!--Page View Controller-->
         <scene sceneID="FQ7-rX-IgX">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="pBb-ZE-IHT" customClass="PageViewController" customModule="MapChat" customModuleProvider="target" sceneMemberID="viewController">
+                <pageViewController storyboardIdentifier="HomeViewID" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="pBb-ZE-IHT" customClass="PageViewController" customModule="MapChat" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="ggK-s1-CMJ" kind="show" identifier="to_auth" id="ILS-7u-ZLD"/>
                         <segue destination="L18-IP-h9R" kind="show" identifier="to_auth2" id="GYa-Sv-PGC"/>

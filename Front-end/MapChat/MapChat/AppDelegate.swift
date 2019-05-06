@@ -33,29 +33,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
 
         
         if uname != nil && pass != nil {
-            var mainStoryBoard: UIStoryboard
-            var protectedPage: UIViewController
                 
-            AuthenticationHelper.sharedInstance.current_user.username = uname
-            AuthenticationHelper.sharedInstance.current_user.password = pass
+            AuthenticationHelper.sharedInstance.current_user.username = uname!
+            AuthenticationHelper.sharedInstance.current_user.password = pass!
             
             AuthenticationHelper.sharedInstance.sign_in(completion: {(response) in
                 
                 print("response: \(response)")
                 if (response == "Success") {
                     // user logged in
-                    mainStoryBoard = UIStoryboard(name: "MainView", bundle: nil)
-                    protectedPage = mainStoryBoard.instantiateViewController(withIdentifier: "TabBarID")
+                    let mainStoryBoard = UIStoryboard(name: "MainView", bundle: nil)
+                    let protectedPage = mainStoryBoard.instantiateViewController(withIdentifier: "TabBarID")
+                    
+                    self.window!.rootViewController = protectedPage
+                    self.window!.makeKeyAndVisible()
                     
                 } else {
-                    mainStoryBoard = UIStoryboard(name: "MainView", bundle: nil)
-                    protectedPage = mainStoryBoard.instantiateViewController(withIdentifier: "TabBarID")
+                    let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+                    let protectedPage = mainStoryBoard.instantiateViewController(withIdentifier: "LoadAnimationID")
+                    
+                    self.window!.rootViewController = protectedPage
+                    self.window!.makeKeyAndVisible()
                 }
             })
-            
-
-            window!.rootViewController = protectedPage
-            window!.makeKeyAndVisible()
         }
         
         
