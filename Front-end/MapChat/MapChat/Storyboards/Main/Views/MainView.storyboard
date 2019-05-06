@@ -816,11 +816,12 @@
                     <connections>
                         <outlet property="settingsView" destination="SBk-Vs-7B0" id="mSK-aO-kEw"/>
                         <segue destination="Vxj-mi-03u" kind="show" identifier="to_advanced_settings" id="c6i-fJ-brx"/>
+                        <segue destination="dji-qy-HGw" kind="show" identifier="to_main" id="sj0-7F-tQp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eYf-Al-bGP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-894" y="-446"/>
+            <point key="canvasLocation" x="-909" y="-447"/>
         </scene>
         <!--Comment View-->
         <scene sceneID="FZQ-Be-Aaj">
@@ -1760,6 +1761,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bJT-gf-eP3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2066.4000000000001" y="229.80295566502463"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="y5S-AD-8LX">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="dji-qy-HGw" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8LR-Lt-qMY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-837" y="-867"/>
         </scene>
     </scenes>
     <resources>

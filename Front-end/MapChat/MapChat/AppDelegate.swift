@@ -49,11 +49,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
                     self.window!.makeKeyAndVisible()
                     
                 } else {
-                    let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
-                    let protectedPage = mainStoryBoard.instantiateViewController(withIdentifier: "LoadAnimationID")
+                    //let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+                    //let protectedPage = mainStoryBoard.instantiateViewController(withIdentifier: "LoadAnimationID")
                     
-                    self.window!.rootViewController = protectedPage
-                    self.window!.makeKeyAndVisible()
+                    //self.window!.rootViewController = protectedPage
+                    //self.window!.makeKeyAndVisible()
                 }
             })
         }
