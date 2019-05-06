@@ -23,6 +23,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         // GMSServices.provideAPIKey("AIzaSyC_z-SXgI4uTCJl-tYrSVqBFUxSytIp5dY")
         GMSServices.provideAPIKey("AIzaSyDdfTiOfHPpUzAppxNgyJ0P98rvSrlyw-8")
         GMSPlacesClient.provideAPIKey("AIzaSyDdfTiOfHPpUzAppxNgyJ0P98rvSrlyw-8")
+        
+        
+        let defaults = UserDefaults.standard
+        
+        let uname = defaults.string(forKey: "username")
+        let pass = defaults.string(forKey: "password")
+        
+
+        
+        if uname != nil && pass != nil {
+            var mainStoryBoard: UIStoryboard
+            var protectedPage: UIViewController
+                
+            AuthenticationHelper.sharedInstance.current_user.username = uname
+            AuthenticationHelper.sharedInstance.current_user.password = pass
+            
+            AuthenticationHelper.sharedInstance.sign_in(completion: {(response) in
+                
+                print("response: \(response)")
+                if (response == "Success") {
+                    // user logged in
+                    mainStoryBoard = UIStoryboard(name: "MainView", bundle: nil)
+                    protectedPage = mainStoryBoard.instantiateViewController(withIdentifier: "TabBarID")
+                    
+                } else {
+                    mainStoryBoard = UIStoryboard(name: "MainView", bundle: nil)
+                    protectedPage = mainStoryBoard.instantiateViewController(withIdentifier: "TabBarID")
+                }
+            })
+            
+
+            window!.rootViewController = protectedPage
+            window!.makeKeyAndVisible()
+        }
+        
+        
         return true
     }
     

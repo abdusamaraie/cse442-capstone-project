@@ -138,6 +138,10 @@ class AuthenticationHelper {
                     }
                     
                     print("Success")
+                    
+                    UserDefaults.standard.set(username, forKey: "username")
+                    UserDefaults.standard.set(AuthenticationHelper.sharedInstance.current_user.password!, forKey: "password")
+                    
                     completion("Success")
                     break
                 } else {
