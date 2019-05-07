@@ -101,6 +101,8 @@ class AuthenticationHelper {
         //let username = emailArray[0]
         
         let username = AuthenticationHelper.sharedInstance.current_user.username!
+        
+        print("SIGN IN USERNAME: \(username)")
 
         let sign_in_string = "\(url_string)/auth?username=\(username)&password=\(AuthenticationHelper.sharedInstance.current_user.password!)"
 
@@ -137,10 +139,20 @@ class AuthenticationHelper {
                         }
                     }
                     
+                    UserDefaults.standard.set(username, forKey: "username")
+                    UserDefaults.standard.set(AuthenticationHelper.sharedInstance.current_user.password!, forKey: "password")
+                    UserDefaults.standard.set(true, forKey: "is_authenticated")
+                    UserDefaults.standard.synchronize()
+                    
                     print("Success")
                     completion("Success")
                     break
                 } else {
+                    UserDefaults.standard.set(nil, forKey: "username")
+                    UserDefaults.standard.set(nil, forKey: "password")
+                    UserDefaults.standard.set(false, forKey: "is_authenticated")
+                    UserDefaults.standard.synchronize()
+                    
                     print("Failure")
                     completion("Failure")
                     break
@@ -270,11 +282,22 @@ class AuthenticationHelper {
             
             switch(response.result) {
                 case .success(_):
+                    
+                    UserDefaults.standard.set(username, forKey: "username")
+                    UserDefaults.standard.set(AuthenticationHelper.sharedInstance.current_user.password!, forKey: "password")
+                    UserDefaults.standard.set(true, forKey: "is_authenticated")
+                    UserDefaults.standard.synchronize()
+                    
                     print("Success")
                     completion("Success")
                     break
 
                 case .failure(_):
+                    UserDefaults.standard.set(nil, forKey: "username")
+                    UserDefaults.standard.set(nil, forKey: "password")
+                    UserDefaults.standard.set(false, forKey: "is_authenticated")
+                    UserDefaults.standard.synchronize()
+                    
                     print("Error")
                     completion("Error")
                     break
