@@ -25,37 +25,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         GMSPlacesClient.provideAPIKey("AIzaSyDdfTiOfHPpUzAppxNgyJ0P98rvSrlyw-8")
         
         
+        // Try to log the user in with the credentials from their last session
         let defaults = UserDefaults.standard
-
         let uname = defaults.string(forKey: "username")
         let pass = defaults.string(forKey: "password")
 
-
-
         if uname != nil && pass != nil {
-
             AuthenticationHelper.sharedInstance.current_user.username = uname!
             AuthenticationHelper.sharedInstance.current_user.password = pass!
 
-            AuthenticationHelper.sharedInstance.sign_in(completion: {(response) in
-
-                print("response: \(response)")
-                if (response == "Success") {
-                    // user logged in
-                    let mainStoryBoard = UIStoryboard(name: "MainView", bundle: nil)
-                    let protectedPage = mainStoryBoard.instantiateViewController(withIdentifier: "TabBarID")
-
-                    self.window!.rootViewController = protectedPage
-                    self.window!.makeKeyAndVisible()
-
-                } else {
-//                    let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
-//                    let protectedPage = mainStoryBoard.instantiateViewController(withIdentifier: "LoadAnimationID")
-//
-//                    self.window!.rootViewController = protectedPage
-//                    self.window!.makeKeyAndVisible()
-                }
-            })
+            AuthenticationHelper.sharedInstance.sign_in(completion: {_ in })
         }
         
         

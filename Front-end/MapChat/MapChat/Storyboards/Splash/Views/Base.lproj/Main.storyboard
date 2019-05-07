@@ -16,7 +16,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="Auth" storyboardName="Auth" id="ggK-s1-CMJ" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wx8-2u-dqO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-529" y="217"/>
+            <point key="canvasLocation" x="-172" y="225"/>
         </scene>
         <!--Load View-->
         <scene sceneID="eI2-ou-1UZ">
@@ -30,6 +30,7 @@
                     </view>
                     <connections>
                         <segue destination="pBb-ZE-IHT" kind="show" identifier="to_splash" id="UIZ-6J-9we"/>
+                        <segue destination="JQA-H9-9p9" kind="show" identifier="to_feed" id="QtH-q6-3yb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v8Z-Xx-j9E" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -42,7 +43,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="Auth2" storyboardName="Sign-in" id="L18-IP-h9R" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8QL-y5-sqP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-468" y="-85"/>
+            <point key="canvasLocation" x="-184" y="-144"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="FQ7-rX-IgX">
@@ -93,7 +94,7 @@
                 <viewControllerPlaceholder storyboardName="MainView" id="JQA-H9-9p9" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2oM-9X-yWG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1788" y="-96"/>
+            <point key="canvasLocation" x="-336" y="-748"/>
         </scene>
         <!--sThree-->
         <scene sceneID="37w-Ea-Zp0">
