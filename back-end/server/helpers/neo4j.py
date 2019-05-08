@@ -126,7 +126,8 @@ def delete_user(username, password):
                       "OPTIONAL MATCH (u)-[:POSTED]->(p:Post) "
                       "OPTIONAL MATCH (p)<-[:REPLY_TO]-(r:Reply) "
                       "OPTIONAL MATCH (u)-[:REPLIED]->(ur:Reply) "
-                      "DETACH DELETE u, p, r, ur".format(username))
+                      "OPTIONAL MATCH (u)-[:HAS_SETTINGS]->(s:Settings) "
+                      "DETACH DELETE u, p, r, ur, s".format(username))
             return str(True)
         else:
             print("Couldn't find user")
@@ -350,7 +351,8 @@ def get_post_replies(post_id):
         # get replies under a post
         results = GRAPH.run("MATCH(p:Post {{post_id: '{}'}})<-[:REPLY_TO]-(r:Reply)<-[:REPLIED]-(u:User) "
                             "RETURN r{{.*, username: u.username, profile_image: u.profile_image, "
-                            "full_name: (u.first_name + ' ' + u.last_name)}}".format(post_id))
+                            "full_name: (u.first_name + ' ' + u.last_name)}} "
+                            "ORDER BY r.post_time DESC".format(post_id))
 
         # loop through results and create json
         replies_json = json.dumps([dict(ix)['r'] for ix in results.data()])
@@ -387,7 +389,7 @@ def get_ratings(post_id):
 
 def delete_reply(reply_id):
     try:
-        # delete post node and all replies
+        # delete a reply
         GRAPH.run("MATCH (r:Reply {{reply_id: '{}'}}) "
                   "DETACH DELETE r".format(reply_id))
         return str(True)
@@ -431,7 +433,12 @@ def get_wide_place_nodes(lat, lon, radius):
         res = GRAPH.run("CALL spatial.withinDistance('places', {{latitude: {},longitude: {}}}, {}) "
                         "YIELD node AS places "
                         "MATCH (p:Post)-[:LOCATED_AT]->(places) WHERE p.expire_time > '{}' "
-                        "RETURN places{{.*, number_of_posts: count(p)}} LIMIT 10".format(lat, lon, radius_km, time))
+                        "RETURN places{{.*, number_of_posts: count(p)}} "
+                        "UNION MATCH (other:Place {{place_id: 'Other'}}) "
+                        "CALL spatial.withinDistance('posts', {{latitude: {},longitude: {}}}, {}) "
+                        "YIELD node AS p "
+                        "MATCH (p)-[:LOCATED_AT]->(other) WHERE p.expire_time > '{}' " 
+                        "RETURN other{{.*, number_of_posts: count(p)}} AS places".format(lat, lon, radius_km, time, lat, lon, radius_km, time,))
 
         # loop through results and create json
         places_json = json.dumps([dict(ix)['places'] for ix in res.data()])
@@ -449,12 +456,37 @@ def get_posts_at_place(place_id):
         result = GRAPH.run("MATCH (u:User)-[:POSTED]->(p:Post)-[:LOCATED_AT]->(pl:Place {{place_id: '{}'}})"
                            "WHERE p.expire_time > '{}' "
                            "WITH u, p "
+                           "ORDER BY p.post_time DESC "
                            "RETURN p{{.*, username: u.username, profile_image: u.profile_image, "
                            "full_name: (u.first_name + ' ' + u.last_name), likes: size((p)<-[:LIKED]-()), "
                            "dislikes: size((p)<-[:DISLIKED]-())}}".format(place_id, time))
 
         # loop through results and create json
         posts_json = json.dumps([dict(ix)['p'] for ix in result.data()])
+        return posts_json
+
+    except Exception as e:
+        print(e)
+        return str(False)
+
+
+def get_posts_at_other(lat, lon, radius):
+    time = get_time()
+
+    # convert distance im meters to km
+    radius_km = radius/1000
+
+    try:
+        result = GRAPH.run("CALL spatial.withinDistance('posts', {{latitude: {},longitude: {}}}, {}) "
+                           "YIELD node AS p "
+                           "MATCH(u:User)-[:POSTED]->(p)-[:LOCATED_AT]->(:Place {{place_id: 'Other'}}) "
+                           "WHERE p.expire_time > '{}' "
+                           "RETURN p{{.*, username: u.username, profile_image: u.profile_image, "
+                           "full_name: (u.first_name + ' ' + u.last_name), likes: size((p)<-[:LIKED]-()), "
+                           "dislikes: size((p)<-[:DISLIKED]-())}} as posts ORDER BY p.post_time DESC".format(lat, lon, radius_km, time))
+
+        # loop through results and create json
+        posts_json = json.dumps([dict(ix)['posts'] for ix in result.data()])
         return posts_json
 
     except Exception as e:
@@ -655,7 +687,7 @@ def get_profile_info(username):
         # remove hashed_password and email from response
         del profile_info['hashed_password'], profile_info['email']
 
-        return profile_info
+        return json.dumps(profile_info)
 
     except Exception as e:
         print(e)

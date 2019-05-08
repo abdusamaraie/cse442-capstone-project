@@ -44,7 +44,22 @@ class ProfileView: UIViewController, UITableViewDelegate, UITableViewDataSource 
             tableView.deselectRow(at: indexPath, animated: true)
         } else if (settings_list[indexPath.row].name == "Log out") {
             print("logging out")
-            self.view.window?.rootViewController?.presentedViewController!.dismiss(animated: true, completion: nil)
+            
+            //find new way to load auth view
+            //self.dismiss(animated: false, completion: {})
+            
+            //set UserDefaults to nil so the user wont be autmatically logged in
+            UserDefaults.standard.set(nil, forKey: "username")
+            UserDefaults.standard.set(nil, forKey: "password")
+            UserDefaults.standard.set(false, forKey: "is_authenticated")
+            UserDefaults.standard.synchronize()
+            
+            let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+            let loginVC = mainStoryBoard.instantiateViewController(withIdentifier: "HomeViewID")
+            
+            let appDel:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+            
+            appDel.window?.rootViewController = loginVC
         }
     }
     

@@ -27,8 +27,18 @@ class LoadView: UIViewController {
             
             self.view.addSubview(animationView)
             
-            animationView.play { (finished) in
-                self.performSegue(withIdentifier: "to_splash", sender: self)
+            
+            let auth: Bool = UserDefaults.standard.bool(forKey: "is_authenticated")
+            print("is_authenticated is: \(auth))")
+            
+            if(auth){
+                animationView.play { (finished) in
+                    self.performSegue(withIdentifier: "to_feed", sender: self)
+                }
+            } else {
+                animationView.play { (finished) in
+                    self.performSegue(withIdentifier: "to_splash", sender: self)
+                }
             }
         }
     }

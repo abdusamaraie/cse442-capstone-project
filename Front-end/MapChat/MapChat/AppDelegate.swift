@@ -23,6 +23,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         // GMSServices.provideAPIKey("AIzaSyC_z-SXgI4uTCJl-tYrSVqBFUxSytIp5dY")
         GMSServices.provideAPIKey("AIzaSyDdfTiOfHPpUzAppxNgyJ0P98rvSrlyw-8")
         GMSPlacesClient.provideAPIKey("AIzaSyDdfTiOfHPpUzAppxNgyJ0P98rvSrlyw-8")
+        
+        
+        // Try to log the user in with the credentials from their last session
+        let defaults = UserDefaults.standard
+        let uname = defaults.string(forKey: "username")
+        let pass = defaults.string(forKey: "password")
+
+        if uname != nil && pass != nil {
+            AuthenticationHelper.sharedInstance.current_user.username = uname!
+            AuthenticationHelper.sharedInstance.current_user.password = pass!
+
+            AuthenticationHelper.sharedInstance.sign_in(completion: {_ in })
+        }
+        
+        
         return true
     }
     

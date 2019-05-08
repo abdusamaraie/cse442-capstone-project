@@ -40,10 +40,15 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
     var selectedTag:Tag!
     var lengthLabel: UILabel!
     
+    var currentPlaceholder: String! = "What's up?"
+    let placeholderColor: UIColor = UIColor.init(red: 210/255, green: 210/255, blue: 210/255, alpha: 1)
+    
     var postTime:Int!
     var keyboardHeight: CGFloat = 0.0
     
     let dateFormatterGet = DateFormatter()
+    
+    let placeHolderTemplates = ["Is it lit at", "What do the people need to know about", "What's going on at", "Update us on", "Got something to say about", "How is your time at", "What's the scoop at", "What's the 411 on", "Could you enlighten us on", "Anything exciting at", "What's poppin off at"]
 
     
     override func viewDidLoad() {
@@ -64,10 +69,16 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         locManager.distanceFilter = 10
         
         // place holder for text view
-        message.text = "Enter a message"
-        message.textColor = UIColor.lightGray
-        
+        message.text = currentPlaceholder
+        message.textColor = placeholderColor
+
         message.selectedTextRange = message.textRange(from: message.beginningOfDocument, to: message.beginningOfDocument)
+        
+        // background gradient
+//        let layer = CAGradientLayer()
+//        layer.frame = CGRect(x: 0, y: view.frame.height/4, width: view.frame.width, height: view.frame.height/2)
+//        layer.colors = [UIColor.white.cgColor, UIColor(red: 200, green: 200, blue: 200, alpha: 1)]
+//        view.layer.insertSublayer(layer, at: 0)
     
         
         // keyboard toolbar
@@ -178,7 +189,7 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         //print("FRAME - KEYBOARD: \(placeViewPosY)")
         placesView = UICollectionView(frame: CGRect(x: 0, y: placeViewPosY, width: view.frame.width, height: 80), collectionViewLayout: flowLayout)
         
-        self.placesView.alpha = 0.0
+        //self.placesView.alpha = 0.0
         
         self.placesView.delegate = self
         self.placesView.dataSource = self
@@ -192,14 +203,12 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         self.view.addSubview(placesView)
         placesView.bindToKeyboard()
         
-
+        getPlace()
         
         //fade cells in
-        UIView.animate(withDuration: 1.0, animations: {
-            self.placesView.alpha = 1.0
-        })
-        
-        getPlace()
+//        UIView.animate(withDuration: 1.0, animations: {
+//            self.placesView.alpha = 1.0
+//        })
         
         animate()
     }
@@ -235,9 +244,16 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         
         //scale cells
         cell.transform = CGAffineTransform.init(scaleX: s, y: s)
-    
+        
+        // face cell in
+        cell.alpha = 0
+        UIView.animate(withDuration: 0.5, animations: {
+            cell.alpha = 1.0
+        })
         
         return cell
+        
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -246,14 +262,51 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("You selected cell #\(indexPath.item)!")
+        
+        //remove border from any previous choice
+        if(selectedPlace != nil){
+            for place in places.enumerated() {
+                if(self.selectedPlace.placeName == place.element.placeName){
+                    print("deselected \(place.element.placeName)")
+                    let cell = placesView.cellForItem(at: IndexPath.init(row: place.offset, section: 0))
+                    
+                        cell?.layer.borderWidth = 0
+                }
+            }
+        }
+
 
         // update UI
         let cell = placesView.cellForItem(at: indexPath)
+        
+        
         cell?.layer.borderWidth = 1.0
         cell?.layer.borderColor = UIColor.gray.cgColor
         
         // update selected group object
         self.selectedPlace = places[indexPath.row]
+        
+        //update text field placeholder
+        currentPlaceholder = placeHolderTemplates.randomElement()
+        
+        if(message.textColor == placeholderColor){
+            UIView.animate(withDuration: 0.50, animations: {
+                self.message.alpha = 0.0
+            })
+            setPlaceholder()
+            UIView.animate(withDuration: 0.50, animations: {
+                self.message.alpha = 1.0
+            })
+        }
+    }
+    
+    func setPlaceholder(){
+        if(selectedPlace != nil){
+            message.text = "\(currentPlaceholder!) \(selectedPlace.placeName)?"
+        } else {
+            message.text = currentPlaceholder!
+        }
+        message.textColor = placeholderColor
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView){
@@ -282,9 +335,9 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
             let carousel = CGAffineTransform.init(scaleX: s, y: s)
             
             cell.transform = carousel//.concatenating(mover)
-            let pCell = cell as! PlaceCollectionCell
+            //let pCell = cell as! PlaceCollectionCell
             //pCell.PlaceName.text = "\(s)"
-            print("\(pCell.PlaceName.text!): \(s)")
+            //print("\(pCell.PlaceName.text!): \(s)")
         }
     }
     
@@ -326,6 +379,8 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
                     
                     Alamofire.request(urlString, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseString { response in
                         
+                        
+                        print(response.result.value!)
                         switch response.result {
                         case .success:
                             
@@ -342,6 +397,7 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
                             animationView.play{ (finished) in
                                 animationView.removeFromSuperview()
                                 print("going back")
+                                self.view.endEditing(true)
                                 self.dismiss(animated: true, completion: nil)
                             }
                             
@@ -429,17 +485,24 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
     
     @IBAction func cancel(_ sender: Any) {
         print("going back")
+        self.view.endEditing(true)
         self.dismiss(animated: true, completion: nil)
+        
     }
     
     @IBAction func cache(_ sender: Any) {
-        if (message.text != "" && selectedPlace != nil) {
+
+        if(message.textColor == placeholderColor || message.text == " ") {
+            print("didn't enter a message")
+        }
+        else if(selectedPlace == nil){
+            print("didn't select place")
+        }
+        else {
             print("message text: \(message.text!)")
             // message.resignFirstResponder()
             self.dropMessage = true
             self.cacheMessage()
-        } else {
-            print("didn't select place")
         }
     }
     
@@ -471,10 +534,10 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         
         // If updated text view will be empty, add the placeholder
         // and set the cursor to the beginning of the text view
-        if updatedText.isEmpty {
+        if updatedText.isEmpty || updatedText == currentText{
             
-            textView.text = "Placeholder"
-            textView.textColor = UIColor.lightGray
+            // placeholders are questions about a place
+            setPlaceholder()
             
             textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
         }
@@ -483,10 +546,9 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
             // length of the replacement string is greater than 0, set
             // the text color to black then set its text to the
             // replacement string
-        else if textView.textColor == UIColor.lightGray && !text.isEmpty {
+        else if textView.textColor == placeholderColor {//}&& !updatedText.isEmpty && !currentText.isEmpty{
             textView.textColor = UIColor.black
             textView.text = text
-            
         }
             
             // For every other case, the text should change with the usual
@@ -505,7 +567,7 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
 
     func textViewDidChangeSelection(_ textView: UITextView) {
         if self.view.window != nil {
-            if textView.textColor == UIColor.lightGray {
+            if textView.textColor == placeholderColor {
                 textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
             }
         }
