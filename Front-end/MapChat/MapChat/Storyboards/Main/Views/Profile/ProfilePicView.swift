@@ -20,6 +20,10 @@ import UIKit
  }
  */
 
+struct DarkModeBool {
+    static var darkmodeflag = false
+}
+
 class ProfilePicView: UIViewController, UIImagePickerControllerDelegate, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate{
     
     @IBOutlet weak var changeImagrButton: UIButton!
@@ -27,8 +31,40 @@ class ProfilePicView: UIViewController, UIImagePickerControllerDelegate, UITable
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var fullName: UILabel!
     @IBOutlet weak var hometown: UILabel!
+    @IBOutlet weak var profileCircle: UIView!
     
     @IBOutlet weak var profileTableView: UITableView!
+    
+    @IBAction func darkmode(_ sender: Any) {
+        DarkModeBool.darkmodeflag.toggle()
+
+        if DarkModeBool.darkmodeflag == true
+        {
+            self.navigationController?.navigationBar.barTintColor = .black
+            self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+            self.tabBarController?.tabBar.barTintColor = .black
+            self.profileTableView.backgroundColor = .black
+            self.view.backgroundColor = .black
+            self.profileCircle.backgroundColor = .black
+            self.profileName.textColor = .white
+            self.hometown.textColor = .white
+            self.fullName.textColor = .white
+            self.profileTableView.reloadData()
+        }
+        else if DarkModeBool.darkmodeflag == false
+        {
+            self.navigationController?.navigationBar.barTintColor = .white
+            self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+            self.tabBarController?.tabBar.barTintColor = .white
+            self.profileTableView.backgroundColor = .white
+            self.view.backgroundColor = .white
+            self.profileCircle.backgroundColor = .white
+            self.profileName.textColor = .black
+            self.hometown.textColor = .black
+            self.fullName.textColor = .black
+            self.profileTableView.reloadData()
+        }
+    }
     
     let urlString = "http://35.238.74.200:80/history/posts"
     
@@ -78,8 +114,23 @@ class ProfilePicView: UIViewController, UIImagePickerControllerDelegate, UITable
         
         cell.messageBody.text = messages[indexPath.row]
         cell.messageTag.text = "#TestTag"
-        cell.numberLikes.text = "5"
+        cell.numberLikes.text = ""
         
+        if DarkModeBool.darkmodeflag == true
+        {
+            cell.messageTag.textColor = .white
+            cell.numberLikes.textColor = .white
+            cell.messageBody.textColor = .white
+            cell.backgroundColor = .black
+        }
+        else if DarkModeBool.darkmodeflag == false
+        {
+            cell.messageTag.textColor = .black
+            cell.numberLikes.textColor = .black
+            cell.messageBody.textColor = .black
+            cell.backgroundColor = .white
+        }
+
         return cell
     }
     

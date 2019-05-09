@@ -28,6 +28,7 @@ class MessageCell: UITableViewCell {
         super.awakeFromNib()
         
         // defaultColor = self.upvoteIcon.tintColor
+        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

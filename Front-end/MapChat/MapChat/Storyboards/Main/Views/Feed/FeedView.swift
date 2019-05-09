@@ -49,6 +49,19 @@ class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource, CL
         
         locManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         locManager.distanceFilter = 10
+        
+        if DarkModeBool.darkmodeflag == true
+        {
+            self.view.backgroundColor = .black
+            self.feedView.backgroundColor = .black
+        }
+        else if DarkModeBool.darkmodeflag == false
+        {
+            self.view.backgroundColor = .white
+            self.feedView.backgroundColor = .white
+            
+        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -56,6 +69,9 @@ class FeedView: UIViewController, UITableViewDelegate, UITableViewDataSource, CL
         self.navigationItem.title = place_name
         loadFeed()
         // self.feedView.reloadData()
+        
+        
+        
     }
     
     override func viewDidDisappear(_ animated: Bool) {

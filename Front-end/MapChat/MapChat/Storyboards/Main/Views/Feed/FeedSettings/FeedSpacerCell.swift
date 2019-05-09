@@ -13,6 +13,15 @@ class FeedSpacerCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        if DarkModeBool.darkmodeflag == true
+        {
+            backgroundColor = .black
+        }
+        else if DarkModeBool.darkmodeflag == false
+        {
+            backgroundColor = .white
+        }
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

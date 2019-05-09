@@ -54,6 +54,25 @@ class AdvancedFeedCell: UITableViewCell, UICollectionViewDataSource, UICollectio
         emojiView.backgroundColor = UIColor.clear
 
         viewHolder.addSubview(emojiView)
+        
+        if DarkModeBool.darkmodeflag == true
+        {
+            backgroundColor = .black
+            displayName.textColor = .white
+            username.textColor = .white
+            reactButton.backgroundColor = .black
+            message.textColor = .white
+            viewHolder.backgroundColor = .black
+        }
+        else if DarkModeBool.darkmodeflag == false
+        {
+            backgroundColor = .white
+            displayName.textColor = .black
+            username.textColor = .black
+            reactButton.backgroundColor = .white
+            message.textColor = .black
+            viewHolder.backgroundColor = .white
+        }
 
 //        emojiView.isHidden = true
 //        reactButton.isHidden = false

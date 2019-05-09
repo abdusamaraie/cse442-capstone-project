@@ -11,10 +11,22 @@ import UIKit
 
 class RadiusCell: UITableViewCell {
     
+    @IBOutlet weak var feedradiusLabel: UILabel!
     @IBOutlet weak var iconImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        if DarkModeBool.darkmodeflag == true
+        {
+            backgroundColor = .black
+            feedradiusLabel.textColor = .white
+        }
+        else if DarkModeBool.darkmodeflag == false
+        { 
+            backgroundColor = .white
+            feedradiusLabel.textColor = .black
+        }
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

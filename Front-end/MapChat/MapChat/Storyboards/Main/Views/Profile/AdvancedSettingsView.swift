@@ -37,6 +37,17 @@ class AdvancedSettingsView: UIViewController, UITableViewDelegate, UITableViewDa
         
         self.navigationController?.navigationBar.topItem?.title = " "
         self.navigationController?.navigationBar.topItem?.backBarButtonItem?.image = #imageLiteral(resourceName: "left")
+        
+        if DarkModeBool.darkmodeflag == true
+        {
+            self.advancedSettingsView.backgroundColor = .black
+            self.view.backgroundColor = .black
+        }
+        else if DarkModeBool.darkmodeflag == false
+        {
+            self.advancedSettingsView.backgroundColor = .white
+            self.view.backgroundColor = .white
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

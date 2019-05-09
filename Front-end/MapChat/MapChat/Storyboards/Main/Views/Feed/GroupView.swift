@@ -52,6 +52,8 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
         locManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         locManager.distanceFilter = 10
         
+        
+        
     }
     
     @objc func refresh(sender:AnyObject) {
@@ -67,7 +69,22 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
         
         group_list = []
         print("----loading feed-----")
+        
+        if DarkModeBool.darkmodeflag == true
+        {
+            self.groupTableView.backgroundColor = .black
+            self.navigationController?.navigationBar.barTintColor = .black
+            self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        }
+        else if DarkModeBool.darkmodeflag == false
+        {
+            self.groupTableView.backgroundColor = .white
+            self.navigationController?.navigationBar.barTintColor = .white
+            self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        }
+        
         loadFeed()
+
     }
     
 
@@ -178,6 +195,7 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
         print("index path: \(indexPath.row)")
         print("list size: \(group_list.count)")
         
+        
         if(group_list.count == 0){
             return cell
         }
@@ -204,9 +222,20 @@ class GroupView: UIViewController, UITableViewDataSource, UITableViewDelegate, C
         cell.card.title = group_item.name!
         cell.card.itemTitle = "University at Buffalo"
         cell.card.itemSubtitle = "\(group_item.numberPosts!) Post(s)"
+       
+        if DarkModeBool.darkmodeflag == true
+        {
+            cell.backgroundColor = .black
+            cell.card.shouldPresent(detailVC, from: self, fullscreen: true)
+        }
+        else if DarkModeBool.darkmodeflag == false
+        {
+            cell.backgroundColor = .white
+            cell.card.shouldPresent(detailVC, from: self, fullscreen: true)
+        }
         
         cell.card.shouldPresent(detailVC, from: self, fullscreen: true)
-        
+
         return cell
     }
     

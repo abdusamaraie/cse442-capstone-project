@@ -19,6 +19,23 @@ class CommentCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        if DarkModeBool.darkmodeflag == true
+        {
+            backgroundColor = .black
+            displayName.textColor = .white
+            username.textColor = .white
+            replyingToMessage.textColor = .white
+            message.textColor = .white
+        }
+        else if DarkModeBool.darkmodeflag == false
+        {
+            backgroundColor = .white
+            displayName.textColor = .black
+            username.textColor = .black
+            replyingToMessage.textColor = .black
+            message.textColor = .black
+        }
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

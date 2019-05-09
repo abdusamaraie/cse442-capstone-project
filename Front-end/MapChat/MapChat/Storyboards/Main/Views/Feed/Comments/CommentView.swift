@@ -11,6 +11,8 @@ import UIKit
 
 class CommentView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var spacerView: UIView!
+    @IBOutlet weak var messagedropLabel: UILabel!
     @IBOutlet weak var commentsView: UITableView!
     // CommentCellObject
     
@@ -19,6 +21,25 @@ class CommentView: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         commentsView.delegate = self
         commentsView.dataSource = self
+        
+        if DarkModeBool.darkmodeflag == true
+        {
+            commentsView.backgroundColor = .black
+            view.backgroundColor = .black
+            messagedropLabel.textColor = .white
+            spacerView.backgroundColor = .black
+            self.navigationController?.navigationBar.barTintColor = .black
+            self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        }
+        else if DarkModeBool.darkmodeflag == false
+        {
+            commentsView.backgroundColor = .white
+            view.backgroundColor = .white
+            messagedropLabel.textColor = .black
+            spacerView.backgroundColor = .white
+            self.navigationController?.navigationBar.barTintColor = .white
+            self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
