@@ -62,12 +62,24 @@ class MapView: UIViewController, CLLocationManagerDelegate {
         locationManager.distanceFilter = 10
         
         locationManager.startUpdatingLocation()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         if lastLocation != nil {
             print("UPDATING PINS")
             getGroups(lastLocation)
+        }
+        
+        if DarkModeBool.darkmodeflag == true
+        {
+            self.navigationController?.navigationBar.barTintColor = .black
+            self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        }
+        else if DarkModeBool.darkmodeflag == false
+        {
+            self.navigationController?.navigationBar.barTintColor = .white
+            self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         }
     }
     

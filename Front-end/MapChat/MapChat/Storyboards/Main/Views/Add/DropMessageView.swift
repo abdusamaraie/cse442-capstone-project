@@ -124,6 +124,17 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
 
         
         self.counterView.maxCount = 120
+        
+        if DarkModeBool.darkmodeflag == true
+        {
+            self.view.backgroundColor = .black
+            toolbar.barTintColor = .black
+        }
+        else if DarkModeBool.darkmodeflag == false
+        {
+            self.view.backgroundColor = .white
+            toolbar.barTintColor = .white
+        }
     }
     
     @objc func changeVlaue(_ sender: UISlider) {
@@ -210,7 +221,9 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
 //            self.placesView.alpha = 1.0
 //        })
         
+        
         animate()
+
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -251,9 +264,17 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
             cell.alpha = 1.0
         })
         
+        if DarkModeBool.darkmodeflag == true
+        {
+            cell.PlaceName.backgroundColor = .darkGray
+        }
+        else if DarkModeBool.darkmodeflag == false
+        {
+            cell.PlaceName.backgroundColor = .lightGray
+        }
+        
         return cell
-        
-        
+    
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -549,6 +570,16 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
         else if textView.textColor == placeholderColor {//}&& !updatedText.isEmpty && !currentText.isEmpty{
             textView.textColor = UIColor.black
             textView.text = text
+            
+            if DarkModeBool.darkmodeflag == true
+            {
+                textView.textColor = .white
+            }
+            else if DarkModeBool.darkmodeflag == false
+            {
+                textView.textColor = .black
+            }
+            
         }
             
             // For every other case, the text should change with the usual
@@ -557,6 +588,16 @@ class DropMessageView: UIViewController, CLLocationManagerDelegate, UITextViewDe
             print("hey")
             let weightedLength = NSString(string: textView.text).length
             counterView.update(with: textView, textWeightedLength: weightedLength)
+            
+            if DarkModeBool.darkmodeflag == true
+            {
+                textView.textColor = .white
+            }
+            else if DarkModeBool.darkmodeflag == false
+            {
+                textView.textColor = .black
+            }
+            
             return true
         }
         

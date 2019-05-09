@@ -18,6 +18,17 @@ class AdvancedSettingsCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        if DarkModeBool.darkmodeflag == true
+        {
+            backgroundColor = .black
+            titleLabel.textColor = .white
+        }
+        else if DarkModeBool.darkmodeflag == false
+        {
+            backgroundColor = .white
+            titleLabel.textColor = .black
+        }
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

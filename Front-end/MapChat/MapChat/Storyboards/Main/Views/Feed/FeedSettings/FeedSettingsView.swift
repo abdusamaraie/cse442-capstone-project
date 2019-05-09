@@ -28,6 +28,21 @@ class FeedSettingsView: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         settingsView.delegate = self
         settingsView.dataSource = self
+        
+        if DarkModeBool.darkmodeflag == true
+        {
+            settingsView.backgroundColor = .black
+            self.navigationController?.navigationBar.barTintColor = .black
+            self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+            settingsView.reloadData()
+        }
+        else if DarkModeBool.darkmodeflag == false
+        {
+            settingsView.backgroundColor = .white
+            self.navigationController?.navigationBar.barTintColor = .white
+            self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+            settingsView.reloadData()
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

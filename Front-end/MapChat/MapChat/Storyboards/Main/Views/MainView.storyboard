@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="U3U-fj-E6b">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="U3U-fj-E6b">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -427,7 +427,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
-                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstItem="qec-AC-83y" firstAttribute="top" secondItem="TxH-Q7-BPr" secondAttribute="top" constant="8" id="0Nf-xY-klX"/>
                                                                 <constraint firstItem="qec-AC-83y" firstAttribute="leading" secondItem="TxH-Q7-BPr" secondAttribute="leading" constant="8" id="7k4-pU-aV1"/>
@@ -520,12 +520,19 @@
                                 <segue destination="vNL-4U-srH" kind="show" id="dxw-Si-a2r"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="sunmoon" id="xby-Eu-MDl">
+                            <color key="tintColor" red="0.27153867479999999" green="0.75764685870000004" blue="0.91375285390000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="darkmode:" destination="7go-Q2-PSR" id="fGv-Io-if8"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <size key="freeformSize" width="375" height="1500"/>
                     <connections>
                         <outlet property="changeImagrButton" destination="7HO-o5-d41" id="jBH-Hu-LNQ"/>
                         <outlet property="fullName" destination="0FK-0h-FX7" id="ZcB-hY-oDj"/>
                         <outlet property="hometown" destination="uCh-zf-5E8" id="sj4-LB-4SU"/>
+                        <outlet property="profileCircle" destination="v8I-HK-hCo" id="0Ex-10-pVe"/>
                         <outlet property="profileImage" destination="hqj-KT-RdN" id="cM4-q4-o3H"/>
                         <outlet property="profileName" destination="p2p-ph-Dwl" id="5g7-Cb-xEb"/>
                         <outlet property="profileTableView" destination="had-Sv-ObP" id="NxA-V0-jN5"/>
@@ -567,7 +574,6 @@
                                 <view key="tableFooterView" contentMode="scaleToFill" id="PMa-4Y-Iwn">
                                     <rect key="frame" x="0.0" y="322" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="AdvancedSpacerCell" id="Jl1-vv-Sec" customClass="SpacerCell" customModule="MapChat" customModuleProvider="target">
@@ -576,7 +582,6 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jl1-vv-Sec" id="mAi-Ox-yJ1">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdvancedSettingsCell" rowHeight="125" id="0p9-nc-pN1" customClass="AdvancedSettingsCell" customModule="MapChat" customModuleProvider="target">
@@ -715,7 +720,6 @@
                                 <view key="tableFooterView" contentMode="scaleToFill" id="YsH-Qh-4fD">
                                     <rect key="frame" x="0.0" y="126" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BasicSettingCell" id="zA2-Md-sgh" customClass="SettingsCell" customModule="MapChat" customModuleProvider="target">
@@ -1077,6 +1081,8 @@
                     </view>
                     <connections>
                         <outlet property="commentsView" destination="hrj-FV-0SB" id="eWx-se-JpC"/>
+                        <outlet property="messagedropLabel" destination="bcK-hK-T7j" id="WR7-4w-ipt"/>
+                        <outlet property="spacerView" destination="Gpc-7A-3kf" id="pOp-c3-xK4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JpA-Xm-rSa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1344,7 +1350,6 @@
                                 <view key="tableFooterView" contentMode="scaleToFill" id="br7-03-FEh">
                                     <rect key="frame" x="0.0" y="204" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedSettingsSpacerCell" id="NkP-bi-6z1" customClass="FeedSpacerCell" customModule="MapChat" customModuleProvider="target">
@@ -1399,6 +1404,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="feedradiusLabel" destination="Jag-FE-mKB" id="nih-oz-0u0"/>
                                             <outlet property="iconImage" destination="CKL-Oy-kAM" id="yJl-ZH-wMN"/>
                                         </connections>
                                     </tableViewCell>
@@ -1457,6 +1463,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="iconImage" destination="qbV-LC-13y" id="glC-Jr-P9r"/>
+                                            <outlet property="locationservicesLabel" destination="KxF-uQ-EBW" id="gH3-F4-Prc"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="NotificationCell" id="BPL-fW-VRQ" customClass="NotificationCell" customModule="MapChat" customModuleProvider="target">
@@ -1499,6 +1506,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="iconImage" destination="Ut7-YU-02R" id="6T2-X8-6aI"/>
+                                            <outlet property="pushnotificationsLabel" destination="8n7-I8-8uM" id="DvU-qd-eCx"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1625,6 +1633,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tagsView" destination="qpH-pl-EOr" id="o0r-e5-sed"/>
+                        <outlet property="tagsspacer" destination="C2L-a0-wB9" id="hBT-He-LSz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CQv-Dj-VZP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1787,6 +1796,7 @@
         <image name="right" width="36" height="36"/>
         <image name="round_forum_black_24dp" width="24" height="24"/>
         <image name="settings" width="24" height="24"/>
+        <image name="sunmoon" width="36" height="36"/>
         <image name="thumbDown" width="24" height="24"/>
         <image name="thumbUp" width="24" height="24"/>
         <image name="ubacm" width="623" height="477"/>

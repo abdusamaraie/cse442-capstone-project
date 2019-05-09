@@ -15,6 +15,7 @@ struct Tag {
 
 class TagView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var tagsspacer: UIView!
     @IBOutlet weak var tagsView: UITableView!
     
     var tags:[Tag]!
@@ -36,7 +37,24 @@ class TagView: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 Tag(tagName: "yo"),
                 Tag(tagName: "getrekt"),
                 Tag(tagName: "uwot")]
+        
+        if DarkModeBool.darkmodeflag == true
+        {
+            self.tagsView.backgroundColor = .black
+            tagsspacer.backgroundColor = .black
+            self.navigationController?.navigationBar.barTintColor = .black
+            self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        }
+        else if DarkModeBool.darkmodeflag == false
+        {
+            self.tagsView.backgroundColor = .white
+            tagsspacer.backgroundColor = .white
+            self.navigationController?.navigationBar.barTintColor = .white
+            self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        }
+
     }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         self.tagsView.reloadData()
@@ -63,6 +81,7 @@ class TagView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         cell.tagName.text = "#" + tags[indexPath.row].tagName
         cell.checkImage.isHidden = true
         cell.tagImage.tintColor = UIColor.blue
+    
         return cell
     }
 }

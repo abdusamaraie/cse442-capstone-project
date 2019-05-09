@@ -31,6 +31,15 @@ class ProfileView: UIViewController, UITableViewDelegate, UITableViewDataSource 
         settingsView.dataSource = self
         settingsView.delegate = self
         
+        if DarkModeBool.darkmodeflag == true
+        {
+            settingsView.backgroundColor = .black
+        }
+        else if DarkModeBool.darkmodeflag == false
+        {
+            settingsView.backgroundColor = .white
+        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {

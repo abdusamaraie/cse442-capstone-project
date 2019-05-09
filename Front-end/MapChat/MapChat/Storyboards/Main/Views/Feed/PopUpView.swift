@@ -18,6 +18,8 @@ class PopUpView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("this is pop up view")
+        
     }
     
     @IBAction func upVote(_ sender: Any) {
