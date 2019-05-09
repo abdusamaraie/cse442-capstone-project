@@ -1,10 +1,11 @@
-import unittest
+import unittest,os,uuid
 from pytz import timezone
 from datetime import datetime
 from datetime import timedelta
 from helpers import authenticate, neo4j
 import requests,json
 from objects.user import User
+
 
 
 class TestSprintEndpoints(unittest.TestCase):
@@ -33,7 +34,6 @@ class TestSprintEndpoints(unittest.TestCase):
                            self.msg, self.exp_time, self.place_id)
 
 
-
     def test_1_get_user_profile(self):
         # Post request payload to server endpoint
         payload = {'username': 'admin'}
@@ -41,7 +41,7 @@ class TestSprintEndpoints(unittest.TestCase):
         url = 'http://127.0.0.1:5000/profile'
         r = requests.get(url=url,params=payload)
         self.assertEqual(r.status_code, 200)
-        print("Getting user profile : \n" + str(r.text) +"\n")
+        print("CSE-125/Getting user profile : \n" + str(r.text) +"\n")
 
         self.assertTrue(r.text)
 
@@ -51,7 +51,7 @@ class TestSprintEndpoints(unittest.TestCase):
 
         r = requests.get(url, params=payload)
         self.assertEqual(r.status_code, 200)
-        print("Getting user Profile setting: \n" + str(r.text) + "\n")
+        print("CSE-67/Getting user Profile setting: \n" + str(r.text) + "\n")
         self.assertTrue(r.text)
 
 
@@ -83,7 +83,7 @@ class TestSprintEndpoints(unittest.TestCase):
 
         r = requests.get(url, params=payload)
         self.assertEqual(r.status_code, 200)
-        print("Getting user posts history: \n" + str(r.text) + "\n")
+        print("CSE-111/Getting user posts history: \n" + str(r.text) + "\n")
         self.assertTrue(r.text)
 
     def test_6_get_user_ratings(self):
@@ -98,7 +98,7 @@ class TestSprintEndpoints(unittest.TestCase):
 
         r = requests.get(url, params=payload)
         self.assertEqual(r.status_code, 200)
-        print("Getting user rating: \n" + str(r.text) + "\n")
+        print("CSE-111/Getting user rating: \n" + str(r.text) + "\n")
         self.assertTrue(r.text)
 
     def test_7_check_If_user_didrare(self):
@@ -115,7 +115,7 @@ class TestSprintEndpoints(unittest.TestCase):
         r = requests.get(url, params=payload)
 
         self.assertEqual(r.status_code, 200)
-        print("Checking if user did rate a post: \n" + str(r.text) + "\n")
+        print("CSE-118/Checking if user did rate a post: \n" + str(r.text) + "\n")
         self.assertTrue(r.text)
 
 
@@ -129,9 +129,20 @@ class TestSprintEndpoints(unittest.TestCase):
 
         r = requests.get(url, params=payload)
         self.assertEqual(r.status_code, 200)
-        print("Getting user reply history: \n" + str(r.text) + "\n")
+        print("CSE-111/Getting user reply history: \n" + str(r.text) + "\n")
         self.assertTrue(r.text)
 
+
+    # def test_9_upload_profile_image(self):
+    #
+    #     url = 'http://127.0.0.1:5000/profile/image'
+    #     file = 'C:/Users/abdu/Desktop/wallpapers/pic.jpg'
+    #     payload = {'username': self.uname}
+    #     r = requests.get(url,json=payload)
+    #
+    #     self.assertEqual(r.status_code, 200)
+    #     print("Uploading profile photo: \n" + str(r.text) + "\n")
+    #     self.assertTrue(r.text)
 
 
 
